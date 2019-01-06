@@ -68,7 +68,7 @@ $route[FOLDER_ADMIN] = "admin";
 // $route['en'] ='Lang/eng';
 // $route['nep'] ='Lang/nep';
 
-// $route['main'] ='MainController/default_page';
+//$route['main'] ='MainController/default_page';
 // $route['datasets'] ='MainController/dataset_page';
 // $route['categorydatasets'] ='MainController/dataset_page_new';
 // $route['incidentmanagement'] ='MainController/incidentmanagement';
@@ -85,7 +85,7 @@ $route[FOLDER_ADMIN] = "admin";
 // $route['about'] ='MainController/about_page';
 // $route['publication'] ='MainController/publication';
 // $route['inventory'] ='MainController/inventory';
-// $route['contact'] ='MainController/contact';
+//$route['contact'] ='MainController/contact';
 // $route['get_csv_emergency'] ='MainController/get_csv_emergency';
 
 // //$route['map'] ='MapController/map_page';

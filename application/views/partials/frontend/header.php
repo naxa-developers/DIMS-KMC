@@ -11,14 +11,20 @@
     <title><?php echo SITE_NAME_EN ?></title>
 
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,400i,600,600i,700,700i,900" rel="stylesheet">
-    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous"> -->
+    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" -->
+
 
     <link href="<?php echo base_url();?>assets/frontend/css/bootstrap.css" rel="stylesheet">
     <link href="<?php echo base_url();?>assets/frontend/css/jquery.jConveyorTicker.css" rel="stylesheet">
-     <link href="<?php echo base_url();?>assets/frontend/css/slick.css" rel="stylesheet">
+    <link href="<?php echo base_url();?>assets/frontend/css/slick.css" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo base_url();?>assets/frontend/css/style.css">
-    <link href="<?php echo base_url();?>assets/frontend/css/all.css" rel="stylesheet">
+    <?php if($this->uri->segment(1) != 'map'){ ?>
+        <link href="<?php echo base_url();?>assets/frontend/css/all.css" rel="stylesheet">
+    <?php }
+    if($this->uri->segment(1) === 'map'){  ?>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.6.11/c3.min.css">
+ <?php } ?>
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/frontend/css/line-awesome.min.css">
     <!-- new css end -->
 </head>
 <!-- Bootstrap core CSS -->
@@ -31,7 +37,7 @@
                 <div class="logoHolder">
                     <?php if(SITE_SLOGAN_EN): ?>
                     <a href="<?php echo base_url() ?>">
-                        <img src="<?php echo SITE_SLOGAN_EN ?>" alt="">
+                        <img src="<?php echo SITE_SLOGAN_EN ?>" alt="" >
                     </a>
                   <?php endif; ?>
                 </div>
@@ -72,7 +78,7 @@
                 <div class="logoHolder">
                     <?php if(SITE_SLOGAN_EN): ?>
                     <a href="<?php echo base_url() ?>">
-                        <img src="<?php echo SITE_SLOGAN_EN ?>" alt="">
+                        <img src="<?php echo SITE_SLOGAN_EN ?>" alt="" >
                     </a>
                   <?php endif; ?>
                 </div>
@@ -109,7 +115,7 @@
         </div>
     </header>
 <?php } ?> 
-<?php if($this->uri->segment(1) != 'home'){
+<?php if($this->uri->segment(1) != 'home' && $this->uri->segment(1) != 'map'){
     if($this->uri->segment(1) ||  $this->uri->segment(2) || $this->uri->segment(2)){ ?>
     <section class="bradcrumbs">
         <div class="container">

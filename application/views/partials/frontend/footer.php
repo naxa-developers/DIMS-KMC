@@ -71,7 +71,10 @@
 </footer>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="<?php echo base_url();?>assets/frontend/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url();?>assets/frontend/js/slick.min.js"></script>
+    <script src="<?php echo base_url();?>assets/frontend/js/scriptall.js"></script>
     <script src="<?php echo base_url();?>assets/frontend/js/jquery.jConveyorTicker.min.js"></script>
+
     <script>
         $(function () {
             $('.ticker').jConveyorTicker({
@@ -79,9 +82,6 @@
             });
         });
     </script>
-    <script src="<?php echo base_url();?>assets/frontend/js/scriptall.js"></script>
-     <script src="<?php echo base_url();?>assets/frontend/js/slick.min.js"></script>
-    <script src="<?php echo base_url();?>assets/frontend/js/scriptall.js"></script>
     <script>
         $(function () {
             $('.ticker').jConveyorTicker({
@@ -98,24 +98,26 @@
             });
         });
     </script>
+    <!-- <script src="<?php echo base_url()?>assets/js/bootstrap-tabdrop.js"></script> -->
     <script>
-        $(document).ready(function () {
-            scrollTab();
-            $(window).resize(function () {
-                scrollTab();
-            });
-            function scrollTab() {
-                var devicewidth = $(window).width();
-                if (devicewidth < 769) {
-                    $("li a ").click(function () {
-                        $('html, body').animate({
-                            scrollTop: $(".tab-content").offset().top
-                        }, 1000);
-                    });
-                }
-            }
-        });
-
+         $(document).ready(function () {
+             scrollTab();
+             $(window).resize(function () {
+                 scrollTab();
+             });
+             function scrollTab() {
+                 var devicewidth = $(window).width();
+                 if (devicewidth < 769) {
+                     $("li a ").click(function () {
+                         $('html, body').animate({
+                             scrollTop: $(".tab-content").offset().top
+                         }, 1000);
+                     });
+                 }
+             }
+         });
     </script>
+
+    
 </body>
 </html>
