@@ -1,0 +1,176 @@
+  blockquote, pre, abbr, acronym, address, big, cite, code, del, dfn, em,  ins, kbd, q, s, samp, strike,sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead,  article, aside, canvas, details, embed, figure, figcaption, hgroup,  output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  outline: none;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html { overflow-y: scroll; }
+
+
+::selection { background: #a4ecab; }
+::-moz-selection { background: #a4ecab; }
+::-webkit-selection { background: #a4ecab; }
+
+::-webkit-input-placeholder { /* WebKit browsers */
+  color: #ccc;
+  font-style: italic;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: #ccc;
+  font-style: italic;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: #ccc;
+  font-style: italic;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+  color: #ccc !important;
+  font-style: italic;  
+}
+
+br { display: block; line-height: 2.2em; }
+hr { width: 75%; border: 1px solid #ccc; margin-bottom: 15px; }
+
+article, aside, details, figcaption, figure, hgroup, menu, nav, section { display: block; }
+ol, ul { list-style: none; }
+
+input, textarea { 
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  outline: none; 
+}
+
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+b,strong { font-weight: bold; } 
+i,em { font-style: italic; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+img { border: 0; max-width: 100%; }
+
+#topbar {
+  background: #4f4a41;
+  padding: 10px 0 10px 0;
+  text-align: center;
+  height: 36px;
+  overflow: hidden;
+}
+#topbar a {
+  color: #fff;
+  font-size:1.3em;
+  line-height: 1.25em;
+  text-decoration: none;
+  opacity: 0.5;
+  font-weight: bold;
+}
+#topbar a:hover {
+  opacity: 1;
+}
+
+
+
+
+.center { display: block; text-align: center; }
+
+/** page structure **/
+#w {
+  display: block;
+  width: 750px;
+  margin: 0 auto;
+  padding-top: 30px;
+  padding-bottom: 45px;
+}
+
+#content {
+  display: block;
+  width: 100%;
+  background: #fff;
+  padding: 25px 20px;
+  padding-bottom: 35px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+}
+
+
+/** testimonials **/
+#testimonials {
+  display: block;
+  width: 100%;
+  margin-bottom: 40px;
+}
+#testimonials h2 {
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+#testimonials .carousel-wrap {
+  display: block;
+  width: 400px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+#testimonials .carousel-nav {
+  display: block;
+  width: 300px;
+  margin: 0 auto;
+}
+#testimonials .carousel-nav img {
+  cursor: pointer;
+}
+#testimonials .carousel-nav img:active {
+  position: relative;
+  top: 1px;
+}
+#testimonials .carousel-nav .nextbtn {
+  float: right;
+}
+
+#testimonials .carousel-wrap ul {
+  display: block;
+  list-style: none;
+  position: relative;
+}
+#testimonials .carousel-wrap ul li {
+  display: block;
+  float: left;
+  position: relative;
+  width: 400px;
+  margin-right: 15px;
+}
+
+#testimonials .carousel-wrap .context {
+  font-size: 2.0em;
+  line-height: 1.45em;
+  color: #797670;
+  font-style: italic;
+  margin-bottom: 6px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+/** clearfix **/
+.clearfix:after { content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0; }
+ 
+html[xmlns] .clearfix { display: block; }
+* html .clearfix { height: 1%; }
+
+div#tb1_filter {
+    margin-top: -15px !important;
+}

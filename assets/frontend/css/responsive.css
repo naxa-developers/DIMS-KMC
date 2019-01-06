@@ -1,0 +1,12 @@
+
+          @media only screen and (max-width : 767px) {
+            .lightboxgallery-gallery-item {
+              width: 33.3333%;
+            }
+          }
+          
+          @media only screen and (max-width : 479px) {
+            .lightboxgallery-gallery-item {
+              width: 50%;
+            }
+          }
