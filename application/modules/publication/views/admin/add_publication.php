@@ -11,16 +11,16 @@
             Basic Forms
           </header>
 
-                                    <?php
-                                      $error=	$this->session->flashdata('msg');
-                                       if($error){ ?>
-                                         <div class="alert alert-success alert-dismissible">
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                <strong>Message</strong> <?php echo $error ; ?>
-                                              </div>
-                                       <?php
-                                       }
-                                        ?>
+                  <?php
+                    $error=	$this->session->flashdata('msg');
+                     if($error){ ?>
+                       <div class="alert alert-success alert-dismissible">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              <strong>Message</strong> <?php echo $error ; ?>
+                            </div>
+                     <?php
+                     }
+                      ?>
           <div class="panel-body">
             <div class="position-center">
               <form role="form"  method="POST" action="" enctype="multipart/form-data">

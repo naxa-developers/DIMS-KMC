@@ -90,4 +90,6 @@ define('ADMIN_LOGIN_PATH',FOLDER_ADMIN.'/admin');
 
 define('ADMIN_DASHBOARD_PATH',FOLDER_ADMIN.'/dashboard');
 
+define('DRRINFORMAION_PATH','uploads/drrinformation');
+
 define('APP_SECRET_KEY', '!@10293848576qwertyuiopasdfghjklmnbvcxzkhadkapoiuytrewq!0_p_123456r_@a_@k_@a_@s_@h_aquickbrownfoxjumpoverthelazydog');

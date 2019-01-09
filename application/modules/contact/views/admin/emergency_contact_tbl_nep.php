@@ -10,7 +10,7 @@
                   <header class="panel-heading">
                      <b><?php echo $name ?> Emergency Contact Nepali</b>
                       <span class="tools pull-right">
-                        <a href="<?php echo base_url()?>upload_csv_emerg?cat=<?php echo $cat ?>&&tbl=emergency_contact&&lang=nep"><button type="submit" name="upload_data" class="btn btn-danger" style="background-color: #1fb5ad;border-color: #1fb5ad;margin-top: -7px;"><i class="fa fa-plus"></i><?php echo $this->lang->line('upload_csv'); ?></button></a>
+                        <a href="<?php echo base_url(FOLDER_ADMIN)?>/csvtable/upload_csv_emerg?cat=<?php echo $cat ?>&&tbl=emergency_contact&&lang=nep"><button type="submit" name="upload_data" class="btn btn-danger" style="background-color: #1fb5ad;border-color: #1fb5ad;margin-top: -7px;"><i class="fa fa-plus"></i><?php echo $this->lang->line('upload_csv'); ?></button></a>
                         </span>
                   </header>
                   <div class="panel-body">

@@ -45,6 +45,7 @@
 <script src="<?php echo base_url();?>assets/admin/js/scripts.js"></script>
 
 <script src="<?php echo base_url();?>assets/admin/js/table-editable.js"></script>
+<script src="<?php echo base_url('assets/admin/ckeditor/ckeditor.js'); ?>"></script>
 
 <script>
     $(document).ready(function() {

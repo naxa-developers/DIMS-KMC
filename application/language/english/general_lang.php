@@ -168,5 +168,9 @@ $lang['5_site_link']="5th Site Link:";
 
 
 
+$lang['upload_dictionary']="Uplaod Dictionary Data";
+$lang['note']=" Note: Select a Layer File to Upload to Table";
+$lang['input']="File input";
+$lang['dictionary']="Dictionary Management";
 
 ?>

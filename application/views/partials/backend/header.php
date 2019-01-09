@@ -284,9 +284,12 @@
 
                     </ul>
                 </li>
-
-
-
+                <li class="sub-menu">
+                    <a href="<?php echo base_url(FOLDER_ADMIN);?>/dictionary">
+                        <i class="fa fa-th"></i>
+                        <span><?php echo $this->lang->line('dictionary'); ?></span>
+                    </a>
+                </li>
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-th"></i>

@@ -9,19 +9,9 @@
               <section class="panel">
                   <header class="panel-heading">
                      <b><?php echo $name ?> Emergency Contact</b>
-
-
-
-
                       <span class="tools pull-right">
-          <a href="<?php echo base_url()?>upload_csv_emerg?cat=<?php echo $cat ?>&&tbl=emergency_personnel&&lang=nep"><button type="submit" name="upload_data" class="btn btn-danger" style="background-color: #1fb5ad;border-color: #1fb5ad;margin-top: -7px;"><i class="fa fa-plus"></i> <?php echo $this->lang->line('upload_csv'); ?></button></a>
+          <a href="<?php echo base_url(FOLDER_ADMIN)?>/csvtable/upload_csv_emerg?cat=<?php echo $cat ?>&&tbl=emergency_personnel&&lang=nep"><button type="submit" name="upload_data" class="btn btn-danger" style="background-color: #1fb5ad;border-color: #1fb5ad;margin-top: -7px;"><i class="fa fa-plus"></i> <?php echo $this->lang->line('upload_csv'); ?></button></a>
                         </span>
-
-                       <!--  <span class="tools pull-right">
-                                   <?php echo $this->lang->line('switch_language'); ?>
-                       <a class="nav-link" href="<?php echo base_url();?>emergency_personnel_nep?name=<?php echo $name?>&&cat=<?php echo $cat?>"><img src="<?php echo base_url();?>assets/img/nep.png" height="15"></a>
-                       <a class="nav-link" href="<?php echo base_url();?>emergency_personnel?name=<?php echo $name?>&&cat=<?php echo $cat?>"><img src="<?php echo base_url();?>assets/img/uk.png" height="15"></a>
-                       </span> -->
                   </header>
                   <div class="panel-body">
 
