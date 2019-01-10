@@ -61,11 +61,18 @@
                     <!-- <a class="nav-link" href="<?php echo base_url()?>inventory"><?php echo NAV_FOUR ?></a> -->
                     <a class="nav-link" href="<?php echo base_url()?>inventory"><?php echo NAV_FIVE ?></a>
                     <a class="nav-link" href="<?php echo base_url()?>publication"><?php echo NAV_SIX ?></a>
-                    <a class="nav-link" href="<?php echo base_url()?>incidentmanagement">घटना बिबीरण</a>
-                    <a class="nav-link" href="<?php echo base_url()?>drrinfodetail">प्रकोप सूचना </a>
+                    <!-- <a class="nav-link" href="<?php echo base_url()?>incidentmanagement">घटना बिबीरण</a>
+                    <a class="nav-link" href="<?php echo base_url()?>drrinfo">प्रकोप सूचना </a>
                     <a class="nav-link" href="<?php echo base_url()?>dictionary">प्रकोप सब्दकोश  </a>
                     <a class="nav-link" href="<?php echo base_url()?>datacategory"> तत्थ्यांक सङ्ग्रह </a>
-                    <a class="nav-link" href="<?php echo base_url()?>municipalprofile"> नगरपालिका प्रोफाइल</a>
+                    <a class="nav-link" href="<?php echo base_url()?>municipalprofile"> नगरपालिका प्रोफाइल</a> -->
+                    <a class="nav-link" href="<?php echo base_url()?>incidentmanagement"><?php echo $this->lang->line('incidentmanagement'); ?></a>
+                    <a class="nav-link" href="<?php echo base_url()?>drrinfo"><?php echo $this->lang->line('drrinfodetail'); ?></a>
+                    <a class="nav-link" href="<?php echo base_url()?>dictionary"><?php echo $this->lang->line('dictionary'); ?> </a>
+                    <a class="nav-link" href="<?php echo base_url()?>datacategory"> <?php echo $this->lang->line('datacategory'); ?> </a>
+                    <a class="nav-link" href="<?php echo base_url()?>municipalprofile"> <?php echo $this->lang->line('municipalprofile'); ?></a>
+                    <!-- <a class="nav-link" href="<?php echo base_url()?>contact"><?php echo NAV_THREE ?></a> -->
+                    <a class="nav-link" href="<?php echo base_url()?>contact"><?php echo $this->lang->line('contacts'); ?></a>
                     <a class="nav-link" href="<?php echo base_url()?>contact"><?php echo NAV_THREE ?></a>
                 </div>
             </div>
@@ -104,11 +111,18 @@
                     <!-- <a class="nav-link" href="<?php echo base_url()?>inventory"><?php echo NAV_FOUR ?></a> -->
                     <a class="nav-link" href="<?php echo base_url()?>inventory"><?php echo NAV_FIVE ?></a>
                     <a class="nav-link" href="<?php echo base_url()?>publication"><?php echo NAV_SIX ?></a>
-                    <a class="nav-link" href="<?php echo base_url()?>incidentmanagement">घटना बिबीरण</a>
-                    <a class="nav-link" href="<?php echo base_url()?>drrinfodetail">प्रकोप सूचना </a>
+                    <!-- <a class="nav-link" href="<?php echo base_url()?>incidentmanagement">घटना बिबीरण</a>
+                    <a class="nav-link" href="<?php echo base_url()?>drrinfo">प्रकोप सूचना </a>
                     <a class="nav-link" href="<?php echo base_url()?>dictionary">प्रकोप सब्दकोश  </a>
                     <a class="nav-link" href="<?php echo base_url()?>datacategory"> तत्थ्यांक सङ्ग्रह </a>
-                    <a class="nav-link" href="<?php echo base_url()?>municipalprofile"> नगरपालिका प्रोफाइल</a>
+                    <a class="nav-link" href="<?php echo base_url()?>municipalprofile"> नगरपालिका प्रोफाइल</a> -->
+                    <a class="nav-link" href="<?php echo base_url()?>incidentmanagement"><?php echo $this->lang->line('incidentmanagement'); ?></a>
+                    <a class="nav-link" href="<?php echo base_url()?>drrinfo"><?php echo $this->lang->line('drrinfodetail'); ?></a>
+                    <a class="nav-link" href="<?php echo base_url()?>dictionary"><?php echo $this->lang->line('dictionary'); ?> </a>
+                    <a class="nav-link" href="<?php echo base_url()?>datacategory"> <?php echo $this->lang->line('datacategory'); ?> </a>
+                    <a class="nav-link" href="<?php echo base_url()?>municipalprofile"> <?php echo $this->lang->line('municipalprofile'); ?></a>
+                    <!-- <a class="nav-link" href="<?php echo base_url()?>contact"><?php echo NAV_THREE ?></a> -->
+                    <a class="nav-link" href="<?php echo base_url()?>contact"><?php echo $this->lang->line('contacts'); ?></a>
                     <a class="nav-link" href="<?php echo base_url()?>contact"><?php echo NAV_THREE ?></a>
                 </div>
             </div>

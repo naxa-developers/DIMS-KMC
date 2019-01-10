@@ -302,7 +302,18 @@
 
                     </ul>
                 </li>
-
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-th"></i>
+                        <span>Drr Information management <?php //echo $this->lang->line('about_us'); ?></span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="<?php echo base_url(FOLDER_ADMIN);?>/drrinfo"><?php echo $this->lang->line('about_management'); ?></a></li>
+                        <li><a href="<?php echo base_url(FOLDER_ADMIN);?>/drrinfo/drrinformation"><?php echo $this->lang->line('addrrinformation'); ?></a></li>
+                        <li><a href="<?php echo base_url(FOLDER_ADMIN);?>/drrinfo/drrinformationlist"><?php echo $this->lang->line('drrinformationlist'); ?></a></li>
+                       
+                    </ul>
+                </li>
                 <!-- <li class="sub-menu">
                     <a href="javascript:;">
                         <i class=" fa fa-bar-chart-o"></i>

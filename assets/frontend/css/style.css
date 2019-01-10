@@ -597,34 +597,36 @@ p.infotitle {
   padding-top: 65px;
 }
 
-.drrtabs .nav.nav-tabs li {
+.drrtabs .nav.nav-tabs li a {
   height: 50px;
   padding: 8px 50px;
   cursor: pointer;
   background: transparent;
   transition: all 0.2s ease-in-out;
+  display: block;
 }
 
-.drrtabs .nav.nav-tabs li:hover {
+.drrtabs .nav.nav-tabs li a:hover {
   background: #fafafa;
-}
-
-.drrtabs .nav.nav-tabs li:hover a {
-  color: #333;
+   color: #333;
   text-decoration: none;
 }
+
+
 
 .drrtabs .nav.nav-tabs li a {
   font-size: 22px;
   color: #fff;
 }
 
-.drrtabs .nav.nav-tabs li.active {
-
+.drrtabs .nav.nav-tabs li a.active,.drrtabs .nav.nav-tabs li a:hover {
+  
   background: #f0f0f0;
+  display: block;
 }
 
-.drrtabs .nav.nav-tabs li.active a {
+
+.drrtabs .nav.nav-tabs li a.active  {
   text-decoration: none;
 
   color: #333;

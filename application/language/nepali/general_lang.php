@@ -170,4 +170,22 @@ $lang['note']="नोट : तालिकामा अपलोड गर्न
 $lang['input']="फाईल चयन गर्नुहोस्";
 $lang['dictionary']="शब्दकोश व्यवस्थापन गर्नुहोस्";
 
+//Disaster modules
+$lang['drrinformationlist']="डिआरआर जानकारी सूची";
+$lang['addrrinformation']="सूचना थप्नुहोस्";
+$lang['addrrcatlist']="डिआरआर सूचना सूची";
+
+
+//header
+$lang['home']="गृह पृष्ठ";
+$lang['maps']="नक्शाहरू";
+$lang['datasets']="डेटासेट";
+$lang['publications']="प्रकाशनहरू";
+$lang['contacts']="सम्पर्कहरू";
+$lang['incidentmanagement']="घटना बिबीरण";
+$lang['drrinfodetail']="प्रकोप सूचना ";
+$lang['dictionary']="प्रकोप सब्दकोश";
+$lang['datacategory']=" तत्थ्यांक सङ्ग्रह ";
+$lang['municipalprofile']="नगरपालिका प्रोफाइल";
+
 ?>

@@ -45,6 +45,7 @@ class Admin extends Admin_Controller {
 	      	$data=array(
 	        	'name'=>$this->input->post('name'),
 	        	'status'=>'1',
+	        	'description'=>$this->input->post('description'),
 	        	'language'=>$emerg_lang,
 	      	);
 	      	$insert=$this->DrrModel->add_drrinfo('drrcategory',$data);
@@ -101,6 +102,25 @@ class Admin extends Admin_Controller {
 	        redirect(FOLDER_ADMIN.'/drrinfo');
     	}
   	}
+  	
+  	public function drrinformationlist()
+  	{
+  		$this->data=array();
+		$lang=$this->session->get_userdata('Language');
+        if($lang['Language']=='en') {
+            $emerg_lang='en';
+        }else{
+            $emerg_lang='nep'; 
+        }
+        $admin_type=$this->session->userdata('user_type');
+        $this->data['admin']=$admin_type;
+		$this->data['drrdata'] = $this->DrrModel->get_drrlist();
+
+		//echo"<pre>";print_r($this->data['drrdata']);die;
+		$this->template
+	                    ->enable_parser(FALSE)
+	                    ->build('backend/drrinformationlist',$this->data);
+  	}
   	public function drrinformation()
   	{
   		$lang=$this->session->get_userdata('Language');
@@ -114,46 +134,46 @@ class Admin extends Admin_Controller {
   		if(isset($_POST['submit'])){
 	      	$file_name = $_FILES['image']['name'];
 	      	//echo "<pre>"; print_r($file_name); die;
-	      	$data=array(
-	        	'category_id'=>$this->input->post('category_id'),
-	        	'subcat_id'=>$this->input->post('subcat_id'),
-	        	'short_desc'=>$this->input->post('short_desc'),
-	        	'description'=>$this->input->post('description'),
-	        	'language'=>$emerg_lang,
-	      	);
-	      	$insert=$this->DrrModel->add_drrinfo('drrinformation',$data);
-	      	if($insert!=""){
-	      		$old_image=$this->input->post('old_image');
-	      		//print_r($old_image);die;
-	      		$img_upload=$this->DrrModel->do_upload_drrinfo($file_name,$insert);
-	      	    if($img_upload['status']== 1) {
-	      	    	@unlink($old_image);	
-      				$ext=$img_upload['upload_data']['file_ext'];
-	          		$image_path=base_url() . 'uploads/drrinformation/'.$insert.$ext ;
-	          		//print_r($image_path);die;
-      			}else{
-      				$id=$this->input->post('id');
-      				if($id) {
-      					$image_path =$old_image;
-      				}else{
-      					$code= strip_tags($img_upload['error']);
-			        	$this->session->set_flashdata('msg', $code);
-			        	redirect(FOLDER_ADMIN.'/drrinfo/drrinformation');	
-      				}
-      			}
-	      		$img=array(
-		            	'image'=>$image_path,
-		         	);
-	        	$update_path=$this->DrrModel->update_path_drrinformation($insert,$img);
-		        $this->session->set_flashdata('msg','drrinfo successfully added');
-		        redirect(FOLDER_ADMIN.'/drrinfo/drrinformation');
+		      	$data=array(
+		        	'category_id'=>$this->input->post('category_id'),
+		        	'subcat_id'=>$this->input->post('subcat_id'),
+		        	'short_desc'=>$this->input->post('short_desc'),
+		        	'description'=>$this->input->post('description'),
+		        	'language'=>$emerg_lang,
+		      	);
+		      	$insert=$this->DrrModel->add_drrinfo('drrinformation',$data);
+		      	if($insert!=""){
+		      		$old_image=$this->input->post('old_image');
+		      		//print_r($old_image);die;
+		      		$img_upload=$this->DrrModel->do_upload_drrinfo($file_name,$insert);
+		      	    if($img_upload['status']== 1) {
+		      	    	@unlink($old_image);	
+	      				$ext=$img_upload['upload_data']['file_ext'];
+		          		$image_path=base_url() . 'uploads/drrinformation/'.$insert.$ext ;
+		          		//print_r($image_path);die;
+	      			}else{
+	      				$id=$this->input->post('id');
+	      				if($id) {
+	      					$image_path =$old_image;
+	      				}else{
+	      					$code= strip_tags($img_upload['error']);
+				        	$this->session->set_flashdata('msg', $code);
+				        	redirect(FOLDER_ADMIN.'/drrinfo/drrinformation');	
+	      				}
+	      			}
+		      		$img=array(
+			            	'image'=>$image_path,
+			         	);
+		        	$update_path=$this->DrrModel->update_path_drrinformation($insert,$img);
+			        $this->session->set_flashdata('msg','drrinfo successfully added');
+			        redirect(FOLDER_ADMIN.'/drrinfo/drrinformationlist');
 	        }
 	    }else{
 	      //admin check
 	    	$id = base64_decode($this->input->get('id'));
 	    	//print_r($id);die;
 	    	if($id) {
-				$this->data['drrdataeditdata'] = $this->general->get_tbl_data_result('id,image,name','drrcategory',array('id'=>$id));
+				$this->data['drrdataeditdata'] = $this->general->get_tbl_data_result('id,subcat_id,category_id,image,description','drrinformation',array('id'=>$id));
 	    	}else{
 	    		$this->data['drrdataeditdata'] = array();	
 	    	}

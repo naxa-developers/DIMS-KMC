@@ -45,6 +45,8 @@ $_CONFIG = array(
     'theme' => "oxygen",
 
     'uploadURL' => "upload/images",
+    //'uploadURL' => "upload/images",// for live give url direct here such as http://prakash.com.np
+    //'uploadURL' => "upload/images",//for localhost
 
    
     'uploadDir' => "",

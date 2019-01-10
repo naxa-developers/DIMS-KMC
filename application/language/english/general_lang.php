@@ -171,6 +171,22 @@ $lang['5_site_link']="5th Site Link:";
 $lang['upload_dictionary']="Uplaod Dictionary Data";
 $lang['note']=" Note: Select a Layer File to Upload to Table";
 $lang['input']="File input";
+
+//Disaster modules
 $lang['dictionary']="Dictionary Management";
+$lang['drrinformationlist']="Drr Information List";
+$lang['addrrinformation']="Add Drr Infromation";
+
+//header
+$lang['home']="Home";
+$lang['maps']="Maps";
+$lang['datasets']="Datasets";
+$lang['publications']="Publications";
+$lang['contacts']="Contacts";
+$lang['incidentmanagement']="Incident Reports";
+$lang['drrinfodetail']="Desaster Information";
+$lang['dictionary']="Desaster Dictionary";
+$lang['datacategory']="Data Category";
+$lang['municipalprofile']="Municipal Profile";
 
 ?>

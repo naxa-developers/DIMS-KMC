@@ -45,6 +45,7 @@ class Home extends Admin_Controller
         $this->data['site_info'] = "";
         $this->data['feature']=$this->Main_model->get_feature();
         $this->data['feat_lang']='en';
+        $this->data['drrdata'] = $this->general->get_tbl_data_result('slug,description,image,name','drrcategory',array('language'=>$language));
         $this->data['hazard_data']=$this->general->get_tbl_data_result('id,category_name,category_photo,category_table,category_type,public_view,language',$tbl,array('category_type'=>'Hazard_Data','language'=>$language));
 	    // Exposure_Data
 	    $this->data['exposure_data']=$this->general->get_tbl_data_result('id,category_name,category_photo,category_table,category_type,public_view,language',$tbl,array('category_type'=>'Exposure_Data','language'=>$language),'id');
@@ -59,11 +60,6 @@ class Home extends Admin_Controller
 	        $data_count_cat = call_user_func_array('array_merge', $tbl_list);
 	        $this->data['data_count_cat']=$data_count_cat;
 	    $this->data['urll']=$this->uri->segment(1);
-	    //$this->data['emerg_contact']=$this->Upload_model->get_emergency_con();
-
-		    // $this->load->view('header',$this->body);
-		    // $this->load->view('main',$this->body);
-		    // $this->load->view('footer',$this->body);
 	    $this->template->set_layout('frontend/default');
 
 		$this->template

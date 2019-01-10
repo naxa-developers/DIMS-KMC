@@ -123,5 +123,19 @@ class DrrModel extends CI_Model {
       }
 
     }
+    public function get_drrlist()
+    {
+        $this->db->select('d.id as id,d.short_desc,c.name as categoryname,cs.name as subcatname');
+        $this->db->from('drrinformation as d');
+        $this->db->join('drrcategory as c','c.id = d.category_id','LEFT');
+        $this->db->join('drrsubcategory as cs','cs.id = d.subcat_id','LEFT');
+
+        $query = $this->db->get();
+        if ($query->num_rows() > 0)
+        {
+            return $data=$query->result_array();
+        } 
+        return false;
+    }
 
 }

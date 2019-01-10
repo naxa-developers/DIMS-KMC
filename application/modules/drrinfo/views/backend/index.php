@@ -6,6 +6,7 @@
         <section class="panel">
           <header class="panel-heading">
            DRR info
+
             <form role="form"  method="POST" action="" enctype="multipart/form-data">
               <input type="hidden" name="id" value="<?php echo !empty($drrdataeditdata[0]['id'])?$drrdataeditdata[0]['id']:'' ?>">
           <div class="form-group position-center">
@@ -15,15 +16,13 @@
                 </div>
           <div class="panel-body">
             <div class="position-center">
-             
+                  <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="short_desc">Short Description : </label>
+                        <textarea class="form-control"  id="short_desc" name="description"><?php echo !empty($drrdataeditdata[0]['description'])?$drrdataeditdata[0]['description']:'' ?></textarea>
+                    </div>
+                </div>
                 <div class="form-group">
-                 <!--  <label for="exampleInputFile">Status</label>
-                  <select name="status" class="form-control">
-                    <option value="1">YES</option>
-                    <option value="0">NO</option>
-                  </select>
-                </br> -->
-               
                   <div class="form-group ">
                     <div class="col-md-4">
                       <label class="control-label">Photo </label>

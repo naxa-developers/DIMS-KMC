@@ -86,7 +86,8 @@
             </div>
         </div>
     </section>
-  <section class="white-bg section-padding">
+
+    <section class="white-bg section-padding">
         <div class="container">
             <h4 class="heading">BROWSE DIFFERENT SECTION</h4>
 
@@ -137,7 +138,7 @@
 
                 <div class="col-md-4">
                     <div class="listHolder">
-                        <a href="drrinfo.html" class="plain">
+                        <a href="<?php echo base_url('drrinfo') ?>" class="plain">
                             <div class="overlay">
                                 <div class="innerTitle">DRR INFORMATION </div>
                                 <p class="innerSubtitle">What to do before, during and after disaster</p>
@@ -226,6 +227,7 @@
 
 
     </section>
+
   <section class="mobileScreens section-padding">
 
         <div class="container">
