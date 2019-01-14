@@ -97,7 +97,7 @@
                         <a href="datacategory.html" class="plain">
                             <div class="overlay">
                                 <div class="innerTitle">BROWSE DATASETS</div>
-                                <p class="innerSubtitle">A complete GIS database</p>
+                                <p class="innerSubtitle"><?php echo $this->lang->line('acomgisdb');?> <!-- A complete GIS database --></p>
                             </div>
                         </a>
 
@@ -111,7 +111,7 @@
                         <a href="incidentmanagement.html" class="plain">
                             <div class="overlay">
                                 <div class="innerTitle">INCIDENT MANAGEMENT</div>
-                                <p class="innerSubtitle">What to do before, during and after disaster</p>
+                                <p class="innerSubtitle"><?php echo $this->lang->line('whattodobefore');?> <!-- What to do before, during and after disaster --></p>
                             </div>
                         </a>
                         <img src="<?php echo base_url(); ?>assets/frontend/img/assets/map.png" alt="">
@@ -122,7 +122,7 @@
                         <a href="municipalprofile.html" class="plain">
                             <div class="overlay">
                                 <div class="innerTitle">MUNICIPAL PROFILE</div>
-                                <p class="innerSubtitle">Individual digital ward wise profile book</p>
+                                <p class="innerSubtitle"><?php echo $this->lang->line('individualdigital');?><!-- Individual digital ward wise profile book --></p>
                             </div>
                         </a>
                         <img src="<?php echo base_url(); ?>assets/frontend/img/assets/5.png" alt="">
@@ -144,7 +144,7 @@
                         <a href="<?php echo base_url()?>dictionary" class="plain">
                             <div class="overlay">
                                 <div class="innerTitle"><?php echo $this->lang->line('dictionary'); ?><!-- DRR DICTIONARY --></div>
-                                <p class="innerSubtitle">Dictionary of important terminologies related to disaster </p>
+                                <p class="innerSubtitle"><?php echo $this->lang->line('dictionaryofimpterminologies');?> <!-- Dictionary of important terminologies related to disaster  --></p>
                             </div>
                         </a>
                         <img src="<?php echo base_url(); ?>assets/frontend/img/assets/6.png" alt="">
@@ -155,7 +155,7 @@
                         <a href="explore.html" class="plain">
                             <div class="overlay">
                                 <div class="innerTitle">PUBLICATIONS AND MULTIMEDIA</div>
-                                <p class="innerSubtitle">Files related to incident management.</p>
+                                <p class="innerSubtitle"><?php echo $this->lang->line('Filesrelatedtoincidentmanagement');?>.</p>
                             </div>
                         </a>
                         <img src="<?php echo base_url(); ?>assets/frontend/img/assets/7.png" alt="">
@@ -166,7 +166,7 @@
                         <a href="contact.html" class="plain">
                             <div class="overlay">
                                 <div class="innerTitle">CONTACT INVENTORY</div>
-                                <p class="innerSubtitle">Files related to incident management.</p>
+                                <p class="innerSubtitle"><?php echo $this->lang->line('Filesrelatedtoincidentmanagement');?>.</p>
                             </div>
                         </a>
                         <img src="<?php echo base_url(); ?>assets/frontend/img/assets/7.png" alt="">
@@ -177,7 +177,7 @@
                         <a href="inventory.html" class="plain">
                             <div class="overlay">
                                 <div class="innerTitle">EMERGENCY MATERIALS</div>
-                                <p class="innerSubtitle">Files related to incident management.</p>
+                                <p class="innerSubtitle"><?php echo $this->lang->line('Filesrelatedtoincidentmanagement');?>.</p>
                             </div>
                         </a>
 
@@ -191,7 +191,7 @@
                         <a href="#" class="plain">
                             <div class="overlay">
                                 <div class="innerTitle">ABOUT PROJECT</div>
-                                <p class="innerSubtitle">Files related to incident management.</p>
+                                <p class="innerSubtitle"><?php echo $this->lang->line('Filesrelatedtoincidentmanagement');?>.</p>
                             </div>
                         </a>
 
@@ -212,16 +212,16 @@
   <section class="mobileScreens section-padding">
 
         <div class="container">
-            <h4 class="heading">HOW IS OUR MOBILE APP HELPFUL</h4>
+            <h4 class="heading"><?php echo $this->lang->line('howisourmobileapp');?><!-- HOW IS OUR MOBILE APP HELPFUL --></h4>
             <div class="mobsec ">
                 <div class="mobileDes left">
-                    <div class="flist ">Different reading materials about disaster risk and hazards</div>
-                    <div class="flist "> Interactive map with administrative data layers and category-wise datasets</div>
-                    <div class="flist "> Advance search facility to find specific datasets</div>
-                    <div class="flist "> Shortest route to safe location(open spaces)</div>
+                    <div class="flist "><?php echo $this->lang->line('diffmatabout');?> <!-- Different reading materials about disaster risk and hazards --></div>
+                    <div class="flist "><?php echo $this->lang->line('intmapwithadmin');?> <!--  Interactive map with administrative data layers and category-wise datasets --></div>
+                    <div class="flist "><?php echo $this->lang->line('advancesearchfacility');?><!--  Advance search facility to find specific datasets --></div>
+                    <div class="flist "> <?php echo $this->lang->line('report_near');?></div>
                     <div class="flist "> Report hazard near a user </div>
-                    <div class="flist "> Notify others "I am safe" during disaster</div>
-                    <div class="flist"> User engagement by multiple choice questions on disaster related topics</div>
+                    <div class="flist "><?php echo $this->lang->line('notify_other');?> <!-- Notify others "I am safe" during disaster --></div>
+                    <div class="flist"><?php echo $this->lang->line('user_engagement');?> </div>
                 </div>
                 <div class="mobileOuter">
                     <div class="mobileHolder">
@@ -252,12 +252,12 @@
                     </div>
                 </div>
                 <div class="mobileDes">
-                    <div class="flist">Set Alarm during disaster (substitute to whistle)</div>
-                    <div class="flist"> One click to activate flash light and strobe light</div>
-                    <div class="flist"> One button "Ask for Help" to locate requester during an emergency</div>
-                    <div class="flist">Send alerts from DHM about weather events</div>
-                    <div class="flist"> Send important updates from DMD, MoHA, KMC, LMC</div>
-                    <div class="flist "> Notify others "I am safe" during disaster</div>
+                    <div class="flist"><?php echo $this->lang->line('disaster_alert');?><!-- Set Alarm during disaster (substitute to whistle) --></div>
+                    <div class="flist"><?php echo $this->lang->line('flashlight');?>  <!-- One click to activate flash light and strobe light --></div>
+                    <div class="flist"><?php echo $this->lang->line('askfor_help');?><!--   One button "Ask for Help" to locate requester during an emergency --></div>
+                    <div class="flist"><?php echo $this->lang->line('send_alert');?> <!-- Send alerts from DHM about weather events --></div>
+                    <div class="flist"><?php echo $this->lang->line('impupdates');?></div>
+                    <div class="flist "><?php echo $this->lang->line('notify_other');?> <!-- Notify others "I am safe" during disaster --></div>
                 </div>
             </div>
         </div>

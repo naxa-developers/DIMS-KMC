@@ -207,5 +207,25 @@ $lang['non_material_content']="Non Material Content";
 $lang['search_and_rescue_materials']="Search And Rescue Materials";
 
 
+$lang['emergency_contact']="A complete GIS database";
+$lang['whattodobefore']="What to do before, during and after the disaster";
+$lang['individualdigital']="Individual digital ward wise profile book";
+$lang['diffmatabout']="Different reading materials about disaster risk and hazards";
+$lang['intmapwithadmin']="Interactive map with administrative data layers and category-wise datasets";
+$lang['dictionaryofimpterminologies']=" Dictionary of important terminologies related to disaster";
+$lang['Filesrelatedtoincidentmanagement']="Files related to incident management";
 
+$lang['advancesearchfacility']="Advance search facility to find specific datasets";
+
+$lang['report_near']= " Report hazard near a user";
+
+$lang['shortest_route']= "Shortest route to safe location(open spaces)"; 
+$lang['user_engagement']= "User engagement by multiple choice questions on disaster-related topic";
+$lang['disaster_alert']= " Set Alarm during the disaster (substitute to whistle)";
+$lang['flashlight']= "One click to activate flashlight and strobe light";
+$lang['askfor_help']= "One button Ask for Help to locate requester during an emergenc";
+$lang['send_alert']= "Send alerts from DHM about weather events";
+$lang['impupdates']= "Send important updates from DMD MoHA KMC LMC";
+$lang['notify_other']= "Notify others I am safe during the disaster";
+$lang['howisourmobileapp']= "HOW IS OUR MOBILE APP HELPFUL";
 ?>
