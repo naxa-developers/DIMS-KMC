@@ -53,7 +53,20 @@ class DrrModel extends CI_Model {
         $config['file_name']           = $name;
 
         $this->load->library('upload', $config);
-
+        // changes for image resize
+           // $this->resize_image(GALLERY_PATH, $imgfile, 'thumb_'.$imgfile,157,117);
+            $config['image_library'] = 'gd2';
+            $config['source_image'] = './uploads/drrinfo/'.$name;
+            $config['maintain_ratio'] = TRUE;
+            $config['width'] = 100;
+            $config['height'] = 100;
+            $config['master_dim'] = 'width';
+            $config['new_image'] = './uploads/drrinfo/'.'_thumb'.$name;
+            //print_r($name);die;
+            $this->load->library('image_lib');
+            $this->image_lib->initialize($config);
+            $resize = $this->image_lib->resize();
+        // changes for image resize
         if ( ! $this->upload->do_upload($field_name))
         {
           $error = array('error' => $this->upload->display_errors());

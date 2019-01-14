@@ -54,7 +54,6 @@
                         <div class="col-md-6">
                             <label for="image">Image : </label>
                             <input type="file" class="btn btn-primary" id="image" name="image">
-                            
                         </div>
                         <?php if($drrdataeditdata):  ?>
                             <div class="col-md-6">

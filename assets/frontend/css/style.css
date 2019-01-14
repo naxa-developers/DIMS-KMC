@@ -412,7 +412,7 @@ p.infotitle {
 .suscribe {
   padding: 10px;
   border: initial;
-  width: calc(100% - 120px);
+  /*width: calc(100% - 120px);*/
 }
 
 .suscribeBtn {

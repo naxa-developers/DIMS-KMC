@@ -54,10 +54,30 @@ class Admin extends Admin_Controller {
 	      		$old_image=$this->input->post('old_image');
 	      		//print_r($old_image);die;
 	      		$img_upload=$this->DrrModel->do_upload($file_name,$insert);
+	      		// test for image resize
+			      			// $ext=$img_upload['upload_data']['file_ext'];
+			      			// $image_path='./uploads/drrinfo/'.$insert.$ext;
+			      			// $new_path='./uploads/drrinfo/';
+			      			// $config['image_library'] = 'gd2';
+				        //     $config['source_image'] = $image_path;
+				        //     $config['maintain_ratio'] = TRUE;
+				        //     $config['create_thumb'] = TRUE;
+				        //     $config['width'] = 10;
+				        //     $config['height'] = 10;
+				        //     $config['master_dim'] = 'width';
+				        //     $config['new_image'] ='_thumb'.$insert.$ext;
+				        //     //print_r($name);die;
+				        //     $this->load->library('image_lib', $config);
+				        //     $this->image_lib->clear();
+				        //     $this->image_lib->initialize($config);
+				        //     $this->image_lib->resize();
+		           // echo $this->image_lib->display_errors(); die; this is for check error
+	          	// test for image resize
 	      	    if($img_upload['status']== 1) {
 	      	    	@unlink($old_image);	
       				$ext=$img_upload['upload_data']['file_ext'];
 	          		$image_path=base_url() . 'uploads/drrinfo/'.$insert.$ext ;
+	          		
       			}else{
       				$id=$this->input->post('id');
       				if($id) {
@@ -173,7 +193,7 @@ class Admin extends Admin_Controller {
 	    	$id = base64_decode($this->input->get('id'));
 	    	//print_r($id);die;
 	    	if($id) {
-				$this->data['drrdataeditdata'] = $this->general->get_tbl_data_result('id,subcat_id,category_id,image,description','drrinformation',array('id'=>$id));
+				$this->data['drrdataeditdata'] = $this->general->get_tbl_data_result('id,short_desc,subcat_id,category_id,image,description','drrinformation',array('id'=>$id));
 	    	}else{
 	    		$this->data['drrdataeditdata'] = array();	
 	    	}

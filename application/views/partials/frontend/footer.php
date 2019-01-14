@@ -121,6 +121,30 @@
         $(document).ready(function(){
           $('[data-toggle="popover"]').popover();   
         });
+        // thiis is for auto call ajax function and retrive data from db
+        // var action="<?php echo base_url() ?>inventory/datacount";
+        // function loadajax(){
+        //     $.ajax({
+        //     type: "POST",
+        //     url: action,
+        //     dataType: 'html',
+        //         success: function(jsons)
+        //         {
+        //          data = jQuery.parseJSON(jsons); 
+        //           if(data.status=='success'){
+        //             setTimeout(function(){
+        //             window.location.href = url;
+        //              }, 500);
+        //           }
+        //       }
+        //     });
+        // }
+        // $(document).ready(function(){
+        //     setTimeout(function(){
+        //       // loadajax();
+        //      },1000); // milliseconds
+        // });
     </script>
+
 </body>
 </html>

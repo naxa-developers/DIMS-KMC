@@ -278,4 +278,54 @@ class Admin extends Admin_Controller {
 	                        ->build('admin/upload_dictionary',$this->data);
 		}
   	}
+  	public function upload_inventory_data($cat)
+  	{
+  		$this->data=array();
+  		$table_name = "inventory";
+		$lanuage=$this->session->get_userdata('Language');
+		if($lanuage['Language']=='en') {
+            $lang='en';
+        }else{
+            $lang='nep'; 
+        }
+		if (isset($_POST['submit'])) {
+			$max_id=$this->Table_model->get_max_id($table_name);
+			$fields=$this->db->list_fields($table_name);
+			unset($fields[0]);
+			if($table_name == 'inventory'){
+			  	unset($fields[6]);
+			  	unset($fields[7]);
+			}else{
+				unset($fields[8]);
+			}
+		  	$field_name=implode(",",$fields);
+		  	$f=$_FILES["uploadedfile"];
+		  	$path=$f["tmp_name"];
+		  	chmod($path, 0777);
+		  	$filename=$f["name"];
+		  	$c=$this->Table_model->table_copy($path,$filename,$field_name,$table_name);
+		  	//echo"<pre>";print_r($c);die;
+		  	if($c==1){
+			    $data=array(
+			        'language'=>$lang,
+			        'category'=>$cat,
+			    );
+		      	$up=$this->Table_model->update_cat($max_id['id'],$data,$table_name);
+		    	$this->session->set_flashdata('msg','Csv Was successfully Added');
+		    	if($table_name == 'dictionary_tbl'){
+		        	redirect(FOLDER_ADMIN.'/inventory/inventory_data');
+			    }else{
+			        redirect(FOLDER_ADMIN.'/inventory/inventory_data');
+			    }
+		  	}
+		}else {
+		  	//admin check
+		  	$admin_type=$this->session->userdata('user_type');
+		  	$this->data['admin']=$admin_type;
+		  	//admin check
+		  	$this->template
+	                        ->enable_parser(FALSE)
+	                        ->build('admin/upload_csv_inventory',$this->data);
+		}
+  	}
 }

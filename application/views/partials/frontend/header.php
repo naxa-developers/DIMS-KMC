@@ -73,7 +73,7 @@
                     <a class="nav-link" href="<?php echo base_url()?>municipalprofile"> <?php echo $this->lang->line('municipalprofile'); ?></a>
                     <!-- <a class="nav-link" href="<?php echo base_url()?>contact"><?php echo NAV_THREE ?></a> -->
                     <a class="nav-link" href="<?php echo base_url()?>contact"><?php echo $this->lang->line('contacts'); ?></a>
-                    <a class="nav-link" href="<?php echo base_url()?>contact"><?php echo NAV_THREE ?></a>
+                    
                 </div>
             </div>
         </div>
@@ -121,9 +121,7 @@
                     <a class="nav-link" href="<?php echo base_url()?>dictionary"><?php echo $this->lang->line('dictionary'); ?> </a>
                     <a class="nav-link" href="<?php echo base_url()?>datacategory"> <?php echo $this->lang->line('datacategory'); ?> </a>
                     <a class="nav-link" href="<?php echo base_url()?>municipalprofile"> <?php echo $this->lang->line('municipalprofile'); ?></a>
-                    <!-- <a class="nav-link" href="<?php echo base_url()?>contact"><?php echo NAV_THREE ?></a> -->
                     <a class="nav-link" href="<?php echo base_url()?>contact"><?php echo $this->lang->line('contacts'); ?></a>
-                    <a class="nav-link" href="<?php echo base_url()?>contact"><?php echo NAV_THREE ?></a>
                 </div>
             </div>
         </div>

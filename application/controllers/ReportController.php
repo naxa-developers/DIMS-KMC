@@ -276,7 +276,7 @@ class ReportController extends CI_Controller
         $config['create_thumb'] = TRUE;
         $config['maintain_ratio'] = TRUE;
         $config['width']         = 500;
-       $config['height']       = 500;
+        $config['height']       = 500;
 
         $this->load->library('image_lib', $config);
         $this->image_lib->initialize($config);
@@ -287,7 +287,7 @@ class ReportController extends CI_Controller
           //var_dump($this->image_lib->display_errors());
         //  exit();
           if(!$this->image_lib->resize())
- {
+ {gmai
      echo $this->image_lib->display_errors();
  }
 

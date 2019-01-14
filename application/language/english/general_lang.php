@@ -189,4 +189,23 @@ $lang['dictionary']="Desaster Dictionary";
 $lang['datacategory']="Data Category";
 $lang['municipalprofile']="Municipal Profile";
 
+// inventory
+$lang['sn']="S N";
+$lang['organisationname']="Organisation Name";
+$lang['address']="Address";
+$lang['contact_person']="Contact Person";
+$lang['phoneno']="Phone Number";
+$lang['email']="Email Address";
+
+$lang['shelter']="Shelter";
+$lang['medicine']="Medicine";
+$lang['food']="Food";
+$lang['rescue']="Rescue";
+
+$lang['good_material']="Goods Material";
+$lang['non_material_content']="Non Material Content";
+$lang['search_and_rescue_materials']="Search And Rescue Materials";
+
+
+
 ?>

@@ -188,4 +188,20 @@ $lang['dictionary']="प्रकोप सब्दकोश";
 $lang['datacategory']=" तत्थ्यांक सङ्ग्रह ";
 $lang['municipalprofile']="नगरपालिका प्रोफाइल";
 
+// inventory
+$lang['sn']="क्र.स";
+$lang['organisationname']="संस्था को  नाम";
+$lang['address']="ठेगाना";
+$lang['phoneno']="फोन नम्बर";
+$lang['contact_person']="सम्पर्क व्यक्ति";
+$lang['email']="इमेल";
+$lang['shelter']="आश्रय";
+$lang['medicine']="औषधि";
+$lang['food']="खाना";
+$lang['rescue']="उद्धार";
+
+$lang['good_material']="खाद्ध्य सामग्री";
+$lang['non_material_content']="गैरखाद्ध्य सामग्री";
+$lang['search_and_rescue_materials']="खोज तथा उद्धार सामग्री ";
+
 ?>

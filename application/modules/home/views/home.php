@@ -92,8 +92,6 @@
             <h4 class="heading">BROWSE DIFFERENT SECTION</h4>
 
             <div class="row browse">
-
-
                 <div class="col-md-4">
                     <div class="listHolder">
                         <a href="datacategory.html" class="plain">
@@ -116,11 +114,8 @@
                                 <p class="innerSubtitle">What to do before, during and after disaster</p>
                             </div>
                         </a>
-
                         <img src="<?php echo base_url(); ?>assets/frontend/img/assets/map.png" alt="">
-
                     </div>
-
                 </div>
                 <div class="col-md-4">
                     <div class="listHolder">
@@ -131,37 +126,29 @@
                             </div>
                         </a>
                         <img src="<?php echo base_url(); ?>assets/frontend/img/assets/5.png" alt="">
-
                     </div>
-
                 </div>
-
                 <div class="col-md-4">
                     <div class="listHolder">
                         <a href="<?php echo base_url('drrinfo') ?>" class="plain">
                             <div class="overlay">
-                                <div class="innerTitle">DRR INFORMATION </div>
+                                <div class="innerTitle"><?php echo $this->lang->line('drrinfodetail'); ?><!-- DRR INFORMATION  --></div>
                                 <p class="innerSubtitle">What to do before, during and after disaster</p>
                             </div>
                         </a>
                         <img src="<?php echo base_url(); ?>assets/frontend/img/assets/4.png" alt="">
-
                     </div>
-
                 </div>
-
                 <div class="col-md-4">
                     <div class="listHolder">
-                        <a href="drrdictonary.html" class="plain">
+                        <a href="<?php echo base_url()?>dictionary" class="plain">
                             <div class="overlay">
-                                <div class="innerTitle">DRR DICTIONARY</div>
+                                <div class="innerTitle"><?php echo $this->lang->line('dictionary'); ?><!-- DRR DICTIONARY --></div>
                                 <p class="innerSubtitle">Dictionary of important terminologies related to disaster </p>
                             </div>
                         </a>
                         <img src="<?php echo base_url(); ?>assets/frontend/img/assets/6.png" alt="">
-
                     </div>
-
                 </div>
                 <div class="col-md-4">
                     <div class="listHolder">
@@ -171,11 +158,8 @@
                                 <p class="innerSubtitle">Files related to incident management.</p>
                             </div>
                         </a>
-
                         <img src="<?php echo base_url(); ?>assets/frontend/img/assets/7.png" alt="">
-
                     </div>
-
                 </div>
                 <div class="col-md-4">
                     <div class="listHolder">
@@ -185,11 +169,8 @@
                                 <p class="innerSubtitle">Files related to incident management.</p>
                             </div>
                         </a>
-
                         <img src="<?php echo base_url(); ?>assets/frontend/img/assets/7.png" alt="">
-
                     </div>
-
                 </div>
                 <div class="col-md-4">
                     <div class="listHolder">
