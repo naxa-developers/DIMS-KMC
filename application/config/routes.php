@@ -62,7 +62,7 @@ $route[FOLDER_ADMIN.'/([a-zA-Z_-]+)/(.+)'] = '$1/admin/$2';
 $route[FOLDER_ADMIN.'/([a-zA-Z_-]+)'] = '$1/admin';
 $route[FOLDER_ADMIN] = "admin";
 
-
+$route['home'] = 'home/index';
 // user routes
 
 // $route['en'] ='Lang/eng';
