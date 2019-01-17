@@ -228,4 +228,14 @@ $lang['send_alert']= "Send alerts from DHM about weather events";
 $lang['impupdates']= "Send important updates from DMD MoHA KMC LMC";
 $lang['notify_other']= "Notify others I am safe during the disaster";
 $lang['howisourmobileapp']= "HOW IS OUR MOBILE APP HELPFUL";
+
+$lang['big_text']="Disaster Information Management System ";
+$lang['small_text']="A GIS based Information Platform ";
+$lang['get_started']="GET STARTED ";
+$lang['reportbymonth']="INCIDNETS REPORTS DURING LAST THREE MONTHS ";
+$lang['viewall']="VIEW ALL";
+$lang['differentbrowse']="BROWSE DIFFERENT SECTION";
+$lang['dataset']="BROWSE DATASETS";
+$lang['findmorenewaboutus']="FIND MORE NEWS ABOUT US";
+$lang['alert']="Alert";
 ?>

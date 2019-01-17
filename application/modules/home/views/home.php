@@ -2,17 +2,17 @@
         <div class="container">
             <div class="titleInfo">
                 <h3>
-                    Disaster Information Management System
+                    <!-- Disaster Information Management System --><?php echo $this->lang->line('big_text');?>
                 </h3>
-                <p>A GIS based Information Platform</p>
+                <p><!-- A GIS based Information Platform --><?php echo $this->lang->line('small_text');?> </p>
 
                 <button class="btn btn-primary btn-lg circularBtn ">
-                    GET STARTED
+                    <!-- GET STARTED --><?php echo $this->lang->line('get_started');?>
                 </button>
             </div>
 
             <div class="accidnets">
-                <h4 class="heading">INCIDNETS REPORTS DURING LAST THREE MONTHS</h4>
+                <h4 class="heading"><?php echo $this->lang->line('reportbymonth');?><!-- INCIDNETS REPORTS DURING LAST THREE MONTHS --></h4>
                 <div class="sliderContent">
 
                     <div class="ticker">
@@ -77,7 +77,7 @@
                     </div>
                     <div class="viewall">
                         <a href="#">
-                            <span>VIEW ALL</span>
+                            <span><?php echo $this->lang->line('viewall') ?></span>
                             <i class="fa fa-caret-right"></i>
                         </a>
                     </div>
@@ -89,14 +89,14 @@
 
     <section class="white-bg section-padding">
         <div class="container">
-            <h4 class="heading">BROWSE DIFFERENT SECTION</h4>
+            <h4 class="heading"><?php echo $this->lang->line('differentbrowse') ?><!-- BROWSE DIFFERENT SECTION --></h4>
 
             <div class="row browse">
                 <div class="col-md-4">
                     <div class="listHolder">
                         <a href="datacategory.html" class="plain">
                             <div class="overlay">
-                                <div class="innerTitle">BROWSE DATASETS</div>
+                                <div class="innerTitle"><?php echo $this->lang->line('dataset') ?><!-- BROWSE DATASETS --></div>
                                 <p class="innerSubtitle"><?php echo $this->lang->line('acomgisdb');?> <!-- A complete GIS database --></p>
                             </div>
                         </a>
@@ -133,7 +133,7 @@
                         <a href="<?php echo base_url('drrinfo') ?>" class="plain">
                             <div class="overlay">
                                 <div class="innerTitle"><?php echo $this->lang->line('drrinfodetail'); ?><!-- DRR INFORMATION  --></div>
-                                <p class="innerSubtitle">What to do before, during and after disaster</p>
+                                <p class="innerSubtitle"><?php echo $this->lang->line('whattodobefore');?><!-- What to do before, during and after disaster --></p>
                             </div>
                         </a>
                         <img src="<?php echo base_url(); ?>assets/frontend/img/assets/4.png" alt="">
@@ -204,9 +204,6 @@
 
         </div>
 
-
-
-
     </section>
 
   <section class="mobileScreens section-padding">
@@ -264,7 +261,7 @@
     </section>
   <section class="section-padding news">
       <div class="container">
-          <h4 class="heading">FIND MORE NEWS ABOUT US</h4>
+          <h4 class="heading"><?php echo $this->lang->line('findmorenewaboutus');?><!-- FIND MORE NEWS ABOUT US --></h4>
           <div class="row">
               <div class="col-md-4">
                   <div class="infoSection">
@@ -273,7 +270,7 @@
                               <i class="fa fa-bell"></i>
                           </div>
                           <div class="stitle">
-                              Alert
+                             <?php echo $this->lang->line('alert');?> <!-- Alert -->
                           </div>
                       </div>
                       <a href="">

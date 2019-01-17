@@ -69,7 +69,7 @@
                     <section class="searchpanel inner searchinventory">
                         <div class="search flex contactSearch">
                             <div class="inputholder grow">
-                                <input class="search--input " placeholder="Enter to search..." type="text">
+                                <input class="search--input form-control" id="myInput"  placeholder="<?php echo  SEARCH ?>" type="search" onkeyup="myFunction()">
                             </div>
                             <button class="btn-primary search--btn"> खोज्नुहोस्</button>
                         </div>
@@ -100,14 +100,14 @@
                                         </thead>
                                         <tbody>
                                             <?php $i=1;
-                                             foreach ($invensub as $key => $ivd) {  ?>
-                                            <tr>
-                                                <th scope="row"><?php  echo $i; ?></th>
-                                                <td><?php  echo $ivd['orgname']; ?></td>
-                                                <td><?php  echo $ivd['address']; ?></td>
-                                                <td><?php  echo $ivd['phone']; ?></td>
-                                                <td><?php  echo $ivd['contactperson']; ?></td>
-                                                <td><?php  echo $ivd['email']; ?></td>
+                                             foreach ($invensub as $key => $ivd) { ?>
+                                            <tr class="tr_tbl">
+                                                <th  id="<?php echo $ivd['id'] ?>id" scope="row"><?php  echo $i; ?></th>
+                                                <td  id="<?php echo $ivd['id'] ?>orgname"><?php  echo $ivd['orgname']; ?></td>
+                                                <td  id="<?php echo $ivd['id'] ?>address"><?php  echo $ivd['address']; ?></td>
+                                                <td  id="<?php echo $ivd['id'] ?>phone"><?php  echo $ivd['phone']; ?></td>
+                                                <td  id="<?php echo $ivd['id'] ?>contactperson"><?php  echo $ivd['contactperson']; ?></td>
+                                                <td  id="<?php echo $ivd['id'] ?>email"><?php  echo $ivd['email']; ?></td>
                                             </tr>
                                             <?php } $i++; ?>
                                         </tbody>
@@ -121,4 +121,29 @@
             </div>
         </div>
     </section>
-   
+<script type="text/javascript">
+    $(".nav-tabs").tabdrop();
+        function myFunction() { 
+        // Declare variables
+        var  input, filter, div, tr, i ,j;
+        input = document.getElementById('myInput');
+        filter = input.value.toUpperCase();
+        div = document.getElementsByClassName("tab-pane");
+        tr = document.getElementsByClassName('tr_tbl');
+        //console.log(tr);
+        for(j = 0; j < tr.length; j++){
+            //console.log(tr);
+            var closeit = 0;
+            for (i = 0; i < tr[j].children.length; i++) {
+                var td = tr[j].children[i];
+                if(closeit == 0){
+                  $("#"+td.id).parent().css('display','none');
+                }
+                if ((td.innerText.toUpperCase().indexOf(filter) > -1) && closeit == 0) {
+                    $("#"+td.id).parent().css('display','');
+                    closeit = 1;
+                }
+            }
+        }
+    }
+</script>

@@ -11,12 +11,12 @@ class Dictionary extends Admin_Controller
 	{	$this->data =array();
 		$lang=$this->session->get_userdata('Language');
 	    if($lang['Language']=='en') {
-	      $emerg_lang='en';
+	      	$emerg_lang='en';
 	    }else{
-	      $emerg_lang='nep'; 
+	      	$emerg_lang='nep'; 
 	    }
 		$this->data['dictionary'] = $this->general->get_tbl_data_result('id,word,meaning,language','dictionary_tbl',array('language'=>$emerg_lang),'word');
-		//echo"<pre>"; print_r($this->data['data']);die;
+		//echo"<pre>"; print_r($this->data['dictionary']);die;
 		$this->template->set_layout('frontend/default');
 		$this->template
 			->enable_parser(FALSE)
