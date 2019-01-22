@@ -994,45 +994,45 @@
   }
 
   ul.nav.nav-tabs li.basemap a{
-display: inline-block;
-padding: 10px 15px;
-}
-ul.nav-tabs li.basemap.active{
-background: rgba(0,0,0,.3);
+  display: inline-block;
+  padding: 10px 15px;
+  }
+  ul.nav-tabs li.basemap.active{
+  background: rgba(0,0,0,.3);
 
-}
+  }
 
-ul.nav.nav-tabs li.basemap a:hover{
-background: rgba(0,0,0,.2);
-color: #FFF;
-}
+  ul.nav.nav-tabs li.basemap a:hover{
+  background: rgba(0,0,0,.2);
+  color: #FFF;
+  }
 
-ul.nav-tabs li.basemap.active a{
-color: #FFF;
-}
+  ul.nav-tabs li.basemap.active a{
+  color: #FFF;
+  }
 
 
-li.basemap.chevron1 i{
-font-size: 22px;
-color: #FFF;
-}
+  li.basemap.chevron1 i{
+  font-size: 22px;
+  color: #FFF;
+  }
 
-li.basemap.chevron1{
-padding: 10px;
-}
+  li.basemap.chevron1{
+  padding: 10px;
+  }
 
-#close-panel-right i{
-font-size: 24px;
-color: #FFF;
-}
+  #close-panel-right i{
+  font-size: 24px;
+  color: #FFF;
+  }
 
-#close-panel-right{
-padding: 10px;
-}
+  #close-panel-right{
+  padding: 10px;
+  }
 
-#close-panel-right:hover, #close-panel-left:hover{
-cursor: pointer;
-}
+  #close-panel-right:hover, #close-panel-left:hover{
+  cursor: pointer;
+  }
 
 </style>
 
@@ -2427,9 +2427,6 @@ $(document).ready(function(){
     //console.log(cat_tbl_array_name[i]);
     window[''+cat_tbl_array_name[i]]= new L.GeoJSON(cat_layer_data[i],
       {
-
-
-
         pointToLayer: function(feature,Latlng)
         {
 
@@ -2536,7 +2533,6 @@ if(popup_content_parsed[i]==0){
 
           layer.on('click',function(){
             console.log(popUpContent);
-
             $("#summary_container").css('display','none');
             $("#popup_container").css('display','block');
             $("#popup_container").html(popUpContent);
@@ -2683,8 +2679,7 @@ if(popup_content_parsed[i]==0){
           $("#count_summary").html("<b>"+result_parsed['rowcount']+"</b>");
           $(".ic").html(" <b>"+selected_category_name+"</b>");
 
-         //console.log(result_parsed['summary']);
-
+          //console.log(result_parsed['summary']);
           $(".counter-desc").html(result_parsed['summary']);
           for(var i=0; i<result_parsed['summary_list'].length;i++){
             //	console.log(result_parsed[0]['rowcount']);

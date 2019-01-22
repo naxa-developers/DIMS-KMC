@@ -1,36 +1,8 @@
-<div class="whitebg">
-        <div class="container ">
-            <div class="mapheader">
-                <ul class="nav nav-tabs charttab">
+<link href="<?php echo base_url();?>assets/frontend/leaflet/leaflet.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.6.11/c3.min.css">
 
 
-                    <li class="active">
-                        <a data-toggle="tab" href="#map">Map</a>
-                    </li>
-                    <li>
-                        <a data-toggle="tab" href="#table">Data</a>
-                    </li>
-
-                </ul>
-                <div class="mapHeaderFilter">
-                    <div class="mapinput">
-                        <input type="text" placeholder="Search">
-                    </div>
-                    <div class="mapselect">
-                        <select name="" id="">
-                            <option value="">Select Ward</option>
-                            <option value="">Ward 1</option>
-                            <option value="">Ward 2</option>
-                            <option value="">Ward 3</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-</div>
-    <div id="mapHolder">
+ <div id="mapHolder">
         <div class="tab-pane">
             <div id="map" class="tab-pane   fade in show   active">
 
@@ -42,16 +14,16 @@
                                 <i class="la la-bars show"></i>
                                 <i class="la la-arrow-right"></i>
                             </button>
-                            <button class="btn">
+                            <button class="btn" id="zoomin">
                                 <i class="la la-plus"></i>
                             </button>
-                            <button class="btn">
+                            <button class="btn" id="zoomout">
                                 <i class="la la-minus"></i>
                             </button>
                             <button class="btn">
                                 <i class="la la-location-arrow"></i>
                             </button>
-                            <button class="btn">
+                            <button class="btn" id="refresh">
                                 <i class="la la-refresh" aria-hidden="true"></i>
                             </button>
 
@@ -86,25 +58,24 @@
 
                                                 <button class="btn btn-link" type="button" data-toggle="collapse"
                                                     data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                    CATEGORIES
+                                                    <!-- CATEGORIES --> RESOURCES
                                                 </button>
 
                                             </div>
-
                                             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                                                 data-parent="#sideAccordin">
                                                 <div class="card-body">
-                                                    <div class="itemsCat">
+                                                    <!-- <div class="itemsCat">
                                                         <div class="labelslf">
                                                             <div>
                                                                 <i class="ls la la-sitemap"></i>
-                                                                <span>Wards</span>
+                                                                <span>Municipal Boundary</span>
 
                                                             </div>
                                                             <div class="flex">
                                                                 <div class="material-switch pull-right">
-                                                                    <input id="someSwitchOptionDefault" name="someSwitchOption001"
-                                                                        type="checkbox" />
+                                                                    <input class = "checkBox" value = "District" id="someSwitchOptionDefault" name="someSwitchOption001"
+                                                                        type="checkbox" checked />
                                                                     <label for="someSwitchOptionDefault" class="label-default"></label>
 
                                                                 </div>
@@ -127,136 +98,76 @@
                                                         </div>
 
 
-                                                    </div>
-                                                    <div class="itemsCat">
-                                                        <div class="labelslf">
-                                                            <div class="flex align-items-start">
-                                                                <i class="ls la la-ticket">
+                                                    </div> -->
+                                                    <?php //echo "<pre>"; print_r($layerscategory);die;
+                                                     if($layerscategory){
+                                                        foreach ($layerscategory as $key => $layer) {?>
+                                                        <div class="itemsCat">
+                                                            <div class="labelslf">
+                                                                <div class="flex align-items-start">
+                                                                    <i class="ls la la-ticket">
 
-                                                                </i>
-                                                                <span>River</span>
-
-                                                            </div>
-                                                            <div class="flex">
-                                                                <div class="material-switch pull-right">
-                                                                    <input id="switch2" name="switch2" type="checkbox" />
-                                                                    <label for="switch2" class="label-default"></label>
+                                                                    </i>
+                                                                    <span><?php echo  $layer['category_name'] ?></span>
 
                                                                 </div>
-                                                                <div class="elipsis">
-                                                                    <i class="la la-ellipsis-v ellipse"></i>
-                                                                    <div class="inlist">
-                                                                        <div class="listItmesInner">
-                                                                            Apply filter
-                                                                        </div>
-                                                                        <div class="listItmesInner">
-                                                                            View table
-                                                                        </div>
-                                                                        <div class="listItmesInner">
-                                                                            Zoom to layer
+                                                               <div class="flex">
+                                                                    <div class="material-switch pull-right">
+                                                                        <input class = "checkBox" value="<?php echo $layer['category_table'] ?>_toggle" id="<?php echo  $layer['category_table'] ?>_switch" name="switch2" type="checkbox" <?php  ?> />
+                                                                        <label for="<?php echo  $layer['category_table'] ?>_switch" class="label-default"></label>
+
+                                                                    </div>
+                                                                    <div class="elipsis">
+                                                                        <i class="la la-ellipsis-v ellipse"></i>
+                                                                        <div class="inlist">
+                                                                            <div class="listItmesInner">
+                                                                                Apply filter
+                                                                            </div>
+                                                                            <div class="listItmesInner">
+                                                                                View table
+                                                                            </div>
+                                                                            <div class="listItmesInner">
+                                                                                Zoom to layer
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-                                                        <div class="listWithCheckbox">
-                                                            <div class="checkItem">
-                                                                <label class="control control--checkbox">
-                                                                    <input type="checkbox" /> Gakhu Khola
-                                                                    <div class="control__indicator"></div>
-                                                                </label>
-                                                            </div>
-
-                                                            <div class="checkItem">
-                                                                <label class="control control--checkbox">
-                                                                    <input type="checkbox" /> Demo
-                                                                    <div class="control__indicator"></div>
-                                                                </label>
-                                                            </div>
-
-                                                            <div class="checkItem">
-                                                                <label class="control control--checkbox">
-                                                                    <input type="checkbox" /> Manahara Khola
-                                                                    <div class="control__indicator"></div>
-                                                                </label>
-                                                            </div>
-
-                                                            <div class="checkItem">
-                                                                <label class="control control--checkbox">
-                                                                    <input type="checkbox" /> Kattike Khola
-                                                                    <div class="control__indicator"></div>
-                                                                </label>
-                                                            </div>
-
-
-                                                        </div>
-
-                                                    </div>
-                                                    <div class="itemsCat">
-                                                        <div class="labelslf">
-                                                            <div class="flex align-items-start">
-                                                                <i class="ls la la-map">
-                                                                </i>
-                                                                <span>Municipal Boundary</span>
-
-                                                            </div>
-                                                            <div class="flex">
-                                                                <div class="material-switch pull-right">
-                                                                    <input id="switch6" name="switch6" type="checkbox" />
-                                                                    <label for="switch6" class="label-default"></label>
 
                                                                 </div>
-                                                                <div class="elipsis">
-                                                                    <i class="la la-ellipsis-v ellipse"></i>
-                                                                    <div class="inlist">
-                                                                        <div class="listItmesInner">
-                                                                            Apply filter
-                                                                        </div>
-                                                                        <div class="listItmesInner">
-                                                                            View table
-                                                                        </div>
-                                                                        <div class="listItmesInner">
-                                                                            Zoom to layer
-                                                                        </div>
-                                                                    </div>
+                                                            </div>
+                                                            <div class="listWithCheckbox">
+                                                                <div class="checkItem">
+                                                                    <label class="control control--checkbox">
+                                                                        <input type="checkbox" /> Gakhu Khola
+                                                                        <div class="control__indicator"></div>
+                                                                    </label>
                                                                 </div>
 
+                                                                <div class="checkItem">
+                                                                    <label class="control control--checkbox">
+                                                                        <input type="checkbox" /> Demo
+                                                                        <div class="control__indicator"></div>
+                                                                    </label>
+                                                                </div>
+
+                                                                <div class="checkItem">
+                                                                    <label class="control control--checkbox">
+                                                                        <input type="checkbox" /> Manahara Khola
+                                                                        <div class="control__indicator"></div>
+                                                                    </label>
+                                                                </div>
+
+                                                                <div class="checkItem">
+                                                                    <label class="control control--checkbox">
+                                                                        <input type="checkbox" /> Kattike Khola
+                                                                        <div class="control__indicator"></div>
+                                                                    </label>
+                                                                </div>
+
+
                                                             </div>
                                                         </div>
-                                                        <div class="listWithCheckbox">
-                                                            <div class="checkItem">
-                                                                <label class="control control--checkbox">
-                                                                    <input type="checkbox" /> Gakhu Khola
-                                                                    <div class="control__indicator"></div>
-                                                                </label>
-                                                            </div>
+                                                    <?php }  } ?>
 
-                                                            <div class="checkItem">
-                                                                <label class="control control--checkbox">
-                                                                    <input type="checkbox" /> Demo
-                                                                    <div class="control__indicator"></div>
-                                                                </label>
-                                                            </div>
-
-                                                            <div class="checkItem">
-                                                                <label class="control control--checkbox">
-                                                                    <input type="checkbox" /> Manahara Khola
-                                                                    <div class="control__indicator"></div>
-                                                                </label>
-                                                            </div>
-
-                                                            <div class="checkItem">
-                                                                <label class="control control--checkbox">
-                                                                    <input type="checkbox" /> Kattike Khola
-                                                                    <div class="control__indicator"></div>
-                                                                </label>
-                                                            </div>
-
-
-                                                        </div>
-
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -320,7 +231,6 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-
                                                             </div>
                                                         </div>
 
@@ -1466,293 +1376,594 @@
                                 <i class="la la-arrow-right"></i>
                                 <i class="la la-arrow-left show"></i>
                             </button>
-                            <button class="btn rmbtn">
+                            <button class="btn righticons active" id="info_btn">
                                 <i class="la la-info"></i>
                             </button>
-                            <button class="btn rmbtn">
-                                <i class="la la-bar-chart"></i>
-
+                           
+                             <button class="btn" id="popup_btn">
+                                <i class="la la-comment"></i>
                             </button>
 
-
+                             <button class="btn" id="chart_btn">
+                                <i class="la la-bar-chart"></i>
+                            </button>
                         </div>
-                        <div class="rightSectionHeader">
-                            Active Layers
-                        </div>
+                        
                         <div class="rightSectionBody ">
                             <div class="rightinner">
                                 <div class="show">
-                                    <div class="detItem">
-                                        <div class="detItemHeader flex justify-content-between align-items-center">
-                                            <div class="tcountHlder">
-                                                <div class="toptext">Ward</div>
-                                                <div class="counttext">200</div>
-                                            </div>
-                                            <div class="closeitem">
-                                                <i class="la la-times"></i>
-                                            </div>
+                                    <div class="rightSectionHeader">
+                                Active Layers
+                                </div>
+                                <div class="detItem">
+                                    <div class="detItemHeader flex justify-content-between align-items-center">
+                                        <div class="tcountHlder">
+                                            <div class="toptext">Ward</div>
+                                            <div class="counttext">32</div>
                                         </div>
-                                        <div class="detItemContent">
-                                            <p class="dettext">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                Illum ea beatae error, minima
-                                                magni eum ipsum provident ab molestias</p>
-                                            <div class="detItemLinkWrp">
-                                                <div class="detItemlink flex justify-content-between align-items-center">
-                                                    <div class="lname">Gaku Khola</div>
-                                                    <div>
-                                                        <i class="la la-crosshairs"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="detItemlink flex justify-content-between align-items-center">
-                                                    <div class="lname">Gaku Khola</div>
-                                                    <div>
-                                                        <i class="la la-crosshairs"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="detItemlink flex justify-content-between align-items-center">
-                                                    <div class="lname">Gaku Khola</div>
-                                                    <div>
-                                                        <i class="la la-crosshairs"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="detItemlink flex justify-content-between align-items-center">
-                                                    <div class="lname">Gaku Khola</div>
-                                                    <div>
-                                                        <i class="la la-crosshairs"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="detItemlink flex justify-content-between align-items-center">
-                                                    <div class="lname">Gaku Khola</div>
-                                                    <div>
-                                                        <i class="la la-crosshairs"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="detItemlink flex justify-content-between align-items-center">
-                                                    <div class="lname">Gaku Khola</div>
-                                                    <div>
-                                                        <i class="la la-crosshairs"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="detItemlink flex justify-content-between align-items-center">
-                                                    <div class="lname">Gaku Khola</div>
-                                                    <div>
-                                                        <i class="la la-crosshairs"></i>
-                                                    </div>
-                                                </div>
-
-
-                                            </div>
+                                        <div class="closeitem">
+                                            <i class="la la-times"></i>
                                         </div>
-
-
                                     </div>
-                                    <div class="detItem">
-                                        <div class="detItemHeader flex justify-content-between align-items-center">
-                                            <div class="tcountHlder">
-                                                <div class="toptext">Schools</div>
-                                                <div class="counttext">150</div>
+                                    <div class="detItemContent">
+                                        <p class="dettext">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                            Illum ea beatae error, minima
+                                            magni eum ipsum provident ab molestias</p>
+                                        <div class="detItemLinkWrp">
+                                            <div class="detItemlink flex justify-content-between align-items-center">
+                                                <div class="lname">Ward 1</div>
+                                                <div>
+                                                    <i class="la la-crosshairs"></i>
+                                                </div>
                                             </div>
-                                            <div class="closeitem">
-                                                <i class="la la-times"></i>
+                                            <div class="detItemlink flex justify-content-between align-items-center">
+                                                <div class="lname">Ward 2</div>
+                                                <div>
+                                                    <i class="la la-crosshairs"></i>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="detItemContent">
-                                            <p class="dettext">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                Illum ea beatae error, minima
-                                                magni eum ipsum provident ab molestias</p>
-                                            <div class="detItemLinkWrp">
-                                                <div class="detItemlink flex justify-content-between align-items-center">
-                                                    <div class="lname">Gaku Khola</div>
-                                                    <div>
-                                                        <i class="la la-crosshairs"></i>
-                                                    </div>
+                                            <div class="detItemlink flex justify-content-between align-items-center">
+                                                <div class="lname">Ward 3</div>
+                                                <div>
+                                                    <i class="la la-crosshairs"></i>
                                                 </div>
-                                                <div class="detItemlink flex justify-content-between align-items-center">
-                                                    <div class="lname">Gaku Khola</div>
-                                                    <div>
-                                                        <i class="la la-crosshairs"></i>
-                                                    </div>
+                                            </div>
+                                            <div class="detItemlink flex justify-content-between align-items-center">
+                                                <div class="lname">Ward 4</div>
+                                                <div>
+                                                    <i class="la la-crosshairs"></i>
                                                 </div>
-                                                <div class="detItemlink flex justify-content-between align-items-center">
-                                                    <div class="lname">Gaku Khola</div>
-                                                    <div>
-                                                        <i class="la la-crosshairs"></i>
-                                                    </div>
+                                            </div>
+                                            <div class="detItemlink flex justify-content-between align-items-center">
+                                                <div class="lname">Ward 5</div>
+                                                <div>
+                                                    <i class="la la-crosshairs"></i>
                                                 </div>
-                                                <div class="detItemlink flex justify-content-between align-items-center">
-                                                    <div class="lname">Gaku Khola</div>
-                                                    <div>
-                                                        <i class="la la-crosshairs"></i>
-                                                    </div>
+                                            </div>
+                                            <div class="detItemlink flex justify-content-between align-items-center">
+                                                <div class="lname">Ward 6</div>
+                                                <div>
+                                                    <i class="la la-crosshairs"></i>
                                                 </div>
-                                                <div class="detItemlink flex justify-content-between align-items-center">
-                                                    <div class="lname">Gaku Khola</div>
-                                                    <div>
-                                                        <i class="la la-crosshairs"></i>
-                                                    </div>
+                                            </div>
+                                            <div class="detItemlink flex justify-content-between align-items-center">
+                                                <div class="lname">Ward 7</div>
+                                                <div>
+                                                    <i class="la la-crosshairs"></i>
                                                 </div>
-                                                <div class="detItemlink flex justify-content-between align-items-center">
-                                                    <div class="lname">Gaku Khola</div>
-                                                    <div>
-                                                        <i class="la la-crosshairs"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="detItemlink flex justify-content-between align-items-center">
-                                                    <div class="lname">Gaku Khola</div>
-                                                    <div>
-                                                        <i class="la la-crosshairs"></i>
-                                                    </div>
-                                                </div>
-
-
                                             </div>
                                         </div>
-
-
-                                    </div>
-                                    <div class="detItem">
-                                        <div class="detItemHeader flex justify-content-between align-items-center">
-                                            <div class="tcountHlder">
-                                                <div class="toptext">River</div>
-                                                <div class="counttext">5000</div>
-                                            </div>
-                                            <div class="closeitem">
-                                                <i class="la la-times"></i>
-                                            </div>
-                                        </div>
-                                        <div class="detItemContent">
-                                            <p class="dettext">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                Illum ea beatae error, minima
-                                                magni eum ipsum provident ab molestias</p>
-                                            <div class="detItemLinkWrp">
-                                                <div class="detItemlink flex justify-content-between align-items-center">
-                                                    <div class="lname">Gaku Khola</div>
-                                                    <div>
-                                                        <i class="la la-crosshairs"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="detItemlink flex justify-content-between align-items-center">
-                                                    <div class="lname">Gaku Khola</div>
-                                                    <div>
-                                                        <i class="la la-crosshairs"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="detItemlink flex justify-content-between align-items-center">
-                                                    <div class="lname">Gaku Khola</div>
-                                                    <div>
-                                                        <i class="la la-crosshairs"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="detItemlink flex justify-content-between align-items-center">
-                                                    <div class="lname">Gaku Khola</div>
-                                                    <div>
-                                                        <i class="la la-crosshairs"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="detItemlink flex justify-content-between align-items-center">
-                                                    <div class="lname">Gaku Khola</div>
-                                                    <div>
-                                                        <i class="la la-crosshairs"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="detItemlink flex justify-content-between align-items-center">
-                                                    <div class="lname">Gaku Khola</div>
-                                                    <div>
-                                                        <i class="la la-crosshairs"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="detItemlink flex justify-content-between align-items-center">
-                                                    <div class="lname">Gaku Khola</div>
-                                                    <div>
-                                                        <i class="la la-crosshairs"></i>
-                                                    </div>
-                                                </div>
-
-
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                    <div class="detItem">
-                                        <div class="detItemHeader flex justify-content-between align-items-center">
-                                            <div class="tcountHlder">
-                                                <div class="toptext">River</div>
-                                                <div class="counttext">5000</div>
-                                            </div>
-                                            <div class="closeitem">
-                                                <i class="la la-times"></i>
-                                            </div>
-                                        </div>
-                                        <div class="detItemContent">
-                                            <p class="dettext">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                Illum ea beatae error, minima
-                                                magni eum ipsum provident ab molestias</p>
-                                            <div class="detItemLinkWrp">
-                                                <div class="detItemlink flex justify-content-between align-items-center">
-                                                    <div class="lname">Gaku Khola</div>
-                                                    <div>
-                                                        <i class="la la-crosshairs"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="detItemlink flex justify-content-between align-items-center">
-                                                    <div class="lname">Gaku Khola</div>
-                                                    <div>
-                                                        <i class="la la-crosshairs"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="detItemlink flex justify-content-between align-items-center">
-                                                    <div class="lname">Gaku Khola</div>
-                                                    <div>
-                                                        <i class="la la-crosshairs"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="detItemlink flex justify-content-between align-items-center">
-                                                    <div class="lname">Gaku Khola</div>
-                                                    <div>
-                                                        <i class="la la-crosshairs"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="detItemlink flex justify-content-between align-items-center">
-                                                    <div class="lname">Gaku Khola</div>
-                                                    <div>
-                                                        <i class="la la-crosshairs"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="detItemlink flex justify-content-between align-items-center">
-                                                    <div class="lname">Gaku Khola</div>
-                                                    <div>
-                                                        <i class="la la-crosshairs"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="detItemlink flex justify-content-between align-items-center">
-                                                    <div class="lname">Gaku Khola</div>
-                                                    <div>
-                                                        <i class="la la-crosshairs"></i>
-                                                    </div>
-                                                </div>
-
-
-                                            </div>
-                                        </div>
-
-
                                     </div>
                                 </div>
-                                <div class="" id="bar"></div>
+                                <!-- <div class="detItem">
+                                    <div class="detItemHeader flex justify-content-between align-items-center">
+                                        <div class="tcountHlder">
+                                            <div class="toptext">Schools</div>
+                                            <div class="counttext">150</div>
+                                        </div>
+                                        <div class="closeitem">
+                                            <i class="la la-times"></i>
+                                        </div>
+                                    </div>
+                                    <div class="detItemContent">
+                                        <p class="dettext">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                            Illum ea beatae error, minima
+                                            magni eum ipsum provident ab molestias</p>
+                                        <div class="detItemLinkWrp">
+                                            <div class="detItemlink flex justify-content-between align-items-center">
+                                                <div class="lname">St. Mary's School</div>
+                                                <div>
+                                                    <i class="la la-crosshairs"></i>
+                                                </div>
+                                            </div>
+                                            <div class="detItemlink flex justify-content-between align-items-center">
+                                                <div class="lname">St. Xavier's College</div>
+                                                <div>
+                                                    <i class="la la-crosshairs"></i>
+                                                </div>
+                                            </div>
+                                            <div class="detItemlink flex justify-content-between align-items-center">
+                                                <div class="lname">Olympia World College</div>
+                                                <div>
+                                                    <i class="la la-crosshairs"></i>
+                                                </div>
+                                            </div>
+                                            <div class="detItemlink flex justify-content-between align-items-center">
+                                                <div class="lname">Campion College</div>
+                                                <div>
+                                                    <i class="la la-crosshairs"></i>
+                                                </div>
+                                            </div>
+                                            <div class="detItemlink flex justify-content-between align-items-center">
+                                                <div class="lname">Classic College International</div>
+                                                <div>
+                                                    <i class="la la-crosshairs"></i>
+                                                </div>
+                                            </div>
+                                            <div class="detItemlink flex justify-content-between align-items-center">
+                                                <div class="lname">Everest School</div>
+                                                <div>
+                                                    <i class="la la-crosshairs"></i>
+                                                </div>
+                                            </div>
+                                            <div class="detItemlink flex justify-content-between align-items-center">
+                                                <div class="lname">Adarsha Lower Secondary School</div>
+                                                <div>
+                                                    <i class="la la-crosshairs"></i>
+                                                </div>
+                                            </div>
 
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="detItem">
+                                    <div class="detItemHeader flex justify-content-between align-items-center">
+                                        <div class="tcountHlder">
+                                            <div class="toptext">River</div>
+                                            <div class="counttext">5000</div>
+                                        </div>
+                                        <div class="closeitem">
+                                            <i class="la la-times"></i>
+                                        </div>
+                                    </div>
+                                    <div class="detItemContent">
+                                        <p class="dettext">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                            Illum ea beatae error, minima
+                                            magni eum ipsum provident ab molestias</p>
+                                        <div class="detItemLinkWrp">
+                                            <div class="detItemlink flex justify-content-between align-items-center">
+                                                <div class="lname">Gaku Khola</div>
+                                                <div>
+                                                    <i class="la la-crosshairs"></i>
+                                                </div>
+                                            </div>
+                                            <div class="detItemlink flex justify-content-between align-items-center">
+                                                <div class="lname">Gaku Khola</div>
+                                                <div>
+                                                    <i class="la la-crosshairs"></i>
+                                                </div>
+                                            </div>
+                                            <div class="detItemlink flex justify-content-between align-items-center">
+                                                <div class="lname">Gaku Khola</div>
+                                                <div>
+                                                    <i class="la la-crosshairs"></i>
+                                                </div>
+                                            </div>
+                                            <div class="detItemlink flex justify-content-between align-items-center">
+                                                <div class="lname">Gaku Khola</div>
+                                                <div>
+                                                    <i class="la la-crosshairs"></i>
+                                                </div>
+                                            </div>
+                                            <div class="detItemlink flex justify-content-between align-items-center">
+                                                <div class="lname">Gaku Khola</div>
+                                                <div>
+                                                    <i class="la la-crosshairs"></i>
+                                                </div>
+                                            </div>
+                                            <div class="detItemlink flex justify-content-between align-items-center">
+                                                <div class="lname">Gaku Khola</div>
+                                                <div>
+                                                    <i class="la la-crosshairs"></i>
+                                                </div>
+                                            </div>
+                                            <div class="detItemlink flex justify-content-between align-items-center">
+                                                <div class="lname">Gaku Khola</div>
+                                                <div>
+                                                    <i class="la la-crosshairs"></i>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="detItem">
+                                    <div class="detItemHeader flex justify-content-between align-items-center">
+                                        <div class="tcountHlder">
+                                            <div class="toptext">River</div>
+                                            <div class="counttext">5000</div>
+                                        </div>
+                                        <div class="closeitem">
+                                            <i class="la la-times"></i>
+                                        </div>
+                                    </div>
+                                    <div class="detItemContent">
+                                        <p class="dettext">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                            Illum ea beatae error, minima
+                                            magni eum ipsum provident ab molestias</p>
+                                        <div class="detItemLinkWrp">
+                                            <div class="detItemlink flex justify-content-between align-items-center">
+                                                <div class="lname">Gaku Khola</div>
+                                                <div>
+                                                    <i class="la la-crosshairs"></i>
+                                                </div>
+                                            </div>
+                                            <div class="detItemlink flex justify-content-between align-items-center">
+                                                <div class="lname">Gaku Khola</div>
+                                                <div>
+                                                    <i class="la la-crosshairs"></i>
+                                                </div>
+                                            </div>
+                                            <div class="detItemlink flex justify-content-between align-items-center">
+                                                <div class="lname">Gaku Khola</div>
+                                                <div>
+                                                    <i class="la la-crosshairs"></i>
+                                                </div>
+                                            </div>
+                                            <div class="detItemlink flex justify-content-between align-items-center">
+                                                <div class="lname">Gaku Khola</div>
+                                                <div>
+                                                    <i class="la la-crosshairs"></i>
+                                                </div>
+                                            </div>
+                                            <div class="detItemlink flex justify-content-between align-items-center">
+                                                <div class="lname">Gaku Khola</div>
+                                                <div>
+                                                    <i class="la la-crosshairs"></i>
+                                                </div>
+                                            </div>
+                                            <div class="detItemlink flex justify-content-between align-items-center">
+                                                <div class="lname">Gaku Khola</div>
+                                                <div>
+                                                    <i class="la la-crosshairs"></i>
+                                                </div>
+                                            </div>
+                                            <div class="detItemlink flex justify-content-between align-items-center">
+                                                <div class="lname">Gaku Khola</div>
+                                                <div>
+                                                    <i class="la la-crosshairs"></i>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div> -->
+                                </div>
+                                <div class="" id="bar">
+                                      <div class="rightSectionHeader">
+                            Active Layers
+                        </div>
+                                </div>  
+                                  <div  id="popup">
+                                   
+                                        <h1>Popup Data</h1> 
+
+                                   
+
+                                   
+
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <iframe width="100%" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56516.31625950213!2d85.29111331363042!3d27.708955944427107!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb198a307baabf%3A0xb5137c1bf18db1ea!2sKathmandu+44600!5e0!3m2!1sen!2snp!4v1545981553404"
-                        frameborder="0" style="border:0" allowfullscreen></iframe>
+                    
+                    <div id = "myMap"></div>
                 </div>
+
             </div>
+
+
+
+
         </div>
-        <div id="map" class="tab-pane   fade in show   ">
+        <div id="map" class="tab-pane   fade in show">
         </div>
-        <div id="table" class="tab-pane   fade in show   ">
+        <div id="table" class="tab-pane   fade in show">
+        </div>
+        <div id="table" class="tab-pane   fade in show">
         </div>
     </div>
-    </div> 
-   
+    </div>
+   <!--  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script> -->
+    <!-- <script src="js/bootstrap.min.js"></script> -->
+   <!--  <script src="js/sc.js"></script>
+    <script src="js/scriptall.js"></script> -->
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+     <script src="<?php echo base_url();?>assets/frontend/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url();?>assets/frontend/js/scriptall.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <!-- <script src="js/allchart.js"></script> -->
+    <script src="<?php echo base_url();?>assets/frontend/js/jquery.nicescroll.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".mapAccordion,.detItemLinkWrp,.rightinner").niceScroll({
+                cursorcolor: "#502e8e"
+            });
+            $(".mapAccordion,.detItemLinkWrp,.rightinner").mouseover(function () {
+                $(".mapAccordion,.detItemLinkWrp,.rightinner").getNiceScroll().resize();
+            });
+            iframeHeight();
+            $("body ").addClass("hidden");
+
+            function iframeHeight() {
+
+
+
+                var deviceFullHeight = $(window).height();
+                var canvasHeight = deviceFullHeight - $("#mapHolder").offset().top;
+                var leftHeight = canvasHeight - 5;
+                var scrollHeight = deviceFullHeight - $(".tabinner").offset().top - 10;
+                var rightHeight = deviceFullHeight - $(".rightSectionBody").offset().top - 10;
+                $("#myMap").css("height", canvasHeight);
+
+                $(".tabinner ").css("height", scrollHeight);
+
+                $(".leftSection").css("height", leftHeight);
+                $(".rightSection").css("height", leftHeight);
+                $(".rightSectionBody").css("height", rightHeight);
+
+
+            }
+
+            $(window).resize(function () {
+                iframeHeight();
+            });
+            $(".rightinner").find(".nicescroll-rails").css("display", "none");
+
+            $(".itemsCat .label-default").click(function () {
+
+
+                $(".rightSection").addClass("show");
+
+                $(this).closest(".itemsCat").toggleClass("showList");
+
+
+            })
+            $(".rightToggle").click(function () {
+                if($(".rightSection").hasClass("show")){
+                    $(".rightSection").removeClass("show");
+                     $("#info_btn").css({"background-color": "white", "color": "#673bb7"});
+                }
+                else{
+                    $(".rightSection").addClass("show");
+                    $("#info_btn").css({"background-color": "#673bb7", "color": "white"});
+                }
+                
+            })
+
+
+
+            $(".closeitem").click(function () {
+
+
+                var all = $(this).closest(".detItem").fadeOut("slow");
+
+
+            });
+
+            $("#info_btn").click(function () {
+                $(".rightinner > div").addClass("show");
+                 $("#popup").hide();
+                  $("#bar").hide();
+
+            });
+
+             $("#popup_btn").click(function () {
+                //console.log("hdshadjs");
+                $("#popup").show();
+                 $(".rightinner > div").removeClass("show");
+                  $("#bar").hide();
+
+
+            });
+
+              $("#chart_btn").click(function () {
+                console.log("hdshadjs");
+                $("#bar").show();
+                 $("#popup").hide();
+                 $(".rightinner > div").removeClass("show");
+
+
+            });
+
+
+
+
+            $(".leftToggle").click(function () {
+                $(".leftToggle i").toggleClass("show");
+                $(".leftSection").toggleClass("hide");
+
+            });
+
+
+            $(".ellipse").click(function () {
+
+                $(this).siblings(".inlist").toggleClass("visible");
+            })
+
+
+
+        });
+    </script>
+    <script>
+        $(document).ready(function (e) {
+            $(".mobile-button").click(function (event) {
+                $("#content").addClass("mobile-open");
+                event.stopPropagation();
+            });
+
+            $(document).click(function (event) {
+                $(".ellipse").click(function (event) {
+                    $(this).siblings(".inlist").addClass("visible");
+                    event.stopPropagation();
+                });
+
+                $(document).click(function (event) {
+                    if (!$(event.target).hasClass('visible')) {
+                        $(".inlist").removeClass("visible");
+                    }
+                });
+            });
+        });
+    </script>
+<script>
+    var default_cat_layer_string = '<?php echo addslashes($default_cat_map_layer); ?>';//default categories geojson
+    var default_cat_layer = JSON.parse(default_cat_layer_string);
+    var category_tbl_default_string = '<?php echo $category_tbl_default; ?>';// list of categories table of default
+    var popup_content_default_string = '<?php echo $popup_content_default; ?>';//popup content default
+    var popup_content_default = JSON.parse(popup_content_default_string);
+    var marker_type_default_string = '<?php echo $marker_type_default; ?>';// list of categories table of default
+    var marker_type_default = JSON.parse(marker_type_default_string);
+    var category_tbl_default = JSON.parse(category_tbl_default_string);
+    var cat_names_string = '<?php echo $category_names_default; ?>';//list of categories name default
+    var cat_names = JSON.parse(cat_names_string);
+    var map_lat='<?php echo $map_zoom_center["map_lat"]; ?>';//maintain map  center
+    var map_long='<?php echo $map_zoom_center["map_long"]; ?>';//maintain map  center
+    var map_zoom='<?php echo $map_zoom_center["map_zoom"]; ?>';//maintain map zoom level
+    var style_default_string = '<?php echo $style_default; ?>';
+    var style_default = JSON.parse(style_default_string);
+
+    //console.log(marker_type_default);
+</script>
+    <script type="text/javascript">
+        $(function () {
+            $('#bar').highcharts({
+                chart: {
+                    type: 'bar'
+                },
+                title: {
+                    text: 'Incidents Graph'
+                },
+                subtitle: {
+                    // text: 'Source: P.A. Dept. of Education'
+                },
+                xAxis: {
+                    categories: [' ward 1',
+                        'ward 2',
+                        'ward 3',
+                        'ward 4',
+                        'ward 5',
+                        'ward 6',
+                        'ward 7',
+                        'ward 8',
+                        'ward 9',
+                        'ward 10',
+                        'ward 11',
+                        'ward 12',
+                        'ward 13',
+                        'ward 14',
+                        'ward 15',
+                        'ward 16',
+                        'ward 17',
+                        'ward 18',
+                        'ward 19',
+                        'ward 20',
+                        'ward 21',
+                        'ward 22',
+                        'ward 23',
+                        'ward 24',
+                        'ward 25',
+                        'ward 26',
+                        'ward 27',
+                        'ward 28',
+                        'ward 29',
+                        'ward 30',
+                        'ward 31',
+                        'ward 32'
+                    ],
+                    title: {
+                        text: null
+                    }
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: 'incidents counts',
+                        align: 'high'
+                    },
+                    labels: {
+                        overflow: 'justify'
+                    }
+                },
+                tooltip: {
+                    valueSuffix: ''
+                },
+                plotOptions: {
+                    bar: {
+                        dataLabels: {
+                            enabled: true
+                        }
+                    }
+                },
+                credits: {
+                    enabled: false
+                },
+                series: [{
+                    data: [89.2,
+                        88.4,
+                        87.7,
+                        86.6,
+                        86.1,
+                        83.9,
+                        83.8,
+                        81.8,
+                        81.5,
+                        79.5,
+                        79.5,
+                        77,
+                        76.7,
+                        74.8,
+                        74.7,
+                        74.6,
+                        74.1,
+                        74.1,
+                        73.9,
+                        72.5,
+                        72.4,
+                        72.4,
+                        71.9,
+                        71.7,
+                        71.2,
+                        70.2,
+                        69.9,
+                        69.8,
+                        69.8,
+                        69.4,
+                        67.9,
+                        67.6
+                    ],
+                    name: 'Incidents in different wards'
+                }]
+
+            });
+        });
+    </script>
+
+   <!--  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script> -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"/>
+        <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/1.1.0/leaflet.ajax.min.js"></script> -->
+
+                <script src="<?php echo base_url();?>assets/frontend/js/map.js"></script>
+    
+
+</body>
+
+</html>

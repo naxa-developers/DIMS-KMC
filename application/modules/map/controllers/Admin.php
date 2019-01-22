@@ -40,8 +40,8 @@ class Admin extends Admin_Controller {
 		}//admin check
 		// if($lang['Language'] =='nep') {
 		// 	$this->template
-  //                       ->enable_parser(FALSE)
-  //                       ->build('admin/categories_tbl_nep',$this->body);	
+    //                       ->enable_parser(FALSE)
+    //                       ->build('admin/categories_tbl_nep',$this->body);	
 		// }else{
 		$this->template
                         ->enable_parser(FALSE)

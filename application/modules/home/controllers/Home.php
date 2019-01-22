@@ -67,4 +67,8 @@ class Home extends Admin_Controller
 			//->title($this->data['page_title']) //this is for seo purpose 
 			->build('home', $this->data);
 	}
+	public function subscribe_form()
+	{
+		
+	}
 }

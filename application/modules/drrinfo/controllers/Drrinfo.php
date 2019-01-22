@@ -18,8 +18,10 @@ class Drrinfo extends Admin_Controller
 	    }else{
 	      $language='nep'; 
 	    }
+
 	    $this->data['page_title'] ="Disaster Information System";
 	    $this->data['drrdata'] = $this->general->get_tbl_data_result('slug,description,image,name','drrcategory',array('language'=>$language));
+	    //echo $this->db->last_query();die;echo"<pre>"; print_r($this->data['drrdata']);die;
 		$this->template
 			->enable_parser(FALSE)
 			->title($this->data['page_title']) //this is for seo purpose 

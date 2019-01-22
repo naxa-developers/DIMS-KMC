@@ -1727,6 +1727,8 @@ section.buttons {
   transition: all 0.3s linear;
   padding: 0 10px 10px 10px;
   box-shadow: 2px 1px 22px -5px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+
 }
 
 .leftSection.hide {
@@ -1737,8 +1739,17 @@ section.buttons {
   margin-left: 5px;
 }
 
-.leftSection--header,
+
 .rightSectionHeader {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  background: #fff;
+  margin: 0 -10px;
+}
+
+.leftSection--header{
   height: 50px;
   display: flex;
   align-items: center;
@@ -2196,7 +2207,7 @@ control input {
   transition: all 0.3s linear;
   padding: 0 0 10px 10px;
   box-shadow: -2px 1px 22px -5px rgba(0, 0, 0, 0.2);
-
+  z-index: 999;
 
 }
 
@@ -2642,3 +2653,5 @@ button.arrowbtn:focus,
   margin-top: 5px;
 }
 .tcolor{color:#333;}
+
+
