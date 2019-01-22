@@ -12,8 +12,8 @@ class MapApi extends CI_Controller
     if(APP_SECRET_KEY != $api_key)
     {
       //Client do not have right permission to access the server....
-      //forbidden.....      
-      http_response_code(403);
+      //forbidden.....
+    //  http_response_code(403);
       $this->output->set_output(json_encode(array('status' => false, 'message' => 'invalid Api Key')))->_display();
       exit;
     }
