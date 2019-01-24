@@ -23,13 +23,28 @@ class Map extends Admin_Controller
 	      $language='nep'; 
 	    }
         ///$cat_tbl=$this->Map_model->get_layer_all_en('categories_tbl');
-      	$cat_tbl = $this->general->get_tbl_data_result('category_table,popup_content,category_name,style,marker_type','categories_tbl',array('language'=>$language,'default_load'=>'1','public_view'=>'1'));
-      	//echo "<pre>"; print_r($cat_tbl);die;
+      	$cat_tbl = $this->general->get_tbl_data_result('summary,category_table,popup_content,category_name,style,marker_type','categories_tbl',array('language'=>$language,'default_load'=>'1','public_view'=>'1'));
+    
       	$this->data['layerscategory'] = $this->general->get_tbl_data_result('category_table,category_name','categories_tbl',array('language'=>$language,'public_view'=>'1'));
-      	//echo "<pre>"; print_r($this->data['layerscategory']);die;
       	$this->data['cat_tbl_data'] =$this->general->get_tbl_data_result('category_table','categories_tbl',array('language'=>$language,'default_load'=>'1','public_view'=>'1'));
-      	//echo $this->db->last_query();die;
-        //echo "<pre>"; print_r($this->data['cat_tbl_data']);die;
+	      	if(!empty($cat_tbl)):
+	      		$summarydatafreejson =array();
+	      		foreach ($cat_tbl as $key => $value) {
+	      			$summarydata= $this->general->get_tbl_data_result('summary,summary_list,category_table,popup_content,category_name,style,marker_type','categories_tbl',array('language'=>$language,'public_view'=>'1','category_table'=>$value['category_table']));
+		      		//echo $this->db->last_query();die;
+		      		$summarylist = $this->Map_model->get_summary($summarydata[0]['summary_list'],$value['category_table']);
+		      		//echo "<pre>"; print_r(json_encode($summarydata));die;
+		      		//foreach ($summarylist as  $sdm) {
+		      		$summaryname = $summarydata[0]['summary'];	
+		      			//array_push($summarydatafreejson,json_encode($summarylist,JSON_NUMERIC_CHECK));
+
+		      			array_push($summarydatafreejson, trim(trim(json_encode($summarylist,JSON_NUMERIC_CHECK),'['),']"'));
+		      		//}
+	      		}
+	      		$this->data['summarydata_default']=json_encode($summarydatafreejson);
+	      		$this->data['summaryFull_defalt']=json_encode($summaryname);
+	      	//echo "<pre>"; print_r(json_encode($summarydatafreejson));die;
+	        endif;
         $this->data['category_name']=$cat_tbl;
         $popup = array();
         $style = array();
@@ -40,7 +55,7 @@ class Map extends Admin_Controller
 	          	}else{
 	            	$cat_tbles[]=$tbl['category_table'];
 	            	$cat_names[]=$tbl['category_name'];
-	            	//$popup[]=$tbl['popup_content'];
+	            	
 	            	array_push($popup, trim(trim(json_encode($tbl['popup_content'],JSON_NUMERIC_CHECK),'"['),']"'));
 	            	array_push($style, trim(trim(json_encode($tbl['style'],JSON_NUMERIC_CHECK),'"['),']"'));
 	            	array_push($marker_type, trim(trim(json_encode($tbl['marker_type'],JSON_NUMERIC_CHECK),'"['),']"'));
@@ -50,9 +65,7 @@ class Map extends Admin_Controller
         $category_data = array();
         if(!empty($cat_tbles)):
 	        for($i=0; $i<sizeof($cat_tbles); $i++){
-	          	//$get_map=$this->Dash_model->get($cat_tbles[$i]);
 	          	//var_dump($get_map); die;
-
 	          	$data_jsn=$this->Map_model->get_jsn($cat_tbles[$i]);
 				$data_array=json_decode($data_jsn['column_control'],TRUE);
 				$report=$this->Map_model->get_data_geojson($data_array,$cat_tbles[$i]);
@@ -76,19 +89,27 @@ class Map extends Admin_Controller
 	          	);
 	          //var_dump($$category);
 	          array_push($category_data,$$category);
-
 	        }
     	endif;
-        //var_dump($category_data);
-        //var_dump($this->data['field']);
-       		// $this->data['default_load']=json_encode($this->Map_model->default_load(),JSON_NUMERIC_CHECK);
+       	//$this->data['default_load']=json_encode($this->Map_model->default_load(),JSON_NUMERIC_CHECK);
+        //$this->data['sumary']= json_encode($summary, JSON_NUMERIC_CHECK);
+
         $this->data['default_cat_map_layer']= json_encode($category_data, JSON_NUMERIC_CHECK);
+        // $this->data['summarydata']= json_encode($summarydatafreejson, JSON_NUMERIC_CHECK);
+        //var_dump($this->data['summarydata']);die;
+        // $this->data['summarydata']= json_encode($summarylist, JSON_NUMERIC_CHECK);
+        //$this->data['summarycount']= json_encode($summarydata['summary'], JSON_NUMERIC_CHECK);
+        $this->data['summarycount']=count($summarylist);
+       
+
         $this->data['category_tbl_default']= json_encode(!empty($cat_tbles)?$cat_tbles:'', JSON_NUMERIC_CHECK);
         $this->data['category_names_default']= json_encode(!empty($cat_names)?$cat_names:'', JSON_NUMERIC_CHECK);
         $this->data['popup_content_default']= json_encode(!empty($popup)?$popup:'', JSON_NUMERIC_CHECK);
         $this->data['style_default']= json_encode(!empty($style)?$style:'', JSON_NUMERIC_CHECK);
         $this->data['marker_type_default']= json_encode(!empty($marker_type)?$marker_type:'', JSON_NUMERIC_CHECK);
-        //var_dump($this->data['style']);
+
+
+        //var_dump($this->data['summarydata']);
 
         $this->data['data']=$this->Dash_model->get_tables_data('categories_tbl');
         //views add
@@ -166,6 +187,7 @@ class Map extends Admin_Controller
 				);
 				//retrive summary list to plot in map
 				$summarylist = $this->Map_model->get_summary($resultdata[0]['summary_list'],$layer_name);
+				//echo "<pre>"; print_r($summarylist);die;
 		        $response['geojson']=json_encode($dataset_array);
 		       	$response['style']=$resultdata[0]['style'];
 		        $response['marker_type']=$resultdata[0]['marker_type'];
