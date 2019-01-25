@@ -1379,7 +1379,7 @@
                             <button class="btn righticons active" id="info_btn">
                                 <i class="la la-info"></i>
                             </button>
-                           
+
                              <button class="btn" id="popup_btn">
                                 <i class="la la-comment"></i>
                             </button>
@@ -1388,7 +1388,7 @@
                                 <i class="la la-bar-chart"></i>
                             </button>
                         </div>
-                        
+
                         <div class="rightSectionBody ">
                             <div class="rightinner">
                                 <div class="show">
@@ -1422,36 +1422,7 @@
                                                     <i class="la la-crosshairs"></i>
                                                 </div>
                                             </div>
-                                            <div class="detItemlink flex justify-content-between align-items-center">
-                                                <div class="lname">Ward 3</div>
-                                                <div>
-                                                    <i class="la la-crosshairs"></i>
-                                                </div>
-                                            </div>
-                                            <div class="detItemlink flex justify-content-between align-items-center">
-                                                <div class="lname">Ward 4</div>
-                                                <div>
-                                                    <i class="la la-crosshairs"></i>
-                                                </div>
-                                            </div>
-                                            <div class="detItemlink flex justify-content-between align-items-center">
-                                                <div class="lname">Ward 5</div>
-                                                <div>
-                                                    <i class="la la-crosshairs"></i>
-                                                </div>
-                                            </div>
-                                            <div class="detItemlink flex justify-content-between align-items-center">
-                                                <div class="lname">Ward 6</div>
-                                                <div>
-                                                    <i class="la la-crosshairs"></i>
-                                                </div>
-                                            </div>
-                                            <div class="detItemlink flex justify-content-between align-items-center">
-                                                <div class="lname">Ward 7</div>
-                                                <div>
-                                                    <i class="la la-crosshairs"></i>
-                                                </div>
-                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -1646,20 +1617,20 @@
                                       <div class="rightSectionHeader">
                             Active Layers
                         </div>
-                                </div>  
+                                </div>
                                   <div  id="popup">
-                                   
-                                        <h1>Popup Data</h1> 
 
-                                   
+                                        <h1>Popup Data</h1>
 
-                                   
+
+
+
 
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div id = "myMap"></div>
                 </div>
 
@@ -1744,7 +1715,7 @@
                     $(".rightSection").addClass("show");
                     $("#info_btn").css({"background-color": "#673bb7", "color": "white"});
                 }
-                
+
             })
 
 
@@ -1962,7 +1933,7 @@
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/1.1.0/leaflet.ajax.min.js"></script> -->
 
                 <script src="<?php echo base_url();?>assets/frontend/js/map.js"></script>
-    
+
 
 </body>
 
