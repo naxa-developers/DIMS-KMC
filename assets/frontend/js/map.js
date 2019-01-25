@@ -34,6 +34,7 @@ $(document).ready(function(){
 			"None": none
 		};
 		osm.addTo(map);
+
         // view_layername only categories name
         function loadDataToMap(geojson_layer,layer_name,load,marker_type,style,popup_content,view_layername){
             window[layer_name+ "_toggle"] = new L.geoJson(geojson_layer, {
@@ -60,55 +61,39 @@ $(document).ready(function(){
                     }
                     return marker;
                 },
-               
-            onEachFeature: function (feature, layer) {
-
-                 if(marker_type !='icon'){
-            layer.setStyle(style);
-          }
-
-
-                     var popUpContent = ' <div class="rightSectionHeader">'+view_layername+'</div><br>';
+               //on each to load layer and feature no it
+                onEachFeature: function (feature, layer) {
+                    if(marker_type !='icon'){
+                        layer.setStyle(style);
+                    }
+                    var popUpContent = ' <div class="rightSectionHeader">'+view_layername+'</div><br>';
                     popUpContent += '<table id="District-popup" class="table table-striped table-hover">';
                     for(data in popup_content.a){
                         colum_name = popup_content.a[data].col; //parsing data into column
                         name = popup_content.a[data].name;
-                       
                         popUpContent += "<tr>" + "<th>"+name+"</th>" + "<td>" +  feature.properties[name]  + "</td></tr>";
-                     
-                      if(name == 'name' || name=='Name'){
-
-            layer.bindPopup(feature.properties[name]);
-
-          }
-
-                }
-                popUpContent += '</table>';
-
-                layer.on("click",function() {
-                     $("#popup").html("");
-                    
-                    //console.log(popUpContent);
-                    //right popup section load
-                     $(".rightSection").addClass("show");
-                     $("#popup").show();
-                    $(".rightinner > div").removeClass("show");
-                     $("#bar").hide();
-                     //right popup section load
-                   
-                    $("#popup").html(popUpContent); //loading popup
-                });
-                layer.on("mouseover", function (e) {
-                         //e.target.setStyle({weight:3}); 
-                        
-                }).on("mouseout", function(e){
+                        if(name == 'name' || name=='Name'){
+                            layer.bindPopup(feature.properties[name]);
+                        }
+                    }
+                    popUpContent += '</table>';
+                    layer.on("click",function() {
+                        $("#popup").html("");
+                        //right popup section load
+                        $(".rightSection").addClass("show");
+                        $("#popup").show();
+                        $(".rightinner > div").removeClass("show");
+                        $("#bar").hide();
+                        //right popup section load
+                        $("#popup").html(popUpContent); //loading popup
+                    });
+                    layer.on("mouseover", function (e) {
+                         //e.target.setStyle({weight:3});
+                    }).on("mouseout", function(e){
                          //e.target.setStyle({weight:2});
-                        
-                });
-
+                    });
                 }
             });
-
             if(load) {
                 window[layer_name+ "_toggle"].addTo(map);
             }
@@ -116,13 +101,18 @@ $(document).ready(function(){
 
         //default load 
         for (var i = 0; i < default_cat_layer.length; i++) {
-            //  console.log(default_cat_layer[i]);
             $('#'+category_tbl_default[i]+"_switch").prop('checked', true);
             //console.log(popup_content_default[i]);
             var style_defaultnew = JSON.parse(style_default[i]);
             var popup_content_default_parse = JSON.parse(popup_content_default[i]);
-    		  loadDataToMap(default_cat_layer[i],category_tbl_default[i],true,marker_type_default[i],style_defaultnew
+            var smmayfielddefalt = JSON.parse("["+summary_data_default[i]+"]"); //for json validator 
+            var summarycount = smmayfielddefalt.length;
+           // var summaryData = summaryFull_defaltString[i].replace(/['"]+/g, '');
+
+            //console.log(summaryData);
+    		loadDataToMap(default_cat_layer[i],category_tbl_default[i],true,marker_type_default[i],style_defaultnew
               ,popup_content_default_parse,cat_names[i]); //call for data load this is for firsst time default data load
+            loadSummaryData(summarycount,summaryFull_defaltString[i],smmayfielddefalt,cat_names[i]);
 
         }//for close
 
@@ -157,35 +147,44 @@ $(document).ready(function(){
                         //console.log(popup_content);
                        loadDataToMap(geojson,value,true,marker_type,style,popup_content,view_layername);
                        //$("#info_")
-                       loadSummaryData(summarycount,summarydata,summary_list);
+                       loadSummaryData(summarycount,summarydata,summary_list,view_layername);
                     }
                 });
             }
         });
-
-        function loadSummaryData(summarycount,summarydata,summary_list) {
-            // console.log(summarycount);
-            // console.log(summarydata);
-            // console.log(summary_list);
-            var summaryContent = '<div class="detItem">';
-                summaryContent+='<div class="detItemHeader flex justify-content-between align-items-center">';
-                    summaryContent+= '<div class="tcountHlder">';
-                            summaryContent+= '<div class="toptext">Ward</div>';
-                            summaryContent+= '<div class="counttext">32</div></div>';
-                        summaryContent+= '<div class="closeitem">';
-                            summaryContent+= '<i class="la la-times"></i></div></div>';
-                    summaryContent+= '<div class="detItemContent">';
-                        summaryContent+='<p class="dettext">Lorem adipisicing elit.magni eum ipsum provident ab molestias</p>';
-                        summaryContent+= '<div class="detItemLinkWrp">';
-                            summaryContent+= '<div class="detItemlink flex justify-content-between align-items-center">';
-                                summaryContent+= '<div class="lname">Ward 1</div>';
-                            summaryContent+= '<div>';
-                        summaryContent+= '<div><i class="la la-crosshairs"></i>/div>';
-                summaryContent+='</div></div></div></div>';
-
+        //retrive summary data 
+        function loadSummaryData(summarycount,summarydata,summary_list,view_layername) {
+               console.log(summary_list);
+                var summaryContent='<div class="detItem">';
+                    summaryContent+='<div class="detItemHeader flex justify-content-between align-items-center">';
+                        summaryContent+='<div class="tcountHlder">';
+                            summaryContent+='<div class="toptext">'+view_layername+'</div>';
+                            summaryContent+='<div class="counttext">'+summarycount+'</div>';
+                        summaryContent+='</div>';
+                        summaryContent+='<div class="closeitem" ><i class="la la-times"></i></div></div>';
+                    summaryContent+='<div class="detItemContent">';
+                        summaryContent+='<p class="dettext">'+summarydata+'</p>';
+                        summaryContent+='<div class="detItemLinkWrp">';
+                            for (var i =0; i < summary_list.length; i++) {
+                                var coordintes = JSON.parse(summary_list[i].st_asgeojson);
+                            summaryContent+='<div class="detItemlink flex justify-content-between align-items-center retriveSumaryMap">';
+                                summaryContent+='<div class="lname">'+summary_list[i].field+'</div>';
+                                summaryContent+='<div><i  id="'+coordintes.coordinates[0]+'" name="'+coordintes.coordinates[1]+'"  class="summaryCoordinate la la-crosshairs"></i></div>';
+                            summaryContent+='</div>';
+                            }
+                        summaryContent+='</div>';
+                    summaryContent+='</div>';
+                summaryContent+='</div>';
+            $('#summryData').append(summaryContent);
         }
 
-    $( ".checkBox" ).on('click', function( event ) {
+        $(".summryData" ).on('click', '.summaryCoordinate', function() {
+            var longi = $(this).attr('id');
+            var lat = $(this).attr('name');
+            map.setView([lat,longi], 18);
+        });
+
+        $( ".checkBox" ).on('click', function( event ) {
         var id = $(this)[0].id;
         //layerClicked = window[event.target.value];
         layerClicked = window[$(this)[0].value];
