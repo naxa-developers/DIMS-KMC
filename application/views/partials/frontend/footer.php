@@ -1,58 +1,14 @@
 <div id="golobalMoadl" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="form-check">
-                <div class="row"> 
-                    <div class="col-md-12">
-                        <form>
-                          <div class="col-sm-12">
-                            <div class="row">
-                                <div class="col-8 col-sm-6">
-                                    <div class="form-group">
-                                        <label for="formGroupExampleInput">Map Data</label>
-                                        <div class="form-check">
-                                            <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="formGroupExampleInput">Dataset Publication</label>
-                                        <div class="form-check">
-                                            <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="formGroupExampleInput">Dataset Publication</label>
-                                        <div class="form-check">
-                                            <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-4 col-sm-6">
-                                    <div class="form-group">
-                                        <label for="formGroupExampleInput">Map Data</label>
-                                        <div class="form-check">
-                                            <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="formGroupExampleInput">Dataset Publication</label>
-                                        <div class="form-check">
-                                            <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="formGroupExampleInput">Subscribe All</label>
-                                        <div class="form-check">
-                                            <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                          </div>
-                        </div>
-                        </form>
-                    </div>
-                </div>
+            <div class="modal-header">
+                <h5 class="modal-title" id="globalTitleModal"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="form-check" id="globalModalId">
+                
             </div>
         </div>
     </div>
@@ -87,7 +43,7 @@
                     <div class="suscribeholder">
                         <form  id="subscribeForm" class="search-hotels__form" method="POST" action="<?php //echo base_url();?>">
                             <input class="suscribe" type="email" name="email" placeholder="<?php echo !empty(EMAIL)?EMAIL:''?>">
-                            <button id="subscribeButton" class="suscribeBtn"> <?php echo !empty(SUBSCRIBE_BTN)?SUBSCRIBE_BTN:'' ?></button>
+                            <button id="subscribeButton" class="suscribeBtn" data-title="Subscribe Form"> <?php echo !empty(SUBSCRIBE_BTN)?SUBSCRIBE_BTN:'' ?></button>
                         </form>
                     </div>
                 </div>
@@ -228,6 +184,7 @@
         }); 
         $(document).off('click','#subscribeButton');
         $(document).on('click','#subscribeButton',function(){ 
+            var title= $(this).data('title'); 
             $("#subscribeForm").validate({
                 errorElement: 'p',
                 errorClass:'text-danger',
@@ -262,6 +219,29 @@
             },
             submitHandler: function(e) {
                 $('#golobalMoadl').modal('show');
+                $('#globalTitleModal').html(title);
+                
+                jQuery.ajax({
+                        type: "json",
+                        method:"POST",
+                        url: '<?php echo base_url() ?>home/subscribe_form',
+                        datatype: 'html',
+                        data: $('form#subscribeForm').serialize(),
+                        beforeSend: function(){
+                        },
+                    success: function(jsons) {
+                        data = jQuery.parseJSON(jsons);
+                        if (data.statuses == 'success') {
+                            $( "#globalModalId" ).html(data.template);
+
+                        } else {
+                            $( "#globalModalId" ).html(data.message);
+                        }
+                        setTimeout(function(){
+                        $("#submitstatus").html('');
+                        },4000);
+                    }
+                });
             }
         })
     });

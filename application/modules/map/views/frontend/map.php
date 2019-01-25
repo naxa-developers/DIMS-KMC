@@ -1481,7 +1481,7 @@
 
 
             $(".closeitem").click(function () {
-                alert(all);
+               // alert(all);
                 var all = $(this).closest(".detItem").fadeOut("slow");
 
             });
@@ -1572,9 +1572,10 @@
     var summarydata_string = '<?php echo addslashes($summarydata_default); ?>';
    var summary_data_default =  JSON.parse(summarydata_string);
     // var summary = '<?php //echo $sumary; ?>';
-    var summaryFull_defaltString = '<?php echo $summaryFull_defalt; ?>';
-    //console.log(summaryFull_defaltString);
-   //console.log(summarydata_string);
+    var summaryFull_defaltString = '<?php echo addslashes($category_summary_default); ?>';
+    var summaryFull_defalt =  JSON.parse(summaryFull_defaltString);
+    // console.log(cat_names_string);
+    // console.log(summaryFull_defalt);
   // console.log(popup_content_default_string);
 </script>
     <script type="text/javascript">

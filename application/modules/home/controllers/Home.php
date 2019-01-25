@@ -6,6 +6,7 @@ class Home extends Admin_Controller
         $this->load->model('Main_model');
         $this->load->model('Upload_model');
         $this->load->model('Report_model');
+        $this->load->model('home_mdl');
 	}
 	public function index() //default_page 
     {
@@ -69,6 +70,37 @@ class Home extends Admin_Controller
 	}
 	public function subscribe_form()
 	{
+		//print_r($this->input->post('email'));die;
+		if($this->input->server('REQUEST_METHOD')=='POST')
+		{
+			$data['email']=$this->input->post('email');
+		 	$template =$this->template
+			->enable_parser(FALSE)
+			->build('subscribe_form',$data); 
+				print_r(json_encode(array('statuses'=>'success','template'=>$template)));
+	        	exit;
+		}else{
+			print_r(json_encode(array('status'=>'error','message'=>'Cannot Perform this Operation')));
+			exit;
+		}
 		
+	}
+	public function save_subscribe_form()
+	{
+		if($this->input->server('REQUEST_METHOD')=='POST')
+		{
+			$success  = $this->home_mdl->saveSubscribe();
+			if($success)
+			{
+        		print_r(json_encode(array('statuses'=>'success','message'=>'Thanks For Subscribe Our ')));
+        		exit;
+       		}else{
+        		print_r(json_encode(array('statuses'=>'error','message'=>'Operation Unsuccessfully!!')));
+        		exit;
+        	}
+		}else{
+			print_r(json_encode(array('status'=>'error','message'=>'Cannot Perform this Operation')));
+			exit;
+		}
 	}
 }
