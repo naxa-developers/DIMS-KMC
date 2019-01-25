@@ -1,5 +1,4 @@
 $(document).ready(function(){
-   
     map = L.map("myMap", {
 				center: [map_lat,map_long],
 				zoom: map_zoom,
@@ -100,7 +99,7 @@ $(document).ready(function(){
             }
         }
 
-        //default load 
+        //default load  data retrive
         for (var i = 0; i < default_cat_layer.length; i++) {
             $('#'+category_tbl_default[i]+"_switch").prop('checked', true);
             //console.log(popup_content_default[i]);
@@ -118,21 +117,20 @@ $(document).ready(function(){
         //load layer on click request
         $(".checkBox").one('click', function( event ) {
             var id= $(this)[0].id; 
-
             if($("#"+id).prop("checked")) {
                 var value = $(this)[0].value.replace("_toggle","");
-                    //console.log($("#"+value+"_summaryCardwitch"));
                     $.ajax({
                     type: "POST",
                     data: {layername:value},
                     url:  "map/get_layers_onrequest",
                     beforeSend: function() {
-                        //console.log(id);alert(id);
+                        $('#spinnerModal').modal('show');
                     },
                     complete: function() {
 
                     },
                     success: function (result) {
+                        $('#spinnerModal').modal('hide');
                         var finaldata = JSON.parse(result);
                         //console.log(result);
                         var style = JSON.parse(finaldata.style);
@@ -225,13 +223,13 @@ $(document).ready(function(){
         map.setView([27.711745,85.300369],13);
     });
 
-$("#zoomin").on('click',function(){
-    map.setZoom(map.getZoom() + 1);
-});
+    $("#zoomin").on('click',function(){
+        map.setZoom(map.getZoom() + 1);
+    });
 
 
-$("#zoomout").on('click',function(){
-    map.setZoom(map.getZoom() - 1);
-});
+    $("#zoomout").on('click',function(){
+        map.setZoom(map.getZoom() - 1);
+    });
                     
 });   

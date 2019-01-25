@@ -22,10 +22,9 @@ class Map extends Admin_Controller
 	    }else{
 	      $language='nep'; 
 	    }
-        ///$cat_tbl=$this->Map_model->get_layer_all_en('categories_tbl');
       	$cat_tbl = $this->general->get_tbl_data_result('summary,category_table,popup_content,category_name,style,marker_type','categories_tbl',array('language'=>$language,'default_load'=>'1','public_view'=>'1'));
-   	// echo "<pre>"; print_r($cat_tbl);
       	$this->data['layerscategory'] = $this->general->get_tbl_data_result('category_table,category_name','categories_tbl',array('language'=>$language,'public_view'=>'1'));
+      	//echo "<pre>"; print_r($this->data['layerscategory']);
       	$this->data['cat_tbl_data'] =$this->general->get_tbl_data_result('category_table','categories_tbl',array('language'=>$language,'default_load'=>'1','public_view'=>'1'));
 	      	if($cat_tbl){
 	      		$summarydatafreejson =array();
@@ -140,8 +139,6 @@ class Map extends Admin_Controller
       		$this->data['data_ex']=$this->Map_model->get_layer_nep('categories_tbl','Exposure_Data');
       		$this->data['data_base']=$this->Map_model->get_layer_nep('categories_tbl','Baseline_Data');
         }
-        //var_dump($this->data['data']);
-        //$tokens = explode('/', $_SERVER['REQUEST_URI']);
         //$urly=$tokens[sizeof($tokens)-1];
         $urly='category?tbl=0&&name=0 ';
         $this->data['urll']=$urly;

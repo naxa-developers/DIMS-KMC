@@ -91,15 +91,14 @@
 
 
                                                     </div> -->
-                                                    <?php //echo "<pre>"; print_r($layerscategory);die;
+                                                    <?php //echo "<pre>"; print_r($style);die;
                                                      if($layerscategory){
                                                         foreach ($layerscategory as $key => $layer) {?>
                                                         <div class="itemsCat">
                                                             <div class="labelslf">
                                                                 <div class="flex align-items-start">
-                                                                    <i class="ls la la-ticket">
+                                                                   <!--  <?php //echo $layer['category_photo']; ?> -->
 
-                                                                    </i>
                                                                     <span><?php echo  $layer['category_name'] ?></span>
 
                                                                 </div>
@@ -154,8 +153,6 @@
                                                                         <div class="control__indicator"></div>
                                                                     </label>
                                                                 </div>
-
-
                                                             </div>
                                                         </div>
                                                     <?php }  } ?>
@@ -163,16 +160,8 @@
                                                 </div>
                                             </div>
                                         </div>
-
-
-
-
                                     </div>
                                 </div>
-
-
-
-
                             </div>
                             <div id="socio-economic" class="tab-pane   fade in show   ">
 
@@ -1408,18 +1397,17 @@
         </div>
     </div>
     </div>
-   <!--  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-        crossorigin="anonymous"></script> -->
-    <!-- <script src="js/bootstrap.min.js"></script> -->
-   <!--  <script src="js/sc.js"></script>
-    <script src="js/scriptall.js"></script> -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="spinnerModal">
+        <div class="modal-dialog modal-dialog-centered text-center" role="document">
+            <span class="fa fa-spinner fa-spin fa-3x w-100"></span>
+        </div>
+    </div>
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-     <script src="<?php echo base_url();?>assets/frontend/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url();?>assets/frontend/js/bootstrap.min.js"></script>
     <script src="<?php echo base_url();?>assets/frontend/js/scriptall.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <!-- <script src="js/allchart.js"></script> -->
     <script src="<?php echo base_url();?>assets/frontend/js/jquery.nicescroll.min.js"></script>
     <script>
         $(document).ready(function () {
@@ -1692,15 +1680,9 @@
         });
     </script>
 
-   <!--  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script> -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"/>
-        <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/1.1.0/leaflet.ajax.min.js"></script> -->
-
-                <script src="<?php echo base_url();?>assets/frontend/js/map.js"></script>
-    
-
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+    <script src="<?php echo base_url();?>assets/frontend/js/map.js"></script>
 </body>
 
 </html>
