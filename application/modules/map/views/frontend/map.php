@@ -5,10 +5,8 @@
  <div id="mapHolder">
         <div class="tab-pane">
             <div id="map" class="tab-pane   fade in show   active">
-
                 <div class="frameHolder" style="width: 100%">
                     <div class="leftSection">
-
                         <div class="controls">
                             <button class="btn leftToggle">
                                 <i class="la la-bars show"></i>
@@ -26,10 +24,7 @@
                             <button class="btn" id="refresh">
                                 <i class="la la-refresh" aria-hidden="true"></i>
                             </button>
-
-
                         </div>
-
                         <div class="leftSection--header">
                             <div class="mapTtitle">Layers</div>
                         </div>
@@ -40,10 +35,7 @@
                             <li>
                                 <a data-toggle="tab" href="#socio-economic">Socio-economic Map</a>
                             </li>
-
                         </ul>
-
-
                         <div class="tab-content lefttabContent">
                             <div id="thematic" class="tab-pane   fade in show   active">
                                 <div class="inputHolderL">
@@ -1357,18 +1349,10 @@
                                                 </div>
                                             </div>
                                         </div>
-
-
-
-
                                     </div>
                                 </div>
-
-
                             </div>
-
                         </div>
-
                     </div>
                     <div class="rightSection">
                         <div class="controls right">
@@ -1391,232 +1375,14 @@
 
                         <div class="rightSectionBody ">
                             <div class="rightinner">
-                                <div class="show">
-                                    <div class="rightSectionHeader">
-                                Active Layers
-                                </div>
-                                <div class="detItem">
-                                    <div class="detItemHeader flex justify-content-between align-items-center">
-                                        <div class="tcountHlder">
-                                            <div class="toptext">Ward</div>
-                                            <div class="counttext">32</div>
-                                        </div>
-                                        <div class="closeitem">
-                                            <i class="la la-times"></i>
-                                        </div>
-                                    </div>
-                                    <div class="detItemContent">
-                                        <p class="dettext">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                            Illum ea beatae error, minima
-                                            magni eum ipsum provident ab molestias</p>
-                                        <div class="detItemLinkWrp">
-                                            <div class="detItemlink flex justify-content-between align-items-center">
-                                                <div class="lname">Ward 1</div>
-                                                <div>
-                                                    <i class="la la-crosshairs"></i>
-                                                </div>
-                                            </div>
-                                            <div class="detItemlink flex justify-content-between align-items-center">
-                                                <div class="lname">Ward 2</div>
-                                                <div>
-                                                    <i class="la la-crosshairs"></i>
-                                                </div>
-                                            </div>
 
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- <div class="detItem">
-                                    <div class="detItemHeader flex justify-content-between align-items-center">
-                                        <div class="tcountHlder">
-                                            <div class="toptext">Schools</div>
-                                            <div class="counttext">150</div>
-                                        </div>
-                                        <div class="closeitem">
-                                            <i class="la la-times"></i>
-                                        </div>
-                                    </div>
-                                    <div class="detItemContent">
-                                        <p class="dettext">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                            Illum ea beatae error, minima
-                                            magni eum ipsum provident ab molestias</p>
-                                        <div class="detItemLinkWrp">
-                                            <div class="detItemlink flex justify-content-between align-items-center">
-                                                <div class="lname">St. Mary's School</div>
-                                                <div>
-                                                    <i class="la la-crosshairs"></i>
-                                                </div>
-                                            </div>
-                                            <div class="detItemlink flex justify-content-between align-items-center">
-                                                <div class="lname">St. Xavier's College</div>
-                                                <div>
-                                                    <i class="la la-crosshairs"></i>
-                                                </div>
-                                            </div>
-                                            <div class="detItemlink flex justify-content-between align-items-center">
-                                                <div class="lname">Olympia World College</div>
-                                                <div>
-                                                    <i class="la la-crosshairs"></i>
-                                                </div>
-                                            </div>
-                                            <div class="detItemlink flex justify-content-between align-items-center">
-                                                <div class="lname">Campion College</div>
-                                                <div>
-                                                    <i class="la la-crosshairs"></i>
-                                                </div>
-                                            </div>
-                                            <div class="detItemlink flex justify-content-between align-items-center">
-                                                <div class="lname">Classic College International</div>
-                                                <div>
-                                                    <i class="la la-crosshairs"></i>
-                                                </div>
-                                            </div>
-                                            <div class="detItemlink flex justify-content-between align-items-center">
-                                                <div class="lname">Everest School</div>
-                                                <div>
-                                                    <i class="la la-crosshairs"></i>
-                                                </div>
-                                            </div>
-                                            <div class="detItemlink flex justify-content-between align-items-center">
-                                                <div class="lname">Adarsha Lower Secondary School</div>
-                                                <div>
-                                                    <i class="la la-crosshairs"></i>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="detItem">
-                                    <div class="detItemHeader flex justify-content-between align-items-center">
-                                        <div class="tcountHlder">
-                                            <div class="toptext">River</div>
-                                            <div class="counttext">5000</div>
-                                        </div>
-                                        <div class="closeitem">
-                                            <i class="la la-times"></i>
-                                        </div>
-                                    </div>
-                                    <div class="detItemContent">
-                                        <p class="dettext">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                            Illum ea beatae error, minima
-                                            magni eum ipsum provident ab molestias</p>
-                                        <div class="detItemLinkWrp">
-                                            <div class="detItemlink flex justify-content-between align-items-center">
-                                                <div class="lname">Gaku Khola</div>
-                                                <div>
-                                                    <i class="la la-crosshairs"></i>
-                                                </div>
-                                            </div>
-                                            <div class="detItemlink flex justify-content-between align-items-center">
-                                                <div class="lname">Gaku Khola</div>
-                                                <div>
-                                                    <i class="la la-crosshairs"></i>
-                                                </div>
-                                            </div>
-                                            <div class="detItemlink flex justify-content-between align-items-center">
-                                                <div class="lname">Gaku Khola</div>
-                                                <div>
-                                                    <i class="la la-crosshairs"></i>
-                                                </div>
-                                            </div>
-                                            <div class="detItemlink flex justify-content-between align-items-center">
-                                                <div class="lname">Gaku Khola</div>
-                                                <div>
-                                                    <i class="la la-crosshairs"></i>
-                                                </div>
-                                            </div>
-                                            <div class="detItemlink flex justify-content-between align-items-center">
-                                                <div class="lname">Gaku Khola</div>
-                                                <div>
-                                                    <i class="la la-crosshairs"></i>
-                                                </div>
-                                            </div>
-                                            <div class="detItemlink flex justify-content-between align-items-center">
-                                                <div class="lname">Gaku Khola</div>
-                                                <div>
-                                                    <i class="la la-crosshairs"></i>
-                                                </div>
-                                            </div>
-                                            <div class="detItemlink flex justify-content-between align-items-center">
-                                                <div class="lname">Gaku Khola</div>
-                                                <div>
-                                                    <i class="la la-crosshairs"></i>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="detItem">
-                                    <div class="detItemHeader flex justify-content-between align-items-center">
-                                        <div class="tcountHlder">
-                                            <div class="toptext">River</div>
-                                            <div class="counttext">5000</div>
-                                        </div>
-                                        <div class="closeitem">
-                                            <i class="la la-times"></i>
-                                        </div>
-                                    </div>
-                                    <div class="detItemContent">
-                                        <p class="dettext">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                            Illum ea beatae error, minima
-                                            magni eum ipsum provident ab molestias</p>
-                                        <div class="detItemLinkWrp">
-                                            <div class="detItemlink flex justify-content-between align-items-center">
-                                                <div class="lname">Gaku Khola</div>
-                                                <div>
-                                                    <i class="la la-crosshairs"></i>
-                                                </div>
-                                            </div>
-                                            <div class="detItemlink flex justify-content-between align-items-center">
-                                                <div class="lname">Gaku Khola</div>
-                                                <div>
-                                                    <i class="la la-crosshairs"></i>
-                                                </div>
-                                            </div>
-                                            <div class="detItemlink flex justify-content-between align-items-center">
-                                                <div class="lname">Gaku Khola</div>
-                                                <div>
-                                                    <i class="la la-crosshairs"></i>
-                                                </div>
-                                            </div>
-                                            <div class="detItemlink flex justify-content-between align-items-center">
-                                                <div class="lname">Gaku Khola</div>
-                                                <div>
-                                                    <i class="la la-crosshairs"></i>
-                                                </div>
-                                            </div>
-                                            <div class="detItemlink flex justify-content-between align-items-center">
-                                                <div class="lname">Gaku Khola</div>
-                                                <div>
-                                                    <i class="la la-crosshairs"></i>
-                                                </div>
-                                            </div>
-                                            <div class="detItemlink flex justify-content-between align-items-center">
-                                                <div class="lname">Gaku Khola</div>
-                                                <div>
-                                                    <i class="la la-crosshairs"></i>
-                                                </div>
-                                            </div>
-                                            <div class="detItemlink flex justify-content-between align-items-center">
-                                                <div class="lname">Gaku Khola</div>
-                                                <div>
-                                                    <i class="la la-crosshairs"></i>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-                                </div> -->
+                                <div class="show summryData" id="summryData">
+                                    <div class="rightSectionHeader">Active Layers</div>
                                 </div>
                                 <div class="" id="bar">
-                                      <div class="rightSectionHeader">
-                            Active Layers
-                        </div>
+                                              <div class="rightSectionHeader">
+                                    Active Layers
+                                </div>
                                 </div>
                                   <div  id="popup">
 
@@ -1630,15 +1396,9 @@
                             </div>
                         </div>
                     </div>
-
                     <div id = "myMap"></div>
                 </div>
-
             </div>
-
-
-
-
         </div>
         <div id="map" class="tab-pane   fade in show">
         </div>
@@ -1721,10 +1481,8 @@
 
 
             $(".closeitem").click(function () {
-
-
+                alert(all);
                 var all = $(this).closest(".detItem").fadeOut("slow");
-
 
             });
 
@@ -1810,7 +1568,14 @@
     var style_default_string = '<?php echo $style_default; ?>';
     var style_default = JSON.parse(style_default_string);
 
-    //console.log(marker_type_default);
+    var summarycount = '<?php echo $summarycount; ?>';
+    var summarydata_string = '<?php echo addslashes($summarydata_default); ?>';
+   var summary_data_default =  JSON.parse(summarydata_string);
+    // var summary = '<?php //echo $sumary; ?>';
+    var summaryFull_defaltString = '<?php echo $summaryFull_defalt; ?>';
+    //console.log(summaryFull_defaltString);
+   //console.log(summarydata_string);
+  // console.log(popup_content_default_string);
 </script>
     <script type="text/javascript">
         $(function () {
