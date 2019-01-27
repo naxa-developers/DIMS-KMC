@@ -1035,23 +1035,21 @@
   }
 
 </style>
-
-
 <script>
 $(document).ready(function(){
-        fixMHeight();
-            window.onresize = function(event) {
-                 fixMHeight();
-             }
+  fixMHeight();
+      window.onresize = function(event) {
+           fixMHeight();
+       }
 
-              function fixMHeight() {
-                  vph = $(window).height();
-                  headerHeight = $("#website-header").height();
-                  vph = vph - headerHeight;
-                  $("#map").height(vph);
-$("#left-panel-toggle").height(vph - 2);
-$("#right-panel-toggle").height(vph - 11);
-              }
+        function fixMHeight() {
+            vph = $(window).height();
+            headerHeight = $("#website-header").height();
+            vph = vph - headerHeight;
+            $("#map").height(vph);
+          $("#left-panel-toggle").height(vph - 2);
+          $("#right-panel-toggle").height(vph - 11);
+        }
      });
 
 </script>
@@ -2495,7 +2493,7 @@ if(popup_content_parsed[i]==0){
 
             layer.bindPopup(feature.properties[pop1]);
 
-          }
+            }
           }
 
 

@@ -44,133 +44,140 @@
                                 </div>
                                 <div class="tabinner">
                                     <div class="accordion mapAccordion" id="sideAccordin">
+                                        <?php $categories = array('Hazard_Data','Baseline_Data','Exposure_Data');
+                                        $lang=$this->session->get_userdata('Language');
+                                            if($lang['Language']=='en') {
+                                              $language='en';
+                                            }else{
+                                              $language='nep'; 
+                                            }
+                                          foreach ($categories as $key => $cat) {
+                                            $layerscategorydata = $this->general->get_tbl_data_result('uplaod_type,style,category_table,category_name','categories_tbl',array('language'=>$language,'public_view'=>'1','category_type'=>$cat));
+                                           ?>
+                                            <div class="card">
+                                                <div class="card-header" id="headingOne">
+                                                    <button class="btn btn-link" type="button" data-toggle="collapse"
+                                                        data-target="#collapseOne<?php echo $cat ?>" aria-expanded="true" aria-controls="collapseOne<?php echo $cat ?>">
+                                                        <?php echo $cat; ?>
+                                                    </button>
+                                                </div>
+                                                <div id="collapseOne<?php echo $cat ?>" class="collapse show" aria-labelledby="headingOne<?php echo $cat ?>"
+                                                    data-parent="#sideAccordin">
+                                                    <div class="card-body">
+                                                    <?php 
+                                                        if($layerscategorydata){ //echo "<pre>"; print_r($layerscategory);die;
+                                                            foreach ($layerscategorydata as $key => $layer) { ?>
+                                                        <?php
+                                                        if($layer['uplaod_type']=='csv'){ //Point and line check
+                                                            if($layer['style']==NULL){ //style null check
+                                                            $mark_div='<div class="dot" style=" height: 12px;width: 12px;background-color:rgba(51, 136, 255, 0.4);border-radius: 50%;display: inline-block;margin-left:5px; border:2px solid rgba(51, 136, 255, 1)"></div>';
+                                                            }else{
+                                                                 $key_arr=json_decode($layer['style'],TRUE);
 
-                                        <div class="card">
-                                            <div class="card-header" id="headingOne">
+                                                                 if(array_key_exists('icon',$key_arr)){ //style circle or marker check
 
-                                                <button class="btn btn-link" type="button" data-toggle="collapse"
-                                                    data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                    <!-- CATEGORIES --> RESOURCES
-                                                </button>
+                                                                   $mrk_icon=json_decode($layer['style'],TRUE)['icon'];
+                                                                   $mark_div='<img src="'.$mrk_icon.'" class="mrker-icon"  height ="19px" width ="13px">';
 
-                                            </div>
-                                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
-                                                data-parent="#sideAccordin">
-                                                <div class="card-body">
-                                                <?php 
-                                                    if($layerscategory){ //echo "<pre>"; print_r($layerscategory);die;
-                                                        foreach ($layerscategory as $key => $layer) { ?>
-                                                            <!-- marker code start here -->
-                                                    <?php
-                                                    if($layer['uplaod_type']=='csv'){ //Point and line check
-                                                        if($layer['style']==NULL){ //style null check
-                                                        $mark_div='<div class="dot" style=" height: 12px;width: 12px;background-color:rgba(51, 136, 255, 0.4);border-radius: 50%;display: inline-block;margin-left:5px; border:2px solid rgba(51, 136, 255, 1)"></div>';
+                                                                }else{
+                                                                    $mark_div='<div class="dot" style=" height: 12px;width: 12px;background-color:blue;opacity: 0.5;border-radius: 50%;display: inline-block;margin-left:5px; border:1px solid black"></div>';
+
+                                                                } //style circle or marker check
+                                                            }//style null check
                                                         }else{
-                                                             $key_arr=json_decode($layer['style'],TRUE);
 
-                                                             if(array_key_exists('icon',$key_arr)){ //style circle or marker check
-
-                                                               $mrk_icon=json_decode($layer['style'],TRUE)['icon'];
-                                                               $mark_div='<img src="'.$mrk_icon.'" class="mrker-icon"  height ="19px" width ="13px">';
-
-                                                            }else{
-                                                                $mark_div='<div class="dot" style=" height: 12px;width: 12px;background-color:blue;opacity: 0.5;border-radius: 50%;display: inline-block;margin-left:5px; border:1px solid black"></div>';
-
-                                                            } //style circle or marker check
-                                                        }//style null check
-                                                    }else{
-
-                                                       if($layer['style']==NULL){ //style null check
-                                                            $mark_div='<div style=" width:12px;height:12px;background-color:rgba(51, 136, 255, 0.4);opacity: 0.5;display:inline-block;border:2px solid rgba(51, 136, 255, 1);margin-left:5px;"> </div>';
-                                                       }else{
-                                                            $poly=json_decode($layer['style'],TRUE);
-                                                            $filcolor=ltrim(!empty($poly['fillColor'])?$poly['fillColor']:'','#');
-                                                            $filopacity=!empty($poly['fillOpacity'])?$poly['fillOpacity']:'';
-                                                            $opacity=!empty($poly['opacity'])?$poly['opacity']:0;
-                                                            $color=ltrim(!empty($poly['color'])?$poly['color']:0,'#');
-                                                            $weight=!empty($poly['weight'])?$poly['weight']:0;
-                                                            if($weight>'4'){
-                                                                $weight='4';
-                                                            }
-                                                            if($filcolor != "0"||$filopacity!="0"){
-                                                                $rgb=$this->general->hex_to_rgb($filcolor,$filopacity);
-                                                            }else{
-                                                                $rgb="rgba(51, 136, 255, 0.4)";
-                                                            }
-                                                            if($color != "0"||$opacity!="0"){
-                                                                $rgb1=$this->general->hex_to_rgb($color,$opacity);
-                                                            }else{
-                                                                $rgb1="rgba(51, 136, 255, 0.4)";
-                                                            }
-                                                         $mark_div='<div style=" width:12px;height:12px;background-color:'.$rgb.';opacity:1 ;display:inline-block;border:'.$weight.'px solid '.$rgb1.';margin-left:5px;"> </div>';
-                                                       }
-                                                    } //Point and line check
-                                                    ?>
-                                                    <!-- marker code start here -->
-                                                        <div class="itemsCat">
-                                                            <div class="labelslf">
-                                                                <div class="flex align-items-start searchFIlterData" id="<?php echo $layer['category_table']; ?>">
-                                                                    <?php echo $mark_div; ?>&nbsp;&nbsp;&nbsp;
-                                                                    <span><?php echo  $layer['category_name'] ?></span>
-                                                                </div>
-                                                               <div class="flex">
-                                                                    <div class="material-switch pull-right">
-                                                                        <input class = "checkBox" value="<?php echo $layer['category_table'] ?>_toggle" id="<?php echo  $layer['category_table'] ?>_switch" name="switch2" type="checkbox" <?php  ?> />
-                                                                        <label for="<?php echo  $layer['category_table'] ?>_switch" class="label-default"></label>
-
+                                                           if($layer['style']==NULL){ //style null check
+                                                                $mark_div='<div style=" width:12px;height:12px;background-color:rgba(51, 136, 255, 0.4);opacity: 0.5;display:inline-block;border:2px solid rgba(51, 136, 255, 1);margin-left:5px;"> </div>';
+                                                           }else{
+                                                                $poly=json_decode($layer['style'],TRUE);
+                                                                $filcolor=ltrim(!empty($poly['fillColor'])?$poly['fillColor']:'','#');
+                                                                $filopacity=!empty($poly['fillOpacity'])?$poly['fillOpacity']:'';
+                                                                $opacity=!empty($poly['opacity'])?$poly['opacity']:0;
+                                                                $color=ltrim(!empty($poly['color'])?$poly['color']:0,'#');
+                                                                $weight=!empty($poly['weight'])?$poly['weight']:0;
+                                                                if($weight>'4'){
+                                                                    $weight='4';
+                                                                }
+                                                                if($filcolor !== "0"||$filopacity!=="0"){
+                                                                    $rgb=$this->general->hex_to_rgb($filcolor,$filopacity);
+                                                                }else{
+                                                                    $rgb="rgba(51, 136, 255, 0.4)";
+                                                                }
+                                                                if($color != "0"||$opacity!="0"){
+                                                                    $rgb1=$this->general->hex_to_rgb($color,$opacity);
+                                                                }else{
+                                                                    $rgb1="rgba(51, 136, 255, 0.4)";
+                                                                }
+                                                             $mark_div='<div style=" width:12px;height:12px;background-color:'.$rgb.';opacity:1 ;display:inline-block;border:'.$weight.'px solid '.$rgb1.';margin-left:5px;"> </div>';
+                                                           }
+                                                        } //Point and line check
+                                                        ?>
+                                                        <!-- marker code start here -->
+                                                            <div class="itemsCat">
+                                                                <div class="labelslf">
+                                                                    <div class="flex align-items-start searchFIlterData" id="<?php echo $layer['category_table']; ?>">
+                                                                        <?php echo $mark_div; ?>&nbsp;&nbsp;&nbsp;
+                                                                        <span><?php echo  $layer['category_name'] ?></span>
                                                                     </div>
-                                                                    <div class="elipsis">
-                                                                        <i class="la la-ellipsis-v ellipse"></i>
-                                                                        <div class="inlist">
-                                                                            <div class="listItmesInner">
-                                                                                Apply filter
-                                                                            </div>
-                                                                            <div class="listItmesInner">
-                                                                                View table
-                                                                            </div>
-                                                                            <div class="listItmesInner">
-                                                                                Zoom to layer
+                                                                   <div class="flex">
+                                                                        <div class="material-switch pull-right">
+                                                                            <input class = "checkBox" value="<?php echo $layer['category_table'] ?>_toggle" id="<?php echo  $layer['category_table'] ?>_switch" name="switch2" type="checkbox" <?php  ?> />
+                                                                            <label for="<?php echo  $layer['category_table'] ?>_switch" class="label-default"></label>
+
+                                                                        </div>
+                                                                        <div class="elipsis">
+                                                                            <i class="la la-ellipsis-v ellipse"></i>
+                                                                            <div class="inlist">
+                                                                                <div class="listItmesInner filterData">
+                                                                                    Apply filter
+                                                                                </div>
+                                                                                <div class="listItmesInner viewTable"  data-title="<?php echo  $layer['category_name'] ?> Dataset View Table" data-layername="<?php echo  $layer['category_table'] ?>">
+                                                                                    View table
+                                                                                </div>
+                                                                                <div class="listItmesInner">
+                                                                                    Zoom to layer
+                                                                                </div>
                                                                             </div>
                                                                         </div>
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="listWithCheckbox">
+                                                                    <div class="checkItem">
+                                                                        <label class="control control--checkbox">
+                                                                            <input type="checkbox" /> Gakhu Khola
+                                                                            <div class="control__indicator"></div>
+                                                                        </label>
                                                                     </div>
 
+                                                                    <div class="checkItem">
+                                                                        <label class="control control--checkbox">
+                                                                            <input type="checkbox" /> Demo
+                                                                            <div class="control__indicator"></div>
+                                                                        </label>
+                                                                    </div>
+
+                                                                    <div class="checkItem">
+                                                                        <label class="control control--checkbox">
+                                                                            <input type="checkbox" /> Manahara Khola
+                                                                            <div class="control__indicator"></div>
+                                                                        </label>
+                                                                    </div>
+
+                                                                    <div class="checkItem">
+                                                                        <label class="control control--checkbox">
+                                                                            <input type="checkbox" /> Kattike Khola
+                                                                            <div class="control__indicator"></div>
+                                                                        </label>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="listWithCheckbox">
-                                                                <div class="checkItem">
-                                                                    <label class="control control--checkbox">
-                                                                        <input type="checkbox" /> Gakhu Khola
-                                                                        <div class="control__indicator"></div>
-                                                                    </label>
-                                                                </div>
+                                                        <?php }  } ?>
 
-                                                                <div class="checkItem">
-                                                                    <label class="control control--checkbox">
-                                                                        <input type="checkbox" /> Demo
-                                                                        <div class="control__indicator"></div>
-                                                                    </label>
-                                                                </div>
-
-                                                                <div class="checkItem">
-                                                                    <label class="control control--checkbox">
-                                                                        <input type="checkbox" /> Manahara Khola
-                                                                        <div class="control__indicator"></div>
-                                                                    </label>
-                                                                </div>
-
-                                                                <div class="checkItem">
-                                                                    <label class="control control--checkbox">
-                                                                        <input type="checkbox" /> Kattike Khola
-                                                                        <div class="control__indicator"></div>
-                                                                    </label>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    <?php }  } ?>
-
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>
@@ -1479,13 +1486,10 @@
 
             $(".itemsCat .label-default").click(function () {
 
-
                 $(".rightSection").addClass("show");
-
                 $(this).closest(".itemsCat").toggleClass("showList");
-
-
             })
+
             $(".rightToggle").click(function () {
                 if($(".rightSection").hasClass("show")){
                     $(".rightSection").removeClass("show");
@@ -1495,7 +1499,6 @@
                     $(".rightSection").addClass("show");
                     $("#info_btn").css({"background-color": "#673bb7", "color": "white"});
                 }
-
             })
 
 
@@ -1522,22 +1525,16 @@
 
             });
 
-              $("#chart_btn").click(function () {
+            $("#chart_btn").click(function () {
                 console.log("hdshadjs");
                 $("#bar").show();
-                 $("#popup").hide();
-                 $(".rightinner > div").removeClass("show");
-
-
+                $("#popup").hide();
+                $(".rightinner > div").removeClass("show");
             });
-
-
-
 
             $(".leftToggle").click(function () {
                 $(".leftToggle i").toggleClass("show");
                 $(".leftSection").toggleClass("hide");
-
             });
 
 
@@ -1545,9 +1542,6 @@
 
                 $(this).siblings(".inlist").toggleClass("visible");
             })
-
-
-
         });
     </script>
     <script>
@@ -1569,6 +1563,34 @@
                     }
                 });
             });
+        });
+        $('.viewTable').on('click',function(){
+            var title= $(this).data('title');  
+            var layername= $(this).data('layername');  
+            
+            $('#golobalMoadl').modal('show');
+            $('#globalTitleModal').html(title);
+            jQuery.ajax({
+                        type: "json",
+                        method:"POST",
+                        url: '<?php echo base_url() ?>map/viewTable',
+                        datatype: 'html',
+                        data: {layername:layername},
+                        beforeSend: function(){
+                        },
+                    success: function(jsons) {
+                        data = jQuery.parseJSON(jsons);
+                        if (data.statuses == 'success') {
+                            $( "#globalModalId" ).html(data.template);
+
+                        } else {
+                            $( "#globalModalId" ).html(data.message);
+                        }
+                        setTimeout(function(){
+                        $("#submitstatus").html('');
+                        },4000);
+                    }
+                });
         });
     </script>
 <script>

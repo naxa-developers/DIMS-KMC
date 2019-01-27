@@ -98,6 +98,41 @@
     <script type="text/javascript" src="<?php echo base_url()?>assets/frontend/js/validation.error.messages.js"></script><script type="text/javascript" src="<?php echo base_url()?>assets/frontend/js/jquery.form.js"></script>
     <script src="<?php echo base_url();?>assets/frontend/js/scriptall.js"></script>
     <script src="<?php echo base_url();?>assets/frontend/js/jquery.jConveyorTicker.min.js"></script>
+    
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
+    <script type="text/javascript">
+
+          $(document).ready(function() {
+            $('#hydropower').DataTable({
+               dom: 'Bfrtip',
+
+
+
+            });
+
+            $('#hydropower2').DataTable({
+               dom: 'Bfrtip',
+
+
+               buttons: [
+            'copy','csv', 'excel', 'pdf', 'print'
+
+       ]
+
+
+
+            });
+
+
+
+
+
+          } );
+          </script>
+          <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
+
 
     <script>
         $(function () {

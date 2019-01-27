@@ -127,19 +127,19 @@ class Map extends Admin_Controller
         $def_select=$this->Dash_model->get_default_cat_data('categories_tbl');
         $this->data['default_selected_cat_tbl']=$def_select['category_table'];
         $this->data['default_selected_cat_name']=$def_select['category_name'];
-        if($lang['Language']=='en'){
-	        $this->data['site_info']=$this->Main_model->site_setting_en();
+        if($language=='en'){
+	       // $this->data['site_info']=$this->Main_model->site_setting_en();
 	        //$this->data['data']=$this->Map_model->get_layer_en('categories_tbl');
 	        $this->data['data_haza']=$this->Map_model->get_layer_en('categories_tbl','Hazard_Data');
 	        $this->data['data_ex']=$this->Map_model->get_layer_en('categories_tbl','Exposure_Data');
 	        $this->data['data_base']=$this->Map_model->get_layer_en('categories_tbl','Baseline_Data');
         }else{
-      		$this->data['site_info']=$this->Main_model->site_setting_nep();
+      		//$this->data['site_info']=$this->Main_model->site_setting_nep();
       		$this->data['data_haza']=$this->Map_model->get_layer_nep('categories_tbl','Hazard_Data');
       		$this->data['data_ex']=$this->Map_model->get_layer_nep('categories_tbl','Exposure_Data');
       		$this->data['data_base']=$this->Map_model->get_layer_nep('categories_tbl','Baseline_Data');
         }
-        //$urly=$tokens[sizeof($tokens)-1];
+        //echo "<pre>";print_r($this->data['data_haza']);die;
         $urly='category?tbl=0&&name=0 ';
         $this->data['urll']=$urly;
         $this->data['map_zoom_center']=$this->Report_model->site_setting();
@@ -197,4 +197,54 @@ class Map extends Admin_Controller
             exit;
         }
     }
+    public function viewTable()
+	{
+		//print_r($this->input->post('layername'));die;
+		if($this->input->server('REQUEST_METHOD')=='POST')
+		{
+			$layer_name =$this->input->post('layername');
+			$d=$this->Map_model->get_lang_map_data($layer_name);
+			$lang=$this->session->get_userdata('Language');
+		    if($lang['Language']=='en') {
+		       	$language='en';
+		    }else{
+		       	$language='nep'; 
+		    }
+			$this->data['seclected_column'] = $this->general->get_tbl_data_result('column_control','categories_tbl',array('language'=>$language,'public_view'=>'1','category_table'=>$layer_name));
+        	$this->data['data']=$this->Map_model->get_as_map_data($d,$layer_name);
+
+        	//echo "<pre>"; print_r($this->data['seclected_column']);die;
+			$this->data['name']=$this->input->post('layername');
+
+		 	$template =$this->template
+			->enable_parser(FALSE)
+			->build('frontend/view_table',$this->data); 
+				print_r(json_encode(array('statuses'=>'success','template'=>$template)));
+	        	exit;
+		}else{
+			print_r(json_encode(array('status'=>'error','message'=>'Cannot Perform this Operation')));
+			exit;
+		}
+		
+	}
+	public function teset()
+	{
+		$this->template->set_layout('frontend/maplayout');
+		$layer_name ='urban_utilities';
+			$d=$this->Map_model->get_lang_map_data($layer_name);
+			$lang=$this->session->get_userdata('Language');
+		    if($lang['Language']=='en') {
+		       	$language='en';
+		    }else{
+		       	$language='nep'; 
+		    }
+			$this->data['seclected_column'] = $this->general->get_tbl_data_result('column_control','categories_tbl',array('language'=>$language,'public_view'=>'1','category_table'=>$layer_name));
+        	$this->data['data']=$this->Map_model->get_as_map_data($d,$layer_name);
+
+        	//echo "<pre>"; print_r($this->data['seclected_column']);die;
+			$this->data['name']=$this->input->post('layername');
+			$this->template
+			->enable_parser(FALSE)
+			->build('frontend/view_table', $this->data);
+	}
 }

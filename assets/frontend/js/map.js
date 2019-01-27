@@ -201,35 +201,42 @@ $(document).ready(function(){
         });
 
         $( ".checkBox" ).on('click', function( event ) {
-        var id = $(this)[0].id;
-        //layerClicked = window[event.target.value];
-        layerClicked = window[$(this)[0].value]; 
-        //console.log(id);
-        console.log($(this)[0].value);
-        //$("#"+id).prop("checked") == true
-        if (map.hasLayer(layerClicked) ) {
-            map.removeLayer(layerClicked);
-           var tbl = id.replace("_switch","");
-            $("#"+tbl+"_summaryCardwitch").hide();
-            //console.log(tbl);
-        }else if(layerClicked == undefined){
-            
-        }
-        else{
-            map.addLayer(layerClicked);
-        }
-    });
-    $("#refresh").on('click',function(){
-        map.setView([27.711745,85.300369],13);
-    });
+            var id = $(this)[0].id;
+            //layerClicked = window[event.target.value];
+            layerClicked = window[$(this)[0].value]; 
+            //console.log(id);
+            console.log($(this)[0].value);
+            //$("#"+id).prop("checked") == true
+            if (map.hasLayer(layerClicked) ) {
+                map.removeLayer(layerClicked);
+               var tbl = id.replace("_switch","");
+                $("#"+tbl+"_summaryCardwitch").hide();
+                //console.log(tbl);
+            }else if(layerClicked == undefined){
+                
+            }
+            else{
+                map.addLayer(layerClicked);
+            }
+        });
+        //for filter data 
 
-    $("#zoomin").on('click',function(){
-        map.setZoom(map.getZoom() + 1);
-    });
+        
+        $('.filterData').on('click',function(){
+
+        });
+        
+        
+        $("#refresh").on('click',function(){
+            map.setView([27.711745,85.300369],13);
+        });
+
+        $("#zoomin").on('click',function(){
+            map.setZoom(map.getZoom() + 1);
+        });
 
 
-    $("#zoomout").on('click',function(){
-        map.setZoom(map.getZoom() - 1);
-    });
-                    
+        $("#zoomout").on('click',function(){
+            map.setZoom(map.getZoom() - 1);
+        });        
 });   
