@@ -76,8 +76,21 @@ $this->db->where('email',$email);
 
  }
 
+ public function my_circle_detail($email){
+ $this->db->select('my_circle');
+ $this->db->where('email',$email);
+ $query = $this->db->get('mob_user');
+ return $query->row_array();
 
 
+ }
+
+public function update_circle($email,$data){
+
+  $this->db->where('email',$email);
+  $q=$this->db->update('mob_user',$data);
+  return $q;
+}
 
 
 }//end
