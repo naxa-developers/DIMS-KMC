@@ -181,7 +181,7 @@ class Mobapi extends Admin_Controller
 
             "name"=>$num['full_name'],
             "img_url"=>$num['image_url'],
-            "mobile_number"=>$num['mobile_no'],
+            "mobile_no"=>$num['mobile_no'],
             "token"=>$num['token'],
             "registered"=>TRUE
           );
@@ -193,7 +193,7 @@ class Mobapi extends Admin_Controller
 
             "name"=>$data_array[$i]['name'],
             "img_url"=>$data_array[$i]['img_url'],
-            "mobile_number"=>$data_array[$i]['mobile_no'],
+            "mobile_no"=>$data_array[$i]['mobile_no'],
             "token"=>"",
             "registered"=>FALSE
           );
@@ -228,7 +228,7 @@ for($i=0;$i<sizeof($data_array);$i++){
 
   $key=array_search('9841195921',$data_array[$i]);
 
-  if('9841195923'==$data_array[$i]['mobile_number'])
+  if('9841195923'==$data_array[$i]['mobile_no'])
    {
 unset($data_array[$i]);
 
@@ -238,6 +238,13 @@ unset($data_array[$i]);
    var_dump($data_array);
 
    echo 'deleted';
+ }
+
+ public function add_my_circle(){
+
+
+
+
  }
 
 }//end
