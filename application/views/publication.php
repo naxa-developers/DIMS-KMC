@@ -54,7 +54,7 @@ $pub_cat_en='<option value=0>ALL</option>
                             <img src="<?php echo base_url()?>/uploads/publication/28.png" alt="<?php echo $d['title']?>">
                         </div>
                         <div class="docdetailwrp  grow">
-                            <div class="docTitle" id="<?php echo $d['id'] ?>">
+                          <div class="docTitle" id="<?php echo $d['id'] ?>">
                                <?php echo $d['title']?>
                             </div>
                             <div class="doctype">

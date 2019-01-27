@@ -170,4 +170,12 @@ class General {
 		}
 		return 0;
 	}
+	public function hex_to_rgb($color,$opacity){
+	    $split = str_split($color,2);
+	    $r = hexdec(!empty($split[0])?$split[0]:'0');
+	    $g = hexdec(!empty($split[1])?$split[1]:'0');
+	    $b = hexdec(!empty($split[2])?$split[2]:'0');
+	    $rgb= "rgba(" . $r . ", " . $g . ", " . $b . ", ". !empty($opacity)?$opacity:'' . ")";
+    	return $rgb;
+	}
 }

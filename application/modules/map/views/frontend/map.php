@@ -39,7 +39,7 @@
                         <div class="tab-content lefttabContent">
                             <div id="thematic" class="tab-pane   fade in show   active">
                                 <div class="inputHolderL">
-                                    <input class="leftSearch" type="text" placeholder="search">
+                                    <input class="leftSearch" type="text" placeholder="search" id="myInput" onkeyup="myFunction()">
                                     <i class="la la-search searchl"></i>
                                 </div>
                                 <div class="tabinner">
@@ -57,51 +57,61 @@
                                             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                                                 data-parent="#sideAccordin">
                                                 <div class="card-body">
-                                                    <!-- <div class="itemsCat">
-                                                        <div class="labelslf">
-                                                            <div>
-                                                                <i class="ls la la-sitemap"></i>
-                                                                <span>Municipal Boundary</span>
+                                                <?php 
+                                                    if($layerscategory){ //echo "<pre>"; print_r($layerscategory);die;
+                                                        foreach ($layerscategory as $key => $layer) { ?>
+                                                            <!-- marker code start here -->
+                                                    <?php
+                                                    if($layer['uplaod_type']=='csv'){ //Point and line check
+                                                        if($layer['style']==NULL){ //style null check
+                                                        $mark_div='<div class="dot" style=" height: 12px;width: 12px;background-color:rgba(51, 136, 255, 0.4);border-radius: 50%;display: inline-block;margin-left:5px; border:2px solid rgba(51, 136, 255, 1)"></div>';
+                                                        }else{
+                                                             $key_arr=json_decode($layer['style'],TRUE);
 
-                                                            </div>
-                                                            <div class="flex">
-                                                                <div class="material-switch pull-right">
-                                                                    <input class = "checkBox" value = "District" id="someSwitchOptionDefault" name="someSwitchOption001"
-                                                                        type="checkbox" checked />
-                                                                    <label for="someSwitchOptionDefault" class="label-default"></label>
+                                                             if(array_key_exists('icon',$key_arr)){ //style circle or marker check
 
-                                                                </div>
-                                                                <div class="elipsis">
-                                                                    <i class="la la-ellipsis-v ellipse"></i>
-                                                                    <div class="inlist">
-                                                                        <div class="listItmesInner">
-                                                                            Apply filter
-                                                                        </div>
-                                                                        <div class="listItmesInner">
-                                                                            View table
-                                                                        </div>
-                                                                        <div class="listItmesInner">
-                                                                            Zoom to layer
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
+                                                               $mrk_icon=json_decode($layer['style'],TRUE)['icon'];
+                                                               $mark_div='<img src="'.$mrk_icon.'" class="mrker-icon"  height ="19px" width ="13px">';
 
-                                                            </div>
-                                                        </div>
+                                                            }else{
+                                                                $mark_div='<div class="dot" style=" height: 12px;width: 12px;background-color:blue;opacity: 0.5;border-radius: 50%;display: inline-block;margin-left:5px; border:1px solid black"></div>';
 
+                                                            } //style circle or marker check
+                                                        }//style null check
+                                                    }else{
 
-                                                    </div> -->
-                                                    <?php //echo "<pre>"; print_r($layerscategory);die;
-                                                     if($layerscategory){
-                                                        foreach ($layerscategory as $key => $layer) {?>
+                                                       if($layer['style']==NULL){ //style null check
+                                                            $mark_div='<div style=" width:12px;height:12px;background-color:rgba(51, 136, 255, 0.4);opacity: 0.5;display:inline-block;border:2px solid rgba(51, 136, 255, 1);margin-left:5px;"> </div>';
+                                                       }else{
+                                                            $poly=json_decode($layer['style'],TRUE);
+                                                            $filcolor=ltrim(!empty($poly['fillColor'])?$poly['fillColor']:'','#');
+                                                            $filopacity=!empty($poly['fillOpacity'])?$poly['fillOpacity']:'';
+                                                            $opacity=!empty($poly['opacity'])?$poly['opacity']:0;
+                                                            $color=ltrim(!empty($poly['color'])?$poly['color']:0,'#');
+                                                            $weight=!empty($poly['weight'])?$poly['weight']:0;
+                                                            if($weight>'4'){
+                                                                $weight='4';
+                                                            }
+                                                            if($filcolor != "0"||$filopacity!="0"){
+                                                                $rgb=$this->general->hex_to_rgb($filcolor,$filopacity);
+                                                            }else{
+                                                                $rgb="rgba(51, 136, 255, 0.4)";
+                                                            }
+                                                            if($color != "0"||$opacity!="0"){
+                                                                $rgb1=$this->general->hex_to_rgb($color,$opacity);
+                                                            }else{
+                                                                $rgb1="rgba(51, 136, 255, 0.4)";
+                                                            }
+                                                         $mark_div='<div style=" width:12px;height:12px;background-color:'.$rgb.';opacity:1 ;display:inline-block;border:'.$weight.'px solid '.$rgb1.';margin-left:5px;"> </div>';
+                                                       }
+                                                    } //Point and line check
+                                                    ?>
+                                                    <!-- marker code start here -->
                                                         <div class="itemsCat">
                                                             <div class="labelslf">
-                                                                <div class="flex align-items-start">
-                                                                    <i class="ls la la-ticket">
-
-                                                                    </i>
+                                                                <div class="flex align-items-start searchFIlterData" id="<?php echo $layer['category_table']; ?>">
+                                                                    <?php echo $mark_div; ?>&nbsp;&nbsp;&nbsp;
                                                                     <span><?php echo  $layer['category_name'] ?></span>
-
                                                                 </div>
                                                                <div class="flex">
                                                                     <div class="material-switch pull-right">
@@ -154,8 +164,6 @@
                                                                         <div class="control__indicator"></div>
                                                                     </label>
                                                                 </div>
-
-
                                                             </div>
                                                         </div>
                                                     <?php }  } ?>
@@ -163,21 +171,13 @@
                                                 </div>
                                             </div>
                                         </div>
-
-
-
-
                                     </div>
                                 </div>
-
-
-
-
                             </div>
                             <div id="socio-economic" class="tab-pane   fade in show   ">
 
                                 <div class="inputHolderL">
-                                    <input class="leftSearch" type="text" placeholder="search">
+                                    <input class="leftSearch" type="text" name="keywords" placeholder="search" >
                                     <i class="la la-search searchl"></i>
                                 </div>
                                 <div class="tabinner">
@@ -1408,20 +1408,40 @@
         </div>
     </div>
     </div>
-   <!--  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-        crossorigin="anonymous"></script> -->
-    <!-- <script src="js/bootstrap.min.js"></script> -->
-   <!--  <script src="js/sc.js"></script>
-    <script src="js/scriptall.js"></script> -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="spinnerModal">
+        <div class="modal-dialog modal-dialog-centered text-center" role="document">
+            <span class="fa fa-spinner fa-spin fa-3x w-100"></span>
+        </div>
+    </div>
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-     <script src="<?php echo base_url();?>assets/frontend/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url();?>assets/frontend/js/bootstrap.min.js"></script>
     <script src="<?php echo base_url();?>assets/frontend/js/scriptall.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <!-- <script src="js/allchart.js"></script> -->
     <script src="<?php echo base_url();?>assets/frontend/js/jquery.nicescroll.min.js"></script>
     <script>
+        function myFunction() {
+            var input, filter, div, h6, a, i;
+            input = document.getElementById('myInput');
+            filter = input.value.toUpperCase();
+            //alert(filter);
+            div = document.getElementsByClassName("myUL");
+
+            h6 = document.getElementsByClassName("searchFIlterData");//document.getElementsByTagName('h6');
+
+            //alert(h6);
+            // Loop through all list items, and hide those who don't match the search query
+            for (i = 0; i < h6.length; i++) {
+              // a = h6[i].getElementsByTagName("a")[0];
+              if (h6[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    $("#"+h6[i].id).parent().parent().css('display','');
+                } else {
+
+                    $("#"+h6[i].id).parent().parent().css('display','none');
+                }
+            }
+        }
         $(document).ready(function () {
             $(".mapAccordion,.detItemLinkWrp,.rightinner").niceScroll({
                 cursorcolor: "#502e8e"
@@ -1481,7 +1501,7 @@
 
 
             $(".closeitem").click(function () {
-                alert(all);
+               // alert(all);
                 var all = $(this).closest(".detItem").fadeOut("slow");
 
             });
@@ -1572,9 +1592,10 @@
     var summarydata_string = '<?php echo addslashes($summarydata_default); ?>';
    var summary_data_default =  JSON.parse(summarydata_string);
     // var summary = '<?php //echo $sumary; ?>';
-    var summaryFull_defaltString = '<?php echo $summaryFull_defalt; ?>';
-    //console.log(summaryFull_defaltString);
-   //console.log(summarydata_string);
+    var summaryFull_defaltString = '<?php echo addslashes($category_summary_default); ?>';
+    var summaryFull_defalt =  JSON.parse(summaryFull_defaltString);
+    // console.log(cat_names_string);
+    // console.log(summaryFull_defalt);
   // console.log(popup_content_default_string);
 </script>
     <script type="text/javascript">
@@ -1691,15 +1712,9 @@
         });
     </script>
 
-   <!--  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script> -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"/>
-        <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/1.1.0/leaflet.ajax.min.js"></script> -->
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+    <script src="<?php echo base_url();?>assets/frontend/js/map.js"></script>
 
-                <script src="<?php echo base_url();?>assets/frontend/js/map.js"></script>
-
-
-</body>
 
 </html>
