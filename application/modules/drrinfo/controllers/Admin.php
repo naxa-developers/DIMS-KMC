@@ -12,6 +12,7 @@ class Admin extends Admin_Controller {
 		$this->load->model('Table_model');
 		$this->load->model('DrrModel');
 		$this->load->library('form_validation');
+		// $this->load->library('');
 		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 	}
 	public function index()
@@ -24,8 +25,10 @@ class Admin extends Admin_Controller {
             $emerg_lang='nep'; 
         }
         $admin_type=$this->session->userdata('user_type');
-        $this->data['admin']=$admin_type;
+        $this->data['admin']=$admin_type; 
 		$this->data['drrdata'] = $this->general->get_tbl_data_result('id,image,name','drrcategory',array('language'=>$emerg_lang));
+		
+		
 		
 		$this->template
 	                    ->enable_parser(FALSE)
@@ -76,7 +79,7 @@ class Admin extends Admin_Controller {
 	      	    if($img_upload['status']== 1) {
 	      	    	@unlink($old_image);	
       				$ext=$img_upload['upload_data']['file_ext'];
-	          		$image_path=base_url() . 'uploads/drrinfo/'.$insert.$ext ;
+	          		$image_path=base_url() . 'uploads/drrinfo/'.$insert.$ext ; 
 	          		
       			}else{
       				$id=$this->input->post('id');
@@ -141,7 +144,7 @@ class Admin extends Admin_Controller {
 	                    ->enable_parser(FALSE)
 	                    ->build('backend/drrinformationlist',$this->data);
   	}
-  	public function drrinformation()
+  	public function drrinformation() 
   	{
   		$lang=$this->session->get_userdata('Language');
         if($lang['Language']=='en') {
@@ -152,8 +155,9 @@ class Admin extends Admin_Controller {
   		$this->data['categories'] = $this->general->get_tbl_data_result('id,name','drrcategory',array('language'=>$emerg_lang));
   		$this->data['subcategories'] = $this->general->get_tbl_data_result('id,name','drrsubcategory',array('language'=>$emerg_lang));
   		if(isset($_POST['submit'])){
+  			//echo"<pre>"; print_r($this->input->post());die;
 	      	$file_name = $_FILES['image']['name'];
-	      	//echo "<pre>"; print_r($file_name); die;
+	      	// echo "<pre>"; print_r($file_name); die;
 		      	$data=array(
 		        	'category_id'=>$this->input->post('category_id'),
 		        	'subcat_id'=>$this->input->post('subcat_id'),
@@ -204,5 +208,102 @@ class Admin extends Admin_Controller {
 	                        ->enable_parser(FALSE)
 	                        ->build('backend/drrinformation',$this->data);
 	    }
+  	}
+  	public function drr_article() 
+  	{
+  		$lang=$this->session->get_userdata('Language');
+        if($lang['Language']=='en') {
+            $emerg_lang='en';
+        }else{
+            $emerg_lang='nep'; 
+        }
+  		$this->data['categories'] = $this->general->get_tbl_data_result('id,name','drrcategory',array('language'=>$emerg_lang));
+  		if(isset($_POST['submit'])){
+  			$attachment=$_FILES['uploadedfile']['name'];
+  			$ext_file = pathinfo($attachment, PATHINFO_EXTENSION);
+  			//echo "fhiskdhf";die;
+	      	//$file_name = $_FILES['image']['name'];
+	      	//echo "<pre>"; print_r($this->input->post()); die;
+		      	$data=array(
+		        	'category_id'=>$this->input->post('category_id'),
+		        	//'category'=>$this->input->post('categories'),
+		        	'title'=>$this->input->post('title'),
+		        	'short_summary'=>$this->input->post('short_summary'), 
+		        	'detail_info'=>$this->input->post('detail_info'),
+		        	'language'=>$emerg_lang,
+		      	);
+		      	$insert=$this->DrrModel->add_drrinfo('drr_article',$data);
+		      	if($insert!=""){
+		      		$file_upload=$this->DrrModel->file_do_upload($attachment,$insert);
+		      	    if($file_upload== 1) {	
+	      				$ext=$file_upload['upload_data']['file_ext'];
+		          		$file_path=base_url() . 'uploads/drr_article/file/'.$insert.'.'.$ext_file ;
+	      			}else{
+	      				$id=$this->input->post('id');
+	      				if($id) {
+	      					$image_path =$old_image;
+	      				}else{
+	      					$code= strip_tags($img_upload['error']);
+				        	$this->session->set_flashdata('msg', $code);
+				        	redirect(FOLDER_ADMIN.'/drrinfo/drr_article_list');	
+	      				}
+	      			}
+		      		$img=array(
+			            	'file'=>$file_path,
+			         	);
+		        	$update_path=$this->DrrModel->update_path_drrarticle($insert,$img);
+			        $this->session->set_flashdata('msg','drrinfo successfully added');
+			        redirect(FOLDER_ADMIN.'/drrinfo/drr_article_list');
+	        }
+	    }else{
+	      //admin check
+	    	$id = base64_decode($this->input->get('id'));
+	    	//print_r($id);die;
+	    	if($id) {
+				$this->data['drreditdata'] = $this->general->get_tbl_data_result('id,short_summary,title,category_id,detail_info','drr_article',array('id'=>$id));
+	    	}else{
+	    		$this->data['drreditdata'] = array();	
+	    	}
+	      	$admin_type=$this->session->userdata('user_type');
+	      	$this->data['admin']=$admin_type;
+	      	//admin check
+	      	
+	    }
+	    $this->template
+	                        ->enable_parser(FALSE)
+	                        ->build('backend/drr_article',$this->data);
+  	}
+  	
+  	public function drr_article_list()
+  	{
+  		$this->body= array();
+        $cat=$this->input->get('cat');
+        $lang=$this->session->get_userdata('Language');
+        if($lang['Language']=='en') {
+            $emerg_lang='en';
+        }else{
+            $emerg_lang='nep'; 
+        }
+        //$this->data['name']="Dictionary";
+        $this->data['drrarticledata'] = $this->general->get_tbl_data_result('id,category_id,file,title,short_summary,detail_info','drr_article',array('language'=>$emerg_lang));
+        //admin check
+        //echo "<pre>"; print_r($this->data['inventorydata']);die;
+        $admin_type=$this->session->userdata('user_type');
+        $this->data['admin']=$admin_type;
+
+        //admin check
+        $this->template
+                        ->enable_parser(FALSE)
+                        ->build('backend/drr_article_list',$this->data);
+}
+public function delete_article(){
+	    $tbl="drr_article";
+	    $id = base64_decode($this->input->get('id'));
+	   // print_r($id);die;
+	    $delete=$this->DrrModel->delete($id,$tbl);
+	    if($delete){
+      		$this->session->set_flashdata('msg','Successfully Deleted');
+	        redirect(FOLDER_ADMIN.'/drrinfo/drr_article_list');
+    	}
   	}
 }

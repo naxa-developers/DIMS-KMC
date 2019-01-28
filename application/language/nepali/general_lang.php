@@ -174,6 +174,10 @@ $lang['dictionary']="शब्दकोश व्यवस्थापन गर
 $lang['drrinformationlist']="डिआरआर जानकारी सूची";
 $lang['addrrinformation']="सूचना थप्नुहोस्";
 $lang['addrrcatlist']="डिआरआर सूचना सूची";
+$lang['drr_article_list']="डिआरआर लेख सूची";
+$lang['drr_info']="डिआरआर सूचना व्यवस्थापन";
+
+
 
 
 //header

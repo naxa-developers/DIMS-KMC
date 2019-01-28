@@ -164,23 +164,10 @@ class Map extends Admin_Controller
 				$data_array=json_decode($data_jsn['column_control'],TRUE);
 				$report=$this->Map_model->get_data_geojson($data_array,$layer_name);
 				$dataset_data=$report->result_array();
-				foreach($dataset_data as $data){
-				   $ddata=$data ;
-				   unset($data['st_asgeojson']);
-				   	$features_cat[]= array(
-					     'type' =>'Feature',
-					     'properties'=>$data,
-					     'geometry'=>json_decode($ddata['st_asgeojson'],JSON_NUMERIC_CHECK)
-
-					);
-				}
-				$dataset_array= array(
-				   'type' => 'FeatureCollection',
-				   'features' => $features_cat,
-				);
+				
 				//retrive summary list to plot in map
 				$summarylist = $this->Map_model->get_summary($resultdata[0]['summary_list'],$layer_name);
-				//echo "<pre>"; print_r($summarylist);die;
+				//echo "<pre>"; print_r($dataset_data);die;
 		        $response['geojson']=json_encode($dataset_array);
 		       	$response['style']=$resultdata[0]['style'];
 		        $response['marker_type']=$resultdata[0]['marker_type'];
@@ -202,19 +189,19 @@ class Map extends Admin_Controller
 		//print_r($this->input->post('layername'));die;
 		if($this->input->server('REQUEST_METHOD')=='POST')
 		{
-			$layer_name =$this->input->post('layername');
-			$d=$this->Map_model->get_lang_map_data($layer_name);
+			
 			$lang=$this->session->get_userdata('Language');
 		    if($lang['Language']=='en') {
-		       	$language='en';
+		      $language='en';
 		    }else{
-		       	$language='nep'; 
+		      $language='nep'; 
 		    }
-			$this->data['seclected_column'] = $this->general->get_tbl_data_result('column_control','categories_tbl',array('language'=>$language,'public_view'=>'1','category_table'=>$layer_name));
-        	$this->data['data']=$this->Map_model->get_as_map_data($d,$layer_name);
-
-        	//echo "<pre>"; print_r($this->data['seclected_column']);die;
-			$this->data['name']=$this->input->post('layername');
+	    	$layer_name = $this->input->post('layername');//
+	    	$resultdata = $this->general->get_tbl_data_result('summary,summary_list,category_table,popup_content,category_name,style,marker_type','categories_tbl',array('language'=>$language,'public_view'=>'1','category_table'=>$layer_name));
+	    	$data_jsn=$this->Map_model->get_jsn($layer_name);
+			$data_array=json_decode($data_jsn['column_control'],TRUE);
+			$report=$this->Map_model->get_data_selected($data_array,$layer_name);
+			$this->data['data']=$report->result_array();
 
 		 	$template =$this->template
 			->enable_parser(FALSE)
@@ -229,22 +216,24 @@ class Map extends Admin_Controller
 	}
 	public function teset()
 	{
+		
+		$lang=$this->session->get_userdata('Language');
+	    if($lang['Language']=='en') {
+	      $language='en';
+	    }else{
+	      $language='nep'; 
+	    }
+    	$layer_name = 'church';//
+    	$resultdata = $this->general->get_tbl_data_result('summary,summary_list,category_table,popup_content,category_name,style,marker_type','categories_tbl',array('language'=>$language,'public_view'=>'1','category_table'=>$layer_name));
+    	$data_jsn=$this->Map_model->get_jsn($layer_name);
+		$data_array=json_decode($data_jsn['column_control'],TRUE);
+		$report=$this->Map_model->get_data_selected($data_array,$layer_name);
+		$this->data['data']=$report->result_array();
+		//echo"<pre>"; print_r($this->data['data']);die;
+		$this->data['name']=$this->input->post('layername');
 		$this->template->set_layout('frontend/maplayout');
-		$layer_name ='urban_utilities';
-			$d=$this->Map_model->get_lang_map_data($layer_name);
-			$lang=$this->session->get_userdata('Language');
-		    if($lang['Language']=='en') {
-		       	$language='en';
-		    }else{
-		       	$language='nep'; 
-		    }
-			$this->data['seclected_column'] = $this->general->get_tbl_data_result('column_control','categories_tbl',array('language'=>$language,'public_view'=>'1','category_table'=>$layer_name));
-        	$this->data['data']=$this->Map_model->get_as_map_data($d,$layer_name);
-
-        	//echo "<pre>"; print_r($this->data['seclected_column']);die;
-			$this->data['name']=$this->input->post('layername');
-			$this->template
-			->enable_parser(FALSE)
-			->build('frontend/view_table', $this->data);
+		$this->template
+		->enable_parser(FALSE)
+		->build('frontend/view_table', $this->data);
 	}
 }

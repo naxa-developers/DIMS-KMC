@@ -222,8 +222,11 @@ $(document).ready(function(){
         //for filter data 
 
         
-        $('.filterData').on('click',function(){
-
+        $('.ZoomTolayer').on('click',function(){
+            var layername= $(this).data('layername');
+             console.log(window[layername+ "_toggle"]); 
+            map.fitBounds(window[layername+ "_toggle"].getBounds());
+           
         });
         
         

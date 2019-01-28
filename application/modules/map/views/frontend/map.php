@@ -134,7 +134,7 @@
                                                                                 <div class="listItmesInner viewTable"  data-title="<?php echo  $layer['category_name'] ?> Dataset View Table" data-layername="<?php echo  $layer['category_table'] ?>">
                                                                                     View table
                                                                                 </div>
-                                                                                <div class="listItmesInner">
+                                                                                <div class="listItmesInner ZoomTolayer" data-layername="<?php echo  $layer['category_table'] ?>">
                                                                                     Zoom to layer
                                                                                 </div>
                                                                             </div>
@@ -1738,5 +1738,9 @@
     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
     <script src="<?php echo base_url();?>assets/frontend/js/map.js"></script>
 
-
+    
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+       
 </html>

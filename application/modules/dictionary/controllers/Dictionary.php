@@ -15,7 +15,8 @@ class Dictionary extends Admin_Controller
 	    }else{
 	      	$emerg_lang='nep'; 
 	    }
-		$this->data['dictionary'] = $this->general->get_tbl_data_result('id,word,meaning,language','dictionary_tbl',array('language'=>$emerg_lang),'word');
+
+		$this->data['dictionary'] = $this->general->get_tbl_data_result('id,image,word,meaning,comment,language','dictionary_tbl',array('language'=>$emerg_lang),'word');
 		//echo"<pre>"; print_r($this->data['dictionary']);die;
 		$this->template->set_layout('frontend/default');
 		$this->template

@@ -12,7 +12,7 @@ class Admin extends Admin_Controller {
 		$this->load->model('Upload_model');
 		$this->load->model('dictionary');
 	}
-	public function index()
+public function index()
 	{
 		$this->body= array();
         $cat=$this->input->get('cat');
@@ -22,17 +22,41 @@ class Admin extends Admin_Controller {
         }else{
             $emerg_lang='nep'; 
         }
-        //$this->data['name']="Dictionary";
-        $this->data['data'] = $this->general->get_tbl_data_result('id,word,meaning,language','dictionary_tbl',array('language'=>$emerg_lang),'word');
-        //admin check
-        //echo "<pre>"; print_r($this->data['data']);die;
-        $admin_type=$this->session->userdata('user_type');
-        $this->data['admin']=$admin_type;
-        //admin check
-        $this->template
-                        ->enable_parser(FALSE)
-                        ->build('admin/index',$this->data);
+		if(isset($_POST['submit']))
+	 	{
+	    $id=$this->input->post('id');
+	    $file_name = $_FILES['dictionary_image']['name'];
+	    //$ext = pathinfo($file_name, PATHINFO_EXTENSION);
+	    $img_upload=$this->dictionary->do_upload_image($file_name,$id);
+	    if($img_upload != ""){
+	      $ext=$img_upload['upload_data']['file_ext'];
+	      $image_path=base_url() . 'uploads/dictionary/'.$id.$ext ;
+	      $data=array(
+	        'image'=>$image_path
+	      );
+	      $update=$this->dictionary->update_dictionary_image($id,$data,'dictionary_tbl');
+	      $this->session->set_flashdata('msg','successfully Photo Changed');
+	      // redirect('emergency_personnel_nep?cat='.$cat);
+	                redirect(FOLDER_ADMIN.'/dictionary');
+	    }else{
+	      $code= strip_tags($img_upload['error']);
+	      $this->session->set_flashdata('msg', $code);
+	      // redirect('emergency_personnel?cat='.$cat);
+	                redirect(FOLDER_ADMIN.'/dictionary');
+	    }
+	  }else{ 
+	        $this->data['data'] = $this->general->get_tbl_data_result('id,word,meaning,comment,language,image','dictionary_tbl',array('language'=>$emerg_lang),'word');
+	        //admin check
+	        //echo "<pre>"; print_r($this->data['data']);die;
+	        $admin_type=$this->session->userdata('user_type');
+	        $this->data['admin']=$admin_type;
+	        //admin check
+	        $this->template
+	                        ->enable_parser(FALSE)
+	                        ->build('admin/index',$this->data);
 	}
+}
+	
 	public function edit()
 	{	
 		$this->data =array();
@@ -45,7 +69,7 @@ class Admin extends Admin_Controller {
                 redirect(FOLDER_ADMIN.'/dictionary');
             }
         }else{
-			$this->data['dictionary'] = $this->general->get_tbl_data_result('id,word,meaning,language','dictionary_tbl',array('id'=>$id));
+			$this->data['dictionary'] = $this->general->get_tbl_data_result('id,word,meaning,comment,language,image','dictionary_tbl',array('id'=>$id));
 			//echo "<pre>";print_r($this->data['dictionary']);die; 
 		}
 			$this->template
@@ -61,4 +85,7 @@ class Admin extends Admin_Controller {
 	        redirect(FOLDER_ADMIN.'/dictionary');
     	}
   	}
+
+
+ 
 }

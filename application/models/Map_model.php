@@ -366,5 +366,13 @@ public function get_icon(){
     $q=$this->db->get($tbl);
    return $q;
   }
+  public function get_data_selected($d,$tbl){
+    for($i=0; sizeof($d['a'])>$i; $i++){
+    $this->db->select($d['a'][$i]['col'].' AS '. pg_escape_string(str_replace(".","",$d['a'][$i]['name'])));
+    }
+    $this->db->order_by('id','ASC');
+    $q=$this->db->get($tbl);
+   return $q;
+  }
 
 }//end

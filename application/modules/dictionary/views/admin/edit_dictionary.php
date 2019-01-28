@@ -20,6 +20,13 @@
                             <label for="Meaning">Meaning</label>
                             <textarea class="form-control" name="meaning" id="meaning" cols="60" rows="4"><?php echo $dictionary[0]['meaning'];?></textarea>
                         </div>
+
+                        <div class="col-sm-6">
+                            <label for="comment">Comment</label>
+                            <textarea class="form-control" name="comment" id="comment" cols="60" rows="4"><?php echo $dictionary[0]['comment'];?></textarea>
+                        </div>
+
+
                         <div class="col-md-6">
                             <label class="control-label">&nbsp;&nbsp;</label>
                             <button type="submit" name="submit" class="btn btn-info">Submit</button>

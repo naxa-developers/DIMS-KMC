@@ -176,6 +176,10 @@ $lang['input']="File input";
 $lang['dictionary']="Dictionary Management";
 $lang['drrinformationlist']="Drr Information List";
 $lang['addrrinformation']="Add Drr Infromation";
+$lang['drr_article_list']="Drr Article List";
+$lang['drr_info']="Drr Information management";
+
+
 
 //header
 $lang['home']="Home";

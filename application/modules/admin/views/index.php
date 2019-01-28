@@ -11,7 +11,7 @@
             <input type="text" class="form-control" name="username" placeholder="User ID" autofocus>
             <input type="password" class="form-control" name="password" placeholder="Password">
         </div>
-        <button class="btn btn-lg btn-login btn-block" name="submit" type="submit">Sign iin</button>
+        <button class="btn btn-lg btn-login btn-block" name="submit" type="submit">Sign in</button>
 
     </div>
 

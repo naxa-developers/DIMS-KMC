@@ -22,6 +22,7 @@ class Admin extends Admin_Controller {
             $emerg_lang='nep'; 
         }
         $this->data['data'] = $this->general->get_tbl_data_result('id,name,slug','inventorycat',array('language'=>$emerg_lang));
+
         $admin_type=$this->session->userdata('user_type');
         $this->data['admin']=$admin_type;
         //admin check
@@ -99,5 +100,105 @@ class Admin extends Admin_Controller {
         $this->template
                         ->enable_parser(FALSE)
                         ->build('admin/inventory_csv',$this->data);
+  	}
+  	public function add_inventory_cat(){
+
+  		$this->data=array();
+	    if(isset($_POST['submit'])){
+	    	$lang=$this->session->get_userdata('Language');
+	        if($lang['Language']=='en') {
+	            $emerg_lang='en';
+	        }else{
+	            $emerg_lang='nep'; 
+	        }
+	        // $this->data['inventorydata'] = $this->general->get_tbl_data_result('id,image,ward,name','inventory_category',array('language'=>$emerg_lang));
+	    	 // echo "<pre>"; print_r($this->input->post()); die;
+	      	$file_name = $_FILES['project_pic']['name'];
+	      	$data=array(
+	        	'name'=>$this->input->post('name'),
+	        	'ward'=>$this->input->post('ward'),
+	        	'language'=>$emerg_lang,
+	      	);
+	      	$insert=$this->inventory_mdl->add_inventory_cat('inventory_category',$data);
+	      	//print_r($insert);die;
+	      	if($insert!=""){
+	      		$old_image=$this->input->post('old_image');
+	      		//print_r($old_image);die;
+	      		$img_upload=$this->inventory_mdl->do_upload($file_name,$insert);
+	      		
+	      	    if($img_upload['status']== 1) {
+	      	    	@unlink($old_image);	
+      				$ext=$img_upload['upload_data']['file_ext'];
+	          		$image_path=base_url() . 'uploads/inventory_cat/'.$insert.$ext ;
+	          		
+      			}else{
+      				$id=$this->input->post('id');
+      				if($id) {
+      					$image_path =$old_image;
+      				}else{
+      					$code= strip_tags($img_upload['error']);
+			        	$this->session->set_flashdata('msg', $code);
+			        	redirect(FOLDER_ADMIN.'/inventory/add_inventory_cat');	
+      				}
+      			}
+	      		$img=array(
+		            	'image'=>$image_path,
+		         	);
+	        	$update_path=$this->inventory_mdl->update_path($insert,$img);
+		        $this->session->set_flashdata('msg','inventory category successfully added');
+		        redirect(FOLDER_ADMIN.'/inventory/inventory_tbl');
+	        }
+	    }else{
+	      //admin check
+
+	    	$id = base64_decode($this->input->get('id'));
+	    	//print_r($id);die;
+
+	    	if($id) {
+				$this->data['editdata'] = $this->general->get_tbl_data_result('id,image,name,ward','inventory_category',array('id'=>$id));
+	    	}else{
+	    		$this->data['editdata'] = array();	
+	    	}
+
+	      	$admin_type=$this->session->userdata('user_type');
+	      	$this->data['admin']=$admin_type;
+	      	//admin check
+
+	      	$this->template
+	                        ->enable_parser(FALSE)
+	                        ->build('admin/add_inventory_cat',$this->data);
+	    }
+  	}
+  	public function inventory_tbl()
+  	{
+  		$this->body= array();
+        $cat=$this->input->get('cat');
+        $lang=$this->session->get_userdata('Language');
+        if($lang['Language']=='en') {
+            $emerg_lang='en';
+        }else{
+            $emerg_lang='nep'; 
+        }
+        //$this->data['name']="Dictionary";
+        $this->data['inventorydata'] = $this->general->get_tbl_data_result('id,name,image,ward','inventory_category',array('language'=>$emerg_lang));
+        //admin check
+        //echo "<pre>"; print_r($this->data['inventorydata']);die;
+        $admin_type=$this->session->userdata('user_type');
+        $this->data['admin']=$admin_type;
+
+        //admin check
+        $this->template
+                        ->enable_parser(FALSE)
+                        ->build('admin/inventory_tbl',$this->data);
+  	}
+  	
+  	public function delete_inventory_cat(){
+	    $tbl="inventory_category";
+	    $id = base64_decode($this->input->get('id'));
+	    $delete=$this->inventory_mdl->delete($id,$tbl);
+	    if($delete){
+      		$this->session->set_flashdata('msg','Successfully Deleted');
+	        redirect(FOLDER_ADMIN.'/inventory/inventory_tbl');
+    	}
   	}
 }

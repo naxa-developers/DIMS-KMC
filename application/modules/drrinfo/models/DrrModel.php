@@ -150,5 +150,36 @@ class DrrModel extends CI_Model {
         } 
         return false;
     }
+    public function file_do_upload($filename,$name)
+    {
+      $field_name                     ='uploadedfile';
+      $config['upload_path']          = './uploads/drr_article/file/';
+      $config['allowed_types']        = 'pdf|doc';
+      $config['max_size']             = 7000;
+      $config['overwrite']            = TRUE;
+      $config['file_name']           = $name;
+      $this->load->library('upload', $config);
+      $this->upload->initialize($config);
+      //var_dump($field_name); die;
+      if ( ! $this->upload->do_upload($field_name))
+      {
+        $error = array('error' => $this->upload->display_errors());
+        return $error;
 
+
+      }
+      else
+      {
+
+
+        return 1;
+
+      }
+    }
+public function update_path_drrarticle($id,$data){
+
+        $this->db->where('id',$id);
+        $this->db->update('drr_article',$data);
+
+    }
 }
