@@ -216,31 +216,100 @@ echo  json_encode($response);
 
   }
 
-public function remove_data_array(){
+public function delete_circle(){
 
-$data=$this->input->post('data');
-$data_array=json_decode($data,TRUE);
-var_dump($data_array);
-
-//$key=array_search('9841195921',$data_array);
+$email=$this->input->post('email');
+$mobile_no=$this->input->post('mobile_no');
+$circle=$this->Api_model->my_circle_detail($email);
+$data_array=json_decode($circle["my_circle"],TRUE);
+//var_dump(array_values($data_array));
 
 for($i=0;$i<sizeof($data_array);$i++){
 
-  $key=array_search('9841195921',$data_array[$i]);
 
-  if('9841195923'==$data_array[$i]['mobile_no'])
+
+  if($mobile_no==$data_array[$i]['mobile_no'])
    {
-unset($data_array[$i]);
+
+     unset($data_array[$i]);
+
+
 
 
     }
-   }
-   var_dump($data_array);
 
-   echo 'deleted';
+   }
+  $sort_array=array_values($data_array);
+//var_dump($sort_array);
+
+   $circle_data=array(
+    "my_circle"=>json_encode($sort_array),
+   );
+
+   $delete_circle=$this->Api_model->update_circle($email,$circle_data);
+   if($delete_circle){
+     $response['error'] = 0 ;
+     $response['message'] = 'Contact successfully Removed from My circle';
+
+   }else{
+     $response['error'] = 0 ;
+     $response['message'] = 'Number cannot be removed';
+   }
+//var_dump($data_array);
+  echo json_encode($response);
+
+
  }
 
  public function add_my_circle(){
+
+   $data=$this->input->post('data');
+   $email=$this->input->post('email');
+   $circle=$this->Api_model->my_circle_detail($email);
+
+   if($circle['my_circle']==""){
+
+     $circle_data=array(
+      "my_circle"=>$data,
+     );
+
+     $add_circle=$this->Api_model->update_circle($email,$circle_data);
+     if($add_circle){
+       $response['error'] = 0 ;
+       $response['message'] = 'My circle Added successfully';
+
+     }else{
+       $response['error'] = 0 ;
+       $response['message'] = 'Error in Adding cicle';
+     }
+
+
+   }else{
+
+     $data_array=json_decode($data,TRUE);
+     $data_array_circle=json_decode($circle['my_circle'],TRUE);
+     $merge=array_merge($data_array_circle,$data_array);
+
+     $circle_data=array(
+      "my_circle"=>json_encode($merge),
+     );
+
+
+    $update_circle=$this->Api_model->update_circle($email,$circle_data);
+
+
+    if($update_circle){
+      $response['error'] = 0 ;
+      $response['message'] = 'My circle Updated successfully';
+
+    }else{
+      $response['error'] = 0 ;
+      $response['message'] = 'Error in Updating cicle';
+    }
+
+
+   }
+   echo json_encode($response);
 
 
 
