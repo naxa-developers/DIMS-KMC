@@ -92,6 +92,7 @@
     </section>
 </footer>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
     <script src="<?php echo base_url();?>assets/frontend/js/bootstrap.min.js"></script>
     <script src="<?php echo base_url();?>assets/frontend/js/slick.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url()?>assets/frontend/js/validate.js"></script>
@@ -130,7 +131,7 @@
 
           } );
           </script>
-          <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
 
 
@@ -204,7 +205,7 @@
         //      },1000); // milliseconds
         // });
     </script>
-    <script>
+   <!--  <script>
         $.extend(
         {
             redirectPost: function(location, args)
@@ -285,6 +286,30 @@
             }
         })
     });
-    </script>
+    </script> -->
+    <script type="text/javascript">
+      //$(document).off('click','.ChangeLanguage');
+      $('.ChangeLanguage').on('click',function(e)
+      {// alert('hello');
+        var url  = window.location.href;
+        var language=$(this).data('language'); //alert(language);
+        var action="<?php echo base_url() ?>/home/change_language";
+        $.ajax({
+        type: "POST",
+        url: action,
+        dataType: 'html',
+            data: {language:language},
+            success: function(jsons)
+            {
+             data = jQuery.parseJSON(jsons); 
+              if(data.status=='success'){
+                setTimeout(function(){
+                window.location.href = url;
+                 }, 500);
+              }
+          }
+        });
+      });
+</script>
 </body>
 </html>

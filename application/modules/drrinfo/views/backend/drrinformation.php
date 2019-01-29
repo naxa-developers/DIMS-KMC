@@ -3,7 +3,7 @@
         <div class="row">
             <section class="panel">
                 <header class="panel-heading">Drrinformation </header>
-                <form role="form" method="POST" action="<?php FOLDER_ADMIN ."/drrinfo/drrinformation" ?>"  enctype="multipart/form-data" >
+                <form method="POST" action="<?php echo base_url(FOLDER_ADMIN)?>/drrinfo/drrinformation"  enctype="multipart/form-data" >
                     <input type="hidden" name="id" value="<?php echo !empty($drrdataeditdata[0]['id'])?$drrdataeditdata[0]['id']:'' ?>">
                     <div class="form-group">
                         <div class="col-md-6">

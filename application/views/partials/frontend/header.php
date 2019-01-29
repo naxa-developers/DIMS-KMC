@@ -44,13 +44,32 @@
                     </a>
                   <?php endif; ?>
                 </div>
+                &nbsp;&nbsp;&nbsp;
+                <?php  $lang=$this->session->get_userdata('Language'); ?>
+                <div class="menuiconHolder float-right">
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                      <label class="btn-sm btn btn-secondary active <?php if($lang['Language']=='nep'){ echo"ChangeLanguage"; } ?>"  data-language="en">
+                        <input type="radio" class="" id="option1" autocomplete="off" checked><i class="la la-language"></i>: En
+                      </label>
+                      <label class="btn-sm btn btn-secondary <?php if($lang['Language']=='en'){ echo"ChangeLanguage"; } ?>" data-language="nep" >
+                        <input type="radio" class="" name="options" id="option3" autocomplete="off"> <i class="la la-language"></i> : Nep
+                      </label>
+                    </div>
+                </div>    
                 <div class="menuiconHolder float-right-fx">
                     <div class="iconholder">
                         <i class="fas fa-bars"></i>
                     </div>
+                    <!--  &nbsp;&nbsp;
+                    <a class=" btn btn-sm btn-info ChangeLanguage active" href="javascript:void(0)" data-language="nep"> <i class="la la-language"></i>: En </a>&nbsp;&nbsp;
+                    <a class="btn-sm btn btn-success ChangeLanguage " href="javascript:void(0)" data-language="en"> <i class="la la-language"></i> : Nep</a>
+                    &nbsp;&nbsp; -->
                 </div>
+
             </div>
         </div>
+       
+           
         <div class="menuOverlay">
             <div class="container">
                 <div class="close">

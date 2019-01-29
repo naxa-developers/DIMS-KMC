@@ -155,7 +155,7 @@ class Admin extends Admin_Controller {
   		$this->data['categories'] = $this->general->get_tbl_data_result('id,name','drrcategory',array('language'=>$emerg_lang));
   		$this->data['subcategories'] = $this->general->get_tbl_data_result('id,name','drrsubcategory',array('language'=>$emerg_lang));
   		if(isset($_POST['submit'])){
-  			//echo"<pre>"; print_r($this->input->post());die;
+  			echo"<pre>"; print_r($this->input->post());die;
 	      	$file_name = $_FILES['image']['name'];
 	      	// echo "<pre>"; print_r($file_name); die;
 		      	$data=array(
