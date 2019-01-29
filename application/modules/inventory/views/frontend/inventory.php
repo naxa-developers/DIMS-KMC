@@ -1,14 +1,12 @@
-    <section class="buttons">
-        <div class="container">
+       <section class="buttons">
+   ;     <div class="container">
             <div class="linkbuttons">
-           
                 <a href="">
                     <div class="btn-item active">
                         <img src="<?php echo base_url()?>assets/frontend/img/assets/shelter.png" alt="">
                     </div>
                     <h4 class="lktitle"><?php echo $this->lang->line('shelter') ?></h4>
                 </a>
-                
                 <a href="">
                     <div class="btn-item">
                         <img src="<?php echo base_url()?>assets/frontend/img/assets/medi.png" alt="">

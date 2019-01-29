@@ -67,7 +67,7 @@ class Inventory_mdl extends CI_Model {
     public function update_path($id,$data){
 
         $this->db->where('id',$id);
-        $this->db->update('inventory_category',$data);
+        $this->db->update('inventorycategory',$data);
 
     }
     public function do_upload($filename,$name)

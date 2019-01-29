@@ -119,7 +119,7 @@ class Admin extends Admin_Controller {
 	        	'ward'=>$this->input->post('ward'),
 	        	'language'=>$emerg_lang,
 	      	);
-	      	$insert=$this->inventory_mdl->add_inventory_cat('inventory_category',$data);
+	      	$insert=$this->inventory_mdl->add_inventory_cat('inventorycategory',$data);
 	      	//print_r($insert);die;
 	      	if($insert!=""){
 	      		$old_image=$this->input->post('old_image');
@@ -155,7 +155,7 @@ class Admin extends Admin_Controller {
 	    	//print_r($id);die;
 
 	    	if($id) {
-				$this->data['editdata'] = $this->general->get_tbl_data_result('id,image,name,ward','inventory_category',array('id'=>$id));
+				$this->data['editdata'] = $this->general->get_tbl_data_result('id,image,name,ward','inventorycategory',array('id'=>$id));
 	    	}else{
 	    		$this->data['editdata'] = array();	
 	    	}
@@ -180,7 +180,7 @@ class Admin extends Admin_Controller {
             $emerg_lang='nep'; 
         }
         //$this->data['name']="Dictionary";
-        $this->data['inventorydata'] = $this->general->get_tbl_data_result('id,name,image,ward','inventory_category',array('language'=>$emerg_lang));
+        $this->data['inventorydata'] = $this->general->get_tbl_data_result('id,name,image,ward','inventorycategory',array('language'=>$emerg_lang));
         //admin check
         //echo "<pre>"; print_r($this->data['inventorydata']);die;
         $admin_type=$this->session->userdata('user_type');
@@ -193,7 +193,7 @@ class Admin extends Admin_Controller {
   	}
   	
   	public function delete_inventory_cat(){
-	    $tbl="inventory_category";
+	    $tbl="inventorycategory";
 	    $id = base64_decode($this->input->get('id'));
 	    $delete=$this->inventory_mdl->delete($id,$tbl);
 	    if($delete){

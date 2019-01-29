@@ -58,7 +58,14 @@
                                                 <div class="card-header" id="headingOne">
                                                     <button class="btn btn-link" type="button" data-toggle="collapse"
                                                         data-target="#collapseOne<?php echo $cat ?>" aria-expanded="true" aria-controls="collapseOne<?php echo $cat ?>">
-                                                        <?php echo $cat; ?>
+                                                        <?php if($cat == "Hazard_Data")
+                                                        { 
+                                                            echo "Risk and Hazards"; 
+                                                        }elseif($cat == "Baseline_Data"){
+                                                            echo "Baseline Datasets";
+                                                        }else{
+                                                             echo "Municipal Resources";
+                                                         } ?>
                                                     </button>
                                                 </div>
                                                 <div id="collapseOne<?php echo $cat ?>" class="collapse show" aria-labelledby="headingOne<?php echo $cat ?>"
