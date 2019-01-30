@@ -54,7 +54,7 @@
                             <?php }  ?>
                               <td>
                                 <a href="<?php echo base_url(FOLDER_ADMIN)?>/drrinfo/drrinformation?id=<?php echo base64_encode($v['id']);?>"><?php echo $this->lang->line('edit'); ?></a> /
-                                <a onclick="return confirm('Are you sure you want to delete?')" href="<?php echo base_url(FOLDER_ADMIN)?>/drrinfo/delete?id=<?php echo base64_encode($v['id']);?>"><?php echo $this->lang->line('delete'); ?></a></td>
+                                <a onclick="return confirm('Are you sure you want to delete?')" href="<?php echo base_url(FOLDER_ADMIN)?>/drrinfo/delete_drrinformation?id=<?php echo base64_encode($v['id']);?>"><?php echo $this->lang->line('delete'); ?></a></td>
                           </tr>
                         <?php  } ?>
                           </tbody>

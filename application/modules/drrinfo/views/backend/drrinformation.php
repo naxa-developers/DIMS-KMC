@@ -1,9 +1,9 @@
 <section id="main-content" class="">
-    <section class="wrapper">
-        <div class="row">
+    <section class="wrapper"> <style>.error{ color:red; }</style>
+        <div class="row"><!-- <?php/// echo base_url(FOLDER_ADMIN)?>/drrinfo/drrinformation" -->
             <section class="panel">
                 <header class="panel-heading">Drrinformation </header>
-                <form method="POST" action="<?php echo base_url(FOLDER_ADMIN)?>/drrinfo/drrinformation"  enctype="multipart/form-data" >
+                <form method="post" action="" enctype="multipart/form-data" >
                     <input type="hidden" name="id" value="<?php echo !empty($drrdataeditdata[0]['id'])?$drrdataeditdata[0]['id']:'' ?>">
                     <div class="form-group">
                         <div class="col-md-6">
@@ -44,7 +44,7 @@
                     <div class="form-group">
                         <div class="col-md-12">
                             <label for="description">Description : </label>
-                            <textarea class="form-control ckeditor"  id="description" name="description" required><?php echo !empty($drrdataeditdata[0]['description'])?$drrdataeditdata[0]['description']:'' ?></textarea>
+                            <textarea class="form-control ckeditor"  name="description"><?php echo !empty($drrdataeditdata[0]['description'])?$drrdataeditdata[0]['description']:'' ?></textarea>
                             
                             <?php echo form_error('description'); ?>
                         </div>
@@ -64,10 +64,10 @@
                         <?php endif; ?>
                         <div class="col-md-6">
                             <label for="submit">&nbsp;&nbsp;</label><br>
-                            <button type="submit" name="submit" class="btn btn-primary"><?php if($drrdataeditdata){ echo "Update";}else{ echo"Submit";} ?></button>
+                            <button type="submit" name="submit" class="btn btn-primary" ><?php if($drrdataeditdata){ echo "Update";}else{ echo"Submit";} ?></button>
                         </div>
                     </div>
-                </form>
+               </form>
             </section>
         </div>
     </section>

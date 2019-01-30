@@ -1616,7 +1616,8 @@ section.buttons {
 }
 
 .logoHolder img {
-  max-width: 55px;
+ 
+      max-width: 100%;
 }
 
 .selectChart {

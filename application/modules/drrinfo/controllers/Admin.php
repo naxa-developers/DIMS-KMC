@@ -154,8 +154,12 @@ class Admin extends Admin_Controller {
         }
   		$this->data['categories'] = $this->general->get_tbl_data_result('id,name','drrcategory',array('language'=>$emerg_lang));
   		$this->data['subcategories'] = $this->general->get_tbl_data_result('id,name','drrsubcategory',array('language'=>$emerg_lang));
-  		if(isset($_POST['submit'])){
-  			echo"<pre>"; print_r($this->input->post());die;
+  		//echo "<pre>"; print_r($_POST);die;
+  		$this->form_validation->set_rules('category_id', 'Please Select Category', 'trim|required');
+  		$this->form_validation->set_rules('short_desc', 'Short Description', 'trim|required');
+
+		if ($this->form_validation->run() == TRUE){
+  			//echo"<pre>"; print_r($this->input->post());die;
 	      	$file_name = $_FILES['image']['name'];
 	      	// echo "<pre>"; print_r($file_name); die;
 		      	$data=array(
@@ -295,8 +299,8 @@ class Admin extends Admin_Controller {
         $this->template
                         ->enable_parser(FALSE)
                         ->build('backend/drr_article_list',$this->data);
-}
-public function delete_article(){
+	}
+	public function delete_article(){
 	    $tbl="drr_article";
 	    $id = base64_decode($this->input->get('id'));
 	   // print_r($id);die;
@@ -304,6 +308,16 @@ public function delete_article(){
 	    if($delete){
       		$this->session->set_flashdata('msg','Successfully Deleted');
 	        redirect(FOLDER_ADMIN.'/drrinfo/drr_article_list');
+    	}
+  	}
+  	public function delete_drrinformation(){
+	    $tbl="drrinformation";
+	    $id = base64_decode($this->input->get('id'));
+	   // print_r($id);die;
+	    $delete=$this->DrrModel->delete($id,$tbl);
+	    if($delete){
+      		$this->session->set_flashdata('msg','Successfully Deleted');
+	        redirect(FOLDER_ADMIN.'/drrinfo/drrinformationlist');
     	}
   	}
 }
