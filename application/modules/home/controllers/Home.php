@@ -7,6 +7,7 @@ class Home extends Admin_Controller
         $this->load->model('Upload_model');
         $this->load->model('Report_model');
         $this->load->model('home_mdl');
+         $this->template->set_layout('frontend/default');
 	}
 	public function index() //default_page 
     {
@@ -61,7 +62,7 @@ class Home extends Admin_Controller
 	        $data_count_cat = call_user_func_array('array_merge', $tbl_list);
 	        $this->data['data_count_cat']=$data_count_cat;
 	    $this->data['urll']=$this->uri->segment(1);
-	    $this->template->set_layout('frontend/default');
+	   
 
 		$this->template
 			->enable_parser(FALSE)
@@ -122,5 +123,26 @@ class Home extends Admin_Controller
 	    	print_r(json_encode(array('status'=>'error','message'=>'Cannot Perform this Operation')));
 	        exit;
 	    }
+	}
+	public function incidentmanagement()
+	{
+	    $this->data= array();
+	    $this->template
+			->enable_parser(FALSE)
+			->build('frontend/incidentmanagement', $this->data);
+	}
+	public function municipalprofile()
+	{
+	    $this->data= array();
+	    $this->template
+			->enable_parser(FALSE)
+			->build('frontend/municipalprofile', $this->data);
+	}
+	public function datacategory()
+	{
+	    $this->data= array();
+	    $this->template
+			->enable_parser(FALSE)
+			->build('frontend/datacategory', $this->data);
 	}
 }

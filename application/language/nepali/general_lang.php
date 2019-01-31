@@ -187,8 +187,8 @@ $lang['datasets']="डेटासेट";
 $lang['publications']="प्रकाशनहरू";
 $lang['contacts']="सम्पर्कहरू";
 $lang['incidentmanagement']="घटना बिबीरण";
-$lang['drrinfodetail']="विपदका  जानकारीहरु";
-$lang['dictionary']="प्रकोप सब्दकोश";
+$lang['drrinfodetail']="सम्पर्क सूची";
+$lang['terminology']="टर्मिनोलोजी";
 $lang['datacategory']=" तत्थ्यांक सङ्ग्रह ";
 $lang['municipalprofile']="नगरपालिका प्रोफाइल";
 
@@ -209,12 +209,12 @@ $lang['non_material_content']="गैरखाद्ध्य सामग्र
 $lang['search_and_rescue_materials']="खोज तथा उद्धार सामग्री ";
 // homepage
 $lang['emergency_contact']="एक पूर्ण जि। आइ। एस। डाटाबेस"; 
-$lang['whattodobefore']="आपदाको समयमा, पछि र पहिला  के गर्नु पर्छ";
-$lang['individualdigital']="व्यक्तिगत डिजिटल वार्ड प्रोफाइल किताब ।";
-$lang['diffmatabout']="आपद जोखिम र खतराहरूको बारेमा फरक जनक सामग्री";
+$lang['whattodobefore']="विपदका घटनाहरू र नागरिक मुद्दाहरू रिपोर्ट गर्नुहोस्";
+$lang['individualdigital']="वार्ड र नगरपालिका स्तरको सामाजिक र आर्थिक स्थितिको डिजिटल प्रोफाइल ।";
+$lang['diffmatabout']="विपदको  पूर्वतयारी, व्यवस्थापन र जोखिम कमजबारेमा सामग्री";
 $lang['intmapwithadmin']="प्रशासनिक डाटा तहहरू र डाटासेटहरूको साथ अन्तरक्रियात्मक नक्सा";
-$lang['dictionaryofimpterminologies']="आपदासँग सम्बन्धित महत्त्वपूर्ण टर्मिनोलोजीहरूको शब्दकोश"; 
-$lang['Filesrelatedtoincidentmanagement']="घटना व्यवस्थापन सम्बन्धी फाइलहरू"; 
+$lang['dictionaryofimpterminologies']="विपदको टर्मिनोलोजी र त्यसको अर्थ"; 
+$lang['Filesrelatedtoincidentmanagement']="आपतकालीन समयमा सम्पर्क गर्न सकिने व्यक्ति र संस्थाको डिजिटल फोन बुक"; 
 $lang['contactinventorytagline']= "विपदको आपतकालीन समयमा आवश्यक सामग्रीको विवरण डिजिटल सूचीमा समावेश";
 $lang['emergencymaterialtagline']= "विपदको आपतकालीन समयमा आवश्यक सामग्रीको विवरण डिजिटल सूचीमा समावेश";
 $lang['aboutprojecttagline']= "प्रोजेक्ट कंसोर्टियम, प्रणालीका  विशेषता  र विकास टीम";
@@ -229,20 +229,28 @@ $lang['notify_other']= "अन्यलाई आपत्तिजनक छु
 $lang['shortest_route']= "सुरक्षित स्थानको लागि सबैभन्दा छोटो मार्ग खाली ठाउँहरू";
 $lang['report_near']= "नजिकैको प्रयोगकर्तालाई   खतरा रिपोर्ट गर्नुहोस्";
 $lang['advancesearchfacility']="विशेष डाटासेट फेला पार्न खोजी गर्ने  सुविधा";
-$lang['howisourmobileapp']="हाम्रो मोबाइल एप्स कसरी उपयोगी छ ?";
+$lang['howisourmobileapp']="DIMS मोबाइल अनुप्रयोगका प्रमुख विशेषताहरु ";
 
 
-$lang['big_text']="आपदा सूचना व्यवस्थापन प्रणाली ";
-$lang['small_text']="GIS आधारित सूचना प्लेटफार्म ";
-$lang['get_started']="सुरु गर्नुहोस ";
-$lang['reportbymonth']="गत तीन महिना को घटना सूचना ";
+$lang['big_text']="विपद प्रबंधनका लागि ";
+$lang['small_text']="GIS मा आधारित सूचना प्लेटफर्म";
+$lang['get_started']="सुरु गर्नुहोस";
+$lang['reportbymonth']="गत तीन महिनाको समयमा घटनाक्रम रिपोर्ट";
 $lang['viewall']="सबै हेर्नुहोस्";
-$lang['differentbrowse']="फरक भाग हेर्नुहोस्";
-$lang['dataset']="विभिन्न डाटासेट अन्वेषण गर्नुहोस";
+$lang['differentbrowse']="उपलब्ध खण्डहरू अन्वेषण गर्नुहोस";
+$lang['dataset']="विभिन्न डाटासेट अन्वेषण गर्नुहोस ";
 $lang['findmorenewaboutus']="हाम्रो बारेमा थप समाचारहरू फेला पार्नुहोस्";
 $lang['alert']="चेतावनी";
 $lang['acomgisdb']="नगरपालिकाको  डाटासेट अन्वेषण गर्नुहोस् र नक्सामा हेर्नुहोस्";
 $lang['abouthazard']="खतराको बारे , विपद पुर्व, विपदको समय र विपद पश्चात गर्नुपर्ने कार्यको जानकारी ";
 
+$lang['incidentmgmt']="विपदका घटनाक्रम विवरण";
+$lang['munprofile']="नगरपालिका प्रोफाइल";
 
+$lang['publicationnmultimedia']="प्रकाशन र मल्टीमीडिया";
+$lang['contactinv']="सम्पर्क सूची";
+$lang['emergencymat']="आपतकालीन सामग्री";
+
+$lang['aboutusdetails']="प्रोजेक्ट कंसोर्टियम, प्रणालीका  विशेषता  र विकास टीम";
+$lang['emergencymatdetails']="विपदको आपतकालीन समयमा आवश्यक सामग्रीको विवरण डिजिटल सूचीमा समावेश";
 ?>

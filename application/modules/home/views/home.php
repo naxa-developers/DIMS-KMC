@@ -94,7 +94,7 @@
             <div class="row browse">
                 <div class="col-md-4">
                     <div class="listHolder">
-                        <a href="datacategory.html" class="plain">
+                        <a href="<?php echo base_url(); ?>datacategory" class="plain">
                             <div class="overlay">
                                 <div class="innerTitle"><?php echo $this->lang->line('dataset') ?><!-- BROWSE DATASETS --></div>
                                 <p class="innerSubtitle"><?php echo $this->lang->line('acomgisdb');?> <!-- A complete GIS database --></p>
@@ -108,9 +108,9 @@
                 </div>
                 <div class="col-md-4">
                     <div class="listHolder">
-                        <a href="incidentmanagement.html" class="plain">
+                        <a href="<?php echo base_url(); ?>incidentmanagement" class="plain">
                             <div class="overlay">
-                                <div class="innerTitle">INCIDENT MANAGEMENT</div>
+                                <div class="innerTitle"><?php echo $this->lang->line('incidentmgmt'); ?></div>
                                 <p class="innerSubtitle"><?php echo $this->lang->line('whattodobefore');?> <!-- What to do before, during and after disaster --></p>
                             </div>
                         </a>
@@ -119,9 +119,9 @@
                 </div>
                 <div class="col-md-4">
                     <div class="listHolder">
-                        <a href="municipalprofile.html" class="plain">
+                        <a href="<?php echo base_url(); ?>municipalprofile" class="plain">
                             <div class="overlay">
-                                <div class="innerTitle">MUNICIPAL PROFILE</div>
+                                <div class="innerTitle"><?php echo $this->lang->line('munprofile'); ?></div>
                                 <p class="innerSubtitle"><?php echo $this->lang->line('individualdigital');?><!-- Individual digital ward wise profile book --></p>
                             </div>
                         </a>
@@ -154,7 +154,18 @@
                     <div class="listHolder">
                         <a href="explore.html" class="plain">
                             <div class="overlay">
-                                <div class="innerTitle">PUBLICATIONS AND MULTIMEDIA</div>
+                                <div class="innerTitle"><?php echo $this->lang->line('publicationnmultimedia'); ?></div>
+                                <p class="innerSubtitle"><?php echo $this->lang->line('Filesrelatedtoincidentmanagement'); ?>.</p>
+                            </div>
+                        </a>
+                        <img src="<?php echo base_url(); ?>assets/frontend/img/assets/7.png" alt="">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="listHolder">
+                        <a href="contact" class="plain">
+                            <div class="overlay">
+                                <div class="innerTitle"><?php echo $this->lang->line('contactinv'); ?></div>
                                 <p class="innerSubtitle"><?php echo $this->lang->line('Filesrelatedtoincidentmanagement');?>.</p>
                             </div>
                         </a>
@@ -163,21 +174,10 @@
                 </div>
                 <div class="col-md-4">
                     <div class="listHolder">
-                        <a href="contact.html" class="plain">
+                        <a href="<?php echo base_url(); ?>inventory" class="plain">
                             <div class="overlay">
-                                <div class="innerTitle">CONTACT INVENTORY</div>
-                                <p class="innerSubtitle"><?php echo $this->lang->line('Filesrelatedtoincidentmanagement');?>.</p>
-                            </div>
-                        </a>
-                        <img src="<?php echo base_url(); ?>assets/frontend/img/assets/7.png" alt="">
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="listHolder">
-                        <a href="inventory.html" class="plain">
-                            <div class="overlay">
-                                <div class="innerTitle">EMERGENCY MATERIALS</div>
-                                <p class="innerSubtitle"><?php echo $this->lang->line('Filesrelatedtoincidentmanagement');?>.</p>
+                                <div class="innerTitle"><?php echo $this->lang->line('emergencymat');?></div>
+                                <p class="innerSubtitle"><?php echo $this->lang->line('emergencymatdetails');?>.</p>
                             </div>
                         </a>
 
@@ -190,8 +190,8 @@
                     <div class="listHolder">
                         <a href="#" class="plain">
                             <div class="overlay">
-                                <div class="innerTitle">ABOUT PROJECT</div>
-                                <p class="innerSubtitle"><?php echo $this->lang->line('Filesrelatedtoincidentmanagement');?>.</p>
+                                <div class="innerTitle"><?php echo $this->lang->line('aboutus');?></div>
+                                <p class="innerSubtitle"><?php echo $this->lang->line('aboutusdetails');?></p>
                             </div>
                         </a>
 

@@ -189,7 +189,7 @@ $lang['publications']="Publications";
 $lang['contacts']="Contacts";
 $lang['incidentmanagement']="Incident Reports";
 $lang['drrinfodetail']="Disaster Information";
-$lang['dictionary']="Desaster Dictionary";
+$lang['terminology']="Terminologies";
 $lang['datacategory']="Data Category";
 $lang['municipalprofile']="Municipal Profile";
 
@@ -251,4 +251,19 @@ $lang['dataset']="EXPLORE DATASETS";
 $lang['acomgisdb']="Explore and view the municipal dataset in maps";
 $lang['findmorenewaboutus']="FIND MORE NEWS ABOUT US";
 $lang['alert']="Alert";
+$lang['incidentmgmt']="INCIDENT MANAGEMENT";
+$lang['munprofile']="MUNICIPAL PROFILE";
+$lang['publicationnmultimedia']="PUBLICATIONS AND MULTIMEDIA";
+$lang['contactinv']="CONTACT INVENTORY";
+$lang['emergencymat']="EMERGENCY MATERIALS";
+
+// आपतकालीन सामग्री
+
+
+$lang['emergencymatdetails']="EMERGENCY MATERIALS Details";
+$lang['aboutus']="ABOUT PROJECT";
+$lang['aboutusdetails']="About the project consortium, development team and system features.";
+
+
+
 ?>

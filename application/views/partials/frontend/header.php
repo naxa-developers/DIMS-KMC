@@ -32,13 +32,7 @@
 </head>
 <!-- Bootstrap core CSS -->
 <body>
-    <?php $lang=$this->session->get_userdata('Language');
-            if($lang['Language']=='en')
-            { ?>
-                <style>.logoHolder img { max-width: 54px; }</style>
-           <?php  }else{
-               ?><style>.logoHolder img { max-width: 100%; }</style> <?php 
-             } ?>
+
 <?php if($this->uri->segment(1) == 'home' || $this->uri->segment(1) == ''){ ?> 
     <section class="hero">
     <header>
@@ -47,7 +41,7 @@
                 <div class="logoHolder">
                     <?php if(SITE_SLOGAN_EN): ?>
                     <a href="<?php echo base_url() ?>">
-                        <img src="<?php echo SITE_SLOGAN_EN ?>" alt="" >
+                        <img src="<?php echo SITE_SLOGAN_EN ?>" alt="site logo " >
                     </a>
                   <?php endif; ?>
                 </div>
@@ -114,7 +108,7 @@
                 <div class="logoHolder">
                     <?php if(SITE_SLOGAN_EN): ?>
                     <a href="<?php echo base_url() ?>">
-                        <img src="<?php echo SITE_SLOGAN_EN ?>" alt="" >
+                        <img src="<?php echo SITE_SLOGAN_EN ?>" alt="site logo " >
                     </a>
                   <?php endif; ?>
                 </div>

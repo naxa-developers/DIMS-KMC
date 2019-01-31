@@ -1,4 +1,4 @@
-<section class="searchpanel">
+<!-- <section class="searchpanel">
         <div class="container">
 
 
@@ -350,4 +350,197 @@
                 </div>
             </div>
         </div>
+    </section> -->
+<section class="linkbtn">
+        <div class="container">
+            <div class="topbtnHolder">
+                <div class="btnHolderItems activelink">
+                    <a class="nodec tcolor" href="municipalprofile.html">
+                        <div class="imgholder">
+                            <img src="<?php echo base_url()?>assets/frontend/img/assets/stastics.png" alt="">
+                        </div>
+                        <div class="label">
+                            Stastical Profile
+                        </div>
+
+                    </a>
+                </div>
+                <div class="btnHolderItems">
+                    <a class="nodec tcolor" href="electedrepresentative.html">
+                        <div class="imgholder">
+                            <img src="<?php echo base_url()?>assets/frontend/img/assets/wardrepresentative.png" alt="">
+                        </div>
+                        <div class="label">
+                            Elected Representative
+                        </div>
+                    </a>
+
+
+                </div>
+                <div class="btnHolderItems">
+                    <a class="nodec tcolor" href="">
+                        <div class="imgholder">
+                            <img src="<?php echo base_url()?>assets/frontend/img/assets/wardmembers.png" alt="">
+                        </div>
+                        <div class="label">
+                            Ward Staff
+                        </div>
+                    </a>
+
+
+                </div>
+                <div class="btnHolderItems">
+                    <a class="nodec tcolor" href="">
+                        <div class="imgholder">
+                            <img src="<?php echo base_url()?>assets/frontend/img/assets/wmap.png" alt="">
+                        </div>
+                        <div class="label">
+                            Ward Map
+                        </div>
+                    </a>
+
+
+                </div>
+                <div class="btnHolderItems">
+                    <a class="nodec tcolor" href="">
+                        <div class="imgholder">
+                            <img src="<?php echo base_url()?>assets/frontend/img/assets/riskstat.png" alt="">
+                        </div>
+                        <div class="label">
+                            Risk Profile
+                        </div>
+                    </a>
+
+
+                </div>
+            </div>
+        </div>
     </section>
+    <section class="headerCounts">
+        <div class="container">
+            <div class="selectHolder   flex">
+                <div>
+                    <h4 class="title"> Municipal Data</h4>
+                </div>
+                <div>
+                    <label for="">Change Data</label>
+                    <select>
+                        <option value="volvo">Municipal</option>
+                        <option value="volvo">Ward no 7</option>
+                        <option value="saab">ward no 8</option>
+                        <option value="mercedes">Ward no 9</option>
+                        <option value="audi">Ward no 10 </option>
+                    </select>
+                </div>
+            </div>
+            <div class="cntinner">
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="flex column">
+                            <div class="cnttitle">Total Population</div>
+                            <div class="cntval">14,000</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="flex column">
+                            <div class="cnttitle">Total Houses</div>
+                            <div class="cntval">100</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="flex column">
+                            <div class="cnttitle">Total Family</div>
+                            <div class="cntval">58,000</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="flex column">
+                            <div class="cnttitle">Total Hospitals</div>
+                            <div class="cntval">91,000</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="searchpanel">
+        <div class="container">
+
+
+            <div class="search flex contactSearch">
+                <div class="inputholder grow">
+                    <label for="">Search</label>
+                    <input class="search--input " placeholder="Enter to search..." type="text">
+                </div>
+
+                <div class="selectHolder ">
+                    <label for="">Select Sector</label>
+                    <select>
+                        <option value="volvo">Municipal</option>
+                        <option value="volvo">Ward no 7</option>
+                        <option value="saab">ward no 8</option>
+                        <option value="mercedes">Ward no 9</option>
+                        <option value="audi">Ward no 10 </option>
+                    </select>
+                </div>
+                <div class="selectHolder ">
+                    <label for="">Select Indicator</label>
+                    <select>
+                        <option value="volvo">Total Population</option>
+                        <option value="volvo">Sex Ratio</option>
+                        <option value="saab">Total Household</option>
+                        <option value="mercedes">Toilet Facilities
+                        </option>
+                    </select>
+                </div>
+
+
+                <button class="btn-primary search--btn"> Filter</button>
+            </div>
+        </div>
+    </section>
+    <section class="graphs">
+        <div class="container">
+            <div class="row mt30">
+                <div class="col-md-6">
+                    <div class="whiteshadowbg">
+                        <div id="gbarchart">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="whiteshadowbg">
+                        <div id="stackchart">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt30">
+                <div class="col-md-6">
+                    <div class="whiteshadowbg">
+                        <div id="malefemale">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="whiteshadowbg">
+                        <div id="pichart">
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+     <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>

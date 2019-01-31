@@ -63,6 +63,12 @@ $route[FOLDER_ADMIN.'/([a-zA-Z_-]+)'] = '$1/admin';
 $route[FOLDER_ADMIN] = "admin";
 
 $route['home'] = 'home/index';
+$route['incidentmanagement'] = 'home/incidentmanagement';
+$route['municipalprofile'] = 'home/municipalprofile';
+$route['datacategory'] = 'home/datacategory';
+
+
+
 // user routes
 
 // $route['en'] ='Lang/eng';
