@@ -187,7 +187,7 @@ $lang['datasets']="डेटासेट";
 $lang['publications']="प्रकाशनहरू";
 $lang['contacts']="सम्पर्कहरू";
 $lang['incidentmanagement']="घटना बिबीरण";
-$lang['drrinfodetail']="प्रकोप सूचना ";
+$lang['drrinfodetail']="विपदका  जानकारीहरु";
 $lang['dictionary']="प्रकोप सब्दकोश";
 $lang['datacategory']=" तत्थ्यांक सङ्ग्रह ";
 $lang['municipalprofile']="नगरपालिका प्रोफाइल";
@@ -215,6 +215,9 @@ $lang['diffmatabout']="आपद जोखिम र खतराहरूको
 $lang['intmapwithadmin']="प्रशासनिक डाटा तहहरू र डाटासेटहरूको साथ अन्तरक्रियात्मक नक्सा";
 $lang['dictionaryofimpterminologies']="आपदासँग सम्बन्धित महत्त्वपूर्ण टर्मिनोलोजीहरूको शब्दकोश"; 
 $lang['Filesrelatedtoincidentmanagement']="घटना व्यवस्थापन सम्बन्धी फाइलहरू"; 
+$lang['contactinventorytagline']= "विपदको आपतकालीन समयमा आवश्यक सामग्रीको विवरण डिजिटल सूचीमा समावेश";
+$lang['emergencymaterialtagline']= "विपदको आपतकालीन समयमा आवश्यक सामग्रीको विवरण डिजिटल सूचीमा समावेश";
+$lang['aboutprojecttagline']= "प्रोजेक्ट कंसोर्टियम, प्रणालीका  विशेषता  र विकास टीम";
 
 $lang['user_engagement']= "आपद सम्बन्धित विषयहरूमा धेरै छनौट प्रश्नहरूद्वारा प्रयोगकर्ता संलग्नता";
 $lang['disaster_alert']= " आपदाको समयमा अलार्म सेट गर्नुहोस् (सिठी को  विकल्प)";
@@ -235,8 +238,11 @@ $lang['get_started']="सुरु गर्नुहोस ";
 $lang['reportbymonth']="गत तीन महिना को घटना सूचना ";
 $lang['viewall']="सबै हेर्नुहोस्";
 $lang['differentbrowse']="फरक भाग हेर्नुहोस्";
-$lang['dataset']="डेटासेट हेर्नुहोस्";
+$lang['dataset']="विभिन्न डाटासेट अन्वेषण गर्नुहोस";
 $lang['findmorenewaboutus']="हाम्रो बारेमा थप समाचारहरू फेला पार्नुहोस्";
 $lang['alert']="चेतावनी";
+$lang['acomgisdb']="नगरपालिकाको  डाटासेट अन्वेषण गर्नुहोस् र नक्सामा हेर्नुहोस्";
+$lang['abouthazard']="खतराको बारे , विपद पुर्व, विपदको समय र विपद पश्चात गर्नुपर्ने कार्यको जानकारी ";
+
 
 ?>

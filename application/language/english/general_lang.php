@@ -173,7 +173,7 @@ $lang['note']=" Note: Select a Layer File to Upload to Table";
 $lang['input']="File input";
 
 //Disaster modules
-$lang['dictionary']="Dictionary Management";
+$lang['dictionary']="Terminologies";
 $lang['drrinformationlist']="Drr Information List";
 $lang['addrrinformation']="Add Drr Infromation";
 $lang['drr_article_list']="Drr Article List";
@@ -188,13 +188,15 @@ $lang['datasets']="Datasets";
 $lang['publications']="Publications";
 $lang['contacts']="Contacts";
 $lang['incidentmanagement']="Incident Reports";
-$lang['drrinfodetail']="Desaster Information";
+$lang['drrinfodetail']="Disaster Information";
 $lang['dictionary']="Desaster Dictionary";
 $lang['datacategory']="Data Category";
 $lang['municipalprofile']="Municipal Profile";
 
 // inventory
 $lang['sn']="S N";
+$lang['inventory']="Inventory Management";
+$lang['addinventory']="Add Inventory Category";
 $lang['organisationname']="Organisation Name";
 $lang['address']="Address";
 $lang['contact_person']="Contact Person";
@@ -212,16 +214,22 @@ $lang['search_and_rescue_materials']="Search And Rescue Materials";
 
 
 $lang['emergency_contact']="A complete GIS database";
-$lang['whattodobefore']="What to do before, during and after the disaster";
-$lang['individualdigital']="Individual digital ward wise profile book";
+$lang['whattodobefore']="Report disaster events and civic issues";
+$lang['abouthazard']="Brief about hazard and what to do before, during & after disaster";
+$lang['individualdigital']="Digital profile of Socio economic status in ward and municipal level";
 $lang['diffmatabout']="Different reading materials about disaster risk and hazards";
 $lang['intmapwithadmin']="Interactive map with administrative data layers and category-wise datasets";
-$lang['dictionaryofimpterminologies']=" Dictionary of important terminologies related to disaster";
-$lang['Filesrelatedtoincidentmanagement']="Files related to incident management";
+$lang['dictionaryofimpterminologies']="Terminologies of disaster and its meaning";
+$lang['Filesrelatedtoincidentmanagement']="Articles, Laws & policies, files & multimedia related to disaster, preparedness, risk reduction and management";
 
 $lang['advancesearchfacility']="Advance search facility to find specific datasets";
 
 $lang['report_near']= " Report hazard near a user";
+$lang['contactinventorytagline']= "A digital phone book containing the contact details of emergency services and persons";
+$lang['emergencymaterialtagline']= "A digital inventory containing the details about the materials needed during disaster emergency";
+$lang['aboutprojecttagline']= "About the project consortium, system features and development team";
+
+
 
 $lang['shortest_route']= "Shortest route to safe location(open spaces)"; 
 $lang['user_engagement']= "User engagement by multiple choice questions on disaster-related topic";
@@ -239,7 +247,8 @@ $lang['get_started']="GET STARTED ";
 $lang['reportbymonth']="INCIDNETS REPORTS DURING LAST THREE MONTHS ";
 $lang['viewall']="VIEW ALL";
 $lang['differentbrowse']="BROWSE DIFFERENT SECTION";
-$lang['dataset']="BROWSE DATASETS";
+$lang['dataset']="EXPLORE DATASETS";
+$lang['acomgisdb']="Explore and view the municipal dataset in maps";
 $lang['findmorenewaboutus']="FIND MORE NEWS ABOUT US";
 $lang['alert']="Alert";
 ?>
