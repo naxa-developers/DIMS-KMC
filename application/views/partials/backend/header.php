@@ -238,8 +238,20 @@
 
                     </ul>
                 </li>
+                
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-th"></i>
+                        <span>Inventory<?php //echo $this->lang->line('report_management'); ?></span>
+                    </a>
+                    <ul class="sub">
 
+                        <li><a href="<?php echo base_url(FOLDER_ADMIN);?>/inventory/inventory_tbl">Inventory Category <?php //echo $this->lang->line('view_reports'); ?></a></li>
+                        <li><a href="<?php echo base_url(FOLDER_ADMIN);?>/inventory/inventory_data">Inventory Data<?php //echo $this->lang->line('ghatana_bibaran_management'); ?></a></li>
+                        <li><a href="<?php echo base_url(FOLDER_ADMIN);?>/inventory">Inventory<?php //echo $this->lang->line('view_ghatana_bibaran_management'); ?></a></li>
 
+                    </ul>
+                </li>
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-th"></i>
@@ -340,8 +352,3 @@
         <!-- sidebar menu end-->
     </div>
 </aside>
-<script>
-    $(document).ready(function (){
-
-    });
-</script>

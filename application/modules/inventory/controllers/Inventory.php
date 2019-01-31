@@ -16,7 +16,8 @@ class Inventory extends Admin_Controller
             $emerg_lang='nep'; 
         }
         $this->data['invdata'] = $this->inventory_mdl->count_oinventory_data($emerg_lang);
-        //$this->data['invdata'] = $this->general->get_tbl_data_result('id,name,slug','inventorycat',array('language'=>$emerg_lang));
+        $this->data['catgegory'] = $this->general->get_tbl_data_result('id,name,slug,image','inventorycategory',array('language'=>$emerg_lang));
+        //echo "<pre>"; print_r($this->data['invdata']);die;
 		$this->template
 			->enable_parser(FALSE)
 			->build('frontend/inventory', $this->data);

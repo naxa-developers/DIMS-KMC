@@ -168,7 +168,7 @@ class Map extends Admin_Controller
 				//retrive summary list to plot in map
 				$summarylist = $this->Map_model->get_summary($resultdata[0]['summary_list'],$layer_name);
 				//echo "<pre>"; print_r($dataset_data);die;
-		        $response['geojson']=json_encode($dataset_array);
+		        $response['geojson']=json_encode($dataset_data);
 		       	$response['style']=$resultdata[0]['style'];
 		        $response['marker_type']=$resultdata[0]['marker_type'];
 		        $response['popup_content']=$resultdata[0]['popup_content'];

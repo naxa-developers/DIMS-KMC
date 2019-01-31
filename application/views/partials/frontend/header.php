@@ -32,13 +32,13 @@
 </head>
 <!-- Bootstrap core CSS -->
 <body>
-    <?php $lang=$this->session->get_userdata('Language');
+    <!-- <?php $lang=$this->session->get_userdata('Language');
             if($lang['Language']=='en')
             { ?>
                 <style>.logoHolder img { max-width: 54px; }</style>
            <?php  }else{
                ?><style>.logoHolder img { max-width: 100%; }</style> <?php 
-             } ?>
+             } ?> -->
 <?php if($this->uri->segment(1) == 'home' || $this->uri->segment(1) == ''){ ?> 
     <section class="hero">
     <header>

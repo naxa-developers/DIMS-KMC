@@ -1,18 +1,14 @@
 <!--main content start-->
 <section id="main-content">
     <section class="wrapper">
-    <!-- page start-->
-
-    <div class="row">
+    <div class="row"><style>.error{ color: red; }</style>
         <div class="col-lg-12">
                 <section class="panel">
                     <header class="panel-heading">
                       Inventory Data Upload 
                         <!-- <?php echo $this->lang->line('upload_dictionary'); ?> -->
                     </header>
-                    <div class="panel-body">
-                        <div class="position-center">
-                          <h5><i class="fa fa-info-circle"></i> <?php echo $this->lang->line('note'); ?></h5><br>
+                        <h5><i class="fa fa-info-circle"></i> <?php echo $this->lang->line('note'); ?></h5><br>
                             <form role="form" method="POST" action="" enctype="multipart/form-data">
 
                               <?php
@@ -23,28 +19,41 @@
                           <strong>Message!!!!</strong> <?php echo $error ; ?>
                                         </div>
                                  <?php
-                                 }
-                                  ?>
-
-
-
-                                  <div class="form-group">
-                                      <label for="exampleInputFile"><?php echo $this->lang->line('input'); ?></label>
-                                      <input type="file" name="uploadedfile"  id="exampleInputFile">
-
-                                  </div>
-
-                            <button type="submit" name="submit" class="btn btn-info"><?php echo $this->lang->line('upload_csv'); ?></button>
+                                 } ?>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label for="category">Select  Category : </label>
+                                        <select class="form-control" id="category" name="category" >
+                                            <option value="">----Select Category----- </option>
+                                            <?php foreach ($catgegory as $key => $value) { ?>
+                                            <option value="<?php echo $value['id'] ?>"><?php echo  $value['name']; ?></option>
+                                            <?php } ?>
+                                            <?=form_error('category')?>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="subcat">Select Sub  Category : </label>
+                                        <select class="form-control" id="subcat" name="subcat" >
+                                            <option value="">----Select Sub Category----- </option>
+                                            <?php foreach ($subcat as $key => $value) { ?>
+                                            <option value="<?php echo $value['id'] ?>"><?php echo  $value['name']; ?></option>
+                                            <?php } ?>
+                                            <?=form_error('subcat')?>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="exampleInputFile"><?php echo $this->lang->line('input'); ?></label>
+                                        <input type="file" name="uploadedfile"  id="exampleInputFile">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label for="">&nbsp;&nbsp;</label>
+                                        <button style="margin-top: 10px;" type="submit" name="submit" class="btn btn-info"><?php echo $this->lang->line('upload_csv'); ?></button>
+                                    </div>
+                                </div> 
                         </form>
-                        </div>
-
-                    </div>
                 </section>
-
         </div>
-
         </div>
-
     <!-- page end-->
     </section>
 </section>

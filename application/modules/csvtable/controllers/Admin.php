@@ -14,7 +14,8 @@ class Admin extends Admin_Controller {
 		$this->load->model('Dash_model');
 		$this->load->model('Map_model');
 		$this->load->model('Table_model');
-
+		$this->load->library('form_validation');
+		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 	}
 	public function index()
 	{
@@ -278,8 +279,9 @@ class Admin extends Admin_Controller {
 	                        ->build('admin/upload_dictionary',$this->data);
 		}
   	}
-  	public function upload_inventory_data($cat)
+  	public function upload_inventory_data()
   	{
+  		$cat=9;
   		$this->data=array();
   		$table_name = "inventory";
 		$lanuage=$this->session->get_userdata('Language');
@@ -288,7 +290,11 @@ class Admin extends Admin_Controller {
         }else{
             $lang='nep'; 
         }
-		if (isset($_POST['submit'])) {
+        $this->data['catgegory'] = $this->general->get_tbl_data_result('id,name','inventorycategory',array('language'=>$lang));
+        $this->data['subcat'] = $this->general->get_tbl_data_result('id,name','inventorycat',array('language'=>$lang));
+		$this->form_validation->set_rules('subcat', 'Please Sub Select Category', 'trim|required');
+  		$this->form_validation->set_rules('category', 'Please Select Category', 'trim|required');
+		if ($this->form_validation->run() == TRUE){
 			$max_id=$this->Table_model->get_max_id($table_name);
 			$fields=$this->db->list_fields($table_name);
 			unset($fields[0]);
@@ -309,6 +315,7 @@ class Admin extends Admin_Controller {
 			    $data=array(
 			        'language'=>$lang,
 			        'category'=>$cat,
+			        'subcat'=>$this->input->post('subcat'),
 			    );
 		      	$up=$this->Table_model->update_cat($max_id['id'],$data,$table_name);
 		    	$this->session->set_flashdata('msg','Csv Was successfully Added');

@@ -25,13 +25,35 @@ class Inventory_mdl extends CI_Model {
         $this->db->where('id',$id);
         return $this->db->delete($tbl);
     }
-    public function count_oinventory_data($lang)
+    // public function count_oinventory_data($lang,$cond=false)
+    // {
+    //     $this->db->select('count(inv.id) as countdata,"cat".*');
+    //     $this->db->from('inventory as inv');
+    //     $this->db->join('inventorycategory as cat','cat.id=inv.subcat','LEFT');
+    //     //$this->db->join('inventorycat as cat','cat.id=inv.category','LEFT');
+    //     if($lang){
+    //         $this->db->where('cat.language',$lang);
+    //     }
+        
+    //     $this->db->group_by('inv.subcat,cat.id');
+    //     $query = $this->db->get();
+    //     //echo $this->db->last_query();die;
+    //     if ($query->num_rows() > 0)
+    //     {
+    //         return $data=$query->result_array();
+    //     } 
+    //     return false;
+    // }
+    public function count_oinventory_data($lang,$cond=false)
     {
         $this->db->select('count(inv.id) as countdata,"cat".*');
         $this->db->from('inventory as inv');
         $this->db->join('inventorycat as cat','cat.id=inv.category','LEFT');
         if($lang){
             $this->db->where('cat.language',$lang);
+        }
+        if($cond) {
+            $this->db->where($cond);
         }
         $this->db->group_by('inv.category,cat.id');
         $query = $this->db->get();
