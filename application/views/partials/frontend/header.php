@@ -49,10 +49,10 @@
                 <?php  $lang=$this->session->get_userdata('Language'); ?>
                 <div class="menuiconHolder float-right">
                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                      <label class="btn-sm btn btn-secondary active <?php if($lang['Language']=='nep'){ echo"ChangeLanguage"; } ?>"  data-language="en">
+                      <label class="btn-sm btn btn-secondary <?php if($lang['Language']=='en'){ echo"active"; } ?>  <?php if($lang['Language']=='nep'){ echo"ChangeLanguage"; } ?>"  data-language="en">
                         <input type="radio" class="" id="option1" autocomplete="off" checked><i class="la la-language"></i>: En
                       </label>
-                      <label class="btn-sm btn btn-secondary <?php if($lang['Language']=='en'){ echo"ChangeLanguage"; } ?>" data-language="nep" >
+                      <label class="btn-sm btn btn-secondary <?php if($lang['Language']=='nep'){ echo"active"; } ?> <?php if($lang['Language']=='en'){ echo"ChangeLanguage"; } ?>" data-language="nep" >
                         <input type="radio" class="" name="options" id="option3" autocomplete="off"> <i class="la la-language"></i> : Nep
                       </label>
                     </div>
