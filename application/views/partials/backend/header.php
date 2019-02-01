@@ -248,7 +248,7 @@
 
                         <li><a href="<?php echo base_url(FOLDER_ADMIN);?>/inventory/inventory_tbl">Inventory Category <?php //echo $this->lang->line('view_reports'); ?></a></li>
                         <li><a href="<?php echo base_url(FOLDER_ADMIN);?>/csvtable/upload_inventory_data">Inventory Data<?php //echo $this->lang->line('ghatana_bibaran_management'); ?></a></li>
-                        <li><a href="<?php echo base_url(FOLDER_ADMIN);?>inventory/inventory_data">Inventory<?php //echo $this->lang->line('view_ghatana_bibaran_management'); ?></a></li>
+                        <li><a href="<?php echo base_url(FOLDER_ADMIN);?>/inventory/inventory_data">Inventory<?php //echo $this->lang->line('view_ghatana_bibaran_management'); ?></a></li>
 
                     </ul>
                 </li>
