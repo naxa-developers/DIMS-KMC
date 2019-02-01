@@ -87,7 +87,7 @@
     </section>
     <section class="copyright">
         <div class="container ">
-            <p> &copy; <?php echo !empty(COPY_DATE)?COPY_DATE:'' ?> <a href="#" title=""></a><?php echo !empty(COPY_TEXT)?COPY_TEXT:'' ?></p>
+            <p> &copy; <?php echo date('Y'); ?> <a href="#" title=""></a><?php echo !empty(COPY_TEXT)?COPY_TEXT:'' ?></p>
         </div>
     </section>
 </footer>

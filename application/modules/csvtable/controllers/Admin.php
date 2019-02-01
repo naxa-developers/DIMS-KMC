@@ -316,7 +316,7 @@ class Admin extends Admin_Controller {
 		  	if($c==1){
 			    $data=array(
 			        'language'=>$lang,
-			        'category'=>$cat,
+			        'category'=>$this->input->post('category'),
 			        'subcat'=>$this->input->post('subcat'),
 			    );
 		      	$up=$this->Table_model->update_cat($max_id['id'],$data,$table_name);
