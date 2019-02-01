@@ -55,7 +55,7 @@ class Admin extends Admin_Controller {
 	        	redirect(FOLDER_ADMIN.'/inventory');
 	        }
 	    }else{
-	      //admin check
+	      	//admin check
 	    	$id = base64_decode($this->input->get('id'));
 	    	//print_r($id);die;
 	    	if($id) {

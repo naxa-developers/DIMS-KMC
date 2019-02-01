@@ -281,7 +281,7 @@ class Admin extends Admin_Controller {
   	}
   	public function upload_inventory_data()
   	{
-  		$cat=9;
+  		//$cat='9';
   		$this->data=array();
   		$table_name = "inventory";
 		$lanuage=$this->session->get_userdata('Language');
@@ -290,17 +290,19 @@ class Admin extends Admin_Controller {
         }else{
             $lang='nep'; 
         }
-        $this->data['catgegory'] = $this->general->get_tbl_data_result('id,name','inventorycategory',array('language'=>$lang));
+        $this->data['catgegory'] = $this->general->get_tbl_data_result('id,name','inventorycategory');
         $this->data['subcat'] = $this->general->get_tbl_data_result('id,name','inventorycat',array('language'=>$lang));
 		$this->form_validation->set_rules('subcat', 'Please Sub Select Category', 'trim|required');
   		$this->form_validation->set_rules('category', 'Please Select Category', 'trim|required');
 		if ($this->form_validation->run() == TRUE){
+			//echo "<pre>"; print_r($this->input->post());die;
 			$max_id=$this->Table_model->get_max_id($table_name);
 			$fields=$this->db->list_fields($table_name);
 			unset($fields[0]);
 			if($table_name == 'inventory'){
 			  	unset($fields[6]);
 			  	unset($fields[7]);
+			  	unset($fields[8]);
 			}else{
 				unset($fields[8]);
 			}

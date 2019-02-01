@@ -18,8 +18,7 @@
                           <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                           <strong>Message!!!!</strong> <?php echo $error ; ?>
                                         </div>
-                                 <?php
-                                 } ?>
+                                 <?php } ?>
                                 <div class="row">
                                     <div class="col-md-4">
                                         <label for="category">Select  Category : </label>
@@ -28,8 +27,9 @@
                                             <?php foreach ($catgegory as $key => $value) { ?>
                                             <option value="<?php echo $value['id'] ?>"><?php echo  $value['name']; ?></option>
                                             <?php } ?>
-                                            <?=form_error('category')?>
+                                            
                                         </select>
+                                        <?=form_error('category')?>
                                     </div>
                                     <div class="col-md-4">
                                         <label for="subcat">Select Sub  Category : </label>
@@ -38,8 +38,9 @@
                                             <?php foreach ($subcat as $key => $value) { ?>
                                             <option value="<?php echo $value['id'] ?>"><?php echo  $value['name']; ?></option>
                                             <?php } ?>
-                                            <?=form_error('subcat')?>
+                                            
                                         </select>
+                                        <?=form_error('subcat')?>
                                     </div>
                                     <div class="col-md-4">
                                         <label for="exampleInputFile"><?php echo $this->lang->line('input'); ?></label>
