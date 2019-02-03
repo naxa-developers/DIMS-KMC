@@ -28,7 +28,7 @@ public function index()
 	    $file_name = $_FILES['dictionary_image']['name'];
 	    //$ext = pathinfo($file_name, PATHINFO_EXTENSION);
 	    $img_upload=$this->dictionary->do_upload_image($file_name,$id);
-	    //echo "<pre>"; print_r($img_upload);die;
+	    echo "<pre>"; print_r($img_upload);die;
 	    if($img_upload != ""){
 	      $ext=$img_upload['upload_data']['file_ext'];
 	      echo "<pre>"; print_r($ext);die;
