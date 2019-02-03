@@ -43,9 +43,9 @@ Class Api_model extends CI_Model
  }
 
 
- public function register($data){
+ public function register($tbl,$data){
 
-  $this->db->insert('mob_user',$data);
+  $this->db->insert($tbl,$data);
 
     if ($this->db->affected_rows() > 0)
    {
@@ -90,6 +90,15 @@ public function update_circle($email,$data){
   $this->db->where('email',$email);
   $q=$this->db->update('mob_user',$data);
   return $q;
+}
+
+public function get_report(){
+$this->db->select('*');
+$this->db->where('verify','0');
+$query = $this->db->get('incident_report');
+return $query->result_array();
+
+
 }
 
 

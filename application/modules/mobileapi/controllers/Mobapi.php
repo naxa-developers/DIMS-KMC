@@ -43,7 +43,7 @@ class Mobapi extends Admin_Controller
 
       }else{
 
-        $register=$this->Api_model->register($data_array);       //inserting data in table & parsing 1 parameter data array with column name and value
+        $register=$this->Api_model->register('mob_user',$data_array);       //inserting data in table & parsing 1 parameter data array with column name and value
 
 
         if($register){           //3.check if data inserted or not
@@ -127,7 +127,7 @@ class Mobapi extends Admin_Controller
       //$email=$data_array['email'];
 
 
-      $register=$this->Api_model->register($data_array);       //inserting data in table & parsing 1 parameter data array with column name and value
+      $register=$this->Api_model->register('mob_user',$data_array);       //inserting data in table & parsing 1 parameter data array with column name and value
 
 
       if($register){           //3.check if data inserted or not
@@ -279,7 +279,7 @@ for($i=0;$i<sizeof($data_array);$i++){
        $response['message'] = 'My circle Added successfully';
 
      }else{
-       $response['error'] = 0 ;
+       $response['error'] = 1 ;
        $response['message'] = 'Error in Adding cicle';
      }
 
@@ -315,5 +315,44 @@ for($i=0;$i<sizeof($data_array);$i++){
 
 
  }
+ public function insert_incident_report(){
+
+$data=$this->input->post('data');
+$data_array=json_decode($data,TRUE);
+//var_dump($data_array);
+ $insert=$this->Api_model->register('incident_report',$data_array);
+ //var_dump($insert);
+
+if($insert){
+
+  $response['error'] = 0 ;
+  $response['message'] = 'Incident Reported';
+
+}else{
+
+  $response['error'] = 1 ;
+  $response['message'] = 'Incident Report Unsuccessful';
+
+
+}
+echo json_encode($response);
+
+
+ }
+
+ public function get_unverified_report(){
+
+$data=$this->Api_model->get_report();
+$response['error'] = 0 ;
+$response['message'] = 'List Of Unverified report';
+$response['data'] = $data;
+echo json_encode($response);
+
+
+ }
+
+
+
+
 
 }//end
