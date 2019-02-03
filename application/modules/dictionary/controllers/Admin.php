@@ -26,12 +26,13 @@ public function index()
 	 	{
 	    $id=$this->input->post('id');
 	    $file_name = $_FILES['dictionary_image']['name'];
-	    //$ext = pathinfo($file_name, PATHINFO_EXTENSION);
+	    $ext = pathinfo($file_name, PATHINFO_EXTENSION);
 	    $img_upload=$this->dictionary->do_upload_image($file_name,$id);
+	    echo "<pre>"; print_r($img_upload);die;
 	    if($img_upload != ""){
 	      $ext=$img_upload['upload_data']['file_ext'];
+	      echo "<pre>"; print_r($ext);die;
 	      $image_path=base_url() . 'uploads/terminologies/'.$id.$ext ;
-	     	echo "<pre>"; print_r($image_path);die;
 	      $data=array(
 	        'image'=>$image_path
 	      );
