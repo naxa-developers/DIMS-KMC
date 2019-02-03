@@ -31,6 +31,7 @@ public function index()
 	    if($img_upload != ""){
 	      $ext=$img_upload['upload_data']['file_ext'];
 	      $image_path=base_url() . 'uploads/terminologies/'.$id.$ext ;
+	     	echo "<pre>"; print_r($image_path);die;
 	      $data=array(
 	        'image'=>$image_path
 	      );
