@@ -205,7 +205,7 @@
         //      },1000); // milliseconds
         // });
     </script>
-   <!--  <script>
+    <script>
         $.extend(
         {
             redirectPost: function(location, args)
@@ -286,7 +286,7 @@
             }
         })
     });
-    </script> -->
+    </script>
     <script type="text/javascript">
       //$(document).off('click','.ChangeLanguage');
       $('.ChangeLanguage').on('click',function(e)

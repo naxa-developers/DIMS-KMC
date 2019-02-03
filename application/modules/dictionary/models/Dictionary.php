@@ -27,7 +27,7 @@ public function update_dictionary_image($id,$data,$tbl){
 public function do_upload_image($filename,$name)
   {
     $field_name                     ='dictionary_image';
-    $config['upload_path']          = './uploads/dictionary/';
+    $config['upload_path']          = './uploads/terminologies/';
     $config['allowed_types']        = 'gif|jpg|png';
     $config['max_size']             = 7000;
     $config['overwrite']             = TRUE;

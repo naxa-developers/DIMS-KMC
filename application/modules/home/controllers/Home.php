@@ -7,10 +7,11 @@ class Home extends Admin_Controller
         $this->load->model('Upload_model');
         $this->load->model('Report_model');
         $this->load->model('home_mdl');
-         $this->template->set_layout('frontend/default');
+        
 	}
 	public function index() //default_page 
     {
+    	$this->template->set_layout('frontend/default');
     	$this->data=array();
 	    $tbl='categories_tbl';
 	    $this->data['feature']=$this->general->get_tbl_data_result(('"table","title","photo","summary"'),'featured_dataset',array('lang'=>'en','default'=>'1'));
@@ -72,6 +73,7 @@ class Home extends Admin_Controller
 	public function subscribe_form()
 	{
 		//print_r($this->input->post('email'));die;
+		
 		if($this->input->server('REQUEST_METHOD')=='POST')
 		{
 			$data['email']=$this->input->post('email');
