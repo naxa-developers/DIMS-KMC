@@ -12,50 +12,50 @@ class Admin extends Admin_Controller {
 		$this->load->model('Upload_model');
 		$this->load->model('dictionary');
 	}
-public function index()
-	{
-		$this->body= array();
-        $cat=$this->input->get('cat');
-        $lang=$this->session->get_userdata('Language');
-        if($lang['Language']=='en') {
-            $emerg_lang='en';
-        }else{
-            $emerg_lang='nep'; 
-        }
-		if(isset($_POST['submit']))
-	 	{
-	    $id=$this->input->post('id');
-	    $file_name = $_FILES['dictionary_image']['name'];
-	    //$ext = pathinfo($file_name, PATHINFO_EXTENSION);
-	    $img_upload=$this->dictionary->do_upload_image($file_name,$id);
-	    if($img_upload != ""){
-	      $ext=$img_upload['upload_data']['file_ext'];
-	      $image_path=base_url() . 'uploads/dictionary/'.$id.$ext ;
-	      $data=array(
-	        'image'=>$image_path
-	      );
-	      $update=$this->dictionary->update_dictionary_image($id,$data,'dictionary_tbl');
-	      $this->session->set_flashdata('msg','successfully Photo Changed');
-	      // redirect('emergency_personnel_nep?cat='.$cat);
-	                redirect(FOLDER_ADMIN.'/dictionary');
-	    }else{
-	      $code= strip_tags($img_upload['error']);
-	      $this->session->set_flashdata('msg', $code);
-	      // redirect('emergency_personnel?cat='.$cat);
-	                redirect(FOLDER_ADMIN.'/dictionary');
-	    }
-	  }else{ 
-	        $this->data['data'] = $this->general->get_tbl_data_result('id,word,meaning,comment,language,image','dictionary_tbl',array('language'=>$emerg_lang),'word');
-	        //admin check
-	        //echo "<pre>"; print_r($this->data['data']);die;
-	        $admin_type=$this->session->userdata('user_type');
-	        $this->data['admin']=$admin_type;
-	        //admin check
-	        $this->template
-	                        ->enable_parser(FALSE)
-	                        ->build('admin/index',$this->data);
+	public function index()
+		{
+			$this->body= array();
+	        $cat=$this->input->get('cat');
+	        $lang=$this->session->get_userdata('Language');
+	        if($lang['Language']=='en') {
+	            $emerg_lang='en';
+	        }else{
+	            $emerg_lang='nep'; 
+	        }
+			if(isset($_POST['submit']))
+		 	{
+		    $id=$this->input->post('id');
+		    $file_name = $_FILES['dictionary_image']['name'];
+		    //$ext = pathinfo($file_name, PATHINFO_EXTENSION);
+		    $img_upload=$this->dictionary->do_upload_image($file_name,$id);
+		    if($img_upload != ""){
+		      $ext=$img_upload['upload_data']['file_ext'];
+		      $image_path=base_url() . 'uploads/dictionary/'.$id.$ext ;
+		      $data=array(
+		        'image'=>$image_path
+		      );
+		      $update=$this->dictionary->update_dictionary_image($id,$data,'dictionary_tbl');
+		      $this->session->set_flashdata('msg','successfully Photo Changed');
+		      // redirect('emergency_personnel_nep?cat='.$cat);
+		                redirect(FOLDER_ADMIN.'/dictionary');
+		    }else{
+		      $code= strip_tags($img_upload['error']);
+		      $this->session->set_flashdata('msg', $code);
+		      // redirect('emergency_personnel?cat='.$cat);
+		                redirect(FOLDER_ADMIN.'/dictionary');
+		    }
+		  }else{ 
+		        $this->data['data'] = $this->general->get_tbl_data_result('id,word,meaning,comment,language,image','dictionary_tbl',array('language'=>$emerg_lang),'word');
+		        //admin check
+		        //echo "<pre>"; print_r($this->data['data']);die;
+		        $admin_type=$this->session->userdata('user_type');
+		        $this->data['admin']=$admin_type;
+		        //admin check
+		        $this->template
+		                        ->enable_parser(FALSE)
+		                        ->build('admin/index',$this->data);
+		}
 	}
-}
 	
 	public function edit()
 	{	
@@ -85,7 +85,4 @@ public function index()
 	        redirect(FOLDER_ADMIN.'/dictionary');
     	}
   	}
-
-
- 
 }

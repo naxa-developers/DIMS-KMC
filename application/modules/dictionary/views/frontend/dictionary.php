@@ -33,8 +33,7 @@
                     <div class="row">
                         <div class="col-md-3">
                             <div class="dictonaryItem">
-                                <a href="javascript:void(0);" data-toggle="popover" title="Meaning Of <?php echo $d['word']; ?>" data-content="<?php echo $d['meaning']; ?>"><?php echo $d['word']; ?></a>
-                                <?php //echo $groups[$d[0]][] = $d; ?>
+                                <a href="javascript:void(0);"  data-html="true" data-toggle="popover" title="Meaning Of <?php echo $d['word']; ?>" data-content="<?php echo $d['meaning'] ?> &nbsp;&nbsp;&nbsp; <img src='<?php echo $d['image'] ?>' width='200'/>"><?php echo $d['word']; ?></a>
                             </div>
                         </div>
 
@@ -61,16 +60,16 @@ foreach($dictionary as $item) {
     }
 }
 ?> -->
-<?php
+<!-- <?php
 global $alpha_chunks;
 # Initialize array
 $alpha_chunks = array();
 function chunkNames(&$dictionary, $key, $letter) {
     global $alpha_chunks;
-    /* 
-    If the first letter of the last name == $letter, Add the entry to a multi-dimensional array with each
-    $letter is the key. Change 'lastname' to match the name of that column. 
-    */
+     
+    //    If the first letter of the last name == $letter, Add the entry to a multi-dimensional array with each
+    // $letter is the key. Change 'lastname' to match the name of that column. 
+    
     if ($value['lastname'][0] === $letter ) {
         $alpha_chunks[$letter][$key] = $value;
     } 
@@ -80,4 +79,4 @@ $atoz = range('A','Z');
 foreach($atoz as $letter) { 
     array_walk($array_to_walk, 'chunkNames', $letter);
 }
-?>
+?> -->
