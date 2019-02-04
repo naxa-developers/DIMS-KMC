@@ -92,21 +92,6 @@
 
 
 
-<!-- <!DOCTYPE html>
-<html>
-
-<body>
-
-<form action=" " method="POST" >
-  <input type="checkbox" name="a134[]" value="abc" id = "ch1" class="chbox"> I have a bike<br>
-  <input type="checkbox" name="a134[]" value="a21" class="ch1"   hidden><br>
-
-  <input type="checkbox" name="a2[]" value="abcd" id = "ch2" class="chbox ch2"> I have a bike<br>
-  <input type="checkbox" name="a2[]" value="a2" class="ch2" hidden><br>
-  <input type="submit" name="submit" value="submit">
-</form> -->
-
-
 <script>
 
 $(document).ready(function(){
@@ -151,7 +136,7 @@ $("#checkbox_div").html("");
 $.ajax
 ({
 type: "GET",
-url: "<?php echo base_url(); ?>MapController/getcolumnsselected?tbl="+id,
+url: "<?php echo base_url(FOLDER_ADMIN); ?>map/getcolumnsselected?tbl="+id,
 
 
 

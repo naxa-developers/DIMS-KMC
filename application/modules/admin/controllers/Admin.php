@@ -54,7 +54,7 @@ class Admin extends Base_Controller {
             );
         $this->session->unset_userdata($newdata);
         $this->session->sess_destroy();
-        redirect('admin_control', 'refresh');
+       redirect(ADMIN_LOGIN_PATH, 'refresh');exit;
     }
     public function dashboard(){
         $this->load->view('dashboard');

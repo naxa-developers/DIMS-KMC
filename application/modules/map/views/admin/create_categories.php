@@ -133,6 +133,7 @@
                   <option value="Hazard_Data">Hazard & Vulnerability</option>
                   <option value="Exposure_Data"> Resources</option>
                   <option value="Baseline_Data">Base Data</option>
+                  <option value="Tabular_Data">Tabular Data</option>
                 </select>
               </div>
               </div>

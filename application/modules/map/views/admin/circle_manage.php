@@ -30,7 +30,7 @@
           <header class="panel-heading">
             <b>Manage Marker Style</b>
              <span class="tools pull-right">
-                        <a href="<?php echo base_url()?>category?tbl=<?php echo $tbl?>"><button type="submit" name="upload_data" class="btn btn-danger" style="background-color: #1fb5ad;border-color: #1fb5ad;margin-top: -7px;"><i class="fa fa-map-marker"></i> View In Map</button></a>
+                        <a href="<?php echo base_url()?>map?tbl=<?php echo $tbl?>"><button type="submit" name="upload_data" class="btn btn-danger" style="background-color: #1fb5ad;border-color: #1fb5ad;margin-top: -7px;"><i class="fa fa-map-marker"></i> View In Map</button></a>
                         </span>
           </header>
           <div class="panel-body">
@@ -49,17 +49,7 @@
             <form class="form-horizontal bucket-form" method="post" action="">
 
 
-              <!-- start -->
-              <!-- <input id="range_5" type="text" name="range_5" value="" /> -->
-
-
-              <!-- end -->
-
-
-
-
-
-
+           
 
               <div class="form-group">
                 <label class="control-label col-md-3">Opacity</label>

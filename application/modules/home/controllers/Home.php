@@ -128,6 +128,7 @@ class Home extends Admin_Controller
 	}
 	public function incidentmanagement()
 	{
+	 	$this->template->set_layout('frontend/default');   
 	    $this->data= array();
 	    $this->template
 			->enable_parser(FALSE)
@@ -135,6 +136,7 @@ class Home extends Admin_Controller
 	}
 	public function municipalprofile()
 	{
+	 	$this->template->set_layout('frontend/default');   
 	    $this->data= array();
 	    $this->template
 			->enable_parser(FALSE)
@@ -142,6 +144,7 @@ class Home extends Admin_Controller
 	}
 	public function datacategory()
 	{
+	 	$this->template->set_layout('frontend/default');   
 	    $this->data= array();
 	    $this->template
 			->enable_parser(FALSE)

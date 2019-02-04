@@ -140,14 +140,14 @@ function getcolumns(id)
 {
 //var tbl='<?php echo $table ?>'
 //var id=document.getElementById("getcolumns").value;
-// var dataString = 'id='+ id;
+// var dataString = 'id='+ id
 console.log(id);
 $("#checkbox_div").html("");
 
 $.ajax
 ({
 type: "GET",
-url: "<?php echo base_url(); ?>MapController/getcolumnsselected?tbl="+id,
+url: "<?php echo base_url(FOLDER_ADMIN); ?>/map/getcolumnsselected?tbl="+id,
 
 
 

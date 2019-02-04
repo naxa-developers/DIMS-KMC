@@ -20,8 +20,8 @@
                 <a href="create_categories_tbl?tbl='.<?php echo $tbl ;?>.'&& id='.<?php echo $tbl ;?>">    <button type="button" class="btn btn-warning btn-lg btn-block">Create Table</button></a>
 
                 </div>
-                <div class="panel-body">
-                <a href="<?php echo base_url(FOLDER_ADMIN) ?>/csvtable/csv_tbl/?tbl='.<?php echo $tbl ;?>.'&& id='.<?php echo $tbl ;?>">    <button type="button" class="btn btn-info btn-lg btn-block">Upload Csv</button></a>
+                <div class="panel-body"> <?php //print_r(base64_decode($categoryname));die; ?>
+                <a href="<?php echo base_url(FOLDER_ADMIN) ?>/csvtable/csv_tbl/?tbl='.<?php echo $tbl ;?>.'&& id='.<?php echo $tbl ;?>.'&& catname='.<?php echo $categoryname ;?>">    <button type="button" class="btn btn-info btn-lg btn-block">Upload Csv</button></a>
 
                 </div>
             </section>

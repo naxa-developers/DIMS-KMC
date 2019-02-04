@@ -135,9 +135,10 @@ class Admin extends Admin_Controller {
 	  //                       ->build('admin/categories_tbl',$this->body);
 	  //   }
     public function create_categories(){  // create categories
-    	//echo "string"; print_r($this->session->userdata('Language'));die;
+    	
     	$this->body=array();
         if(isset($_POST['submit_cat'])){
+            //echo "string"; print_r($this->input->post());die;
         	$cat_name=$this->input->post('cat_name');
             $cat_type=$this->input->post('category_type');
             $upload_type=$this->input->post('upload_type');
@@ -173,7 +174,7 @@ class Admin extends Admin_Controller {
                             $m='New Data Map('.$cat_name.')has been added in '.SITE_NAME_EN.' Webpage.Plese follow link to view new Map Data <br>'.base_url().'category?tbl='.$cat_table;
                             $this->Newsletter->send_mail($m,$mail_subject);
                             $this->session->set_flashdata('msg','Important!!!Create Table for the category '.$cat_name);
-                            redirect(FOLDER_ADMIN.'/map/csv_data_tbl?tbl='.base64_encode($cat_name).'&& id='.base64_encode($insert).'&& tbl_name='.base64_encode($cat_table));
+                            redirect(FOLDER_ADMIN.'/map/csv_data_tbl?tbl='.base64_encode($cat_name).'&& id='.base64_encode($insert).'&& tbl_name='.base64_encode($cat_table). '&& catname='.$this->input->post('category_type'));
 
                         }else{
                             $this->load->model('Newsletter');
@@ -243,16 +244,19 @@ class Admin extends Admin_Controller {
     }
     public function csv_data_tbl() {
         $this->body =array();
-        $this->body['tbl']=$this->input->get('tbl_name');
-        $this->body['id']=$this->input->get('id');
+        $this->data['tbl']=$this->input->get('tbl_name');
+        $this->data['id']=$this->input->get('id');
+        $this->data['categoryname']=$this->input->get('catname');
         //admin check
+        //print_r($this->data['categoryname']);
+        // print_r(base64_decode($this->data['tbl']));die;
         $admin_type=$this->session->userdata('user_type');
 
-        $this->body['admin']=$admin_type;
+        $this->data['admin']=$admin_type;
         //admin check
         $this->template
                         ->enable_parser(FALSE)
-                        ->build('admin/csv_data_tbl',$this->body);
+                        ->build('admin/csv_data_tbl',$this->data);
     }
     public function update_summary(){
     	$this->body =array();
@@ -347,12 +351,12 @@ class Admin extends Admin_Controller {
             //end
         }else{
           	$tbl=$_GET['tbl'];
-          	//echo $tbl ;
-          	//exit();
+          	
           	$this->body['tbl_name']=$this->Map_model->get_layer('categories_tbl');
           	$this->body['popup']=$this->Map_model->get_popup($tbl);
           	$this->body['table']=$tbl;
           	//admin check
+            //echo "<pre>"; print_r($this->body['popup']); exit();
           	$admin_type=$this->session->userdata('user_type');
           	$this->body['admin']=$admin_type;
           	if($this->session->userdata('user_type')=='1'){
@@ -367,6 +371,7 @@ class Admin extends Admin_Controller {
         }
     }
     public function manage_style(){
+        $this->body = array();
         $tbl=$_GET['tbl'];
         if(isset($_POST['submit'])){
           	unset($_POST['submit']);
@@ -378,8 +383,7 @@ class Admin extends Admin_Controller {
 			);
             $this->Map_model->update_style($tbl,$data);
           	$this->session->set_flashdata('msg',$tbl.' Style was successfully updated');
-          	//redirect('manage_style?tbl='.$tbl);
-          	redirect(FOLDER_ADMIN.'manage_style?tbl='.$tbl);
+          	redirect(FOLDER_ADMIN.'/map/manage_style?tbl='.$tbl);
         }else{
           	$data=$this->Dash_model->get_tbl_type($tbl);
           	$map_data_type=json_decode($data['st_asgeojson'],TRUE)['type'];
@@ -508,7 +512,8 @@ class Admin extends Admin_Controller {
     //   }
     //this is for layer create
     public function manage_column_control()
-    {   //echo "<pre>"; print_r($_POST['none']);die;
+    {   
+        $this->body =array();
         if(isset($_POST['submit'])){
             if(isset($_POST['none'])){
                 echo "insdie none";echo "<pre>"; print_r($this->input->post());die;
@@ -520,9 +525,11 @@ class Admin extends Admin_Controller {
                 $this->session->set_flashdata('msg',$table.' Manage Column Control was successfully updated');
                 $lang=$this->session->get_userdata('cat_language');
                 if($lang['cat_language']=='en'){
-                    redirect('categories_tbl');
+                    //redirect('categories_tbl');
+                    redirect(FOLDER_ADMIN.'/map/categories_tbl');
                 }else{
-                    redirect('categories_tbl_nep');
+                    //redirect('categories_tbl_nep');
+                    redirect(FOLDER_ADMIN.'/map/categories_tbl');
                 }
                 //  redirect('manage_popup?tbl='.$table);
             }else{
@@ -544,15 +551,18 @@ class Admin extends Admin_Controller {
                 $ab['a']=$aa;
                 $data= array(
                     'column_control'=>json_encode($ab),
+                    'popup_content'=>json_encode($ab),
                 );
                 //echo "<pre>"; print_r($data);die;
                 $this->Map_model->update_popup($table,$data);
                 $this->session->set_flashdata('msg',$table.' Manage Column Control was successfully updated');
                 $lang=$this->session->get_userdata('cat_language');
                 if($lang['cat_language']=='en'){
-                    redirect('categories_tbl');
+                    //redirect('categories_tbl');
+                    redirect(FOLDER_ADMIN.'/map/categories_tbl');
                 }else{
-                    redirect('categories_tbl_nep');
+                    //redirect('categories_tbl_nep');
+                    redirect(FOLDER_ADMIN.'/map/categories_tbl');
                 }
             }//end
         }else{
@@ -632,6 +642,171 @@ class Admin extends Admin_Controller {
         //testing for array check in html
         $html=$html.'<input type="checkbox" name='.$col_name[$i]["eng_lang"].'[] value='.$col_name[$i]["eng_lang"].' id = "ch'.$col_name[$i]["id"].'" class= "chbox" '.$checked.'/>'.$col_name[$i]["nepali_lang"].'<br>'.
           '<input type="checkbox" name='.$col_name[$i]["eng_lang"].'[] value="'.$col_name[$i]["nepali_lang"].'" class="ch'.$col_name[$i]["id"].'"   hidden '.$checked.'><br>';
+        }
+        echo $html;
+    }
+    public function location_marker(){
+        $this->body =array();
+        $tbl=$_GET['tbl'];
+        if(isset($_POST['submit'])){
+            unset($_POST['submit']);
+
+            //var_dump($_POST);
+            //var_dump($_FILES['cat_pic']['name']);
+
+            if( $_FILES['cat_pic']['name']==''){
+                $_POST['opacity']="0";
+                $_POST['fillOpacity']="0";
+                $_POST['weight']="0";
+                $_POST['radius']="0";
+                $_POST['color']="0";
+                $_POST['fillColor']="0";
+                $style=json_encode($_POST);
+                $data=array(
+                  'style'=>$style,
+                  'marker_type'=>'icon',
+                );
+                $this->Map_model->update_style($tbl,$data);
+                $this->session->set_flashdata('msg',$tbl.' Style was successfully updated');
+                redirect(FOLDER_ADMIN.'/map/location_marker?tbl='.$tbl);
+            }else{
+                $file_name = $_FILES['cat_pic']['name'];
+                $ext = pathinfo($file_name, PATHINFO_EXTENSION);
+                $img_upload=$this->Dash_model->do_upload_marker($file_name,$tbl);
+                if($img_upload==1){
+                $image_path=base_url() . 'uploads/icons/map/'.$tbl.'.'.$ext ;
+                $st=array(
+                    'icon'=>$image_path,
+                    'opacity'=>0,
+                    'fillOpacity'=>0,
+                    'weight'=>0,
+                    'radius'=>0,
+                    'color'=>0,
+                    'fillColor'=>0,
+                );
+                $style=json_encode($st);
+                $data=array(
+                    'style'=>$style,
+                    'marker_type'=>'icon',
+                );
+                $this->Map_model->update_style($tbl,$data);
+                $this->session->set_flashdata('msg',$tbl.' Style was successfully updated');
+                redirect(FOLDER_ADMIN.'/map/location_marker?tbl='.$tbl);
+                }else{
+                    $code= strip_tags($img_upload['error']);
+                    $this->session->set_flashdata('msg', $code);
+                    redirect(FOLDER_ADMIN.'/map/location_marker?tbl='.$tbl);
+                }
+            }
+        }else{
+            $data=$this->Map_model->get_summary_list($tbl);
+            $style_array=json_decode($data['style'],TRUE);
+            $this->body['style_array']=$style_array;
+            $this->body['tbl']=$tbl;
+            $this->body['icons']=$this->Map_model->get_icon();
+            //admin check
+            $admin_type=$this->session->userdata('user_type');
+
+            $this->body['admin']=$admin_type;
+            if($this->session->userdata('user_type')=='1'){
+                $this->body['disable']="";
+            }else{
+                $this->body['disable']="disabled";
+            }
+             $this->template
+                            ->enable_parser(FALSE)
+                            ->build('admin/choose_icon',$this->body);
+
+            // $this->load->view('admin/header',$this->body);
+            // $this->load->view('admin/choose_icon',$this->body);
+            // $this->load->view('admin/footer');
+        }
+    }
+    public function circle_marker(){
+        $this->body =array();
+        $tbl=$_GET['tbl'];
+        if(isset($_POST['submit'])){
+            unset($_POST['submit']);
+            $style=json_encode($_POST);
+            echo $style ;
+            $data=array(
+                'style'=>$style,
+                'marker_type'=>NULL,
+            );
+            $this->Map_model->update_style($tbl,$data);
+            $this->session->set_flashdata('msg',$tbl.' Style was successfully updated');
+            redirect(FOLDER_ADMIN.'/map/circle_marker?tbl='.$tbl);
+        }else{
+            $data=$this->Map_model->get_summary_list($tbl);
+            $style_array=json_decode($data['style'],TRUE);
+            $this->body['style_array']=$style_array;
+            $this->body['tbl']=$tbl;
+            //admin check
+            $admin_type=$this->session->userdata('user_type');
+            $this->body['admin']=$admin_type;
+            if($this->session->userdata('user_type')=='1'){
+                $this->body['disable']="";
+            }else{
+                $this->body['disable']="disabled";
+            }
+            $this->template
+                            ->enable_parser(FALSE)
+                            ->build('admin/circle_manage',$this->body);
+            // $this->load->view('admin/header',$this->body);
+            // $this->load->view('admin/circle_manage',$this->body);
+            // $this->load->view('admin/footer');
+        }
+    }
+    public function getcolumnsselected() {  //show edit label page
+        $tablename=$_GET['tbl'];
+        $result =  $fields=$this->db->list_fields($tablename);
+        $checked1 = $this->Map_model->get_checkedcolumns_control($tablename);
+            
+          //echo"<pre>";  print_r($result);die;
+        $col_name = $this->Map_model->col_name($tablename);
+        //echo "<pre>"; print_r($col_name);die;
+        $checked2=$checked1['column_control'];
+        //echo "<pre>";print_r($checked1);die;
+        $checked=json_decode($checked2,TRUE);
+       // print_r($checked);die;
+        //  var_dump($checked2);
+        $checked_column_array=array();
+        //var_dump($checked);
+        if($checked != NULL){
+          foreach ($checked as $key) {
+            //var_dump($key);
+            foreach($key as $key1 => $value){
+              array_push($checked_column_array,$value['col']);
+            }
+          }
+        }
+        $html="";
+        if($checked2 == '0'){
+          $html=$html.'<input type="checkbox" name="none" value="" checked/>None <br><br>';
+        }
+        // else{
+        //   $html=$html.'<input type="checkbox" name="none" value="" />None <br><br>';
+        // }
+
+
+        for ($i=0;$i<sizeof($col_name);$i++) {
+          $checked="";
+          for($j=0;$j<sizeof($checked_column_array);$j++)
+          {
+            if($checked_column_array[$j]== $col_name[$i]['eng_lang']){//check if the checkbox should be checked
+              $checked = "checked";
+
+            $html=$html.'<input type="checkbox" name='.$col_name[$i]["eng_lang"].'[] value='.$col_name[$i]["eng_lang"].' id = "ch'.$col_name[$i]["id"].'" class= "chbox" '.$checked.'/>'.$col_name[$i]["nepali_lang"].'<br>'.
+           '<input type="checkbox" name='.$col_name[$i]["eng_lang"].'[] value="'.$col_name[$i]["nepali_lang"].'" class="ch'.$col_name[$i]["id"].'"   hidden '.$checked.'><br>';
+              break;
+            }
+            // else{
+            //   $checked = "";
+            // }
+          }
+        //testing for array check in html
+        // $html=$html.'<input type="checkbox" name='.$col_name[$i]["eng_lang"].'[] value='.$col_name[$i]["eng_lang"].' id = "ch'.$col_name[$i]["id"].'" class= "chbox" '.$checked.'/>'.$col_name[$i]["nepali_lang"].'<br>'.
+        //   '<input type="checkbox" name='.$col_name[$i]["eng_lang"].'[] value="'.$col_name[$i]["nepali_lang"].'" class="ch'.$col_name[$i]["id"].'"   hidden '.$checked.'><br>';
         }
         echo $html;
     }

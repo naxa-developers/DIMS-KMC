@@ -158,7 +158,6 @@ class Map extends Admin_Controller
 		    }
 	    	$layer_name = $this->input->post('layername');//'health_facilities';//
 	    	$resultdata = $this->general->get_tbl_data_result('summary,summary_list,category_table,popup_content,category_name,style,marker_type','categories_tbl',array('language'=>$language,'public_view'=>'1','category_table'=>$layer_name));
-	    		//echo $this->db->last_query();die;
 	    		//select column control data from database 
 	    		$data_jsn=$this->Map_model->get_jsn($layer_name);
 				$data_array=json_decode($data_jsn['column_control'],TRUE);
@@ -186,7 +185,6 @@ class Map extends Admin_Controller
     }
     public function viewTable()
 	{
-		//print_r($this->input->post('layername'));die;
 		if($this->input->server('REQUEST_METHOD')=='POST')
 		{
 			

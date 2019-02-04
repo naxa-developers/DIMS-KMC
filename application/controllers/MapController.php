@@ -770,13 +770,10 @@
       }
     public function getcolumnsselected() {  //show edit label page
         $tablename=$_GET['tbl'];
-        //echo "call"; die;
         $result =  $fields=$this->db->list_fields($tablename);
-        //$checked1 = $this->Map_model->get_checkedcolumns($tablename);
         $checked1 = $this->Map_model->get_checkedcolumns_control($tablename);
-            //echo"<pre>"; print_r($checked1['column_control']);die;
-            // $col_name =json_decode($checked1['column_control'], TRUE);
-            // print_r(sizeof($col_name));die;
+            
+          //echo"<pre>";  print_r($result);die;
         $col_name = $this->Map_model->col_name($tablename);
         //echo "<pre>"; print_r($col_name);die;
         $checked2=$checked1['column_control'];
