@@ -180,7 +180,7 @@ class Admin extends Admin_Controller {
 		if($lanuage['Language']=='en') {
             $lang='en';
         }else{
-            $lang='nep'; 
+            $lang='nep';
         }
 		if (isset($_POST['submit'])) {
 			$max_id=$this->Table_model->get_max_id($table_name);
@@ -188,8 +188,11 @@ class Admin extends Admin_Controller {
 			unset($fields[0]);
 			if($table_name == 'emergency_contact'){
 			  	unset($fields[10]);
-			}else{
+			}elseif($table_name == 'emergency_personnel'){
 				unset($fields[8]);
+			}else{
+				unset($fields[11]);
+
 			}
 		  	$field_name=implode(",",$fields);
 		  	$f=$_FILES["uploadedfile"];
@@ -198,19 +201,31 @@ class Admin extends Admin_Controller {
 		  	$filename=$f["name"];
 		  	$c=$this->Table_model->table_copy($path,$filename,$field_name,$table_name);
 		  	if($c==1){
-			    $data=array(
-			        'category'=>$cat,
-			        'language'=>$lang,
-			    );
+
+					if($table_name == 'volunteer_contact'){
+						$data=array(
+
+							 'language'=>$lang,
+					 );
+					}else{
+						$data=array(
+							 'category'=>$cat,
+							 'language'=>$lang,
+					 );
+					}
+
 		      	$up=$this->Table_model->update_cat($max_id['id'],$data,$table_name);
 		    	$this->session->set_flashdata('msg','Csv Was successfully Added');
 		    	if($table_name == 'emergency_contact'){
 		        	redirect(FOLDER_ADMIN.'/contact/emergency_contact_nep?cat='.$cat);
 		        	//redirect(FOLDER_ADMIN.'/csvtable/upload_csv_emerg/emergency_contact?cat='.$cat);
-			    }else{
+			    }elseif($table_name == 'emergency_personnel'){
 			        //redirect(FOLDER_ADMIN.'/csvtable/upload_csv_emerg/emergency_personnel?cat='.$cat);
 			        redirect(FOLDER_ADMIN.'/contact/emergency_contact_nep?cat='.$cat);
-			    }
+			    }else{
+
+						redirect(FOLDER_ADMIN.'/contact/volunteer?cat='.$cat);
+					}
 		  	}
 		  	// else{
 
@@ -240,7 +255,7 @@ class Admin extends Admin_Controller {
 		if($lanuage['Language']=='en') {
             $lang='en';
         }else{
-            $lang='nep'; 
+            $lang='nep';
         }
 		if (isset($_POST['submit'])) {
 			$max_id=$this->Table_model->get_max_id($table_name);
@@ -288,7 +303,7 @@ class Admin extends Admin_Controller {
 		if($lanuage['Language']=='en') {
             $lang='en';
         }else{
-            $lang='nep'; 
+            $lang='nep';
         }
         $this->data['catgegory'] = $this->general->get_tbl_data_result('id,name','inventorycategory');
         $this->data['subcat'] = $this->general->get_tbl_data_result('id,name','inventorycat',array('language'=>$lang));

@@ -183,6 +183,15 @@ return $query->row_array();
 
 }
 
+public function e_volunteer ($id){
+
+$this->db->select('*');
+$this->db->where('id',$id);
+$query=$this->db->get('volunteer_contact');
+return $query->row_array();
+
+}
+
 public function update_emerg($id,$data,$tbl){
 
   $this->db->where('id',$id);

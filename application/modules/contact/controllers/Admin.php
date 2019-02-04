@@ -24,7 +24,7 @@ class Admin extends Admin_Controller {
         if($lang['Language']=='en') {
             $emerg_lang='en';
         }else{
-            $emerg_lang='nep'; 
+            $emerg_lang='nep';
         }
         $name=$this->input->get('name');
         $this->body['data'] = $this->general->get_tbl_data_result('*','emergency_contact',array('category'=>$cat,'language'=>$emerg_lang));
@@ -103,7 +103,7 @@ class Admin extends Admin_Controller {
             if($lang['Language']=='en') {
                 $emerg_lang='en';
             }else{
-                $emerg_lang='nep'; 
+                $emerg_lang='nep';
             }
             $this->body['data'] = $this->general->get_tbl_data_result('*','emergency_personnel',array('category'=>$cat,'language'=>$emerg_lang));
     	    $this->body['cat']=$cat;
@@ -173,7 +173,7 @@ class Admin extends Admin_Controller {
             $update=$this->Upload_model->update_emerg($this->input->post('id'),$_POST,$tbl);
             if($update){
                 $this->session->set_flashdata('msg','Updated successfully');
-                redirect(FOLDER_ADMIN.'/contact/emergency_personnel_nep?cat='.$cat);    
+                redirect(FOLDER_ADMIN.'/contact/emergency_personnel_nep?cat='.$cat);
             }
         }else{
             $this->body['e_data']=$this->Upload_model->e_data_personnel(base64_decode($this->input->get('id')));
@@ -194,4 +194,76 @@ class Admin extends Admin_Controller {
         }
     }
 
-}
+		//volunteer
+
+		public function volunteer(){
+$this->body=array();
+			// echo 'adad';
+			// exit();
+
+			$lang=$this->session->get_userdata('Language');
+			if($lang['Language']=='en') {
+					$emerg_lang='en';
+			}else{
+					$emerg_lang='nep';
+			}
+			$this->body['data'] = $this->general->get_tbl_data_result('*','volunteer_contact',array('language'=>$emerg_lang));
+
+		$name=$this->input->get('name');
+
+		$this->body['name']=$name;
+		//admin check
+		$admin_type=$this->session->userdata('user_type');
+		$this->body['admin']=$admin_type;
+		//admin check
+		$this->template
+										->enable_parser(FALSE)
+										->build('admin/volunteer',$this->body);
+
+
+		}
+
+		public function edit_volunteer(){
+
+
+
+			$this->body = array();
+
+			$tbl=$this->input->get('tbl');
+			$lang=$this->session->get_userdata('Language');
+			if($lang['Language']=='en') {
+					$emerg_lang='en';
+			}else{
+					$emerg_lang='nep';
+			}
+
+			if(isset($_POST['submit'])){
+					unset($_POST['submit']);
+					$update=$this->Upload_model->update_emerg($this->input->post('id'),$_POST,$tbl);
+					if($update){
+							$this->session->set_flashdata('msg','Updated successfully');
+							redirect(FOLDER_ADMIN.'/contact/volunteer');
+					}
+			}else{
+
+					$this->body['e_data']=$this->Upload_model->e_volunteer(base64_decode($this->input->get('id')));
+					//echo base64_decode($this->input->get('id'));
+					 // var_dump($this->body['e_data']);
+					 // die;
+
+					//admin check
+					$admin_type=$this->session->userdata('user_type');
+
+					$this->body['admin']=$admin_type;
+
+					//admin check
+
+					$this->template
+											->enable_parser(FALSE)
+											->build('admin/edit_volunteer',$this->body);
+		}
+	}
+
+
+
+}//end

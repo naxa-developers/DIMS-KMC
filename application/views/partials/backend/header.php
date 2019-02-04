@@ -134,7 +134,7 @@
                 <ul class="dropdown-menu extended logout">
                     <li><a href="#"><i class=" fa fa-suitcase"></i> <?php echo $this->lang->line('profile'); ?></a></li>
                     <li><a href="#"><i class="fa fa-cog"></i> <?php echo $this->lang->line('settings'); ?></a></li>
-                    <li><a href="<?php echo base_url()?>logout"><i class="fa fa-key"></i> <?php echo $this->lang->line('logout'); ?></a></li>
+                    <li><a href="<?php echo base_url(FOLDER_ADMIN)?>/logout"><i class="fa fa-key"></i> <?php echo $this->lang->line('logout'); ?></a></li>
                 </ul>
             </li>
             <!-- user login dropdown end -->
@@ -235,10 +235,11 @@
                           <li><a href="<?php echo base_url(FOLDER_ADMIN)?>/contact/emergency_personnel_nep?name=Municipal Executive Members&&cat=municipal_ex"><?php echo $this->lang->line('municipal_executive_members'); ?></a></li>
                           <li><a href="<?php echo base_url(FOLDER_ADMIN)?>/contact/emergency_personnel_nep?name=Municipality Level Disaster Management Committee&&cat=disaster"><?php echo $this->lang->line('municipal_disaster'); ?></a></li>
                           <li><a href="<?php echo base_url(FOLDER_ADMIN)?>/contact/emergency_personnel_nep?name=Municipality Level Disaster Management Committee&&cat=nntds"><?php echo $this->lang->line('nntds_executive'); ?></a></li>
+                          <li><a href="<?php echo base_url(FOLDER_ADMIN)?>/contact/volunteer?name=Volunteer&&cat=volunteer">Volunteer</a></li>
 
                     </ul>
                 </li>
-                
+
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-th"></i>
@@ -323,7 +324,7 @@
                         <li><a href="<?php echo base_url(FOLDER_ADMIN);?>/drrinfo"><?php echo $this->lang->line('about_management'); ?></a></li>
                         <li><a href="<?php echo base_url(FOLDER_ADMIN);?>/drrinfo/drrinformation"><?php echo $this->lang->line('addrrinformation'); ?></a></li>
                         <li><a href="<?php echo base_url(FOLDER_ADMIN);?>/drrinfo/drrinformationlist"><?php echo $this->lang->line('drrinformationlist'); ?></a></li>
-                       
+
                     </ul>
                 </li>
                 <!-- <li class="sub-menu">
