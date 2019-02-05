@@ -41,9 +41,14 @@ $pub_cat_en='<option value=0>ALL</option>
                 foreach($publicationdata as $d ){ ?>
                 <div class="col-md-6 ">
                     <div class="doccontent flex ">
+                      <?php if($d['image']): ?>
                         <div class="docImg">
                             <img src="<?php echo base_url()?>/uploads/publication/28.png" alt="<?php echo $d['title']?>">
                         </div>
+
+                      <?php }else { ?>
+                      
+                    <?php  } ?>
                         <div class="docdetailwrp  grow">
                             <div class="docTitle" id="<?php echo $d['id'] ?>">
                                <?php echo $d['title']?>

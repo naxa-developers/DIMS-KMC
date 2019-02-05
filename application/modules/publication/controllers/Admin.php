@@ -17,7 +17,7 @@ class Admin extends Admin_Controller {
 	{
 		# code...
 	}
-	  public function view_publication(){
+	public function view_publication(){
 	  	$this->body= array();
 	    $this->body['data']=$this->Publication_model->get_all_data();
 	    //admin check
@@ -28,19 +28,20 @@ class Admin extends Admin_Controller {
                         ->enable_parser(FALSE)
                         ->build('admin/publication_tbl',$this->body);
 
-  }
- public function add_publication(){
- 	$this->body=array();
-    if(isset($_POST['submit'])){
-      	$file_name = $_FILES['proj_pic']['name'];
-      	$attachment=$_FILES['uploadedfile']['name'];
-    	// $ext = pathinfo($file_name, PATHINFO_EXTENSION);
-      	$ext_file = pathinfo($attachment, PATHINFO_EXTENSION);
-      	$data=array(
-        	'title'=>$this->input->post('title'),
-        	'summary'=>$this->input->post('summary'),
-        	'category'=>$this->input->post('category'),
-      	);
+  	}
+ 	public function add_publication(){
+ 		$this->body=array();
+    	if(isset($_POST['submit'])){
+	      	$file_name = $_FILES['proj_pic']['name'];
+	      	$attachment=$_FILES['uploadedfile']['name'];
+	    	// $ext = pathinfo($file_name, PATHINFO_EXTENSION);
+	      	$ext_file = pathinfo($attachment, PATHINFO_EXTENSION);
+	      	$data=array(
+	        	'title'=>$this->input->post('title'),
+	        	'summary'=>$this->input->post('summary'),
+	        	'category'=>$this->input->post('category'),
+	        	'videolink'=>$this->input->post('videolink'),
+	      	);
       	$insert=$this->Publication_model->add_publication('publication',$data);
       	if($insert!=""){
         	$img_upload=$this->Publication_model->do_upload($file_name,$insert);
@@ -91,10 +92,12 @@ class Admin extends Admin_Controller {
 	    $id=base64_decode($this->input->get('id'));
 	    if(isset($_POST['submit'])){
 	      if( $_FILES['proj_pic']['name']==''){
-	        $data= array(
-	          'title'=>$this->input->post('title'),
-	          'summary'=>$this->input->post('summary'),
-	        );
+	        $data=array(
+	        	'title'=>$this->input->post('title'),
+	        	'summary'=>$this->input->post('summary'),
+	        	'category'=>$this->input->post('category'),
+	        	'videolink'=>$this->input->post('videolink'),
+	      	);
 	        $update=$this->Publication_model->update_data($id,$data);
 	        if($update==1){
 	          $this->session->set_flashdata('msg','Data successfully Updated');
@@ -104,10 +107,12 @@ class Admin extends Admin_Controller {
 	      }else{
 	        $file_name = $_FILES['proj_pic']['name'];
 	        $ext = pathinfo($file_name, PATHINFO_EXTENSION);
-	        $data=array(
-	          'title'=>$this->input->post('title'),
-	          'summary'=>$this->input->post('summary'),
-	        );
+	       $data=array(
+	        	'title'=>$this->input->post('title'),
+	        	'summary'=>$this->input->post('summary'),
+	        	'category'=>$this->input->post('category'),
+	        	'videolink'=>$this->input->post('videolink'),
+	      	);
 	        $insert=$this->Publication_model->update_data($id,$data);
 	        if($insert==1){
 	          $img_upload=$this->Publication_model->do_upload($file_name,$id);

@@ -224,12 +224,18 @@ class Admin extends Admin_Controller {
 			$max_id=$this->Table_model->get_max_id($table_name);
 			$fields=$this->db->list_fields($table_name);
 			unset($fields[0]);
+			// unset($fields[5]);
+			 unset($fields[3]);
 			if($table_name == 'dictionary_tbl'){
-			  	unset($fields[10]);
+
+			  	//unset($fields[5]);
+			  	unset($fields[3]);
 			}else{
-				unset($fields[8]);
+				//unset($fields[5]);
+			  	unset($fields[3]);
 			}
 		  	$field_name=implode(",",$fields);
+		  	// echo "<pre>"; print_r($field_name)
 		  	$f=$_FILES["uploadedfile"];
 		  	$path=$f["tmp_name"];
 		  	chmod($path, 0777);
