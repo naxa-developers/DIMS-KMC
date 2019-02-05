@@ -101,5 +101,11 @@ return $query->result_array();
 
 }
 
+public function get_all_data($tbl){
+$this->db->select('*');
+$query = $this->db->get($tbl);
+return $query->result_array();
+}
+
 
 }//end

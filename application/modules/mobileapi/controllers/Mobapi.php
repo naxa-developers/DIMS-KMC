@@ -351,6 +351,16 @@ echo json_encode($response);
 
  }
 
+public  function get_term_data(){
+
+  $data=$this->Api_model->get_all_data('dictionary_tbl');
+  $response['error'] = 0 ;
+  $response['message'] = 'Data of Terminologies';
+  $response['data'] = $data;
+  echo json_encode($response);
+
+
+}
 
 
 

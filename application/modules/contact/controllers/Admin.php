@@ -264,6 +264,41 @@ $this->body=array();
 		}
 	}
 
+	public function delete_emergency(){
 
+    //$cat=$this->input->get('cat');
+
+    $tbl=$this->input->get('tbl');
+
+		if($tbl=='emergency_contact' || $tbl=='emergency_personnel'){
+			$cat=$this->input->get('cat');
+		}
+  //$lang=$this->session->get_userdata('emerg_language');
+
+    $delete=$this->Upload_model->delete($this->input->get('id'),$tbl);
+
+
+    if($delete){
+
+
+      $this->session->set_flashdata('msg','Successfully Deleted');
+
+			  if($tbl=='emergency_contact'){
+
+redirect(FOLDER_ADMIN.'/contact/emergency_contact_nep?cat='.$cat);
+
+				}elseif($tbl=='emergency_personnel'){
+
+					  redirect(FOLDER_ADMIN.'/contact/emergency_personnel_nep?cat='.$cat);
+
+				}else{
+
+						redirect(FOLDER_ADMIN.'/contact/volunteer');
+
+				}
+
+
+		}
+	}
 
 }//end

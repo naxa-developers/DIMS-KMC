@@ -79,7 +79,7 @@
                             <?php }}  ?>
                               <td>
                                 <a href="<?php echo base_url(FOLDER_ADMIN)?>/contact/edit_volunteer?id=<?php echo base64_encode($v['id']);?>  && tbl=volunteer_contact"><?php echo $this->lang->line('edit'); ?></a> /
-                                <a onclick="return confirm('Are you sure you want to delete?')" href="<?php echo base_url()?>delete_emergency?id=<?php echo $v['id'];?> && tbl=volunteer_contact"><?php echo $this->lang->line('delete'); ?></a></td>
+                                <a onclick="return confirm('Are you sure you want to delete?')" href="<?php echo base_url(FOLDER_ADMIN)?>/contact/delete_emergency?id=<?php echo $v['id'];?>&&tbl=volunteer_contact"><?php echo $this->lang->line('delete'); ?></a></td>
 
 
 
