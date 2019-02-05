@@ -33,7 +33,7 @@
                     <div class="row">
                         <div class="col-md-3">
                             <div class="dictonaryItem">
-                                <a href="javascript:void(0);"  data-html="true" data-toggle="popover" title="Meaning Of <?php echo $d['word']; ?>" data-content="<?php echo $d['meaning'] ?> &nbsp;&nbsp;&nbsp; <img src='<?php echo $d['image'] ?>' width='200'/><?php echo "<br>"; echo $d['comment']; ?>"><?php echo $d['word']; ?></a>
+                                <a href="javascript:void(0);"  data-html="true" id="popover" data-trigger="hover" data-toggle="popover" title="Meaning Of <?php echo $d['word']; ?>" data-content="<?php echo $d['meaning'] ?> &nbsp;&nbsp;&nbsp; <img src='<?php echo $d['image'] ?>' width='200'/><?php echo "<br>"; echo $d['comment']; ?>"><?php echo $d['word']; ?></a>
                             </div>
                         </div>
 
@@ -46,6 +46,7 @@
   
 </section>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script>$("#popover").popover({ trigger: "hover" });</script>
 <!-- <?php 
 $newArray = [];//create a new array
 foreach($dictionary as $item) {
