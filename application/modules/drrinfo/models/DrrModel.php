@@ -143,7 +143,7 @@ class DrrModel extends CI_Model {
         $this->db->join('drrcategory as c','c.id = d.category_id','LEFT');
         $this->db->join('drrsubcategory as cs','cs.id = d.subcat_id','LEFT');
         if($cond) {
-          $this->db->where($cond);
+          $this->db->where($cond); //change
         }
         $query = $this->db->get();
         if ($query->num_rows() > 0)
