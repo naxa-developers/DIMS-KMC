@@ -353,7 +353,7 @@ echo json_encode($response);
 
 public  function get_term_data(){
 
-  $data=$this->Api_model->get_all_data('dictionary_tbl');
+  $data=$this->general->get_tbl_data_result('id,image,word,meaning,comment,language','dictionary_tbl',false,'word');
   $response['error'] = 0 ;
   $response['message'] = 'Data of Terminologies';
   $response['data'] = $data;
