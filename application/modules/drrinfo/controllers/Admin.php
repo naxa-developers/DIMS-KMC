@@ -45,11 +45,13 @@ class Admin extends Admin_Controller {
 	        }
 	    	 // echo "<pre>"; print_r($this->input->post()); die;
 	      	$file_name = $_FILES['project_pic']['name'];
+	      	$page_slug_new = strtolower (preg_replace('/[[:space:]]+/', '-', $this->input->post('name')));
 	      	$data=array(
 	        	'name'=>$this->input->post('name'),
 	        	'status'=>'1',
 	        	'description'=>$this->input->post('description'),
 	        	'language'=>$emerg_lang,
+	        	'slug'=>$page_slug_new,
 	      	);
 	      	$insert=$this->DrrModel->add_drrinfo('drrcategory',$data);
 	      	//print_r($insert);die;
@@ -136,8 +138,8 @@ class Admin extends Admin_Controller {
             $emerg_lang='nep'; 
         }
         $admin_type=$this->session->userdata('user_type');
-        $this->data['admin']=$admin_type;
-		$this->data['drrdata'] = $this->DrrModel->get_drrlist();
+        $this->data['admin']=$admin_type;// new added
+		$this->data['drrdata'] = $this->DrrModel->get_drrlist(array('d.language'=>$emerg_lang));
 
 		//echo"<pre>";print_r($this->data['drrdata']);die;
 		$this->template
