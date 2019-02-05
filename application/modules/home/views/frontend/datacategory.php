@@ -7,27 +7,18 @@
             </div>
         </div>
     </div>
-
-
 </section>
 <section class="searchpanel">
     <div class="container">
-
-
         <div class="search flex contactSearch">
             <div class="inputholder grow">
                 <label for="">Keywords</label>
                 <input class="search--input " placeholder="Enter to search..." type="text">
             </div>
-
-
-
             <button class="btn-primary search--btn"> SEARCH</button>
         </div>
     </div>
 </section>
-
-
 <section class="datacategory">
     <div class="container">
 
@@ -40,22 +31,18 @@
                             <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                 CATEGORIES
                             </button>
-
                         </div>
-
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#sideAccordin">
                             <div class="card-body">
                                 <div class="itemsCat"> Municipal Resources
                                     <span class="badge badge-secondary bdgcnt">3</span>
                                 </div>
-                                <div class="itemsCat">Risk and Hazards </div>
+                                <div class="itemsCat">Risk and Hazards  </div>
                                 <div class="itemsCat">Baseline Datasets </div>
-                                <div class="itemsCat"> Tabular Datasets</div>
-
+                                <div class="itemsCat"> Tabular Datasets </div>
                             </div>
                         </div>
                     </div>
-                   
                     <div class="card">
                         <div class="card-header" id="headingThree">
                             <h5 class="mb-0">
@@ -72,13 +59,8 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
             <div class="col-md-8">
-
-
-
                 <div class="detailItemList card">
                     <div class="row">
                         <div class="leftHolder col">
@@ -149,8 +131,6 @@
 
                     </div>
                 </div>
-
-
                 <div class="detailItemList card">
                     <div class="row">
                         <div class="leftHolder col">
@@ -221,7 +201,6 @@
 
                     </div>
                 </div>
-
                 <div class="detailItemList card">
                     <div class="row">
                         <div class="leftHolder col">

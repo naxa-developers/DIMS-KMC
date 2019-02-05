@@ -137,7 +137,7 @@ class Admin extends Admin_Controller {
         }
         $admin_type=$this->session->userdata('user_type');
         $this->data['admin']=$admin_type;
-		$this->data['drrdata'] = $this->DrrModel->get_drrlist();
+		$this->data['drrdata'] = $this->DrrModel->get_drrlist(array('d.language'=>$emerg_lang));
 
 		//echo"<pre>";print_r($this->data['drrdata']);die;
 		$this->template
