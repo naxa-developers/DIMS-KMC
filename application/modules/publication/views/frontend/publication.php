@@ -1,14 +1,12 @@
-<?php $pub_cat_nep='  <option value=0>सबै</option>
- <option value="muni_pub">नगरपालिकाको प्रकाशनहरु</option>
- <option value="law_act">नियम कानुनहरु</option>
- <option value="plan_politics">योजनाहरु तथा नीतिहरु</option>
- <option value="others">अन्य</option>';
+<?php $pub_cat_nep='<option value=0>सबै</option>
+ <option value="files">फाईल</option>
+ <option value="video">भिडियो</option>
+ <option value="images">इमेज</option>';
 
 $pub_cat_en='<option value=0>ALL</option>
- <option value="muni_pub">Municipal Publications</option>
- <option value="law_act">Laws and Acts</option>
- <option value="plan_politics">Plans and Policies</option>
- <option value="others">Others</option>';
+ <option value="files">Files</option>
+ <option value="video">Videos</option>
+ <option value="images">Images</option>';
 ?>
 
     <section class="searchpanel">
@@ -41,20 +39,22 @@ $pub_cat_en='<option value=0>ALL</option>
                 foreach($publicationdata as $d ){ ?>
                 <div class="col-md-6 ">
                     <div class="doccontent flex ">
-                      <?php if($d['photo']){ ?>
+                      <?php if($d['type'] == "images"){ ?>
                         <div class="docImg">
                             <img src="<?php echo base_url()?>/uploads/publication/28.png" alt="<?php echo $d['title']?>">
                         </div>
-
-                      <?php }else { ?>
-                        <iframe width="190" height="195" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
-                    <?php  } ?>
+                      <?php } if($d['type'] == "video"): ?>
+                        <iframe width="190" height="195" src="<?php echo $d['videolink'];  ?>"></iframe>
+                      <?php  endif; ?>
+                      <?php if($d['type'] == "files"): ?>
+                        <a href="<?php echo $d['file'] ?>"><i class="fa-files-o"></i> <?php echo   $d['title'] ?></a>
+                      <?php  endif; ?>
                         <div class="docdetailwrp  grow">
                             <div class="docTitle" id="<?php echo $d['id'] ?>">
                                <?php echo $d['title']?>
                             </div>
                             <div class="doctype">
-                                Type:Book
+                                Type: <?php echo $d['type'] ?>
                             </div>
                             <p class="docDetail">
                                <?php echo $d['summary'] ?>
@@ -68,9 +68,10 @@ $pub_cat_en='<option value=0>ALL</option>
                                    <!--  <a href="<?php echo base_url()?>download?file=<?php echo $d['file']?> && title=<?php echo $d['title']?>" class="btn btn-primary btn-block"><?php echo !empty(DOWNLOAD)?DOWNLOAD:'' ?> <i class="la la-download"></i></a> -->
                                    <i class="fa fa-download"></i>
                                 </div>
-                                <button class="btnsmp"> View All
+                                <a href="<?php echo base_url()?>/publication/details/?id=<?php echo base64_encode($d['id']);?>" >
+                                <button class="btnsmp"> View More
                                     <i class="fa fa-angle-right"></i>
-                                </button>
+                                </button></a>
                             </div>
 
                         </div>
@@ -159,16 +160,6 @@ $pub_cat_en='<option value=0>ALL</option>
                 div_pub +='</div>';
             div_pub +='</div>';
         div_pub +='</div>';
-
-        // div_pub +='<div class="col-md-4 col-xl-3">';
-        //   div_pub +='<div class="publication-item" data-mh="publication">';
-        //     div_pub +='<div class="thumb"><img src="'+data[i].photo+'"></div>';
-        //     div_pub +='<h6 class="name" id="'+data[i].id+'">'+data[i].title+'</h6>';
-        //     div_pub +='<p>'+data[i].summary+'</p>';
-        //     div_pub +='<a href="<?php echo base_url()?>download?file=<?php echo $d['file']?> && title="'+data[i].title+'" class="btn btn-primary btn-block">डाउनलोड <i class="la la-download"></i></a>';
-        //   div_pub +='</div>';
-        // div_pub +='</div>';
-
 
 
     $('#filter_pub').append(div_pub);
