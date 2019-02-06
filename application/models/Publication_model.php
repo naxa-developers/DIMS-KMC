@@ -123,5 +123,39 @@ public function update_data($id,$data){
   }
 
 }
-
+  public function add_publiactioncat($table,$data){
+        $id=$this->input->post('id');
+        if($id)
+        {
+            if($this->db->update($table,$data,array('id'=>$id)))
+            {
+                return $id;
+            }
+        }else{
+            $this->db->insert($table,$data);
+            if ($this->db->affected_rows() > 0)
+            {
+            return $this->db->insert_id();
+            }
+            else
+            {
+                $error = $this->db->error();
+                return $error;
+            }
+        }
+    }
+    public function get_publication_details()
+    {  //test
+        $id = base64_decode($this->input->get('id'));
+        $this->db->select('p.type,p.id,p.title,p.summary,p.photo,p.file,p.videolink,pc.name');
+        $this->db->from('publication as p');
+        $this->db->join('publicationcat as pc','pc.id = p.category','LEFT');
+        $this->db->where('p.id',$id);
+        $query = $this->db->get();
+        if ($query->num_rows() > 0)
+        {
+            return $data=$query->result_array();
+        } 
+        return false;
+    }
 }
