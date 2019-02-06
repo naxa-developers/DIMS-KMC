@@ -141,9 +141,9 @@ class Admin extends Admin_Controller {
 	    }
   }
     public function edit_publication(){
-	   $this->body=array();
+	   $this->data=array();
 	    $id=base64_decode($this->input->get('id'));
-	    $this->body['pub'] = $this->general->get_tbl_data_result('*','publication');
+	    $this->data['pub'] = $this->general->get_tbl_data_result('id,name','publicationcat');
 	    if(isset($_POST['submit'])){
 	      if( $_FILES['proj_pic']['name']==''){
 	        $data=array(
@@ -193,16 +193,18 @@ class Admin extends Admin_Controller {
 	      }
 	    }else{
 
-	      $this->body['edit_data']=$this->Publication_model->get_edit_data(base64_decode($this->input->get('id')),'publication');
+	      $this->data['edit_data']=$this->Publication_model->get_edit_data(base64_decode($this->input->get('id')),'publication');
 	      //admin check
+	      //echo $this->db->last_query();die;
+	      //echo "<pre>"; print_r($this->data['pub']);die;
 	      $admin_type=$this->session->userdata('user_type');
-	      $this->body['admin']=$admin_type;
+	      $this->data['admin']=$admin_type;
 	      //admin check
 	      $this->template
                         ->enable_parser(FALSE)
-                        ->build('admin/edit_publication',$this->body);
-	      // $this->load->view('admin/header',$this->body);
-	      // $this->load->view('admin/edit_publication',$this->body);
+                        ->build('admin/edit_publication',$this->data);
+	      // $this->load->view('admin/header',$this->data);
+	      // $this->load->view('admin/edit_publication',$this->data);
 	      // $this->load->view('admin/footer');
 	    }
   }
