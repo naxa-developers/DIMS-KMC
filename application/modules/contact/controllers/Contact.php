@@ -1,8 +1,8 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class Contact extends Admin_Controller 
+class Contact extends Admin_Controller
 {
 	function __construct()
-	{	
+	{
         $this->load->model('Main_model');
         $this->load->model('Upload_model');
         $this->load->model('Report_model');
@@ -17,7 +17,7 @@ class Contact extends Admin_Controller
 	    if($lang['Language']=='en') {
 	      $emerg_lang='en';
 	    }else{
-	      $emerg_lang='nep'; 
+	      $emerg_lang='nep';
 	    }
 	      //eng contact
 	      $this->data['health']=$this->general->get_tbl_data_result('*','emergency_contact',array('category'=>'health','language'=>$emerg_lang));
@@ -35,12 +35,15 @@ class Contact extends Admin_Controller
 	      //echo "<pre>";print_r($this->data['chairpersons']);die;
 	      $this->data['disaster']=$this->general->get_tbl_data_result('*','emergency_personnel',array('category'=>'disaster','language'=>$emerg_lang));
 	      $this->data['nntds']=$this->general->get_tbl_data_result('*','emergency_personnel',array('category'=>'nntds','language'=>$emerg_lang));
+	      $this->data['volunteer']=$this->general->get_tbl_data_result('*','volunteer_contact',array('language'=>$emerg_lang));
+				// var_dump($this->data['volunteer']);
+				// die;
 	    $this->data['urll']=$this->uri->segment(1);
 	    //language
 		$this->template->set_layout('frontend/default');
 		$this->template
 			->enable_parser(FALSE)
-			//->title($this->data['page_title']) //this is for seo purpose 
+			//->title($this->data['page_title']) //this is for seo purpose
 			->build('frontend/contact', $this->data);
 	}
 }

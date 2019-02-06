@@ -1,5 +1,30 @@
 <?php $lang=$this->session->get_userdata('Language');
     $con_lang=$lang['Language'];
+
+    $volun_en='<th><strong>S.N</strong></th>
+    <th><strong>Name</strong></th>
+    <th><strong>Affiliated Organization</strong></th>
+    <th><strong>Designation</strong></th>
+    <th><strong>Ward no</strong></th>
+    <th><strong>Phone No.</strong></th>
+    <th><strong>Email</strong></th>
+    <th><strong>Skills</strong></th>
+    <th><strong>Volunteering Experience</strong></th>
+    <th><strong>Age</strong></th>
+    <th><strong>Status</strong></th>';
+
+    $volun_nep='<th><strong>S.N</strong></th>
+    <th><strong>Name</strong></th>
+    <th><strong>Affiliated Organization</strong></th>
+    <th><strong>Designation</strong></th>
+    <th><strong>Ward no</strong></th>
+    <th><strong>Phone No.</strong></th>
+    <th><strong>Email</strong></th>
+    <th><strong>Skills</strong></th>
+    <th><strong>Volunteering Experience</strong></th>
+    <th><strong>Age</strong></th>
+    <th><strong>Status</strong></th>';
+
     $heading_en_personnel='<th><strong>S.N</strong></th>
     <th><strong>Name</strong></th>
     <th><strong>Organization</strong></th>
@@ -34,7 +59,7 @@
                     <th><strong>पद</strong></th>
                     <th><strong>Personal No.</strong></th>
                     <th><strong>इमेल</strong></th>
-                    <th><strong>Website</strong></th>'; 
+                    <th><strong>Website</strong></th>';
 ?>
     <section class="contactbanner">
         <div class="container full-height flex align-items-center ">
@@ -150,6 +175,19 @@
                                 </div>
                             </a>
                         </li>
+                        <li class="active  tablistc flex align-items-center ">
+                            <a data-toggle="tab" href="#seventh" class="flex nodec bold f14 uppercase">
+                                <div class="grow tabinner">
+                                    <i class="la la-hotel"></i>
+                                    <span class="uppercase">Volunteer</span>
+                                </div>
+                                <div class="itemCount">
+                                   <?php echo !empty(count($volunteer))?count($volunteer):'0'; ?>
+                                </div>
+                            </a>
+                        </li>
+
+
                     </ul>
                 <?php }else{ ?>
                     <ul class="nav nav-tabs ptb40">
@@ -219,7 +257,18 @@
                             </div>
                         </a>
                       </li>
-                      <!-- 
+                      <li class="active  tablistc flex align-items-center ">
+                          <a data-toggle="tab" href="#seventh" class="flex nodec bold f14 uppercase">
+                              <div class="grow tabinner">
+                                  <i class="la la-hotel"></i>
+                                  <span class="uppercase">स्वयंसेवक</span>
+                              </div>
+                              <div class="itemCount">
+                                 <?php echo !empty(count($volunteer))?count($volunteer):'0'; ?>
+                              </div>
+                          </a>
+                      </li>
+                      <!--
                       <li class="active  tablistc flex align-items-center ">
                         <a data-toggle="tab" href="#first" class=" flex nodec bold active f14 uppercase"स्वास्थ्य संस्थाहरु</a>
                       </li>
@@ -459,6 +508,46 @@
                                   </div>
                                 </div>
                             </div>
+
+                            <div id="seventh" class="tab-pane fade">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-hover  ">
+                                        <thead class="tableHeader">
+                                            <tr>
+                                            <?php if($con_lang=='en'){
+                                                echo $volun_en;
+                                               }else{
+                                               echo $volun_nep;
+                                               } ?>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php
+                                            if($nntds){
+                                            $i=1;
+                                            foreach ($volunteer as $volunteer) { ?>
+                                            <tr class="tr_tbl">
+                                               <th  scope="row" id="<?php echo $nntds['id'] ?>idvolunteer"><?php echo $i; ?></th>
+                                               <td id="<?php echo $volunteer['id'] ?>namevolunteer"><?php echo $volunteer['name'] ?></td>
+                                               <td id="<?php echo $volunteer['id'] ?>organizationvolunteer"><?php echo $volunteer['affiliated_organization'] ?></td>
+                                               <td id="<?php echo $volunteer['id'] ?>postvolunteer"><?php echo $volunteer['designation'] ?></td>
+                                               <td id="<?php echo $volunteer['id'] ?>anntdsessvolunteer"><?php echo $volunteer['ward_no'] ?></td>
+                                               <td id="<?php echo $volunteer['id'] ?>phone_novolunteer"><?php echo $volunteer['phone_no'] ?></td>
+                                               <td id="<?php echo $volunteer['id'] ?>emailvolunteer"><?php echo $volunteer['email'] ?></td>
+                                               <td id="<?php echo $volunteer['id'] ?>skillsvolunteer"><?php echo $volunteer['skills'] ?></td>
+                                               <td id="<?php echo $volunteer['id'] ?>volunteering_experiencevolunteer"><?php echo $volunteer['volunteering_experience'] ?></td>
+                                               <td id="<?php echo $volunteer['id'] ?>agevolunteer"><?php echo $volunteer['age'] ?></td>
+                                               <td id="<?php echo $volunteer['id'] ?>statusvolunteer"><?php echo $volunteer['status'] ?></td>
+
+                                            </tr>
+                                           <?php $i++; } } ?>
+                                        </tbody>
+                                    </table>
+                                    <div class="text-center mb-3">
+                                        <a href="get_csv_emergency?type=nntds&&name=NNTDS_Executive_Committee&&tbl=volunteer_contact"><button type="submit" name="upload_data" class="btn btn-danger" style="background-color: #1f5cb2;border-color: #1f5cb2;margin-top: -7px;float: right;"><i class="fa fa-download"></i> <?php echo DOWNLOAD ?></button></a>
+                                      </div>
+                                    </div>
+                                </div>
                         </div>
                     </div>
                 </div>

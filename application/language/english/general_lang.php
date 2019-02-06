@@ -33,6 +33,7 @@ $lang['elected_representative']="Elected Repesentative";
 $lang['municipal_executive_members']="Municipal Executive Members";
 $lang['municipal_disaster']="Municipality Level Disaster Management Committee";
 $lang['nntds_executive']="NNTDSs Executive Committee";
+$lang['volunteer']="Volunteer";
 
 //report management
 $lang['report_management']="Report Management";
@@ -130,7 +131,7 @@ $lang['admin']="Admin";
 
 
 
-//this is for map categories 
+//this is for map categories
 $lang['cat_name']="Category Name";
 $lang['change_order']="Change  Order";
 
@@ -231,7 +232,7 @@ $lang['aboutprojecttagline']= "About the project consortium, system features and
 
 
 
-$lang['shortest_route']= "Shortest route to safe location(open spaces)"; 
+$lang['shortest_route']= "Shortest route to safe location(open spaces)";
 $lang['user_engagement']= "User engagement by multiple choice questions on disaster-related topic";
 $lang['disaster_alert']= " Set Alarm during the disaster (substitute to whistle)";
 $lang['flashlight']= "One click to activate flashlight and strobe light";

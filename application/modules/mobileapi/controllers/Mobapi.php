@@ -362,6 +362,48 @@ public  function get_term_data(){
 
 }
 
+public  function get_drrinfo_data(){
+
+
+  $data=$this->Api_model->get_drr_info();
+  $photo=array(
+    'p1'=>'a',
+    'p2'=>'b'
+  );
+  $new=array_merge($data[0],$photo);
+//echo sizeof($data);
+for($i=0;$i<sizeof($data);$i++){
+
+  var_dump ($data[$i]["desc"]);
+}
+
+  // $response['error'] = 0 ;
+  // $response['message'] = 'Data of Terminologies';
+  // $response['data'] = $new;
+
+  //echo json_encode($new);
+
+
+}
+
+public function get_img(){
+
+  $html="<ol>\r\n\t<li><span style=\"font-size:18px;\">this&nbsp;is bold text&nbsp;<strong>bold text&nbsp;</strong>and italic . <span style=\"background-color:Yellow;\">How about we do som colorful text</span></span></li>\r\n\t<li><font face=\"monospace\">Mark&nbsp; yellow</font></li>\r\n</ol>\r\n\r\n<p>paragaraph changed here now add some image down&nbsp; &nbsp;&nbsp;</p>\r\n\r\n<p><img alt=\"\" src=\"http://kmc.naxa.com.np/uploads/images/editor/images/23_thumb.jpg\" style=\"width: 375px; height: 500px;\" /></p>\r\n\r\n<p>Now for second image down</p>\r\n\r\n<p><img alt=\"\" src=\"http://kmc.naxa.com.np/uploads/images/editor/images/24_thumb.jpg\" style=\"width: 500px; height: 375px;\" /></p>\r\n\r\n<p>That all to text,</p>\r\n";
+  //preg_match_all('/<img[^>]+>/i',$html, $result);
+$content = preg_replace("/<img[^>]+\>/i", " ", $html);
+var_dump($content);
+die;
+  preg_match_all( '@src="([^"]+)"@' , $html, $match );
+  $src = array_pop($match);
+ //print_r(strip_tags($html));
+//preg_replace("/\s|&nbsp;/",'',$string);
+//var_dump(preg_replace("/\s|&nbsp;/",' ',strip_tags($html)));
+
+  //var_dump($src );
+
+}
+
+
 
 
 
