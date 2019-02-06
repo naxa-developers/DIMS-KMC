@@ -28,24 +28,14 @@ class Publication extends Admin_Controller
 		    if($lang['Language']=='en'){
 		        $this->data['pub_lang']='en';
 
-		     // $this->data['site_info']=$this->Main_model->site_setting_en();
-
 		    }else{
-
-		     //$this->data['site_info']=$this->Main_model->site_setting_nep();
 		       $this->data['pub_lang']='nep';
 
 
 		    }
 		   	$this->data['urll']=$this->uri->segment(1);
-		    // //language
-		    // $this->load->view('header',$this->data);
-		    // $this->load->view('publication',$this->data);
-		    // $this->load->view('footer',$this->data);
-		    
 			$this->template
 				->enable_parser(FALSE)
-				//->title($this->data['page_title']) //this is for seo purpose 
 				->build('frontend/publication', $this->data);
     }
     public function details()

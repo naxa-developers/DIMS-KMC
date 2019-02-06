@@ -1,6 +1,6 @@
 <script src="https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>
 <!--main content start-->
-<section id="main-content" class="">
+<section id="main-content" class=""> <style>.error{ color: red; }</style>
   <section class="wrapper">
     <!-- page start-->
     <!-- page start-->
@@ -11,48 +11,62 @@
             Basic Forms
           </header>
 
-                                    <?php
-                                      $error=	$this->session->flashdata('msg');
-                                       if($error){ ?>
-                                         <div class="alert alert-success alert-dismissible">
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                <strong>Message</strong> <?php echo $error ; ?>
-                                              </div>
-                                       <?php
-                                       }
-                                        ?>
-          <div class="panel-body">
-            <div class="position-center">
-              <form role="form" method="POST" action="" enctype="multipart/form-data">
-
-
+                  <?php
+                    $error= $this->session->flashdata('msg');
+                     if($error){ ?>
+                       <div class="alert alert-success alert-dismissible">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              <strong>Message</strong> <?php echo $error ; ?>
+                            </div>
+                     <?php
+                     }
+                      ?>
+              <form role="form"  method="POST" action="" enctype="multipart/form-data">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Title</label>
-                  <input type="text" name="title" value="<?php echo $edit_data['title'] ?>" class="form-control" id="exampleInputEmail1" >
-                </div>
-                  
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Video Url</label>
-                  <input type="text" name="videolink"  value="<?php echo $edit_data['videolink'] ?>" class="form-control" id="videolink" placeholder="Enter Iframe of Youtube Video" >
-                </div>
-                <div class="clearfix"></div>
-
-                <div class="form-group">
-                  <label class="col-sm-2 control-label col-sm-2">Summary</label>
-                  <div class="col-sm-10">
-                    <textarea class="form-control ckeditor" name="summary" rows="10" required><?php echo $edit_data['summary'] ?></textarea>
+                  <div class="col-md-4">
+                    <label for="exampleInputFile"> Select Hazard category</label>
+                  <select name="category" class="form-control">
+                    <option value="">----- Select Hazard category ------</option>
+                    <?php 
+                    if($pub){ 
+                        $dbcatid = !empty($edit_data['category'])?$edit_data['category']:'';
+                    foreach ($pub as $key => $value) {  ?>
+                      <option value="<?php echo $value['id']  ?>" <?php if($dbcatid == $value['id']){ echo "Selected=Selected";}?>><?php echo $value['name'] ?></option>
+                    <?php }  } ?>
+                  </select>
+                  <?php echo form_error('category'); ?>
                   </div>
-                </div>
-
-       <div class="clearfix"></div>
-
-
-                <div class="form-group ">
-                  <label class="control-label col-md-3">Publicaton Photo </label>
-                  <div class="col-md-9">
+                   <div class="col-md-4">
+                    <label for="exampleInputFile"> Select File Type: </label>
+                  <select name="type" class="form-control FileTypes" id="FileTypes">
+                    <option value="">----- Select File Type ------</option>
+                    <option value="files">Files</option>
+                    <option value="video">Video</option>
+                    <option value="images">Image</option>
+                  </select>
+                  <?php echo form_error('type'); ?>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="exampleInputEmail1">Title</label>
+                    <input type="text" name="title" value="<?php echo $edit_data['title'] ?>"  class="form-control" id="exampleInputEmail1"  placeholder="Enter Title">
+                  </div>
+                  <div class="col-md-8" id="videoUrlData">
+                    <label for="exampleInputEmail1">Video Url</label>
+                    <textarea class="form-control " name="videolink" rows="2" cols="50" placeholder="Enter Youtube Video Url Title"><?php echo $edit_data['videolink'] ?></textarea>
+                  </div>
+                  <div class="col-md-4" id="FileUrl">
+                    <label for="exampleInputFile">Publication Attachment</label>
+                    <input type="file" name="uploadedfile"  id="exampleInputFile">
+                  </div>
+                  <div class="col-sm-12">
+                    <label class="control-label">Summary</label>
+                    <textarea class="form-control ckeditor" name="summary" rows="10" ><?php echo $edit_data['summary'] ?></textarea>
+                  </div>
+                  <div class="col-md-4" id="ImageDiveSelector">
+                    <label class="control-label">Publication Photo </label>
                     <div class="fileupload fileupload-new" data-provides="fileupload">
                       <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
-                        <img src="<?php echo $edit_data['photo'] ?>" alt="" />
+                        <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" />
                       </div>
                       <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
                       <div>
@@ -61,35 +75,44 @@
                           <span class="fileupload-exists"><i class="fa fa-undo"></i> Change</span>
                           <input type="file" name="proj_pic" class="default" />
                         </span>
-
                       </div>
                     </div>
-
+                  </div>
+                  <div class="col-md-4">
+                    <label  class="control-label" for="">&nbsp;&nbsp;&nbsp;</label>
+                    <button type="submit" name="submit" class="btn btn-info" style="margin-top: 15px;">Submit</button>
                   </div>
                 </div>
-
-
-                <button type="submit" name="submit" class="btn btn-info">Submit</button>
               </form>
             </div>
 
           </div>
         </section>
-
       </div>
-
     </div>
-
-    <!-- kjljlkjklj -->
-
-
-
-
-
-
-
-
-    <!-- page end-->
   </section>
 </section>
-<!--main content end-->
+
+<!-- <script>
+  $(document).off('change','.FileTypes');
+  $(document).on('change','.FileTypes',function(){
+      var selvalue = $('#FileTypes').val();
+      if(selvalue === "files") {
+        $('#FileUrl').show();
+      }else{
+        $('#FileUrl').hide();
+      }
+      if(selvalue === 'images') {
+        $('#ImageDiveSelector').show();
+      }else{
+        $('#ImageDiveSelector').hide();
+      }
+      if(selvalue === 'video') {
+        $('#videoUrlData').show();
+      }else{
+        $('#videoUrlData').hide();
+      }
+  });
+</script>
+
+ -->
