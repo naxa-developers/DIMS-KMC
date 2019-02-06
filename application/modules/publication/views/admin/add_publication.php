@@ -37,6 +37,10 @@
                   <label for="exampleInputEmail1">Title</label>
                   <input type="text" name="title" class="form-control" id="exampleInputEmail1"  required>
                 </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Video Url</label>
+                  <input type="text" name="videolink" class="form-control" id="videolink" placeholder="Enter Iframe of Youtube Video" >
+                </div>
                 <div class="clearfix"></div>
                 <div class="form-group">
                   <label class="col-sm-2 control-label col-sm-2">Summary</label>
@@ -46,7 +50,7 @@
                 </div>
        <div class="clearfix"></div>
                 <div class="form-group ">
-                  <label class="control-label col-md-3">Publicaton Photo </label>
+                  <label class="control-label col-md-3">Publication Photo </label>
                   <div class="col-md-9">
                     <div class="fileupload fileupload-new" data-provides="fileupload">
                       <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">

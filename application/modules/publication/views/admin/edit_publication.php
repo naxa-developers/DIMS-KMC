@@ -30,7 +30,11 @@
                   <label for="exampleInputEmail1">Title</label>
                   <input type="text" name="title" value="<?php echo $edit_data['title'] ?>" class="form-control" id="exampleInputEmail1" >
                 </div>
-
+                  
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Video Url</label>
+                  <input type="text" name="videolink"  value="<?php echo $edit_data['videolink'] ?>" class="form-control" id="videolink" placeholder="Enter Iframe of Youtube Video" >
+                </div>
                 <div class="clearfix"></div>
 
                 <div class="form-group">

@@ -37,13 +37,18 @@ $pub_cat_en='<option value=0>ALL</option>
         <div class="container">
             <h4>Documents</h4>
             <div class="row" id="filter_pub">
-                <?php if($publicationdata):
+                <?php if($publicationdata): //echo "<pre>";print_r($publicationdata);die;
                 foreach($publicationdata as $d ){ ?>
                 <div class="col-md-6 ">
                     <div class="doccontent flex ">
+                      <?php if($d['photo']){ ?>
                         <div class="docImg">
                             <img src="<?php echo base_url()?>/uploads/publication/28.png" alt="<?php echo $d['title']?>">
                         </div>
+
+                      <?php }else { ?>
+                        <iframe width="190" height="195" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+                    <?php  } ?>
                         <div class="docdetailwrp  grow">
                             <div class="docTitle" id="<?php echo $d['id'] ?>">
                                <?php echo $d['title']?>
