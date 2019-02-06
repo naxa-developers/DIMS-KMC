@@ -102,15 +102,13 @@ return $query->result_array();
 }
 
 
-public function drr_info(){
+public function get_drr_info(){
 
-  $this->db->select('d.id as id,d.short_desc,c.name as categoryname,cs.name as subcatname');
+  $this->db->select('d.id as id,d.short_desc,d.description as desc,d.image as photo,c.name as categoryname,cs.name as subcatname');
   $this->db->from('drrinformation as d');
   $this->db->join('drrcategory as c','c.id = d.category_id','LEFT');
   $this->db->join('drrsubcategory as cs','cs.id = d.subcat_id','LEFT');
-  if($cond) {
-    $this->db->where($cond); //change
-  }
+
   $query = $this->db->get();
   if ($query->num_rows() > 0)
   {

@@ -235,7 +235,7 @@
                           <li><a href="<?php echo base_url(FOLDER_ADMIN)?>/contact/emergency_personnel_nep?name=Municipal Executive Members&&cat=municipal_ex"><?php echo $this->lang->line('municipal_executive_members'); ?></a></li>
                           <li><a href="<?php echo base_url(FOLDER_ADMIN)?>/contact/emergency_personnel_nep?name=Municipality Level Disaster Management Committee&&cat=disaster"><?php echo $this->lang->line('municipal_disaster'); ?></a></li>
                           <li><a href="<?php echo base_url(FOLDER_ADMIN)?>/contact/emergency_personnel_nep?name=Municipality Level Disaster Management Committee&&cat=nntds"><?php echo $this->lang->line('nntds_executive'); ?></a></li>
-                          <li><a href="<?php echo base_url(FOLDER_ADMIN)?>/contact/volunteer?name=Volunteer&&cat=volunteer">Volunteer</a></li>
+                          <li><a href="<?php echo base_url(FOLDER_ADMIN)?>/contact/volunteer?name=Volunteer&&cat=volunteer"><?php echo $this->lang->line('volunteer'); ?></a></li>
 
                     </ul>
                 </li>

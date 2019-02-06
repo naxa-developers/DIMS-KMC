@@ -33,6 +33,7 @@ $lang['elected_representative']="Elected Repesentative";
 $lang['municipal_executive_members']="Municipal Executive Members";
 $lang['municipal_disaster']="Municipality Level Disaster Management Committee";
 $lang['nntds_executive']="NNTDSs Executive Committee";
+$lang['volunteer']="Volunteer";
 
 //report management
 $lang['report_management']="Report Management";
@@ -130,7 +131,7 @@ $lang['admin']="Admin";
 
 
 
-//this is for map categories 
+//this is for map categories
 $lang['cat_name']="Category Name";
 $lang['change_order']="Change  Order";
 
