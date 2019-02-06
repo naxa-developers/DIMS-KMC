@@ -133,7 +133,7 @@
                         <a href="<?php echo base_url('drrinfo') ?>" class="plain">
                             <div class="overlay">
                                 <div class="innerTitle"><?php echo $this->lang->line('drrinfodetail'); ?><!-- DRR INFORMATION  --></div>
-                                <p class="innerSubtitle"><?php echo $this->lang->line('whattodobefore');?><!-- What to do before, during and after disaster --></p>
+                                <p class="innerSubtitle"><?php echo $this->lang->line('disasterinformation');?><!-- What to do before, during and after disaster --></p>
                             </div>
                         </a>
                         <img src="<?php echo base_url(); ?>assets/frontend/img/assets/4.png" alt="">
@@ -166,7 +166,7 @@
                         <a href="contact" class="plain">
                             <div class="overlay">
                                 <div class="innerTitle"><?php echo $this->lang->line('contactinv'); ?></div>
-                                <p class="innerSubtitle"><?php echo $this->lang->line('Filesrelatedtoincidentmanagement');?>.</p>
+                                <p class="innerSubtitle"><?php echo $this->lang->line('contactinventory');?>.</p>
                             </div>
                         </a>
                         <img src="<?php echo base_url(); ?>assets/frontend/img/assets/7.png" alt="">
@@ -190,8 +190,8 @@
                     <div class="listHolder">
                         <a href="#" class="plain">
                             <div class="overlay">
-                                <div class="innerTitle"><?php echo $this->lang->line('aboutus');?></div>
-                                <p class="innerSubtitle"><?php echo $this->lang->line('aboutusdetails');?></p>
+                                <div class="innerTitle"><?php echo $this->lang->line('whodoeswhat');?></div>
+                                <p class="innerSubtitle"><?php echo $this->lang->line('whodoeswhatdetails');?></p>
                             </div>
                         </a>
 
@@ -218,7 +218,7 @@
                     <div class="flist "> <?php echo $this->lang->line('report_near');?></div>
                     <div class="flist "> Report hazard near a user </div>
                     <div class="flist "><?php echo $this->lang->line('notify_other');?> <!-- Notify others "I am safe" during disaster --></div>
-                    <div class="flist"><?php echo $this->lang->line('user_engagement');?> </div>
+                    
                 </div>
                 <div class="mobileOuter">
                     <div class="mobileHolder">
@@ -253,8 +253,8 @@
                     <div class="flist"><?php echo $this->lang->line('flashlight');?>  <!-- One click to activate flash light and strobe light --></div>
                     <div class="flist"><?php echo $this->lang->line('askfor_help');?><!--   One button "Ask for Help" to locate requester during an emergency --></div>
                     <div class="flist"><?php echo $this->lang->line('send_alert');?> <!-- Send alerts from DHM about weather events --></div>
-                    <div class="flist"><?php echo $this->lang->line('impupdates');?></div>
-                    <div class="flist "><?php echo $this->lang->line('notify_other');?> <!-- Notify others "I am safe" during disaster --></div>
+                    <div class="flist"><?php echo $this->lang->line('user_engagement');?> </div>
+
                 </div>
             </div>
         </div>

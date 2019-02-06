@@ -24,6 +24,9 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="texts">
+                         <div class="download">
+                            ABOUT PROJECT
+                        </div>
                         <div class="download">
                             DOWNLOAD APP
                         </div>

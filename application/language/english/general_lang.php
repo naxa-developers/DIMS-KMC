@@ -173,7 +173,7 @@ $lang['note']=" Note: Select a Layer File to Upload to Table";
 $lang['input']="File input";
 
 //Disaster modules
-$lang['dictionary']="Terminologies";
+$lang['dictionary']="TERMINOLOGIES";
 $lang['drrinformationlist']="Drr Information List";
 $lang['addrrinformation']="Add Drr Infromation";
 $lang['drr_article_list']="Drr Article List";
@@ -187,9 +187,9 @@ $lang['maps']="Maps";
 $lang['datasets']="Datasets";
 $lang['publications']="Publications";
 $lang['contacts']="Contacts";
-$lang['incidentmanagement']="Incident Reports";
-$lang['drrinfodetail']="Disaster Information";
-$lang['terminology']="Terminologies";
+$lang['incidentmanagement']="iNCIDENT REPORTS";
+$lang['drrinfodetail']="DISASTER INFORMATION";
+$lang['terminology']="TERMINOLOGIES";
 $lang['datacategory']="Data Category";
 $lang['municipalprofile']="Municipal Profile";
 
@@ -214,17 +214,20 @@ $lang['search_and_rescue_materials']="Search And Rescue Materials";
 
 
 $lang['emergency_contact']="A complete GIS database";
-$lang['whattodobefore']="Report disaster events and civic issues";
+$lang['whattodobefore']="Management of citizen reports on disaster incidents and civic issues.";
 $lang['abouthazard']="Brief about hazard and what to do before, during & after disaster";
-$lang['individualdigital']="Digital profile of Socio economic status in ward and municipal level";
-$lang['diffmatabout']="Different reading materials about disaster risk and hazards";
-$lang['intmapwithadmin']="Interactive map with administrative data layers and category-wise datasets";
-$lang['dictionaryofimpterminologies']="Terminologies of disaster and its meaning";
-$lang['Filesrelatedtoincidentmanagement']="Articles, Laws & policies, files & multimedia related to disaster, preparedness, risk reduction and management";
+$lang['individualdigital']="Digital profile of elected representatives, ward wise socio economic datasets, and municipal risk profile.";
+$lang['diffmatabout']="Informative contents to educate users about hazards, disaster preparedness, management and risk reduction";
+$lang['intmapwithadmin']="Interactive map of the city with critical infrastructures and Open spaces";
+$lang['dictionaryofimpterminologies']="DRR related most common terminologies and their meaning";
+$lang['Filesrelatedtoincidentmanagement']="Major articles, scientific publications, policy documents and multimedia files related to DRRM";
+$lang['contactinventory']="A digital phone book of emergency service providers , organizations in DRR and ward level representatives.";
 
-$lang['advancesearchfacility']="Advance search facility to find specific datasets";
+$lang['disasterinformation'] = "Understand hazards and learn what to do before, during & after disaster";
 
-$lang['report_near']= " Report hazard near a user";
+$lang['advancesearchfacility']="Advance search facility to explore specific details of individual datasets";
+
+$lang['report_near']= "Report disaster events and nearby and  citizen grievances";
 $lang['contactinventorytagline']= "A digital phone book containing the contact details of emergency services and persons";
 $lang['emergencymaterialtagline']= "A digital inventory containing the details about the materials needed during disaster emergency";
 $lang['aboutprojecttagline']= "About the project consortium, system features and development team";
@@ -232,35 +235,45 @@ $lang['aboutprojecttagline']= "About the project consortium, system features and
 
 
 $lang['shortest_route']= "Shortest route to safe location(open spaces)"; 
-$lang['user_engagement']= "User engagement by multiple choice questions on disaster-related topic";
-$lang['disaster_alert']= " Set Alarm during the disaster (substitute to whistle)";
-$lang['flashlight']= "One click to activate flashlight and strobe light";
+$lang['user_engagement']= "Navigate to nearest Open space around users’ location in a press of a button 
+";
+$lang['disaster_alert']= "Hazard specific questions properly organized in the form of  Quiz for user engagement 
+";
+$lang['flashlight']= "Major  updates from MoHA,NEOC KMC and LMC as news notifications";
 $lang['askfor_help']= "One button Ask for Help to locate requester during an emergenc";
-$lang['send_alert']= "Send alerts from DHM about weather events";
+$lang['send_alert']= "Features to activate flashlight and produce loud sound during emergency situations";
 $lang['impupdates']= "Send important updates from DMD MoHA KMC LMC";
-$lang['notify_other']= "Notify others I am safe during the disaster";
+$lang['notify_other']= "Notify “ I’m safe” to close circle of individuals during emergency situations";
 $lang['howisourmobileapp']= "HOW IS OUR MOBILE APP HELPFUL";
 
 $lang['big_text']="Disaster Information Management System ";
 $lang['small_text']="A GIS based Information Platform ";
 $lang['get_started']="GET STARTED ";
-$lang['reportbymonth']="INCIDNETS REPORTS DURING LAST THREE MONTHS ";
+$lang['reportbymonth']="iNCIDENTS REPORTS DURING LAST THREE MONTHS ";
 $lang['viewall']="VIEW ALL";
 $lang['differentbrowse']="BROWSE DIFFERENT SECTION";
-$lang['dataset']="EXPLORE DATASETS";
-$lang['acomgisdb']="Explore and view the municipal dataset in maps";
+// $lang['dataset']="EXPLORE DATASETS";
+$lang['dataset']="MUNICIPAL DATASETS & GIS MAPPING";
+
+// $lang['acomgisdb']="Explore and view the municipal dataset in maps";
+$lang['acomgisdb']="GIS  Mapping of Municipal resources, risks and hazards , datasets";
+
+
 $lang['findmorenewaboutus']="FIND MORE NEWS ABOUT US";
 $lang['alert']="Alert";
 $lang['incidentmgmt']="INCIDENT MANAGEMENT";
 $lang['munprofile']="MUNICIPAL PROFILE";
 $lang['publicationnmultimedia']="PUBLICATIONS AND MULTIMEDIA";
-$lang['contactinv']="CONTACT INVENTORY";
+$lang['contactinv']="EMERGENCY CONTACT DIRECTORY";
 $lang['emergencymat']="EMERGENCY MATERIALS";
 
 // आपतकालीन सामग्री
 
 
-$lang['emergencymatdetails']="EMERGENCY MATERIALS Details";
+$lang['whodoeswhat']="WHO DOES WHAT";
+$lang['whodoeswhatdetails']="Details about project and organization working in DRR sector";
+
+$lang['emergencymatdetails']="A Digital inventory of emergency items and stockpiles";
 $lang['aboutus']="ABOUT PROJECT";
 $lang['aboutusdetails']="About the project consortium, development team and system features.";
 
