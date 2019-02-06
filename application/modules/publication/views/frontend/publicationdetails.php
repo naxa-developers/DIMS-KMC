@@ -2,7 +2,7 @@
     <div class="container">
         <h4><?php echo ucwords($publicationdata[0]['title']) ?></h4>
         <div class="row" id="filter_pub">
-            <?php if($publicationdata): //echo "<pre>";print_r($publicationdata);die;
+            <?php if($publicationdata): 
             foreach($publicationdata as $d ){ ?>
             <div class="col-md-12 ">
                 <div class="doccontent flex ">

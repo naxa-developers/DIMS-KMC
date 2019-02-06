@@ -145,7 +145,7 @@ public function update_data($id,$data){
         }
     }
     public function get_publication_details()
-    {
+    {  //test
         $id = base64_decode($this->input->get('id'));
         $this->db->select('p.type,p.id,p.title,p.summary,p.photo,p.file,p.videolink,pc.name');
         $this->db->from('publication as p');
