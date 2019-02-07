@@ -13,10 +13,128 @@ class Admin extends Admin_Controller {
 		$this->load->dbforge();
 		$this->load->model('Upload_model');
 	}
-	public function index()
+
+	public function contact_admin()
 	{
-		# code...
+			$this->body= array();
+			$lang=$this->session->get_userdata('Language');
+			if($lang['Language']=='en') {
+					$emerg_lang='en';
+			}else{
+					$emerg_lang='nep';
+			}
+
+	     $edit_cat=$this->input->get('edit_cat');
+
+
+
+
+			if (isset($_POST["apply"])){
+
+				$type=$this->input->post('type');
+				 $tbl_name=$type.'_contact';
+				 $this->body['tbl_name']=$tbl_name;
+
+				$data = $this->general->get_tbl_data_result('*','contact_categories',array('category'=>$type));
+				$this->body['data_list']=$data;
+				$this->body['type']=$type;
+				$sub_cat=$this->input->post('sub_cat_contact');
+				$this->body['name_contact']=$sub_cat;
+
+				$this->body['data']=$this->general->get_tbl_data_result('*',$tbl_name,array('category'=>$sub_cat,'language'=>$emerg_lang));
+
+			}else{
+
+if($edit_cat=="0"){
+
+	     $type=$this->input->get('type');
+	      $tbl_name=$type.'_contact';
+	        $this->body['tbl_name']=$tbl_name;
+	        $this->body['type']=$type;
+				$data = $this->general->get_tbl_data_result('*','contact_categories',array('category'=>$type));
+				$this->body['data_list']=$data;
+				$this->body['name_contact']=$data[0]['name_id'];
+				$this->body['data']=$this->general->get_tbl_data_result('*',$tbl_name,array('category'=>$data[0]['name_id'],'language'=>$emerg_lang));
+
+
+			}else{
+				$tbl_name=$this->input->get('tbl');
+				$type=strstr($tbl_name,"_",true);
+				$this->body['type']=$type;
+				// echo $type;
+				// die;
+				$data = $this->general->get_tbl_data_result('*','contact_categories',array('category'=>$type));
+				$this->body['data_list']=$data;
+				$this->body['tbl_name']=$tbl_name;
+				$tbl_name=$this->input->get('tbl');
+				$this->body['name_contact']=$edit_cat;
+
+				$this->body['data']=$this->general->get_tbl_data_result('*',$tbl_name,array('category'=>$edit_cat,'language'=>$emerg_lang));
+
+
+
+
+
+}
+
+
+
+			}
+
+//	die;
+	//admin check
+	$admin_type=$this->session->userdata('user_type');
+	$this->body['admin']=$admin_type;
+	//admin check
+	$this->template
+									->enable_parser(FALSE)
+									->build('admin/contact_view',$this->body);
+
 	}
+
+
+// edit contact
+	public function edit_contact(){
+		$this->body= array();
+
+		$id=base64_decode($this->input->get('id'));
+		$tbl=$this->input->get('tbl');
+		$cat=$this->input->get('cat');
+
+	if (isset($_POST["submit"])){
+		// var_dump($_POST);
+		unset($_POST['submit']);
+
+		  $update=$this->Upload_model->update_emerg($this->input->post('id'),$_POST,$tbl);
+			$this->session->set_flashdata('msg','Updated successfully');
+			redirect(base_url(FOLDER_ADMIN)."/contact/contact_admin?edit_cat=".$cat."&&tbl=".$tbl);
+
+
+	}else{
+
+		$this->body['data']=$this->general->get_tbl_data_result('*',$tbl,array('category'=>$cat,'id'=>$id));
+		$admin_type=$this->session->userdata('user_type');
+		$this->body['admin']=$admin_type;
+		//admin check
+		$this->template
+										->enable_parser(FALSE)
+										->build('admin/edit_contact',$this->body);
+
+	}
+}
+
+	// edit contact end
+public function delete_contact(){
+
+	$id=$this->input->get('id');
+	$tbl=$this->input->get('tbl');
+	$cat=$this->input->get('cat');
+
+  $delete=$this->Upload_model->delete($id,$tbl);
+	$this->session->set_flashdata('msg','Deleted successfully');
+	redirect(base_url(FOLDER_ADMIN)."/contact/contact_admin?edit_cat=".$cat."&&tbl=".$tbl);
+	}
+
 	public function  emergency_contact_nep(){
 		$this->body= array();
         $cat=$this->input->get('cat');

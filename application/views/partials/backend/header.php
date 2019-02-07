@@ -222,7 +222,7 @@
 
                         <!-- <li><a href="<?php echo base_url();?>create_categories_tbl">Create Database Tables</a></li>
                         <li><a href="<?php echo base_url();?>view_cat_tables">View Categories Data Tables</a></li> -->
-                          <li><a href="<?php echo base_url(FOLDER_ADMIN)?>/contact/emergency_contact_nep?name=Health Institutions&&cat=health"><?php echo $this->lang->line('health_institution'); ?></a></li>
+                          <!-- <li><a href="<?php echo base_url(FOLDER_ADMIN)?>/contact/emergency_contact_nep?name=Health Institutions&&cat=health"><?php echo $this->lang->line('health_institution'); ?></a></li>
                           <li><a href="<?php echo base_url(FOLDER_ADMIN)?>/contact/emergency_contact_nep?name=Emergency Responders&&cat=responders"><?php echo $this->lang->line('emergency_responder'); ?></a></li>
                           <li><a href="<?php echo base_url(FOLDER_ADMIN)?>/contact/emergency_contact_nep?name=Security&&cat=security"><?php echo $this->lang->line('security'); ?></a></li>
                           <li><a href="<?php echo base_url(FOLDER_ADMIN)?>/contact/emergency_contact_nep?name=NGOs and INGOs&&cat=ngo"><?php echo $this->lang->line('ngos_ingos'); ?></a></li>
@@ -235,8 +235,10 @@
                           <li><a href="<?php echo base_url(FOLDER_ADMIN)?>/contact/emergency_personnel_nep?name=Municipal Executive Members&&cat=municipal_ex"><?php echo $this->lang->line('municipal_executive_members'); ?></a></li>
                           <li><a href="<?php echo base_url(FOLDER_ADMIN)?>/contact/emergency_personnel_nep?name=Municipality Level Disaster Management Committee&&cat=disaster"><?php echo $this->lang->line('municipal_disaster'); ?></a></li>
                           <li><a href="<?php echo base_url(FOLDER_ADMIN)?>/contact/emergency_personnel_nep?name=Municipality Level Disaster Management Committee&&cat=nntds"><?php echo $this->lang->line('nntds_executive'); ?></a></li>
-                          <li><a href="<?php echo base_url(FOLDER_ADMIN)?>/contact/volunteer?name=Volunteer&&cat=volunteer"><?php echo $this->lang->line('volunteer'); ?></a></li>
-
+                          <li><a href="<?php echo base_url(FOLDER_ADMIN)?>/contact/volunteer?name=Volunteer&&cat=volunteer"><?php echo $this->lang->line('volunteer'); ?></a></li> -->
+                          <li><a href="<?php echo base_url(FOLDER_ADMIN)?>/contact/contact_admin?type=individual&&edit_cat=0">Individual</a></li>
+                          <li><a href="<?php echo base_url(FOLDER_ADMIN)?>/contact/contact_admin?type=organization&&edit_cat=0">Organization</a></li>
+                          <li><a href="<?php echo base_url(FOLDER_ADMIN)?>/contact/volunteer?name=Volunteer&&cat=volunteer">Volunteer</a></li>
                     </ul>
                 </li>
 

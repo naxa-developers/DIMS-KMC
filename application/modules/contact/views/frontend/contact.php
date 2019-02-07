@@ -85,10 +85,10 @@
                 <div class="selectHolder">
                     <label for="">Category</label>
                     <select>
-                        <option value="volvo">Volvo</option>
-                        <option value="saab">Saab</option>
-                        <option value="mercedes">Mercedes</option>
-                        <option value="audi">Audi</option>
+                        <option value="volvo">Organization</option>
+                        <option value="saab">Indiviual</option>
+                        <option value="mercedes">Volunteer</option>
+                        <!-- <option value="audi">Audi</option> -->
                     </select>
                 </div>
                <!--  <div class="selectHolder">
