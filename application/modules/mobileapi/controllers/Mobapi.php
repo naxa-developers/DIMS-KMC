@@ -366,22 +366,22 @@ public  function get_drrinfo_data(){
 
 
   $data=$this->Api_model->get_drr_info();
-  $photo=array(
-    'p1'=>'a',
-    'p2'=>'b'
-  );
-  $new=array_merge($data[0],$photo);
-//echo sizeof($data);
-for($i=0;$i<sizeof($data);$i++){
+//   $photo=array(
+//     'p1'=>'a',
+//     'p2'=>'b'
+//   );
+//   $new=array_merge($data[0],$photo);
+// //echo sizeof($data);
+// for($i=0;$i<sizeof($data);$i++){
+//
+//   var_dump ($data[$i]["desc"]);
+// }
 
-  var_dump ($data[$i]["desc"]);
-}
+  $response['error'] = 0 ;
+  $response['message'] = 'Data of Drr Info';
+  $response['data'] = $data;
 
-  // $response['error'] = 0 ;
-  // $response['message'] = 'Data of Terminologies';
-  // $response['data'] = $new;
-
-  //echo json_encode($new);
+  echo json_encode($response);
 
 
 }
