@@ -42,8 +42,8 @@ class Admin extends Admin_Controller {
 	    	}else{
 	    		$file=$_FILES ["fileToUpload"];
 		      	$csv_file=$file['tmp_name'];
-		      	//$csv_file = file_get_contents($csv_file);
-		      	var_dump($csv_file);exit();
+		      		$csv_filetest = file_get_contents($csv_file);
+		      		var_dump($csv_filetest);exit();
 		     	chmod($csv_file, 777);
 		      	$fp = fopen($csv_file, 'r');
 		        //print_r($fp); die;
