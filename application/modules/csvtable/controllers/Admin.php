@@ -79,7 +79,7 @@ class Admin extends Admin_Controller {
 				            'tbl_name'=>$tbl_name,
 				        );
 				        $lang_insert=$this->Dash_model->insert_lang('tbl_lang',$data_lang);
-				        $filename=$file['name'];
+				        $filename=$fll['name'];
 				        $fields=$this->db->list_fields($tbl_name);
 				        unset($fields[0]);
 				        $field_name=implode(",",$fields);
