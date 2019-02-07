@@ -43,15 +43,15 @@ class Admin extends Admin_Controller {
 	    		$file=$_FILES ["fileToUpload"];
 		      	$csv_file=$file['tmp_name'];
 		      		// $csv_filetest = file_get_contents($csv_file);
-		      		var_dump($file);exit();
+		      		//var_dump($file);exit();
 		      			//php2A7B.tmp
 		      		//$csv_file= 'temp\phpF187.tmp';
-		     	chmod($csv_file, 777);
+		     	//chmod($csv_file, 777);
 		      	$fp = fopen($csv_file, 'r');
 		        //print_r($fp); die;
 		      	$frow = fgetcsv($fp);
 		      	//$frow=trim($frow," ");
-		      	// var_dump($frow); exit();
+		      	var_dump($frow); exit();
 		      	$n=sizeof($frow);
 		      	$row=array();
 		      	for($i=0;$i<$n;$i++){
