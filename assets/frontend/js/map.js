@@ -165,10 +165,10 @@ $(document).ready(function(){
                         summaryContent+='<p class="dettext">'+summarydata+'</p>';
                         summaryContent+='<div class="detItemLinkWrp">';
                             for (var i =0; i < summary_list.length; i++) {
-                                var coordintes = JSON.parse(summary_list[i].st_asgeojson);
+                                var coordintesfinal = JSON.parse(summary_list[i].st_asgeojson);
                             summaryContent+='<div class="detItemlink flex justify-content-between align-items-center retriveSumaryMap">';
                                 summaryContent+='<div class="lname">'+summary_list[i].field+'</div>';
-                                summaryContent+='<div><i  id="'+coordintes.coordinates[0]+'" name="'+coordintes.coordinates[1]+'"  class="summaryCoordinate la la-crosshairs"></i></div>';
+                                summaryContent+='<div><i  id="'+coordintesfinal.coordinates[0]+'" name="'+coordintesfinal.coordinates[1]+'"  class="summaryCoordinate la la-crosshairs"></i></div>';
                             summaryContent+='</div>';
                             }
                         summaryContent+='</div>';

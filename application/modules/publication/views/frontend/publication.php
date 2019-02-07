@@ -44,6 +44,7 @@ $pub_cat_en='<option value=0>ALL</option>
                             <img src="<?php echo base_url()?>/uploads/publication/28.png" alt="<?php echo $d['title']?>">
                         </div>
                       <?php } if($d['type'] == "video"): ?>
+                      <!-- <img src="https://i.ytimg.com/vi/" alt=""> -->
                         <iframe width="190" height="195" src="<?php echo $d['videolink'];  ?>"></iframe>
                       <?php  endif; ?>
                       <?php if($d['type'] == "files"): ?>

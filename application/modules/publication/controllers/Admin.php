@@ -72,8 +72,6 @@ class Admin extends Admin_Controller {
 	}
  	public function add_publication(){
  		$this->body=array();
- 		
- 		
     	$this->form_validation->set_rules('category', 'Please Select Hazard category', 'trim|required');
     	$this->form_validation->set_rules('type', 'Please Select File Type', 'trim|required');
 		if ($this->form_validation->run() == TRUE){
@@ -92,14 +90,9 @@ class Admin extends Admin_Controller {
 	      	if($insert!=""){
 	        	$img_upload=$this->Publication_model->do_upload($file_name,$insert);
 	        	$file_upload=$this->Publication_model->file_do_upload($attachment,$insert);
-	        	// var_dump($file_upload);
-	        	// exit();
-	        	if($img_upload['status']){
 			        if($img_upload['status']== 1){
-					//var_dump($img_upload);
 			          $ext=$img_upload['upload_data']['file_ext'];
-			        //echo $ext;
-			      	//  exit();
+			        //echo $ext; exit();
 			          $image_path=base_url() . 'uploads/publication/'.$insert.$ext ;
 			          $file_path=base_url() . 'uploads/publication/file/'.$insert.'.'.$ext_file ;
 			          $img=array(
@@ -118,11 +111,10 @@ class Admin extends Admin_Controller {
 			          $code= strip_tags($img_upload['error']);
 			          $this->session->set_flashdata('msg', $code);
 			          redirect(FOLDER_ADMIN.'/publication/add_publication');
-			          // redirect('add_publication');
 			        }
-			    }else{
-			    	redirect(FOLDER_ADMIN.'/publication/view_publication');
-			    }
+			    // }else{
+			    // 	redirect(FOLDER_ADMIN.'/publication/view_publication');
+			    // }
 	        }
 	    }else{
 	      //admin check
