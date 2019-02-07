@@ -48,7 +48,7 @@ class Admin extends Admin_Controller {
 		      		//$csv_file= 'temp\phpF187.tmp';
 		     	chmod($csv_file, 777);
 		      	$fp = fopen($csv_file, 'r');
-		        print_r($fp); die;
+		        //print_r($fp); die;
 		      	$frow = fgetcsv($fp);
 		      	//$frow=trim($frow," ");
 		      	// var_dump($frow); exit();
