@@ -40,22 +40,14 @@ class Admin extends Admin_Controller {
 	    		//if tabular data then we don't create the_geom field
 	    		redirect(FOLDER_ADMIN.'/map/manage_column_control?tbl='.$tbl_name);
 	    	}else{
-	    		$file=$_FILES ["fileToUpload"];
-		      	$csv_file=$file['tmp_name'];
-		      		// $csv_filetest = file_get_contents($csv_file);
-		      		//var_dump($file);exit();
-		      			//php2A7B.tmp
-		      		//$csv_file= 'temp\phpF187.tmp';
-		     	//chmod($csv_file, 777);
+	    		$fll=$_FILES["fileToUpload"];
+		      	$csv_file=$fll['tmp_name'];
+		      	chmod($csv_file, 0777);
 		      	$fp = fopen($csv_file, 'r');
-		        //print_r($fp); die;
 		      	$frow = fgetcsv($fp);
-		      	//$frow=trim($frow," ");
-		      	var_dump($frow); exit();
 		      	$n=sizeof($frow);
 		      	$row=array();
 		      	for($i=0;$i<$n;$i++){
-		        	//echo $frow[$i];
 		        	array_push($row,trim($frow[$i]," "));
 		        }
 		        if( $this->db->table_exists($tbl_name) == FALSE ){
