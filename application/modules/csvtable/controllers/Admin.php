@@ -41,7 +41,7 @@ class Admin extends Admin_Controller {
 	    		redirect(FOLDER_ADMIN.'/map/manage_column_control?tbl='.$tbl_name);
 	    	}else{
 	    		$file=$_FILES ["fileToUpload"];
-		      		//$csv_file=$file['tmp_name'];
+		      	$csv_file=$file['tmp_name'];
 		      		// $csv_filetest = file_get_contents($csv_file);
 		      		//var_dump($file);exit();
 		      			//php2A7B.tmp
