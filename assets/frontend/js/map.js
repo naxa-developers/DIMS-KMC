@@ -39,9 +39,7 @@ $(document).ready(function(){
             window[layer_name+ "_toggle"] = new L.geoJson(geojson_layer, {
                 pointToLayer: function(feature,Latlng)
                 {   //console.log(style.icon);
-                    //console.log(marker_type);
                     if(marker_type=='icon'){
-
                         //console.log(style.icon);
                         icons=L.icon({
                             iconSize: [21, 27],
@@ -107,7 +105,7 @@ $(document).ready(function(){
             var popup_content_default_parse = JSON.parse(popup_content_default[i]);
             var smmayfielddefalt = JSON.parse("["+summary_data_default[i]+"]"); //for json validator 
             var summarycount = smmayfielddefalt.length;
-            //console.log(category_tbl_default[i]);
+            console.log(style_defaultnew);
     		loadDataToMap(default_cat_layer[i],category_tbl_default[i],true,marker_type_default[i],style_defaultnew
               ,popup_content_default_parse,cat_names[i]); //call for data load this is for firsst time default data load
             loadSummaryData(summarycount,summaryFull_defalt[i],smmayfielddefalt,cat_names[i],category_tbl_default[i]);
@@ -131,6 +129,7 @@ $(document).ready(function(){
                     },
                     success: function (result) {
                         $('#spinnerModal').modal('hide');
+                         $('#spinnerModal').hide();
                         var finaldata = JSON.parse(result);
                         //console.log(result);
                         var style = JSON.parse(finaldata.style);
@@ -141,7 +140,7 @@ $(document).ready(function(){
                         var summary_list=finaldata.summary_list;
                         var summarydata=finaldata.summarydata;
                         var summarycount=finaldata.summarycount;
-                        //console.log(value);
+                        console.log(style);
                         // console.log(popup_content);
                        loadDataToMap(geojson,value,true,marker_type,style,popup_content,view_layername);
                        //$("#info_")

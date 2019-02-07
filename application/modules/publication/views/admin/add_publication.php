@@ -47,6 +47,18 @@
                   <?php echo form_error('type'); ?>
                   </div>
                   <div class="col-md-4">
+                    <label for="exampleInputFile"> Select file  category type</label>
+                  <select name="category" class="form-control">
+                    <option value="">----- Select file  category type ------</option>
+                    <?php 
+                    if($pub){ 
+                    foreach ($pubcat as $key => $value) {  ?>
+                      <option value="<?php echo $value['id']  ?>"><?php echo $value['name'] ?></option>
+                    <?php }  } ?>
+                  </select>
+                  <?php echo form_error('category'); ?>
+                  </div>
+                  <div class="col-md-4">
                     <label for="exampleInputEmail1">Title</label>
                     <input type="text" name="title" class="form-control" id="exampleInputEmail1"  placeholder="Enter Title">
                   </div>

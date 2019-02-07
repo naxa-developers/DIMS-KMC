@@ -31,6 +31,45 @@ class Admin extends Admin_Controller {
                         ->build('admin/publication_tbl',$this->body);
 
   	}
+  	public function add_publication_sub_category(){
+	 	$this->data=array();
+	 	$this->form_validation->set_rules('name', 'Publication File Category Name', 'trim|required');
+	 	$lang=$this->session->get_userdata('Language');
+        if($lang['Language']=='en') {
+            $emerg_lang='en';
+        }else{
+            $emerg_lang='nep'; 
+        }
+		if ($this->form_validation->run() == TRUE){
+	      	$page_slug_new = strtolower (preg_replace('/[[:space:]]+/', '-', $this->input->post('name')));
+	      	$data=array(
+	        	'name'=>$this->input->post('name'),
+	        	'language'=>$emerg_lang,
+	        	'slug'=>$page_slug_new,
+	      	);
+	      	$insert=$this->Publication_model->add_publiactioncat('publicationsubcat',$data);
+	      	if($insert!=""){
+		        $this->session->set_flashdata('msg','Publication successfully added');
+		        redirect(FOLDER_ADMIN.'/publication/add_publication_sub_category');
+	        }
+	    }else{
+	      //admin check
+	    	$id = base64_decode($this->input->get('id'));
+	    	//print_r($id);die;
+	    	if($id) {
+				$this->data['drrdataeditdata'] = $this->general->get_tbl_data_result('id,name','publicationsubcat',array('id'=>$id));
+	    	}else{
+	    		$this->data['drrdataeditdata'] = array();	
+	    	}
+	    	$this->data['publicationdata'] = $this->general->get_tbl_data_result('id,name','publicationsubcat');	
+	      	$admin_type=$this->session->userdata('user_type');
+	      	$this->data['admin']=$admin_type;
+	      	//admin check
+	      	$this->template
+	                        ->enable_parser(FALSE)
+	                        ->build('admin/index_subcat',$this->data);
+	    }
+	}
   	public function add_publication_category(){
 	 	$this->data=array();
 	 	$this->form_validation->set_rules('name', 'Publication Category Name', 'trim|required');
@@ -131,7 +170,7 @@ class Admin extends Admin_Controller {
 	      // $this->load->view('admin/add_publication');
 	      // $this->load->view('admin/footer');
 	    }
-  }
+    }
     public function edit_publication(){
 	   $this->data=array();
 	    $id=base64_decode($this->input->get('id'));
@@ -199,13 +238,20 @@ class Admin extends Admin_Controller {
 	      // $this->load->view('admin/edit_publication',$this->data);
 	      // $this->load->view('admin/footer');
 	    }
-  }
+    }
     public function delete_publication(){
 	    $id = $this->input->get('id');
-	    $delete=$this->Publication_model->delete_data($id);
+	    $delete=$this->Publication_model->delete_data($id, 'publication');
 
 	    $this->session->set_flashdata('msg','Id number '.$id.' row data was deleted successfully');
 	    // redirect('view_publication');
 	    redirect(FOLDER_ADMIN.'/publication/view_publication');
+  	}
+  	
+  	 public function delete_publication_sub_category(){
+	    $id = $this->input->get('id');
+	    $delete=$this->Publication_model->delete_data($id,'publicationsubcat');
+	    $this->session->set_flashdata('msg','Id number '.$id.' row data was deleted successfully');
+	    redirect(FOLDER_ADMIN.'/publication/add_publication_sub_category');
   	}
 }

@@ -95,11 +95,11 @@ public function file_do_upload($filename,$name)
   }
 }
 
-public function delete_data($id){
+public function delete_data($id,$tablename){
 
 
   $this->db->where('id',$id);
-  $this->db->delete('publication');
+  $this->db->delete($tablename);
 }
 
 public function get_edit_Data($id,$table){

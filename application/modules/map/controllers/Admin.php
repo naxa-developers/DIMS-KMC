@@ -654,7 +654,7 @@ class Admin extends Admin_Controller {
             //var_dump($_POST);
             //var_dump($_FILES['cat_pic']['name']);
 
-            if( $_FILES['cat_pic']['name']==''){
+            if($_FILES['cat_pic']['name']==''){
                 $_POST['opacity']="0";
                 $_POST['fillOpacity']="0";
                 $_POST['weight']="0";
@@ -662,6 +662,7 @@ class Admin extends Admin_Controller {
                 $_POST['color']="0";
                 $_POST['fillColor']="0";
                 $style=json_encode($_POST);
+                //echo "<pre>"; print_r($style);die;
                 $data=array(
                   'style'=>$style,
                   'marker_type'=>'icon',
