@@ -40,7 +40,7 @@
                 <?php endif; ?>
                     <div class="col-md-6">
                         <div class="dettitle bold f22">
-                            What is flood?
+                           <!--  What is flood? -->
                         </div>
                         <?php echo $finaldetails['description']; ?>
                     </div>
