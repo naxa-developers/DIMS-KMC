@@ -61,7 +61,7 @@
             <header class="panel-heading">
               <b><?php echo ucfirst(str_replace("_"," ",$name_contact)) ?> </b>
               <span class="tools pull-right">
-                <a href="<?php echo base_url(FOLDER_ADMIN)?>/csvtable/upload_csv_emerg?tbl=volunteer_contact"><button type="submit" name="upload_data" class="btn btn-danger" style="background-color: #1fb5ad;border-color: #1fb5ad;margin-top: -7px;"><i class="fa fa-plus"></i> <?php echo $this->lang->line('upload_csv'); ?></button></a>
+                <a href="<?php echo base_url(FOLDER_ADMIN)?>/contact/upload_contact?tbl=<?php echo $tbl_name ?>&&cat=<?php echo $name_contact ?>"><button type="submit" name="upload_data" class="btn btn-danger" style="background-color: #1fb5ad;border-color: #1fb5ad;margin-top: -7px;"><i class="fa fa-plus"></i> <?php echo $this->lang->line('upload_csv'); ?></button></a>
               </span>
             </header>
             <div class="panel-body">

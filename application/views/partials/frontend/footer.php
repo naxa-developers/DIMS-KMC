@@ -13,7 +13,7 @@
                 </button>
             </div>
             <div class="form-check" id="globalModalId">
-                
+
             </div>
         </div>
     </div>
@@ -102,7 +102,7 @@
     <script type="text/javascript" src="<?php echo base_url()?>assets/frontend/js/validation.error.messages.js"></script><script type="text/javascript" src="<?php echo base_url()?>assets/frontend/js/jquery.form.js"></script>
     <script src="<?php echo base_url();?>assets/frontend/js/scriptall.js"></script>
     <script src="<?php echo base_url();?>assets/frontend/js/jquery.jConveyorTicker.min.js"></script>
-    
+
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
     <script type="text/javascript">
@@ -182,7 +182,7 @@
     </script>
     <script>
         $(document).ready(function(){
-          $('[data-toggle="popover"]').popover();   
+          $('[data-toggle="popover"]').popover();
         });
         // thiis is for auto call ajax function and retrive data from db
         // var action="<?php echo base_url() ?>inventory/datacount";
@@ -193,7 +193,7 @@
         //     dataType: 'html',
         //         success: function(jsons)
         //         {
-        //          data = jQuery.parseJSON(jsons); 
+        //          data = jQuery.parseJSON(jsons);
         //           if(data.status=='success'){
         //             setTimeout(function(){
         //             window.location.href = url;
@@ -225,20 +225,20 @@
                 });
                 $(form).appendTo('body').submit();
             }
-        }); 
+        });
         $(document).off('click','#subscribeButton');
-        $(document).on('click','#subscribeButton',function(){ 
-            var title= $(this).data('title'); 
+        $(document).on('click','#subscribeButton',function(){
+            var title= $(this).data('title');
             $("#subscribeForm").validate({
                 errorElement: 'p',
                 errorClass:'text-danger',
                 //validClass:'success',
-                highlight: function (element, errorClass, validClass) { 
-                    $(element).parents("div.form-group").addClass('has-error').removeClass('has-success'); 
-                }, 
-                unhighlight: function (element, errorClass, validClass) { 
-                $(element).parents("div.form-group").removeClass('has-error'); 
-                $(element).parents(".error").removeClass('has-error').addClass('has-success'); 
+                highlight: function (element, errorClass, validClass) {
+                    $(element).parents("div.form-group").addClass('has-error').removeClass('has-success');
+                },
+                unhighlight: function (element, errorClass, validClass) {
+                $(element).parents("div.form-group").removeClass('has-error');
+                $(element).parents(".error").removeClass('has-error').addClass('has-success');
             },
             rules: {
                 email: {
@@ -264,7 +264,7 @@
             submitHandler: function(e) {
                 $('#golobalMoadl').modal('show');
                 $('#globalTitleModal').html(title);
-                
+
                 jQuery.ajax({
                         type: "json",
                         method:"POST",
@@ -304,7 +304,7 @@
             data: {language:language},
             success: function(jsons)
             {
-             data = jQuery.parseJSON(jsons); 
+             data = jQuery.parseJSON(jsons);
               if(data.status=='success'){
                 setTimeout(function(){
                 window.location.href = url;
@@ -313,6 +313,33 @@
           }
         });
       });
+
+// conatct load table
+  $(".contact_tab").click(function(){
+
+  $("#contact_tbl").html('');
+
+    var sub_cat = $(this).attr('id');
+    var cat = $(this).attr('name');
+
+$.ajax({
+            type: "json",
+            method:"POST",
+            url: '<?php echo base_url() ?>contact/get_contact_tbl',
+            datatype: 'html',
+            data: {category:cat,sub_category:sub_cat},
+            beforeSend: function(){
+            },
+        success: function(result) {
+          //console.log(result);
+$("#contact_tbl").html(result);
+
+
+        }
+    });
+
+  });
+
 </script>
 </body>
 </html>

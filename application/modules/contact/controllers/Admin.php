@@ -12,6 +12,7 @@ class Admin extends Admin_Controller {
 		$this->load->model('Admin_dash_model');
 		$this->load->dbforge();
 		$this->load->model('Upload_model');
+		$this->load->model('Table_model');
 	}
 
 	public function contact_admin()
@@ -156,6 +157,81 @@ public function delete_contact(){
                         ->enable_parser(FALSE)
                         ->build('admin/emergency_contact_tbl_nep',$this->body);
     }
+
+
+public function upload_contact(){
+
+	$this->body=array();
+$table_name = $this->input->get('tbl');
+$cat= $this->input->get('cat');
+// echo $cat;
+// echo $table_name;
+// die;
+ $lanuage=$this->session->get_userdata('Language');
+if($lanuage['Language']=='en') {
+				$lang='en';
+		}else{
+				$lang='nep';
+		}
+if (isset($_POST['submit'])) {
+	$max_id=$this->Table_model->get_max_id($table_name);
+	$fields=$this->db->list_fields($table_name);
+	unset($fields[0]);
+	if($table_name == 'organization_contact'){
+			unset($fields[12]);
+	}elseif($table_name == 'individual_contact'){
+		unset($fields[8]);
+	}else{
+		unset($fields[11]);
+
+	}
+		$field_name=implode(",",$fields);
+		$f=$_FILES["uploadedfile"];
+		$path=$f["tmp_name"];
+		chmod($path, 0777);
+		$filename=$f["name"];
+		$c=$this->Table_model->table_copy($path,$filename,$field_name,$table_name);
+		if($c==1){
+
+			if($table_name == 'volunteer_contact'){
+				$data=array(
+
+					 'language'=>$lang,
+			 );
+			}else{
+				$data=array(
+					 'category'=>$cat,
+					 'language'=>$lang,
+			 );
+			}
+
+				$up=$this->Table_model->update_cat($max_id['id'],$data,$table_name);
+			$this->session->set_flashdata('msg','Csv Was successfully Added');
+			if($table_name == 'volunteer_contact'){
+					redirect(FOLDER_ADMIN.'/contact/volunteer?cat='.$cat);
+					//redirect(FOLDER_ADMIN.'/csvtable/upload_csv_emerg/emergency_contact?cat='.$cat);
+						}else{
+       redirect(base_url(FOLDER_ADMIN)."/contact/contact_admin?edit_cat=".$cat."&&tbl=".$tbl);
+
+			}
+		}
+
+} else {
+		//admin check
+		$admin_type=$this->session->userdata('user_type');
+		$this->body['admin']=$admin_type;
+		//admin check
+		$this->template
+											->enable_parser(FALSE)
+											->build('admin/upload_contact',$this->body);
+		// $this->load->view('admin/header',$this->body);
+		// $this->load->view('admin/upload_csv_emerg');
+		// $this->load->view('admin/footer');
+}
+
+}
+
+
     public function edit_emerg() {
         $this->body = array();
         $cat=$this->input->get('cat');
