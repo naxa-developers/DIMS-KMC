@@ -29,6 +29,7 @@
                   <form method=POST action="">
 
                   <select class="form-control m-bot15" name="sub_cat_contact" id="sub_cat">
+                    <option>Select Category</option>
                     <?php foreach ($data_list as $list){ ?>
 
                       <option value="<?php echo $list['name_id']?>"><?php echo $list['name']?></option>
@@ -40,7 +41,7 @@
                 </div>
                 <input type="hidden" value="<?php echo $type ?>" name="type" >
                 <span class="tools pull-right">
-                  <button type="submit" name="apply" class="btn btn-danger" style="background-color: #1fb5ad;border-color: #1fb5ad;margin-top: -7px;"><i class="fa fa-plus"></i> <?php echo $this->lang->line('upload_csv'); ?></button>
+                  <button type="submit" name="apply" class="btn btn-danger" style="background-color: #1fb5ad;border-color: #1fb5ad;margin-top: -7px;"><i class="fa fa-check"></i> Apply</button>
                 </form>
                 </span>
 

@@ -340,6 +340,12 @@ $("#contact_tbl").html(result);
 
   });
 
+  $( "#contact_category" ).change(function() {
+    var cat=$(this).val();
+    var url='<?php echo base_url()?>contact?cat='+cat;
+  window.location=url;
+});
+
 </script>
 </body>
 </html>

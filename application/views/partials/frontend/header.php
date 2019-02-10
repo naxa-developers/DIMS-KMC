@@ -95,7 +95,7 @@
                      <a class="nav-link" href="<?php echo base_url()?>inventory"><?php echo NAV_FOUR ?></a>
                     <a class="nav-link" href="<?php echo base_url()?>municipalprofile"> <?php echo $this->lang->line('municipalprofile'); ?></a>
                     <!-- <a class="nav-link" href="<?php echo base_url()?>contact"><?php echo NAV_THREE ?></a> -->
-                    <a class="nav-link" href="<?php echo base_url()?>contact"><?php echo NAV_THREE; ?></a>
+                    <a class="nav-link" href="<?php echo base_url()?>contact?cat=individual"><?php echo NAV_THREE; ?></a>
 
                 </div>
             </div>

@@ -88,10 +88,11 @@
                 </div>
                 <div class="selectHolder">
                     <label for="">Category</label>
-                    <select>
-                        <option value="volvo">Organization</option>
-                        <option value="saab">Indiviual</option>
-                        <option value="mercedes">Volunteer</option>
+                    <select id="contact_category">
+                        <option>Select Category</option>
+                        <option value="individual">Indiviual</option>
+                        <option value="organization">Organization</option>
+                        <option value="volunteer">Volunteer</option>
                         <!-- <option value="audi">Audi</option> -->
                     </select>
                 </div>

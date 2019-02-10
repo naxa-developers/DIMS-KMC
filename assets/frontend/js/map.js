@@ -131,14 +131,14 @@ $(document).ready(function(){
                     data: {layername:value},
                     url:  "map/get_layers_onrequest",
                     beforeSend: function() {
-                        $('#spinnerModal').modal('show');
+
                     },
                     complete: function() {
 
                     },
                     success: function (result) {
                       //  console.log(result);
-                        $('#spinnerModal').modal('hide');
+                      
 
                         // $('#spinnerModal').hide();
                         var finaldata = JSON.parse(result);

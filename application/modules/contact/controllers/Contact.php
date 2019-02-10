@@ -62,13 +62,22 @@ class Contact extends Admin_Controller
 				$emerg_lang='nep';
 			}
 
-		$data = $this->general->get_tbl_data_result('*','contact_categories',false);
+ $cat=$this->input->get('cat');
+
+
+		$data = $this->general->get_tbl_data_result('*','contact_categories',array('category'=>$cat));
 		$this->data['sub_cat']=$data[0]['name_id'];
 
 
 		$tbl_name=$data[0]['category'].'_contact';
 
-		$this->data['data']=$this->general->get_tbl_data_result('*',$tbl_name,array('category'=>$data[0]['name_id'],'language'=>$emerg_lang));
+if($tbl_name=='volunteer_contact'){
+	$this->data['data']=$this->general->get_tbl_data_result('*',$tbl_name,array('language'=>$emerg_lang));
+}else{
+$this->data['data']=$this->general->get_tbl_data_result('*',$tbl_name,array('category'=>$data[0]['name_id'],'language'=>$emerg_lang));
+
+}
+
 
 		// var_dump($this->data['data']);
 		// exit();
