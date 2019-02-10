@@ -213,7 +213,7 @@ if (isset($_POST['submit'])) {
 					redirect(FOLDER_ADMIN.'/contact/volunteer?cat='.$cat);
 					//redirect(FOLDER_ADMIN.'/csvtable/upload_csv_emerg/emergency_contact?cat='.$cat);
 						}else{
-       redirect(base_url(FOLDER_ADMIN)."/contact/contact_admin?edit_cat=".$cat."&&tbl=".$tbl);
+       redirect(base_url(FOLDER_ADMIN)."/contact/contact_admin?edit_cat=".$cat."&&tbl=".$table_name);
 
 			}
 		}
