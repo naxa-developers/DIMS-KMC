@@ -95,7 +95,7 @@ $lang['search']="खोज्नुहोस्";
 //view_proj
 $lang['project_partners']="परियोजना साझेदारहरू";
 $lang['add_project_partners']="परियोजना साझेदारहरू थप्नुहोस";
-$lang['search']="खोज्नुहोस्";
+// $lang['search']="खोज्नुहोस्";
 $lang['project_name']="परियोजनाको नाम";
 $lang['project_brief']="परियोजना छोटकरी";
 $lang['project_pic']="परियोजना तस्बिर";
@@ -169,7 +169,7 @@ $lang['5_site_link']="पाँचौं साइट को लिङ्क:";
 $lang['upload_dictionary']="शब्दकोश अपलोड गर्नुहोस्";
 $lang['note']="नोट : तालिकामा अपलोड गर्न लेयर फाइल चयन गर्नुहोस्";
 $lang['input']="फाईल चयन गर्नुहोस्";
-$lang['dictionary']="शब्दकोश व्यवस्थापन गर्नुहोस्";
+$lang['dictionary']="टर्मिनोलोजी";
 
 //Disaster modules
 $lang['drrinformationlist']="डिआरआर जानकारी सूची";
@@ -188,10 +188,13 @@ $lang['datasets']="डेटासेट";
 $lang['publications']="प्रकाशनहरू";
 $lang['contacts']="सम्पर्कहरू";
 $lang['incidentmanagement']="घटना बिबीरण";
-$lang['drrinfodetail']="सम्पर्क सूची";
+$lang['drrinfodetail']="विपदका  जानकारीहरु";
 $lang['terminology']="टर्मिनोलोजी";
 $lang['datacategory']="विभिन्न डाटासेट अन्वेषण गर्नुहोस";
 $lang['municipalprofile']="नगरपालिका प्रोफाइल";
+
+$lang['disasterinformation'] = "विपदका जानकारी, विपद  पुर्व, विपदको समय र विपद पश्चात गर्नुपर्ने कार्यको जानकारी";
+
 
 // inventory
 $lang['sn']="क्र.स";
@@ -210,25 +213,26 @@ $lang['non_material_content']="गैरखाद्ध्य सामग्र
 $lang['search_and_rescue_materials']="खोज तथा उद्धार सामग्री ";
 // homepage
 $lang['emergency_contact']="एक पूर्ण जि। आइ। एस। डाटाबेस";
-$lang['whattodobefore']="विपदका घटनाहरू र नागरिक मुद्दाहरू रिपोर्ट गर्नुहोस्";
-$lang['individualdigital']="वार्ड र नगरपालिका स्तरको सामाजिक र आर्थिक स्थितिको डिजिटल प्रोफाइल ।";
-$lang['diffmatabout']="विपदको  पूर्वतयारी, व्यवस्थापन र जोखिम कमजबारेमा सामग्री";
+$lang['whattodobefore']="विपदका घटनाहरु र नागरिकका रिपोर्टहरुको प्रबंधन";
+$lang['individualdigital']="वडाकर्मचारी,प्रतिनिधिहरू, आर्थिकसामाजिक डेटासेट, र नगरपालिका जोखिमको डिजिटल प्रोफाइल";
+$lang['diffmatabout']="विपदको  पूर्वतयारी, व्यवस्थापन र जोखिम कमजबारेमा सामग्री ";
 $lang['intmapwithadmin']="प्रशासनिक डाटा तहहरू र डाटासेटहरूको साथ अन्तरक्रियात्मक नक्सा";
-$lang['dictionaryofimpterminologies']="विपदको टर्मिनोलोजी र त्यसको अर्थ";
-$lang['Filesrelatedtoincidentmanagement']="आपतकालीन समयमा सम्पर्क गर्न सकिने व्यक्ति र संस्थाको डिजिटल फोन बुक";
+$lang['dictionaryofimpterminologies']="DRR का साधारण टर्मिनोलोजीहरू र अर्थ";
+$lang['Filesrelatedtoincidentmanagement']="विपद जोखिम न्यूनीकरण  प्रबंधनसंग सम्बन्धित प्रमुख लेख, वैज्ञानिक प्रकाशन, नीति दस्तावेज र मल्टीमीडिया फाइलहरु";
 $lang['contactinventorytagline']= "विपदको आपतकालीन समयमा आवश्यक सामग्रीको विवरण डिजिटल सूचीमा समावेश";
+$lang['contactinventory']="आन्तरिक सेवा प्रदायक, वार्ड स्तरका प्रतिनिधिहरूको डिजिटल फोन पुस्तक";
 $lang['emergencymaterialtagline']= "विपदको आपतकालीन समयमा आवश्यक सामग्रीको विवरण डिजिटल सूचीमा समावेश";
 $lang['aboutprojecttagline']= "प्रोजेक्ट कंसोर्टियम, प्रणालीका  विशेषता  र विकास टीम";
 
-$lang['user_engagement']= "आपद सम्बन्धित विषयहरूमा धेरै छनौट प्रश्नहरूद्वारा प्रयोगकर्ता संलग्नता";
-$lang['disaster_alert']= " आपदाको समयमा अलार्म सेट गर्नुहोस् (सिठी को  विकल्प)";
-$lang['flashlight']= " फ्ल्यास लाइट र स्ट्रोब लाइट सक्रिय गर्न एक क्लिक";
-$lang['askfor_help']= " एक बटन आकस्मिक समयमा अनुरोधकर्ता फेला पार्न मद्दतको लागि सोध्नुहोस्";
-$lang['send_alert']= "मौसम घटनाहरूको बारेमा DHM बाट सतर्कताहरू पठाउनुहोस्";
+$lang['user_engagement']= "विपद सम्बन्धि विषयहरूमा हाजिरजवाफद्वारा प्रयोगकर्ताको संलग्नता";
+$lang['disaster_alert']= "अलर्ट, अलार्म र एक क्लिक फ्लैश सक्रियण ";
+$lang['flashlight']= " तपाईंको सर्कलमा 'म सुरक्षित छु' सूचित गर्न";
+$lang['askfor_help']= " आपतकालीन समयमा एक क्लिकमा रक्त अनुरोध";
+$lang['send_alert']= "DMD, MoHA, KMC, LMC बाट महत्त्वपूर्ण अद्यावधिकहरू प्राप्त ";
 $lang['impupdates']= "DMD, MoHA, KMC, LMC बाट महत्त्वपूर्ण अपडेटहरू पठाउनुहोस्";
-$lang['notify_other']= "अन्यलाई आपत्तिजनक छु सूचकको बारेमा सूचित गर्नुहोस्";
+$lang['notify_other']= "तपाईंको आसपासको आपदा घटनाहरूको रिपोर्ट गर्न";
 $lang['shortest_route']= "सुरक्षित स्थानको लागि सबैभन्दा छोटो मार्ग खाली ठाउँहरू";
-$lang['report_near']= "नजिकैको प्रयोगकर्तालाई   खतरा रिपोर्ट गर्नुहोस्";
+$lang['report_near']= "नजिकैको खुला मार्ग खोज्न";
 $lang['advancesearchfacility']="विशेष डाटासेट फेला पार्न खोजी गर्ने  सुविधा";
 $lang['howisourmobileapp']="DIMS मोबाइल अनुप्रयोगका प्रमुख विशेषताहरु ";
 
@@ -239,13 +243,13 @@ $lang['get_started']="सुरु गर्नुहोस";
 $lang['reportbymonth']="गत तीन महिनाको समयमा घटनाक्रम रिपोर्ट";
 $lang['viewall']="सबै हेर्नुहोस्";
 $lang['differentbrowse']="उपलब्ध खण्डहरू अन्वेषण गर्नुहोस";
-$lang['dataset']="विभिन्न डाटासेट अन्वेषण गर्नुहोस ";
+$lang['dataset']=" नगरपालिका डेटासेट र GIS म्यापिङ";
 $lang['findmorenewaboutus']="हाम्रो बारेमा थप समाचारहरू फेला पार्नुहोस्";
 $lang['alert']="चेतावनी";
-$lang['acomgisdb']="नगरपालिकाको  डाटासेट अन्वेषण गर्नुहोस् र नक्सामा हेर्नुहोस्";
+$lang['acomgisdb']="जीआईएस नक्सांकन, नगरपालिकाको स्रोत, जोखिम र खतरा डाटासेट";
 $lang['abouthazard']="खतराको बारे , विपद पुर्व, विपदको समय र विपद पश्चात गर्नुपर्ने कार्यको जानकारी ";
 
-$lang['incidentmgmt']="विपदका घटनाक्रम विवरण";
+$lang['incidentmgmt']="घटना प्रबंधन";
 $lang['munprofile']="नगरपालिका प्रोफाइल";
 
 $lang['publicationnmultimedia']="प्रकाशन र मल्टीमीडिया";
@@ -255,7 +259,9 @@ $lang['emergencymat']="आपतकालीन सामग्री";
 $lang['whodoeswhat']="WHO DOES WHAT";
 $lang['whodoeswhatdetails']="Details about project and organization working in DRR sector";
 $lang['aboutusdetails']="प्रोजेक्ट कंसोर्टियम, प्रणालीका  विशेषता  र विकास टीम";
-$lang['emergencymatdetails']="विपदको आपतकालीन समयमा आवश्यक सामग्रीको विवरण डिजिटल सूचीमा समावेश";
+$lang['emergencymatdetails']="आपतकालीन वस्तुहरू र स्टकपाइलहरूको एक डिजिटल सूची";
 $lang['aboutus']="हाम्रो बारे";
 
+$lang['whodoeswhat']=" DIMS को बारेमा";
+$lang['whodoeswhatdetails']="DIMS को  मुख्य प्रणाली र प्रणालीको  उपयोग गर्ने विधि";
 ?>

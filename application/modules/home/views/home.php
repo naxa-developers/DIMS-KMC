@@ -7,7 +7,10 @@
                 <p><!-- A GIS based Information Platform --><?php echo $this->lang->line('small_text');?> </p>
 
                 <button class="btn btn-primary btn-lg circularBtn ">
-                    <!-- GET STARTED --><?php echo $this->lang->line('get_started');?>
+                    <!-- GET STARTED -->
+                    <a href="#startsection" style="text-decoration:none"> 
+                    <?php echo $this->lang->line('get_started');?>
+                </a>
                 </button>
             </div>
 
@@ -88,7 +91,7 @@
     </section>
 
     <section class="white-bg section-padding">
-        <div class="container">
+        <div class="container" id="startsection">
             <h4 class="heading"><?php echo $this->lang->line('differentbrowse') ?><!-- BROWSE DIFFERENT SECTION --></h4>
 
             <div class="row browse">
@@ -216,7 +219,6 @@
                     <div class="flist "><?php echo $this->lang->line('intmapwithadmin');?> <!--  Interactive map with administrative data layers and category-wise datasets --></div>
                     <div class="flist "><?php echo $this->lang->line('advancesearchfacility');?><!--  Advance search facility to find specific datasets --></div>
                     <div class="flist "> <?php echo $this->lang->line('report_near');?></div>
-                    <div class="flist "> Report hazard near a user </div>
                     <div class="flist "><?php echo $this->lang->line('notify_other');?> <!-- Notify others "I am safe" during disaster --></div>
 
                 </div>

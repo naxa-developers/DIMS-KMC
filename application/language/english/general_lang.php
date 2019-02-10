@@ -99,7 +99,7 @@ $lang['search']="SEARCH";
 //view_proj
 $lang['project_partners']="PROJECT PARTNERS";
 $lang['add_project_partners']="Add Project Partners";
-$lang['search']="SEARCH";
+// $lang['search']="SEARCH";
 $lang['project_name']="PROJECT NAME";
 $lang['project_brief']="PROJECT BRIEF";
 $lang['project_pic']="PROJECT PIC";
@@ -257,7 +257,7 @@ $lang['differentbrowse']="BROWSE DIFFERENT SECTION";
 $lang['dataset']="MUNICIPAL DATASETS & GIS MAPPING";
 
 // $lang['acomgisdb']="Explore and view the municipal dataset in maps";
-$lang['acomgisdb']="GIS  Mapping of Municipal resources, risks and hazards , datasets";
+$lang['acomgisdb']="GIS Mapping of Municipal resources, risks and hazards, datasets";
 
 
 $lang['findmorenewaboutus']="FIND MORE NEWS ABOUT US";
