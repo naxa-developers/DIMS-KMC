@@ -137,9 +137,10 @@ $(document).ready(function(){
 
                     },
                     success: function (result) {
-                        console.log(result);
+                      //  console.log(result);
                         $('#spinnerModal').modal('hide');
-                         $('#spinnerModal').hide();
+
+                        // $('#spinnerModal').hide();
                         var finaldata = JSON.parse(result);
 
                         var style = JSON.parse(finaldata.style);
