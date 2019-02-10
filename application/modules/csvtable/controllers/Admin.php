@@ -40,29 +40,14 @@ class Admin extends Admin_Controller {
 	    		//if tabular data then we don't create the_geom field
 	    		redirect(FOLDER_ADMIN.'/map/manage_column_control?tbl='.$tbl_name);
 	    	}else{
-	    		$file=$_FILES ["fileToUpload"];
-		      	// $tbl_name=strstr($file['name'], '.', true);
-		      	// $tbl_name=strtolower($tbl_name);
-
-		     	// var_dump($file['name']);die;
-		      	//echo error_reporting();
-
-		      	$csv_file=$file['tmp_name'];
-		      	//$csv_file = file_get_contents($csv_file);
-		      	//var_dump($csv_file);
-		      	// exit();
-		     	chmod($csv_file, 777);
-		      	//$csv_file = str_replace('\\','\\\\',$cju); //print_r($cju);die;
+	    		$fll=$_FILES["fileToUpload"];
+		      	$csv_file=$fll['tmp_name'];
+		      	chmod($csv_file, 0777);
 		      	$fp = fopen($csv_file, 'r');
-		    	// $fp = fopen("F:\\folder\\tmp\\php7749.tmp", 'r');
-		        //print_r($fp); die;
 		      	$frow = fgetcsv($fp);
-		      	//$frow=trim($frow," ");
-		      	// var_dump($frow); exit();
 		      	$n=sizeof($frow);
 		      	$row=array();
 		      	for($i=0;$i<$n;$i++){
-		        	//echo $frow[$i];
 		        	array_push($row,trim($frow[$i]," "));
 		        }
 		        if( $this->db->table_exists($tbl_name) == FALSE ){
@@ -94,7 +79,7 @@ class Admin extends Admin_Controller {
 				            'tbl_name'=>$tbl_name,
 				        );
 				        $lang_insert=$this->Dash_model->insert_lang('tbl_lang',$data_lang);
-				        $filename=$file['name'];
+				        $filename=$fll['name'];
 				        $fields=$this->db->list_fields($tbl_name);
 				        unset($fields[0]);
 				        $field_name=implode(",",$fields);
@@ -122,14 +107,10 @@ class Admin extends Admin_Controller {
 	        $la=$_POST['lat'];
 	        $long='a'.$lo;
 		    $lat='a'.$la;
-
 		    $this->Dash_model->create_geom($long,$lat,$tbl_name);
-		    //$data=$this->Dash_model->get();
 		    redirect(FOLDER_ADMIN.'/map/manage_column_control?tbl='.$tbl_name);
 		}else{
-		    // $this->load->view('admin/header',$this->body);
 		    // $this->load->view('admin/csv_file');
-		    // $this->load->view('admin/footer');
 		    $this->template
 	                        ->enable_parser(FALSE)
 	                        ->build('admin/csv_file',$this->body);

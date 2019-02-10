@@ -36,15 +36,29 @@
                   </select>
                   <?php echo form_error('category'); ?>
                   </div>
-                   <div class="col-md-4">
+                  <div class="col-md-4">
                     <label for="exampleInputFile"> Select File Type: </label>
                   <select name="type" class="form-control FileTypes" id="FileTypes">
                     <option value="">----- Select File Type ------</option>
-                    <option value="files">Files</option>
-                    <option value="video">Video</option>
-                    <option value="images">Image</option>
+                    <?php $dbcatidtype = !empty($edit_data['type'])?$edit_data['type']:'';
+                     foreach ($pubcatfiletype as $key => $pt) {  ?>
+                    <option value="<?php echo $pt; ?>" <?php if($dbcatidtype == $pt){ echo "Selected=Selected";}?>><?php echo ucfirst($pt); ?></option>
+                    <?php } ?>
                   </select>
                   <?php echo form_error('type'); ?>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="exampleInputFile"> Select file  category type</label>
+                  <select name="subcat" class="form-control">
+                    <option value="">----- Select file  category type ------</option>
+                    <?php 
+                    if($pubcat){ 
+                     $dbcatidsubcat = !empty($edit_data['subcat'])?$edit_data['subcat']:'';
+                    foreach ($pubcat as $key => $value) {  ?>
+                      <option value="<?php echo $value['id']  ?>" <?php if($dbcatidsubcat == $value['id']){ echo "Selected=Selected";}?>><?php echo $value['name'] ?></option>
+                    <?php }  } ?>
+                  </select>
+                  <?php echo form_error('subcat'); ?>
                   </div>
                   <div class="col-md-4">
                     <label for="exampleInputEmail1">Title</label>
@@ -52,16 +66,19 @@
                   </div>
                   <div class="col-md-8" id="videoUrlData">
                     <label for="exampleInputEmail1">Video Url</label>
-                    <textarea class="form-control " name="videolink" rows="2" cols="50" placeholder="Enter Youtube Video Url Title"><?php echo $edit_data['videolink'] ?></textarea>
+                    <textarea class="form-control" name="videolink" rows="2" cols="50" placeholder="Enter Youtube Video Url Title"><?php echo $edit_data['videolink'] ?></textarea>
                   </div>
+                  <?php if($edit_data['photo']): ?>
                   <div class="col-md-4" id="FileUrl">
-                    <label for="exampleInputFile">Publication Attachment</label>
+                    <label for="uploadedfile">Publication Attachment</label>
                     <input type="file" name="uploadedfile"  id="exampleInputFile">
                   </div>
+                  <?php endif; ?>
                   <div class="col-sm-12">
                     <label class="control-label">Summary</label>
                     <textarea class="form-control ckeditor" name="summary" rows="10" ><?php echo $edit_data['summary'] ?></textarea>
                   </div>
+                  <?php if($edit_data['photo']): ?>
                   <div class="col-md-4" id="ImageDiveSelector">
                     <label class="control-label">Publication Photo </label>
                     <div class="fileupload fileupload-new" data-provides="fileupload">
@@ -78,6 +95,7 @@
                       </div>
                     </div>
                   </div>
+                <?php endif; ?>
                   <div class="col-md-4">
                     <label  class="control-label" for="">&nbsp;&nbsp;&nbsp;</label>
                     <button type="submit" name="submit" class="btn btn-info" style="margin-top: 15px;">Submit</button>

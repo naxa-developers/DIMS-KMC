@@ -10,6 +10,7 @@ class Admin extends Admin_Controller {
 		$this->load->dbforge();
 		$this->load->model('Upload_model');
 		$this->load->model('inventory_mdl');
+		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 	}
 	public function index()
 	{
@@ -33,7 +34,8 @@ class Admin extends Admin_Controller {
 	public function add_inventory()
 	{
 		$this->data=array();
-		if(isset($_POST['submit'])){
+		$this->form_validation->set_rules('name', 'Inventory Sub Category Name', 'trim|required');
+		if ($this->form_validation->run() == TRUE){
 	    	$lang=$this->session->get_userdata('Language');
 	        if($lang['Language']=='en') {
 	            $emerg_lang='en';

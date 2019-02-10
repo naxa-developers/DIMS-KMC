@@ -39,12 +39,23 @@
                     <label for="exampleInputFile"> Select File Type: </label>
                   <select name="type" class="form-control FileTypes" id="FileTypes">
                     <option value="">----- Select File Type ------</option>
-                    <option value="files">Files</option>
-                    <!-- <option value="audio">Audio</option> -->
-                    <option value="video">Video</option>
-                    <option value="images">Image</option>
+                    <?php foreach ($pubcatfiletype as $key => $pt) {  ?>
+                    <option value="<?php echo $pt; ?>"><?php echo ucfirst($pt); ?></option>
+                    <?php } ?>
                   </select>
                   <?php echo form_error('type'); ?>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="exampleInputFile"> Select file  category type</label>
+                  <select name="subcat" class="form-control">
+                    <option value="">----- Select file  category type ------</option>
+                    <?php 
+                    if($pubcat){ 
+                    foreach ($pubcat as $key => $value) {  ?>
+                      <option value="<?php echo $value['id']  ?>"><?php echo $value['name'] ?></option>
+                    <?php }  } ?>
+                  </select>
+                  <?php echo form_error('subcat'); ?>
                   </div>
                   <div class="col-md-4">
                     <label for="exampleInputEmail1">Title</label>
@@ -57,6 +68,10 @@
                   <div class="col-md-4" id="FileUrl" style="display: none;">
                     <label for="exampleInputFile">Publication Attachment</label>
                     <input type="file" name="uploadedfile"  id="exampleInputFile">
+                  </div>
+                   <div class="col-md-4" id="AudioUrl" style="display: none;">
+                    <label for="exampleInputFile">Publication Audio</label>
+                    <input type="file" name="audio"  id="exampleInputFile">
                   </div>
                   <div class="col-sm-12">
                     <label class="control-label">Summary</label>
@@ -106,6 +121,11 @@
         $('#ImageDiveSelector').show();
       }else{
         $('#ImageDiveSelector').hide();
+      }
+       if(selvalue === 'audio') {
+        $('#AudioUrl').show();
+      }else{
+        $('#AudioUrl').hide();
       }
       if(selvalue === 'video') {
         $('#videoUrlData').show();

@@ -60,10 +60,10 @@ class Admin extends Admin_Controller {
 	      		//print_r($old_image);die;
 	      		$img_upload=$this->DrrModel->do_upload($file_name,$insert);
 	      		// test for image resize
-			      			// $ext=$img_upload['upload_data']['file_ext'];
-			      			// $image_path='./uploads/drrinfo/'.$insert.$ext;
-			      			// $new_path='./uploads/drrinfo/';
-			      			// $config['image_library'] = 'gd2';
+	      			// $ext=$img_upload['upload_data']['file_ext'];
+	      			// $image_path='./uploads/drrinfo/'.$insert.$ext;
+	      			// $new_path='./uploads/drrinfo/';
+	      			// $config['image_library'] = 'gd2';
 				        //     $config['source_image'] = $image_path;
 				        //     $config['maintain_ratio'] = TRUE;
 				        //     $config['create_thumb'] = TRUE;
