@@ -24,7 +24,7 @@ class Publication extends Admin_Controller
 		    }
 
 
-		    //echo "<pre>"; print_r($this->data['publicationdata']);die;
+		    //echo "<pre>"; print_r($this->data['pubcat']);die;
 		    if($this->session->userdata('Language')==NULL){
 
 		      $this->session->set_userdata('Language','nep');

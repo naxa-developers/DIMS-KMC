@@ -46,7 +46,7 @@
             }else{
                 $language='nep'; 
             }
-            foreach ($catgegory as $key2 => $catu) {// echo "<pre>"; print_r($catgegory);die;    ?>
+            foreach ($catgegory as $key2 => $catu) { //echo "<pre>"; print_r($catgegory); die; ?>
             <div class="tab-pane <?php if($key2+1 =='1') { echo "active"; } ?>" role="tabpanel" id="menu1<?php echo $catu['slug']; ?>">
                 <section class="contactlist">
                     <div class="container">
@@ -104,14 +104,32 @@
                                             <div class="table-responsive">
                                                 <table class="table table-striped table-hover">
                                                     <thead class="tableHeader">
+                                                        <?php if($catu['slug'] == 'shelter'){ ?>
                                                         <tr>
                                                             <th scope="col"><?php echo $this->lang->line('sn') ?></th>
-                                                            <th scope="col"><?php echo $this->lang->line('organisationname') ?></th>
-                                                            <th scope="col"><?php echo $this->lang->line('address') ?></th>
-                                                            <th scope="col"><?php echo $this->lang->line('phoneno') ?> </th>
-                                                            <th scope="col"><?php echo $this->lang->line('contact_person') ?></th>
-                                                            <th scope="col"><?php echo $this->lang->line('email') ?></th>
+                                                            <th scope="col">Name<?php //echo $this->lang->line('organisationname') ?></th>
+                                                            <th scope="col">Capacity<?php //echo $this->lang->line('address') ?></th>
+                                                            <th scope="col">Built by <?php //echo $this->lang->line('phoneno') ?> </th>
+                                                            <th scope="col">Address<?php //echo $this->lang->line('contact_person') ?></th>
+                                                            <th scope="col">Ward no.<?php //echo $this->lang->line('email') ?></th>
+                                                            <th scope="col">Contact Person<?php //echo $this->lang->line('email') ?></th>
+                                                            <th scope="col">Phone no.<?php //echo $this->lang->line('email') ?></th>
+                                                            <th scope="col">Remarks<?php //echo $this->lang->line('email') ?></th>
+
                                                         </tr>
+                                                        <?php }else{ ?>
+                                                             <tr>
+                                                            <th scope="col"><?php echo $this->lang->line('sn') ?></th>
+                                                            <th scope="col">Name<?php //echo $this->lang->line('organisationname') ?></th>
+                                                            <th scope="col">Quantity<?php //echo $this->lang->line('address') ?></th>
+                                                            <th scope="col">Name of the Service Provider  <?php //echo $this->lang->line('phoneno') ?> </th>
+                                                            <th scope="col">Address<?php //echo $this->lang->line('contact_person') ?></th>
+                                                            <th scope="col">Contact Person name<?php //echo $this->lang->line('email') ?></th>
+                                                            <th scope="col">Contact Person<?php //echo $this->lang->line('email') ?></th>
+                                                            <th scope="col">Phone no.<?php //echo $this->lang->line('email') ?></th>
+                                                            <th scope="col">Remarks<?php //echo $this->lang->line('email') ?></th>
+                                                        </tr>
+                                                        <?php  }  ?>
                                                     </thead>
                                                     <tbody>
                                                         <?php $i=1;
@@ -119,10 +137,13 @@
                                                         <tr class="tr_tbl">
                                                             <th  id="<?php echo $ivd['id'] ?>id" scope="row"><?php  echo $i; ?></th>
                                                             <td  id="<?php echo $ivd['id'] ?>orgname"><?php  echo $ivd['orgname']; ?></td>
+                                                            <td  id="<?php echo $ivd['id'] ?>orgnames">5645<?php  //echo $ivd['orgname']; ?></td>
+                                                            <td  id="<?php echo $ivd['id'] ?>orgnamesname">Anish Mainali<?php  //echo $ivd['orgname']; ?></td>
                                                             <td  id="<?php echo $ivd['id'] ?>address"><?php  echo $ivd['address']; ?></td>
                                                             <td  id="<?php echo $ivd['id'] ?>phone"><?php  echo $ivd['phone']; ?></td>
                                                             <td  id="<?php echo $ivd['id'] ?>contactperson"><?php  echo $ivd['contactperson']; ?></td>
-                                                            <td  id="<?php echo $ivd['id'] ?>email"><?php  echo $ivd['email']; ?></td>
+                                                            <td  id="<?php echo $ivd['id'] ?>orgnames"><?php  echo $ivd['phone']; ?></td>
+                                                            <td  id="<?php echo $ivd['id'] ?>remarks">This is remarks fields<?php  //echo $ivd['email']; ?></td>
                                                         </tr>
                                                         <?php } $i++; ?>
                                                     </tbody>

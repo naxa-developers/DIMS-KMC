@@ -20,7 +20,7 @@ $pub_cat_en='<option value=0>ALL</option>
                     <input class="search--input" name="keywords" id="myInput" placeholder="Enter to search..." type="text" onkeyup="myFunction()">
                 </div>
                 <div class="selectHolder">
-                    <label for="pub_cat">Select File Type<?php //echo !empty(PUBL_TYPE)?PUBL_TYPE:'' ?></label>
+                    <label for="pub_cat">Select Hazard category<?php //echo !empty(PUBL_TYPE)?PUBL_TYPE:'' ?></label>
                     <select id="pub_cat" name="category">
                       <option value=>ALL</option>
                     <?php 
@@ -31,13 +31,29 @@ $pub_cat_en='<option value=0>ALL</option>
                     </select>
                 </div>
                 <div class="selectHolder">
-                    <label for="pub_cat">Select Hazard category<?php //echo !empty(PUBL_TYPE)?PUBL_TYPE:'' ?></label>
+                    <label for="pub_cat">Select File Type<?php //echo !empty(PUBL_TYPE)?PUBL_TYPE:'' ?></label>
                     <select id="pub_cat" name="type">
-                    <?php if ($pub_lang=='en') {
+                    <?php $lang=$this->session->get_userdata('Language');
+                   if($lang['Language']=='en'){
+                        $languageh='en';
+                    }else{
+                       $languageh='nep';
+                    }
+                    if ($languageh=='en') {
                         echo $pub_cat_en;
                       }else {
                         echo $pub_cat_nep;
                       } ?>
+                    </select>
+                </div>
+                <div class="selectHolder">
+                    <label for="pub_cat">Select file category type<?php //echo !empty(PUBL_TYPE)?PUBL_TYPE:'' ?></label>
+                    <select id="pub_cat" name="subcat">
+                      <option value=>ALL</option>
+                     <?php if($pub){ 
+                      foreach ($pubcat as $key => $value) {  ?>
+                      <option value="<?php echo $value['id']  ?>"><?php echo $value['name'] ?></option>
+                    <?php }  } ?>
                     </select>
                 </div>
                 <button type="submit" name="submit" class="btn-primary search--btn"><?php echo !empty(SEARCH)?SEARCH:'' ?></button>

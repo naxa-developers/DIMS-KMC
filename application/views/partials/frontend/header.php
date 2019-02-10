@@ -161,9 +161,9 @@
                 <i class="fa fa-angle-right ar"></i>
                 <a class="primary" href="">
                     <?php
-                $page_slug_new = ucwords(str_replace ('_', ' ', $this->uri->segment(1)));
-                $page_title = ucwords(str_replace ('-', ' ', $page_slug_new));
-                echo $page_title; ?></a>
+                $page_slug_new = strtoupper(str_replace ('_', ' ', $this->uri->segment(1)));
+                $page_title = strtoupper(str_replace ('-', ' ', $page_slug_new));
+                echo strtoupper($page_title); ?></a>
             </div>
         </div>
     </section>
