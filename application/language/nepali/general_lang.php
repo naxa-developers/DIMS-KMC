@@ -190,7 +190,7 @@ $lang['contacts']="सम्पर्कहरू";
 $lang['incidentmanagement']="घटना बिबीरण";
 $lang['drrinfodetail']="विपदका  जानकारीहरु";
 $lang['terminology']="टर्मिनोलोजी";
-$lang['datacategory']=" तत्थ्यांक सङ्ग्रह ";
+$lang['datacategory']="विभिन्न डाटासेट अन्वेषण गर्नुहोस";
 $lang['municipalprofile']="नगरपालिका प्रोफाइल";
 
 $lang['disasterinformation'] = "विपदका जानकारी, विपद  पुर्व, विपदको समय र विपद पश्चात गर्नुपर्ने कार्यको जानकारी";
@@ -253,9 +253,11 @@ $lang['incidentmgmt']="घटना प्रबंधन";
 $lang['munprofile']="नगरपालिका प्रोफाइल";
 
 $lang['publicationnmultimedia']="प्रकाशन र मल्टीमीडिया";
-$lang['contactinv']="सम्पर्क सूची";
+$lang['contactinv']="आपतकालीन सम्पर्क सूची";
 $lang['emergencymat']="आपतकालीन सामग्री";
 
+$lang['whodoeswhat']="WHO DOES WHAT";
+$lang['whodoeswhatdetails']="Details about project and organization working in DRR sector";
 $lang['aboutusdetails']="प्रोजेक्ट कंसोर्टियम, प्रणालीका  विशेषता  र विकास टीम";
 $lang['emergencymatdetails']="आपतकालीन वस्तुहरू र स्टकपाइलहरूको एक डिजिटल सूची";
 $lang['aboutus']="हाम्रो बारे";

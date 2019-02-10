@@ -1,8 +1,8 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class Map extends Admin_Controller 
+class Map extends Admin_Controller
 {
 	function __construct()
-	{	
+	{
         $this->load->model('Main_model');
         $this->load->model('Upload_model');
         $this->load->model('Report_model');
@@ -11,7 +11,7 @@ class Map extends Admin_Controller
 
 
 	}
-	public function index() //default_page 
+	public function index() //default_page
     {
     	$this->data=array();
     	$this->body=array();
@@ -20,7 +20,7 @@ class Map extends Admin_Controller
 	    if($lang['Language']=='en') {
 	      $language='en';
 	    }else{
-	      $language='nep'; 
+	      $language='nep';
 	    }
       	$cat_tbl = $this->general->get_tbl_data_result('summary,category_table,popup_content,category_name,style,marker_type','categories_tbl',array('language'=>$language,'default_load'=>'1','public_view'=>'1'));
       	$this->data['layerscategory'] = $this->general->get_tbl_data_result('uplaod_type,style,category_table,category_name','categories_tbl',array('language'=>$language,'public_view'=>'1'));
@@ -34,9 +34,9 @@ class Map extends Admin_Controller
 		      		//echo $this->db->last_query();die;
 		      		$summarylist = $this->Map_model->get_summary($summarydata[0]['summary_list'],$value['category_table']);
 		      		//foreach ($summarylist as  $sdm) {
-		      		$summaryname = $summarydata[0]['summary'];	
+		      		$summaryname = $summarydata[0]['summary'];
 		      			array_push($summarydatafreejson, trim(trim(json_encode($summarylist,JSON_NUMERIC_CHECK),'['),']"'));
-		      		$this->data['summaryFull_defalt']=json_encode($summaryname);	
+		      		$this->data['summaryFull_defalt']=json_encode($summaryname);
 	      		}
 	      		$this->data['summarydata_default']=json_encode($summarydatafreejson);
 	      	// print_r($this->data['summaryFull_defalt']);die;
@@ -55,7 +55,7 @@ class Map extends Admin_Controller
 	            	$cat_tbles[]=$tbl['category_table'];
 	            	$cat_names[]=$tbl['category_name'];
 	            	$summary_data[]=$tbl['summary'];
-	            	
+
 	            	array_push($popup, trim(trim(json_encode($tbl['popup_content'],JSON_NUMERIC_CHECK),'"['),']"'));
 	            	array_push($style, trim(trim(json_encode($tbl['style'],JSON_NUMERIC_CHECK),'"['),']"'));
 	            	array_push($marker_type, trim(trim(json_encode($tbl['marker_type'],JSON_NUMERIC_CHECK),'"['),']"'));
@@ -154,20 +154,41 @@ class Map extends Admin_Controller
 		    if($lang['Language']=='en') {
 		      $language='en';
 		    }else{
-		      $language='nep'; 
+		      $language='nep';
 		    }
 	    	$layer_name = $this->input->post('layername');//'health_facilities';//
 	    	$resultdata = $this->general->get_tbl_data_result('summary,summary_list,category_table,popup_content,category_name,style,marker_type','categories_tbl',array('language'=>$language,'public_view'=>'1','category_table'=>$layer_name));
-	    		//select column control data from database 
+	    		//select column control data from database
 	    		$data_jsn=$this->Map_model->get_jsn($layer_name);
 				$data_array=json_decode($data_jsn['column_control'],TRUE);
 				$report=$this->Map_model->get_data_geojson($data_array,$layer_name);
 				$dataset_data=$report->result_array();
-				
+
+				if (isset($features_cat)){
+					$features_cat = array();
+				}
+				foreach($dataset_data as $cat_data){
+					$cat_ddata=$cat_data ;
+					unset($cat_data['st_asgeojson']);
+					$features_cat[]= array(
+						'type' =>'Feature',
+						'properties'=>$cat_data,
+						'geometry'=>json_decode($cat_ddata['st_asgeojson'],JSON_NUMERIC_CHECK)
+					);
+			}
+				//$category= $cat_tbles[$i];
+				$category= array(
+					'type' => 'FeatureCollection',
+					'features' => $features_cat,
+				);
+			//var_dump($$category);
+		//	array_push($category_data,$$category);
+
+
 				//retrive summary list to plot in map
 				$summarylist = $this->Map_model->get_summary($resultdata[0]['summary_list'],$layer_name);
 				//echo "<pre>"; print_r($dataset_data);die;
-		        $response['geojson']=json_encode($dataset_data);
+		        $response['geojson']=json_encode($category);
 		       	$response['style']=$resultdata[0]['style'];
 		        $response['marker_type']=$resultdata[0]['marker_type'];
 		        $response['popup_content']=$resultdata[0]['popup_content'];
@@ -187,12 +208,12 @@ class Map extends Admin_Controller
 	{
 		if($this->input->server('REQUEST_METHOD')=='POST')
 		{
-			
+
 			$lang=$this->session->get_userdata('Language');
 		    if($lang['Language']=='en') {
 		      $language='en';
 		    }else{
-		      $language='nep'; 
+		      $language='nep';
 		    }
 	    	$layer_name = $this->input->post('layername');//
 	    	$resultdata = $this->general->get_tbl_data_result('summary,summary_list,category_table,popup_content,category_name,style,marker_type','categories_tbl',array('language'=>$language,'public_view'=>'1','category_table'=>$layer_name));
@@ -203,23 +224,23 @@ class Map extends Admin_Controller
 
 		 	$template =$this->template
 			->enable_parser(FALSE)
-			->build('frontend/view_table',$this->data); 
+			->build('frontend/view_table',$this->data);
 				print_r(json_encode(array('statuses'=>'success','template'=>$template)));
 	        	exit;
 		}else{
 			print_r(json_encode(array('status'=>'error','message'=>'Cannot Perform this Operation')));
 			exit;
 		}
-		
+
 	}
 	public function teset()
 	{
-		
+
 		$lang=$this->session->get_userdata('Language');
 	    if($lang['Language']=='en') {
 	      $language='en';
 	    }else{
-	      $language='nep'; 
+	      $language='nep';
 	    }
     	$layer_name = 'church';//
     	$resultdata = $this->general->get_tbl_data_result('summary,summary_list,category_table,popup_content,category_name,style,marker_type','categories_tbl',array('language'=>$language,'public_view'=>'1','category_table'=>$layer_name));

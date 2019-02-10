@@ -155,7 +155,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="listHolder">
-                        <a href="explore.html" class="plain">
+                        <a href="<?php echo base_url()?>publication" class="plain">
                             <div class="overlay">
                                 <div class="innerTitle"><?php echo $this->lang->line('publicationnmultimedia'); ?></div>
                                 <p class="innerSubtitle"><?php echo $this->lang->line('Filesrelatedtoincidentmanagement'); ?>.</p>
@@ -220,7 +220,7 @@
                     <div class="flist "><?php echo $this->lang->line('advancesearchfacility');?><!--  Advance search facility to find specific datasets --></div>
                     <div class="flist "> <?php echo $this->lang->line('report_near');?></div>
                     <div class="flist "><?php echo $this->lang->line('notify_other');?> <!-- Notify others "I am safe" during disaster --></div>
-                    
+
                 </div>
                 <div class="mobileOuter">
                     <div class="mobileHolder">
@@ -852,6 +852,3 @@ if($baseline_data){
   });
 </script>
  -->
-   
-
-   

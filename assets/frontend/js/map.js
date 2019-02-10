@@ -36,6 +36,13 @@ $(document).ready(function(){
 
         // view_layername only categories name
         function loadDataToMap(geojson_layer,layer_name,load,marker_type,style,popup_content,view_layername){
+
+          // console.log(geojson_layer);
+          // console.log(layer_name);
+          // console.log(marker_type);
+          // console.log(style);
+          // console.log(popup_content);
+
             window[layer_name+ "_toggle"] = new L.geoJson(geojson_layer, {
                 pointToLayer: function(feature,Latlng)
                 {   //console.log(style.icon);
@@ -91,10 +98,11 @@ $(document).ready(function(){
                     });
                 }
             });
-            if(load) {
+          //  console.log(window[layer_name+ "_toggle"]);
+          //  if(load) {
                 window[layer_name+ "_toggle"].addTo(map);
                 $(".rightSection").addClass("show");
-            }
+          //  }
         }
 
         //default load  data retrive
@@ -103,9 +111,9 @@ $(document).ready(function(){
             //console.log(popup_content_default[i]);
             var style_defaultnew = JSON.parse(style_default[i]);
             var popup_content_default_parse = JSON.parse(popup_content_default[i]);
-            var smmayfielddefalt = JSON.parse("["+summary_data_default[i]+"]"); //for json validator 
+            var smmayfielddefalt = JSON.parse("["+summary_data_default[i]+"]"); //for json validator
             var summarycount = smmayfielddefalt.length;
-            console.log(style_defaultnew);
+            //console.log(style_defaultnew);
     		loadDataToMap(default_cat_layer[i],category_tbl_default[i],true,marker_type_default[i],style_defaultnew
               ,popup_content_default_parse,cat_names[i]); //call for data load this is for firsst time default data load
             loadSummaryData(summarycount,summaryFull_defalt[i],smmayfielddefalt,cat_names[i],category_tbl_default[i]);
@@ -114,11 +122,12 @@ $(document).ready(function(){
 
         //load layer on click request
         $(".checkBox").one('click', function( event ) {
-            var id= $(this)[0].id; 
+            var id= $(this)[0].id;
             if($("#"+id).prop("checked")) {
                 var value = $(this)[0].value.replace("_toggle","");
                     $.ajax({
                     type: "POST",
+                    //async:false,
                     data: {layername:value},
                     url:  "map/get_layers_onrequest",
                     beforeSend: function() {
@@ -128,10 +137,11 @@ $(document).ready(function(){
 
                     },
                     success: function (result) {
+                        console.log(result);
                         $('#spinnerModal').modal('hide');
                          $('#spinnerModal').hide();
                         var finaldata = JSON.parse(result);
-                        //console.log(result);
+
                         var style = JSON.parse(finaldata.style);
                         var geojson = JSON.parse(finaldata.geojson);
                         var popup_content = JSON.parse(finaldata.popup_content);
@@ -140,7 +150,7 @@ $(document).ready(function(){
                         var summary_list=finaldata.summary_list;
                         var summarydata=finaldata.summarydata;
                         var summarycount=finaldata.summarycount;
-                        console.log(style);
+                      //  console.log(style);
                         // console.log(popup_content);
                        loadDataToMap(geojson,value,true,marker_type,style,popup_content,view_layername);
                        //$("#info_")
@@ -149,7 +159,7 @@ $(document).ready(function(){
                 });
             }
         });
-        
+
         //retrive summary data  last parameter to handel click
         function loadSummaryData(summarycount,summarydata,summary_list,view_layername,value) {
                 //console.log(summarydata);
@@ -182,10 +192,10 @@ $(document).ready(function(){
             $(this).closest(".detItem").fadeOut("slow");
             $('#'+layername+'_toggle').prop("checked");
             var id = layername+"_toggle";
-            layerClicked = window[id]; 
+            layerClicked = window[id];
             if (map.hasLayer(layerClicked) ) {
                 map.removeLayer(layerClicked);
-                $("#"+layername+"_switch").prop('checked', false); //switch off 
+                $("#"+layername+"_switch").prop('checked', false); //switch off
             }else if(layerClicked == undefined){
             }
             else{
@@ -202,9 +212,9 @@ $(document).ready(function(){
         $( ".checkBox" ).on('click', function( event ) {
             var id = $(this)[0].id;
             //layerClicked = window[event.target.value];
-            layerClicked = window[$(this)[0].value]; 
+            layerClicked = window[$(this)[0].value];
             //console.log(id);
-            console.log($(this)[0].value);
+          //  console.log($(this)[0].value);
             //$("#"+id).prop("checked") == true
             if (map.hasLayer(layerClicked) ) {
                 map.removeLayer(layerClicked);
@@ -212,23 +222,23 @@ $(document).ready(function(){
                 $("#"+tbl+"_summaryCardwitch").hide();
                 //console.log(tbl);
             }else if(layerClicked == undefined){
-                
+
             }
             else{
                 map.addLayer(layerClicked);
             }
         });
-        //for filter data 
+        //for filter data
 
-        
+
         $('.ZoomTolayer').on('click',function(){
             var layername= $(this).data('layername');
-             console.log(window[layername+ "_toggle"]); 
+          //   console.log(window[layername+ "_toggle"]);
             map.fitBounds(window[layername+ "_toggle"].getBounds());
-           
+
         });
-        
-        
+
+
         $("#refresh").on('click',function(){
             map.setView([27.711745,85.300369],13);
         });
@@ -240,5 +250,5 @@ $(document).ready(function(){
 
         $("#zoomout").on('click',function(){
             map.setZoom(map.getZoom() - 1);
-        });        
-});   
+        });
+});

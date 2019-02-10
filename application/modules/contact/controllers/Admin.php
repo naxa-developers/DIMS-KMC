@@ -178,9 +178,11 @@ if (isset($_POST['submit'])) {
 	$fields=$this->db->list_fields($table_name);
 	unset($fields[0]);
 	if($table_name == 'organization_contact'){
+			unset($fields[11]);
 			unset($fields[12]);
 	}elseif($table_name == 'individual_contact'){
 		unset($fields[8]);
+		unset($fields[7]);
 	}else{
 		unset($fields[11]);
 
@@ -211,7 +213,7 @@ if (isset($_POST['submit'])) {
 					redirect(FOLDER_ADMIN.'/contact/volunteer?cat='.$cat);
 					//redirect(FOLDER_ADMIN.'/csvtable/upload_csv_emerg/emergency_contact?cat='.$cat);
 						}else{
-       redirect(base_url(FOLDER_ADMIN)."/contact/contact_admin?edit_cat=".$cat."&&tbl=".$tbl);
+       redirect(base_url(FOLDER_ADMIN)."/contact/contact_admin?edit_cat=".$cat."&&tbl=".$table_name);
 
 			}
 		}
