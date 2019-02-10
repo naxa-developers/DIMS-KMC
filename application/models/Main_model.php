@@ -88,6 +88,30 @@ public function get_contact_csv($cat,$tbl)
 
 }
 
+public function get_contact_csv_new($cat,$tbl,$lang)
+{
+  $this->db->select('*');
+  $this->db->where('category',$cat);
+  $this->db->where('language',$lang);
+  $this->db->order_by('id','ASC');
+  $q=$this->db->get($tbl);
+  return $q ;
+
+
+}
+
+public function get_contact_csv_volun($tbl,$lang)
+{
+  $this->db->select('*');
+
+  $this->db->where('language',$lang);
+  $this->db->order_by('id','ASC');
+  $q=$this->db->get($tbl);
+  return $q ;
+
+
+}
+
   public function get_about_where($id)
   {
     $this->db->select('*');
