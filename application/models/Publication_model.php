@@ -3,13 +3,13 @@ class Publication_model extends CI_Model {
 
 
 
-public function get_all_data(){
+  public function get_all_data(){
 
-$this->db->select('*');
-$this->db->order_by('id','DESC');
-$q=$this->db->get('publication');
-return $q->result_array();
-}
+        $this->db->select('*');
+        $this->db->order_by('id','DESC');
+        $q=$this->db->get('publication');
+        return $q->result_array();
+  }
 
 public function add_publication($table,$data){
 
@@ -195,14 +195,46 @@ public function update_data($id,$data){
             }
         }
     }
+    public function get_publication()
+    {  
+        $keywords =  $this->input->post('keywords');
+        $category =  $this->input->post('category');
+        $type =  $this->input->post('type');
+        $this->db->select('p.type,p.id,p.title,p.summary,p.photo,p.file,p.videolink,pc.name');
+        $this->db->from('publication as p');
+        $this->db->join('publicationcat as pc','pc.id = p.category','LEFT');
+        if($keywords)
+        {
+            $sql = "p.title LIKE '%" . $keywords ."%' OR p.type LIKE '%" . $keywords ."%' OR p.summary LIKE '%". $keywords."%'";
+            $this->db->where($sql);
+        }
+        if($category)
+        {
+            $this->db->where('p.category',$category);
+        }
+        if($type)
+        {
+            $this->db->where('p.type',$type);
+        }
+        $query = $this->db->get();
+        //echo $this->db->last_query();die;
+        if ($query->num_rows() > 0)
+        {
+            return $data=$query->result_array();
+        } 
+        return false;
+    }
     public function get_publication_details()
     {  //test
         $id = base64_decode($this->input->get('id'));
         $this->db->select('p.type,p.id,p.title,p.summary,p.photo,p.file,p.videolink,pc.name');
         $this->db->from('publication as p');
         $this->db->join('publicationcat as pc','pc.id = p.category','LEFT');
-        $this->db->where('p.id',$id);
+        if($id) {
+            $this->db->where('p.id',$id);
+        }
         $query = $this->db->get();
+        // echo $this->db->last_query();die;
         if ($query->num_rows() > 0)
         {
             return $data=$query->result_array();

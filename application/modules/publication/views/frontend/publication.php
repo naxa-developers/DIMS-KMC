@@ -1,34 +1,48 @@
 <?php $pub_cat_nep='<option value=0>सबै</option>
  <option value="files">फाईल</option>
  <option value="video">भिडियो</option>
- <option value="images">इमेज</option>';
+ <option value="images">इमेज</option>
+ <option value="audio">Audio</option>';
 
 $pub_cat_en='<option value=0>ALL</option>
  <option value="files">Files</option>
  <option value="video">Videos</option>
- <option value="images">Images</option>';
+ <option value="images">Images</option>
+ <option value="audio">Audio</option>';
 ?>
 
     <section class="searchpanel">
         <div class="container">
+          <form action="" method="POST">
             <div class="search flex contactSearch">
                 <div class="inputholder grow">
                     <label for=""><?php echo !empty(SEARCH)?SEARCH:'' ?></label>
-                    <input class="search--input " id="myInput" placeholder="Enter to search..." type="text" onkeyup="myFunction()">
+                    <input class="search--input" name="keywords" id="myInput" placeholder="Enter to search..." type="text" onkeyup="myFunction()">
                 </div>
                 <div class="selectHolder">
-                    <label for="pub_cat"><?php echo !empty(PUBL_TYPE)?PUBL_TYPE:'' ?></label>
-                    <select id="pub_cat">
+                    <label for="pub_cat">Select File Type<?php //echo !empty(PUBL_TYPE)?PUBL_TYPE:'' ?></label>
+                    <select id="pub_cat" name="category">
+                      <option value=>ALL</option>
+                    <?php 
+                    if($pub){ 
+                      foreach ($pub as $key => $value) {  ?>
+                      <option value="<?php echo $value['id']  ?>"><?php echo $value['name'] ?></option>
+                    <?php }  } ?>
+                    </select>
+                </div>
+                <div class="selectHolder">
+                    <label for="pub_cat">Select Hazard category<?php //echo !empty(PUBL_TYPE)?PUBL_TYPE:'' ?></label>
+                    <select id="pub_cat" name="type">
                     <?php if ($pub_lang=='en') {
                         echo $pub_cat_en;
                       }else {
-                      echo $pub_cat_nep;
+                        echo $pub_cat_nep;
                       } ?>
                     </select>
                 </div>
-
-                <button class="btn-primary search--btn"><?php echo !empty(SEARCH)?SEARCH:'' ?></button>
+                <button type="submit" name="submit" class="btn-primary search--btn"><?php echo !empty(SEARCH)?SEARCH:'' ?></button>
             </div>
+            </form>
         </div>
     </section>
     <section class="section-padding-half">

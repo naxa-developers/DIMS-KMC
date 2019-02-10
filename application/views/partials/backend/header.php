@@ -279,7 +279,7 @@
                     </a>
                     <ul class="sub">
                         <li><a href="<?php echo base_url(FOLDER_ADMIN);?>/publication/view_publication"><?php echo $this->lang->line('publication'); ?></a></li>
-                        <li><a href="<?php echo base_url(FOLDER_ADMIN);?>/publication/add_publication_category">Publication Category <?php// echo $this->lang->line('publication'); ?></a></li>
+                        <li><a href="<?php echo base_url(FOLDER_ADMIN);?>/publication/add_publication_category">Publication Category <!-- <?php// echo $this->lang->line('publication'); ?> --></a></li>
                         <li><a href="<?php echo base_url(FOLDER_ADMIN);?>/publication/add_publication">Add Publication<?php //echo $this->lang->line('publication'); ?></a></li>
                         <li><a href="<?php echo base_url(FOLDER_ADMIN);?>/publication/add_publication_sub_category">Publication Sub category<?php //echo $this->lang->line('publication'); ?></a></li>
 

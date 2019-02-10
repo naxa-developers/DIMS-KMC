@@ -13,10 +13,18 @@ class Publication extends Admin_Controller
 		
 		public function index(){
 			$this->body=array();
-		    $this->load->model('Publication_model');
-		    $this->data['publicationdata']=$this->Publication_model->get_all_data();
-
+		    $this->data['pub'] = $this->general->get_tbl_data_result('id,name','publicationcat');
+	      	$this->data['pubcat'] = $this->general->get_tbl_data_result('id,name','publicationsubcat');
+	      	$this->data['pubcatfiletype'] =$this->config->item('publicationFileType');
 		    //language
+		    if(isset($_POST['submit'])){
+		    	$this->data['publicationdata']=$this->Publication_model->get_publication();
+		    }else{
+		    	$this->data['publicationdata']=$this->Publication_model->get_publication();
+		    }
+
+
+		    //echo "<pre>"; print_r($this->data['publicationdata']);die;
 		    if($this->session->userdata('Language')==NULL){
 
 		      $this->session->set_userdata('Language','nep');
