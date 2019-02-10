@@ -200,6 +200,7 @@ public function update_data($id,$data){
         $keywords =  $this->input->post('keywords');
         $category =  $this->input->post('category');
         $type =  $this->input->post('type');
+        $subcat =  $this->input->post('subcat');
         $this->db->select('p.type,p.id,p.title,p.summary,p.photo,p.file,p.videolink,pc.name');
         $this->db->from('publication as p');
         $this->db->join('publicationcat as pc','pc.id = p.category','LEFT');
@@ -211,6 +212,10 @@ public function update_data($id,$data){
         if($category)
         {
             $this->db->where('p.category',$category);
+        }
+        if($subcat)
+        {
+            $this->db->where('p.subcat',$subcat);
         }
         if($type)
         {
