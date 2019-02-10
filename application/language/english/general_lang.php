@@ -191,8 +191,8 @@ $lang['contacts']="Contacts";
 $lang['incidentmanagement']="iNCIDENT REPORTS";
 $lang['drrinfodetail']="DISASTER INFORMATION";
 $lang['terminology']="TERMINOLOGIES";
-$lang['datacategory']="Data Category";
-$lang['municipalprofile']="Municipal Profile";
+$lang['datacategory']="MUNICIPAL DATASETS & GIS MAPPING";
+$lang['municipalprofile']="MUNICIPAL PROFILE";
 
 // inventory
 $lang['sn']="S N";
@@ -235,10 +235,10 @@ $lang['aboutprojecttagline']= "About the project consortium, system features and
 
 
 
-$lang['shortest_route']= "Shortest route to safe location(open spaces)"; 
-$lang['user_engagement']= "Navigate to nearest Open space around users’ location in a press of a button 
+$lang['shortest_route']= "Shortest route to safe location(open spaces)";
+$lang['user_engagement']= "Navigate to nearest Open space around users’ location in a press of a button
 ";
-$lang['disaster_alert']= "Hazard specific questions properly organized in the form of  Quiz for user engagement 
+$lang['disaster_alert']= "Hazard specific questions properly organized in the form of  Quiz for user engagement
 ";
 $lang['flashlight']= "Major  updates from MoHA,NEOC KMC and LMC as news notifications";
 $lang['askfor_help']= "One button Ask for Help to locate requester during an emergenc";

@@ -27,13 +27,13 @@
     <link rel="stylesheet" href="<?php echo base_url();?>assets/frontend/css/line-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
     <link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.css" rel="stylesheet" />
-    
+
     <!-- new css end -->
 </head>
 <!-- Bootstrap core CSS -->
 <body>
 
-<?php if($this->uri->segment(1) == 'home' || $this->uri->segment(1) == ''){ ?> 
+<?php if($this->uri->segment(1) == 'home' || $this->uri->segment(1) == ''){ ?>
     <section class="hero">
     <header>
         <div class="container-fluid full-height">
@@ -56,7 +56,7 @@
                         <input type="radio" class="" name="options" id="option3" autocomplete="off"> <i class="la la-language"></i> : Nep
                       </label>
                     </div>
-                </div>    
+                </div>
                 <div class="menuiconHolder float-right-fx">
                     <div class="iconholder">
                         <i class="fas fa-bars"></i>
@@ -69,8 +69,8 @@
 
             </div>
         </div>
-       
-           
+
+
         <div class="menuOverlay">
             <div class="container">
                 <div class="close">
@@ -89,14 +89,14 @@
                     <a class="nav-link" href="<?php echo base_url()?>dictionary">प्रकोप सब्दकोश  </a>
                     <a class="nav-link" href="<?php echo base_url()?>datacategory"> तत्थ्यांक सङ्ग्रह </a>
                     <a class="nav-link" href="<?php echo base_url()?>municipalprofile"> नगरपालिका प्रोफाइल</a> -->
-                    <a class="nav-link" href="<?php echo base_url()?>incidentmanagement"><?php echo $this->lang->line('incidentmanagement'); ?></a>
+                    <a class="nav-link" href="<?php echo base_url()?>incidentmanagement"><?php echo NAV_TWO; ?></a>
                     <a class="nav-link" href="<?php echo base_url()?>drrinfo"><?php echo $this->lang->line('drrinfodetail'); ?></a>
                     <a class="nav-link" href="<?php echo base_url()?>dictionary"><?php echo $this->lang->line('dictionary'); ?> </a>
-                     <a class="nav-link" href="<?php echo base_url()?>inventory"><?php echo NAV_FIVE ?></a>
+                     <a class="nav-link" href="<?php echo base_url()?>inventory"><?php echo NAV_FOUR ?></a>
                     <a class="nav-link" href="<?php echo base_url()?>municipalprofile"> <?php echo $this->lang->line('municipalprofile'); ?></a>
                     <!-- <a class="nav-link" href="<?php echo base_url()?>contact"><?php echo NAV_THREE ?></a> -->
-                    <a class="nav-link" href="<?php echo base_url()?>contact"><?php echo $this->lang->line('contacts'); ?></a>
-                    
+                    <a class="nav-link" href="<?php echo base_url()?>contact"><?php echo NAV_THREE; ?></a>
+
                 </div>
             </div>
         </div>
@@ -133,11 +133,11 @@
                     <!-- <a class="nav-link" href="<?php echo base_url()?>category?tbl=0 && name=0"><?php echo NAV_ONE ?></a> -->
                     <!-- <a class="nav-link" href="<?php echo base_url()?>report_page"><?php echo NAV_TWO ?></a> -->
                     <!-- <a class="nav-link" href="<?php echo base_url()?>inventory"><?php echo NAV_FOUR ?></a> -->
-                    
+
                     <a class="nav-link" href="<?php echo base_url()?>publication"><?php echo NAV_SIX ?></a>
                     <a class="nav-link" href="<?php echo base_url()?>incidentmanagement"><?php echo $this->lang->line('incidentmanagement'); ?></a>
                     <a class="nav-link" href="<?php echo base_url()?>drrinfo"><?php echo $this->lang->line('drrinfodetail'); ?></a>
-                    
+
                     <a class="nav-link" href="<?php echo base_url()?>datacategory"> <?php echo $this->lang->line('datacategory'); ?> </a>
                     <a class="nav-link" href="<?php echo base_url()?>inventory"><?php echo NAV_FIVE ?></a>
                     <a class="nav-link" href="<?php echo base_url()?>municipalprofile"> <?php echo $this->lang->line('municipalprofile'); ?></a>
@@ -146,7 +146,7 @@
             </div>
         </div>
     </header>
-<?php } ?> 
+<?php } ?>
 <?php if($this->uri->segment(1) != 'home' && $this->uri->segment(1) != 'map'){
     if($this->uri->segment(1) ||  $this->uri->segment(2) || $this->uri->segment(2)){ ?>
     <section class="bradcrumbs">
@@ -160,15 +160,11 @@
                 </a>
                 <i class="fa fa-angle-right ar"></i>
                 <a class="primary" href="">
-                    <?php 
+                    <?php
                 $page_slug_new = ucwords(str_replace ('_', ' ', $this->uri->segment(1)));
                 $page_title = ucwords(str_replace ('-', ' ', $page_slug_new));
                 echo $page_title; ?></a>
             </div>
         </div>
     </section>
-<?php } }  ?>   
-  
-    
-    
-    
+<?php } }  ?>
