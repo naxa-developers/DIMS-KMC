@@ -73,7 +73,8 @@
 <!--logo start-->
     <div class="brand">
         <a href="<?php echo base_url(FOLDER_ADMIN)?>/dashboard"  class="logo">
-            <img src="<?php echo base_url()?>assets/img/changu.png" alt="admin" height=60;><div class="cnm">Changunarayan <br>Municipality </div>
+            <img src="<?php echo SITE_SLOGAN_EN ?>" alt="admin" height=60; style="width: auto !important;">
+           <!--  <div class="cnm"><?php echo SITE_NAME_EN ?></div> -->
         </a>
         <div class="sidebar-toggle-box">
             <div class="fa fa-bars"></div>
@@ -248,8 +249,8 @@
                         <span>Inventory<?php //echo $this->lang->line('report_management'); ?></span>
                     </a>
                     <ul class="sub">
-
                         <li><a href="<?php echo base_url(FOLDER_ADMIN);?>/inventory/inventory_tbl">Inventory Category <?php //echo $this->lang->line('view_reports'); ?></a></li>
+                         <li><a href="<?php echo base_url(FOLDER_ADMIN);?>/inventory">Inventory Sub Category<?php //echo $this->lang->line('view_ghatana_bibaran_management'); ?></a></li>
                         <li><a href="<?php echo base_url(FOLDER_ADMIN);?>/csvtable/upload_inventory_data">Inventory Data<?php //echo $this->lang->line('ghatana_bibaran_management'); ?></a></li>
                         <li><a href="<?php echo base_url(FOLDER_ADMIN);?>/inventory/inventory_data">Inventory<?php //echo $this->lang->line('view_ghatana_bibaran_management'); ?></a></li>
 
@@ -277,9 +278,10 @@
                         <span><?php echo $this->lang->line('publication_management'); ?></span>
                     </a>
                     <ul class="sub">
-
                         <li><a href="<?php echo base_url(FOLDER_ADMIN);?>/publication/view_publication"><?php echo $this->lang->line('publication'); ?></a></li>
-                      <!--   <li><a href="<?php echo base_url();?>view_cat_tables">View Categories Data Tables</a></li> -->
+                        <li><a href="<?php echo base_url(FOLDER_ADMIN);?>/publication/add_publication_category">Publication Category <?php// echo $this->lang->line('publication'); ?></a></li>
+                        <li><a href="<?php echo base_url(FOLDER_ADMIN);?>/publication/add_publication">Add Publication<?php //echo $this->lang->line('publication'); ?></a></li>
+                        <li><a href="<?php echo base_url(FOLDER_ADMIN);?>/publication/add_publication_sub_category">Publication Sub category<?php //echo $this->lang->line('publication'); ?></a></li>
 
                     </ul>
                 </li>

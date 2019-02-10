@@ -113,47 +113,79 @@ class Admin extends Admin_Controller {
  		$this->body=array();
     	$this->form_validation->set_rules('category', 'Please Select Hazard category', 'trim|required');
     	$this->form_validation->set_rules('type', 'Please Select File Type', 'trim|required');
+    	$lang=$this->session->get_userdata('Language');
+	    if($lang['Language']=='en'){
+	        $language='en';
+	    }else{
+	        $language='nep';
+	    }
 		if ($this->form_validation->run() == TRUE){
 	      	$file_name = $_FILES['proj_pic']['name'];
 	      	$attachment=$_FILES['uploadedfile']['name'];
-	    	// $ext = pathinfo($file_name, PATHINFO_EXTENSION);
+	      	$audio=$_FILES['audio']['name'];
+	      	//echo "<pre>"; print_r($audio);die;
+	    	$ext = pathinfo($file_name, PATHINFO_EXTENSION);
 	      	$ext_file = pathinfo($attachment, PATHINFO_EXTENSION);
+	      	$ext_file_audio = pathinfo($audio, PATHINFO_EXTENSION);
 	      	$data=array(
 	        	'title'=>$this->input->post('title'),
 	        	'summary'=>$this->input->post('summary'),
 	        	'type'=>$this->input->post('type'),
+	        	'subcat'=>$this->input->post('subcat'),
 	        	'category'=>$this->input->post('category'),
 	        	'videolink'=>$this->input->post('videolink'),
+	        	'lang'=>$language,
 	      	);
 	      	$insert=$this->Publication_model->add_publication('publication',$data);
 	      	if($insert!=""){
-	        	$img_upload=$this->Publication_model->do_upload($file_name,$insert);
-	        	$file_upload=$this->Publication_model->file_do_upload($attachment,$insert);
-			        if($img_upload['status']== 1){
-			          $ext=$img_upload['upload_data']['file_ext'];
-			        //echo $ext; exit();
-			          $image_path=base_url() . 'uploads/publication/'.$insert.$ext ;
-			          $file_path=base_url() . 'uploads/publication/file/'.$insert.'.'.$ext_file ;
-			          $img=array(
+	      		if(!empty($audio)){
+	      			$file_upload_audio=$this->Publication_model->file_do_uploa_audiod($audio,$insert);
+	      		}else{
+	      			$file_upload_audio='';
+	      		}
+
+	      		if(!empty($file_name)){
+	      			$img_upload=$this->Publication_model->do_upload($file_name,$insert);
+	      		}else{
+	      			$img_upload['status']='';
+	      		}
+	      		if(!empty($attachment)){
+	      			$file_upload=$this->Publication_model->file_do_upload($attachment,$insert);
+	      		}else{
+	      			$file_upload['status']='';
+	      		}
+	      		//print_r($file_upload_audio); die;
+		        if($img_upload['status']== 1 || $file_upload['status']== 1  || $file_upload_audio){
+		            if($img_upload['status']== 1){
+		          		$image_path=base_url() . 'uploads/publication/'.$insert.$ext;
+		            }else{
+		          		$image_path='';
+		          	}
+		          	if($file_upload['status']== 1) {
+		          		$file_path=base_url() . 'uploads/publication/file/'.$insert.'.'.$ext_file;
+		          	}else{
+		          		$file_path='';
+		          	}
+		          	if($file_upload_audio) {
+		          		$file_path_audiofinal=base_url().$file_upload_audio;
+		          	}else{
+		          		$file_path_audiofinal='';
+		          	}
+		          	$img=array(
 			            'photo'=>$image_path,
-			            'file'=>$file_path
-			          );
-			          $update_path=$this->Publication_model->update_path($insert,$img);
-			          $this->load->model('Newsletter');
-			          $mail_subject='New Publication Added in VSO Webpage';
-			          $m='New Publication '.$this->input->post('title').' has been added in VSO Webpage.Plese follow link to view new Publication <br>'.base_url().'publication';
-			          $this->Newsletter->send_mail($m,$mail_subject);
-			          $this->session->set_flashdata('msg','Publication successfully added');
-			          // redirect('view_publication');
-			          redirect(FOLDER_ADMIN.'/publication/view_publication');
-			        }else{
-			          $code= strip_tags($img_upload['error']);
-			          $this->session->set_flashdata('msg', $code);
-			          redirect(FOLDER_ADMIN.'/publication/add_publication');
-			        }
-			    // }else{
-			    // 	redirect(FOLDER_ADMIN.'/publication/view_publication');
-			    // }
+			            'file'=>$file_path,
+			            'audio'=>$file_path_audiofinal,
+			        );
+		            $update_path=$this->Publication_model->update_path($insert,$img);
+		            $this->session->set_flashdata('msg','Publication successfully added');
+		          	redirect(FOLDER_ADMIN.'/publication/view_publication');
+		        }elseif($this->input->post('videolink')) {
+		        	redirect(FOLDER_ADMIN.'/publication/view_publication');
+		        }else{
+		            $code= strip_tags($img_upload['error']);
+		            $this->session->set_flashdata('msg', $code);
+		            redirect(FOLDER_ADMIN.'/publication/add_publication');
+		        }
 	        }
 	    }else{
 	      //admin check
@@ -162,27 +194,37 @@ class Admin extends Admin_Controller {
 	      //admin check
 	     
 	      $this->data['pub'] = $this->general->get_tbl_data_result('id,name','publicationcat');
+	      $this->data['pubcat'] = $this->general->get_tbl_data_result('id,name','publicationsubcat');
+	      $this->data['pubcatfiletype'] =$this->config->item('publicationFileType');
 	      // echo "<pre>"; print_r($this->data['pub']);die;
 	      $this->template
 	                        ->enable_parser(FALSE)
 	                        ->build('admin/add_publication',$this->data);
-	      // $this->load->view('admin/header',$this->body);
-	      // $this->load->view('admin/add_publication');
-	      // $this->load->view('admin/footer');
 	    }
     }
     public function edit_publication(){
-	   $this->data=array();
+	    $this->data=array();
+	    $lang=$this->session->get_userdata('Language');
+	    if($lang['Language']=='en'){
+	        $language='en';
+	    }else{
+	        $language='nep';
+	    }
 	    $id=base64_decode($this->input->get('id'));
 	    $this->data['pub'] = $this->general->get_tbl_data_result('id,name','publicationcat');
+	    $this->data['pubcat'] = $this->general->get_tbl_data_result('id,name','publicationsubcat');
+	    $this->data['pubcatfiletype'] =$this->config->item('publicationFileType');
 	    if(isset($_POST['submit'])){
+	    	
 	      if( $_FILES['proj_pic']['name']==''){
 	        $data=array(
 	        	'title'=>$this->input->post('title'),
 	        	'summary'=>$this->input->post('summary'),
 	        	'type'=>$this->input->post('type'),
+	        	'subcat'=>$this->input->post('subcat'),
 	        	'category'=>$this->input->post('category'),
 	        	'videolink'=>$this->input->post('videolink'),
+	        	'lang'=>$language,
 	      	);
 	        $update=$this->Publication_model->update_data($id,$data);
 	        if($update==1){
@@ -196,8 +238,11 @@ class Admin extends Admin_Controller {
 	       $data=array(
 	        	'title'=>$this->input->post('title'),
 	        	'summary'=>$this->input->post('summary'),
+	        	'type'=>$this->input->post('type'),
+	        	'subcat'=>$this->input->post('subcat'),
 	        	'category'=>$this->input->post('category'),
 	        	'videolink'=>$this->input->post('videolink'),
+	        	'lang'=>$language,
 	      	);
 	        $insert=$this->Publication_model->update_data($id,$data);
 	        if($insert==1){
@@ -234,9 +279,6 @@ class Admin extends Admin_Controller {
 	      $this->template
                         ->enable_parser(FALSE)
                         ->build('admin/edit_publication',$this->data);
-	      // $this->load->view('admin/header',$this->data);
-	      // $this->load->view('admin/edit_publication',$this->data);
-	      // $this->load->view('admin/footer');
 	    }
     }
     public function delete_publication(){
@@ -255,3 +297,17 @@ class Admin extends Admin_Controller {
 	    redirect(FOLDER_ADMIN.'/publication/add_publication_sub_category');
   	}
 }
+
+// <IfModule mod_rewrite.c>
+// Options -Indexes
+
+// RewriteEngine On
+// RewriteBase /
+// #RewriteCond %{REQUEST_URI} ^system.*
+// #RewriteRule ^(.*)$ /index.php/$1 [L]
+
+// RewriteCond %{REQUEST_FILENAME} !-f
+// RewriteCond %{REQUEST_FILENAME} !-d
+// RewriteCond $1 !^(index\.php|images|robots\.txt)
+// RewriteRule ^(.*)$ /ci-video/index.php?/$1 [L]
+// </IfModule> 

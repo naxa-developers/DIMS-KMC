@@ -92,20 +92,11 @@ class Admin_Controller extends Base_Controller {
         //$this->load->helper('breadcrumb');
 
         $this->template->set_layout('admin/default');
-        // if ($this->ion_auth->logged_in()){
-
-        //     //$this->ion_auth->is_admin() || redirect(ADMIN_FOLDER . '/logout', 'refresh');
-
-        //     $this->ion_auth->is_admin() || redirect(ADMIN_FOLDER . '/logout');
-
-        // }
-
-        // else{
-
-        //     //redirect(ADMIN_FOLDER . '/login', 'refresh');
-
-        //     redirect(ADMIN_FOLDER . '/login');
-
+        // if(!$this->session->userdata('logged_in'))
+        // {
+        //     redirect(ADMIN_LOGIN_PATH, 'refresh');exit;
+        // }else{
+        //     redirect(FOLDER_ADMIN . '/login', 'refresh'); 
         // }
 
     }

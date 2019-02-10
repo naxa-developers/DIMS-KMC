@@ -66,6 +66,57 @@ public function do_upload($filename,$name)
   }
 }
 
+    public function file_do_uploa_audiod($filename,$name)
+    {
+        $configVideo['upload_path']          = './uploads/publication/file/';
+          $configVideo['max_size'] = '10240';
+          $configVideo['allowed_types'] = 'avi|flv|wmv|mp3|mpeg|mpg|mp4|mpe|qt|mov';
+          $configVideo['overwrite'] = FALSE;
+          $configVideo['remove_spaces'] = TRUE;
+          //$video_name = $date.$_FILES['audio']['name'];
+          $configVideo['file_name'] = $filename;
+
+          $this->load->library('upload', $configVideo);
+          $this->upload->initialize($configVideo);
+          $data = $this->upload->data();
+          //print_r($data); die;
+          $pathp = $data['full_path'];
+          // if (!$this->upload->do_upload('audio')) {
+          //     echo $this->upload->display_errors();
+          // } else {
+          //     $videoDetails = $this->upload->data();
+          //   return 1;
+          // }
+
+
+          // $field_name                     ='uploadedfile';
+          // $configVideo['upload_path']          = './uploads/publication/file/';
+          // $configVideo['allowed_types']        = 'avi|flv|wmv|mp3|mpeg|mpg|mp4|mpe|qt|mov';
+          // $configVideo['max_size']             = '202400';
+          // $configVideo['overwrite']            = TRUE;
+          // $configVideo['file_name']           = $name;
+
+          // $this->load->library('upload', $configVideo);
+          // //echo $this->display_errors(); die;
+          // $this->upload->initialize($configVideo);
+
+          if ( ! $this->upload->do_upload('audio'))
+          {
+            $error = array('error' => $this->upload->display_errors());
+            return $error;
+
+
+          }
+          else
+          {
+
+
+           return $pathp;
+
+    }
+}
+
+
 public function file_do_upload($filename,$name)
 {
 

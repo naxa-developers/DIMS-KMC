@@ -50,6 +50,13 @@ $pub_cat_en='<option value=0>ALL</option>
                       <?php if($d['type'] == "files"): ?>
                         <a href="<?php echo $d['file'] ?>"><i class="fa-files-o"></i> <?php echo   $d['title'] ?></a>
                       <?php  endif; ?>
+                      <?php if($d['type'] == "audio"): ?>
+                        <!-- <video width="320" height="240" controls>
+                          <source src="<?php echo $d['audio'];  ?>" type="video/mp4">
+                          <source src="<?php echo $d['audio'];  ?>" type="video/ogg">
+                        </video> -->
+                        <!--  <iframe width="190" height="195" src="<?php echo $d['audio'];  ?>"></iframe> -->
+                      <?php  endif; ?>
                         <div class="docdetailwrp  grow">
                             <div class="docTitle" id="<?php echo $d['id'] ?>">
                                <?php echo $d['title']?>
@@ -134,7 +141,7 @@ $pub_cat_en='<option value=0>ALL</option>
 
       var data = JSON.parse(result);
       console.log(data.length);
-    //console.log (data[0].summary);
+        //console.log (data[0].summary);
       var i;
 
       for(i=0; i<data.length; i++){

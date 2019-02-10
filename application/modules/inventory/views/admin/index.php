@@ -9,7 +9,7 @@
                   <header class="panel-heading">
                      <b><?php //echo $name ?>Inventory Category</b>
                       <span class="tools pull-right">
-                        <a href="<?php echo base_url(FOLDER_ADMIN)?>/inventory/add_inventory"><button type="submit" name="upload_data" class="btn btn-danger" style="background-color: #1fb5ad;border-color: #1fb5ad;margin-top: -7px;"><i class="fa fa-plus"></i>Add Inventory Category<?php //echo $this->lang->line('upload_csv'); ?></button></a>
+                        <a href="<?php echo base_url(FOLDER_ADMIN)?>/inventory/add_inventory"><button type="submit" name="upload_data" class="btn btn-danger" style="background-color: #1fb5ad;border-color: #1fb5ad;margin-top: -7px;"><i class="fa fa-plus"></i>Add Inventory Sub Category<?php //echo $this->lang->line('upload_csv'); ?></button></a>
                         </span>
                   </header>
                   <div class="panel-body">
@@ -44,7 +44,6 @@
 
                               </td>
                             <?php  } ?>
-                            <td><?php echo $this->lang->line('upload_csv'); ?></td>
                             <td>
                               <?php echo $this->lang->line('operation'); ?>
                             </td>
@@ -60,9 +59,9 @@
                                   ?>
                               <td><?php echo $value;?></td>
                             <?php }  ?>
-                            <td>
+                            <!-- <td>
                               <a class="btn btn-success" href="<?php echo base_url(FOLDER_ADMIN)?>/csvtable/upload_inventory_data/<?php echo ($v['id']);?>"><?php echo $this->lang->line('upload_csv'); ?></a>
-                            </td>
+                            </td> -->
                               <td>
                                 <a href="<?php echo base_url(FOLDER_ADMIN)?>/inventory/add_inventory?id=<?php echo base64_encode($v['id']);?>"><?php echo $this->lang->line('edit'); ?></a> /
                                 <a onclick="return confirm('Are you sure you want to delete?')" href="<?php echo base_url(FOLDER_ADMIN)?>/inventory/delete?id=<?php echo base64_encode($v['id']);?>"><?php echo $this->lang->line('delete'); ?></a></td>
