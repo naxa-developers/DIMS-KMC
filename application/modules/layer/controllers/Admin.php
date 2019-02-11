@@ -22,7 +22,7 @@ class Admin extends Admin_Controller {
 	    $this->body = array();
 	    $this->template
                         ->enable_parser(FALSE)
-                        ->build('admin/shapefile_upload',$this->body);
+                        ->build('layers_upload',$this->body);
 	    //code
 	    if(@$_POST["proj"]){
 	      	$tble_name=$_GET['tbl_name'];
