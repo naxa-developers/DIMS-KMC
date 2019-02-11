@@ -220,7 +220,7 @@ class Map_model extends CI_Model {
   }
  public function get_checkedcolumns_control($tbl){
 
-    $this->db->select('column_control');
+    $this->db->select('column_control,popup_content');
 
     $this->db->where('category_table',$tbl);
     $q=$this->db->get('categories_tbl');
@@ -355,7 +355,7 @@ public function get_icon(){
 
 //new model data added from here
 
-  
+
   public function get_data_geojson($d,$tbl){
     for($i=0; sizeof($d['a'])>$i; $i++){
     //$this->db->select($d['a'][$i]['col'].' AS '.  $d['a'][$i]['name']);

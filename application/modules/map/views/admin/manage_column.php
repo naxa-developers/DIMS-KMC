@@ -87,8 +87,11 @@
 
 
       }else{
-      console.log('not-checked');
-      $('.'+Class).attr('checked',false);
+        var Class = $(this).attr('id');
+    // console.log('not-checked');
+    // console.log($('#'+Class));
+    $('.'+Class).attr('checked',false);
+    $('#'+Class).attr('checked',false);
       }
 
 

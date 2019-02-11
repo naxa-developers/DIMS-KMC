@@ -121,7 +121,9 @@ $('.'+Class).attr('checked',true);
 
 }else{
 console.log('not-checked');
+var Class = $(this).attr('id');
 $('.'+Class).attr('checked',false);
+$('#'+Class).attr('checked',false);
 }
 
 
