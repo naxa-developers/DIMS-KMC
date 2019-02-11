@@ -171,12 +171,12 @@
                                                                         </label>
                                                                     </div>
 
-                                                                    <div class="checkItem">
+                                                                    <!-- <div class="checkItem">
                                                                         <label class="control control--checkbox">
                                                                             <input type="checkbox" /> Kattike Khola
                                                                             <div class="control__indicator"></div>
                                                                         </label>
-                                                                    </div>
+                                                                    </div> -->
                                                                 </div>
                                                             </div>
                                                         <?php }  } ?>
