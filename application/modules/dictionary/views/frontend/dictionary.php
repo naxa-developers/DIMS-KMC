@@ -35,9 +35,10 @@
                         <ol class="tags main">
                         <div class="row">
                     <?php } ?>
-                        <div class="col-md-3">
+                        <div class="col-md-3 detailDictionary">
                             <div class="dictonaryItem">
-                                <a href="javascript:void(0);"  data-html="true" id="popover" data-trigger="hover" data-toggle="popover" title="Meaning Of <?php echo $tag['word']; ?>" data-content="<?php echo $tag['meaning'] ?> &nbsp;&nbsp;&nbsp; <img src='<?php echo $tag['image'] ?>' width='200'/><?php echo "<br>"; echo $tag['comment']; ?>"><?php echo ucfirst($tag['word']); ?></a>
+                               <!--  <a href="javascript:void(0);"  data-html="true" id="popover" data-trigger="hover" data-toggle="popover" title="Meaning Of <?php echo $tag['word']; ?>" data-content="<?php echo $tag['meaning'] ?> &nbsp;&nbsp;&nbsp; <img src='<?php echo $tag['image'] ?>' width='200'/><?php echo "<br>"; echo $tag['comment']; ?>"><?php echo ucfirst($tag['word']); ?></a> -->
+                                <a href="javascript:void(0);"  data-html="true" id="popover" data-trigger="hover" class="dictionaryPopup" data-toggle="popover" title="Meaning Of <?php echo $tag['word']; ?>" data-content="<div><?php echo $tag['meaning'] ?></div><div class='mtb-15'><img src='<?php echo $tag['image'] ?>' width='200'/></div><div><h5>Comment</h5><?php  echo $tag['comment']; ?></div>"><?php echo ucfirst($tag['word']); ?></a>  
                             </div>
                         </div>
                     <?php if($key == count($dictionary)-1) { 
@@ -52,6 +53,6 @@
   
 </section>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-<script>$("#popover").popover({ trigger: "hover" });</script>
+<!-- <script>$("#popover").popover({ trigger: "hover" });</script> -->
 
 
