@@ -1086,6 +1086,10 @@ li.tablistc a.active:after {
   transition: all 0.4s linear;
 }
 
+.menuiconHolder  {display: flex;
+    align-items: center;}
+.menuiconHolder .btn-group{ margin-right: 15px; }
+
 .menuOverlay.menuon {
   top: 0;
 }
@@ -1610,11 +1614,14 @@ section.buttons {
   font-size: 10px;
   font-weight: bold;
 }
-
+.logoHolder{display: flex;
+    align-items: center; }
 .logoHolder a {
-  text-decoration: none;
+  text-decoration: none;color: #fff;
 }
-
+.logoHolder a.home{
+  color: #333;
+}
 .logoHolder img {
  
       max-width: 100%;
@@ -2654,5 +2661,8 @@ button.arrowbtn:focus,
   margin-top: 5px;
 }
 .tcolor{color:#333;}
+.mtb-15{margin: 15px 0px;}
 
+.popover{
+    min-width: 700px !important;}
 

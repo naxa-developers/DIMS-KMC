@@ -8,7 +8,7 @@
 
                 <button class="btn btn-primary btn-lg circularBtn ">
                     <!-- GET STARTED -->
-                    <a href="#startsection" style="text-decoration:none">
+                    <a href="#startsection" style="text-decoration:none; color:#fff">
                     <?php echo $this->lang->line('get_started');?>
                 </a>
                 </button>

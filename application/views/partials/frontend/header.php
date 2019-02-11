@@ -38,15 +38,24 @@
     <header>
         <div class="container-fluid full-height">
             <div class="row align-items-center full-height">
+                <div class="logoHolder "><a class="flex align-items-center " href="index.html"><img alt="" src="<?php echo SITE_SLOGAN_EN ?>"> </a>
+                    <div class="logotext home">
+                    <div class="toplogo"><a class="flex align-items-center home" href="<?php echo base_url() ?>">Lalitpur Metropolitian City</a></div>
+
+                    <div class="bottomlogo"><a class="flex align-items-center home" href="index.html">Disaster Management System</a></div>
+                    </div>
+                    <a class="flex align-items-center" href="index.html"> </a></div>
                 <div class="logoHolder">
-                    <?php if(SITE_SLOGAN_EN): ?>
+                   <!--  <?php if(SITE_SLOGAN_EN): ?>
                     <a href="<?php echo base_url() ?>">
                         <img src="<?php echo SITE_SLOGAN_EN ?>" alt="site logo " >
                     </a>
-                  <?php endif; ?>
+                  <?php endif; ?> -->
                 </div>
                 &nbsp;&nbsp;&nbsp;
-                <?php  $lang=$this->session->get_userdata('Language'); ?>
+               
+                <div class="menuiconHolder float-right-fx">
+                     <?php  $lang=$this->session->get_userdata('Language'); ?>
                 <div class="menuiconHolder float-right">
                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
                       <label class="btn-sm btn btn-secondary <?php if($lang['Language']=='en'){ echo"active"; } ?>  <?php if($lang['Language']=='nep'){ echo"ChangeLanguage"; } ?>"  data-language="en">
@@ -57,7 +66,6 @@
                       </label>
                     </div>
                 </div>
-                <div class="menuiconHolder float-right-fx">
                     <div class="iconholder">
                         <i class="fas fa-bars"></i>
                     </div>
@@ -105,12 +113,21 @@
     <header class="headerbg">
         <div class="container-fluid full-height">
             <div class="row align-items-center full-height">
+               <!--  <div class="logoHolder"> -->
                 <div class="logoHolder">
-                    <?php if(SITE_SLOGAN_EN): ?>
+                   <!--  <?php if(SITE_SLOGAN_EN): ?>
                     <a href="<?php echo base_url() ?>">
                         <img src="<?php echo SITE_SLOGAN_EN ?>" alt="site logo " >
                     </a>
-                  <?php endif; ?>
+                  <?php endif; ?> -->
+                  <div class="logoHolder "><a class="flex align-items-center home" href="<?php echo base_url() ?>">
+                        <?php if(SITE_SLOGAN_EN): ?><img alt="" src="<?php echo SITE_SLOGAN_EN ?>"> <?php endif; ?></a>
+                    <div class="logotext home">
+                    <div class="toplogo"><a class="flex align-items-center" href="index.html">Lalitpur Metropolitian City</a></div>
+
+                    <div class="bottomlogo"><a class="flex align-items-center" href="index.html">Disaster Management System</a></div>
+                    </div>
+                    <a class="flex align-items-center" href="index.html"> </a></div>
                 </div>
                 <div class="menuiconHolder float-right-fx">
                     <div class="iconholder">
