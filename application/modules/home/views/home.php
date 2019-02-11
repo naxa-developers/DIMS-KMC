@@ -8,7 +8,7 @@
 
                 <button class="btn btn-primary btn-lg circularBtn ">
                     <!-- GET STARTED -->
-                    <a href="#startsection" style="text-decoration:none"> 
+                    <a href="#startsection" style="text-decoration:none">
                     <?php echo $this->lang->line('get_started');?>
                 </a>
                 </button>
@@ -166,7 +166,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="listHolder">
-                        <a href="contact" class="plain">
+                        <a href="<?php echo base_url()?>contact?cat=individual" class="plain">
                             <div class="overlay">
                                 <div class="innerTitle"><?php echo $this->lang->line('contactinv'); ?></div>
                                 <p class="innerSubtitle"><?php echo $this->lang->line('contactinventory');?>.</p>
