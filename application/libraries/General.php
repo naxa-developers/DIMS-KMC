@@ -178,4 +178,11 @@ class General {
 	    $rgb= "rgba(" . $r . ", " . $g . ", " . $b . ", ". !empty($opacity)?$opacity:'' . ")";
     	return $rgb;
 	}
+
+	 public function string_limit($string,$limit)
+	{
+		$name = (strlen($string) > $limit) ? substr($string, 0, $limit) . '...' : $string;
+
+   return $name;
+	}
 }
