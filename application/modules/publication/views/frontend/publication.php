@@ -4,7 +4,7 @@
  <option value="images">इमेज</option>
  <option value="audio">Audio</option>';
 
-$pub_cat_en='<option value=0>ALL</option>
+$pub_cat_en='<option value=0>ANY</option>
  <option value="files">Files</option>
  <option value="video">Videos</option>
  <option value="images">Images</option>
@@ -22,7 +22,7 @@ $pub_cat_en='<option value=0>ALL</option>
                 <div class="selectHolder">
                     <label for="pub_cat">Select Hazard category<?php //echo !empty(PUBL_TYPE)?PUBL_TYPE:'' ?></label>
                     <select id="pub_cat" name="category">
-                      <option value=>ALL</option>
+                      <option value=>ANY</option>
                     <?php
                     if($pub){
                       foreach ($pub as $key => $value) {  ?>
@@ -49,14 +49,14 @@ $pub_cat_en='<option value=0>ALL</option>
                 <div class="selectHolder">
                     <label for="pub_cat">Select file category type<?php //echo !empty(PUBL_TYPE)?PUBL_TYPE:'' ?></label>
                     <select id="pub_cat" name="subcat">
-                      <option value=>ALL</option>
+                      <option value=>ANY</option>
                      <?php if($pub){
                       foreach ($pubcat as $key => $value) {  ?>
                       <option value="<?php echo $value['id']  ?>"><?php echo $value['name'] ?></option>
                     <?php }  } ?>
                     </select>
                 </div>
-                <button type="submit" name="submit" class="btn-primary search--btn"><?php echo !empty(SEARCH)?SEARCH:'' ?></button>
+                <button type="submit" name="submit" class="btn-primary search--btn"><?php echo SEARCH ?></button>
             </div>
             </form>
         </div>

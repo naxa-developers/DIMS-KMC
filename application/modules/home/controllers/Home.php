@@ -1,15 +1,15 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class Home extends Admin_Controller 
+class Home extends Admin_Controller
 {
 	function __construct()
-	{	
+	{
         $this->load->model('Main_model');
         $this->load->model('Upload_model');
         $this->load->model('Report_model');
         $this->load->model('home_mdl');
-        
+
 	}
-	public function index() //default_page 
+	public function index() //default_page
     {
     	$this->template->set_layout('frontend/default');
     	$this->data=array();
@@ -63,30 +63,30 @@ class Home extends Admin_Controller
 	        $data_count_cat = call_user_func_array('array_merge', $tbl_list);
 	        $this->data['data_count_cat']=$data_count_cat;
 	    $this->data['urll']=$this->uri->segment(1);
-	   
+
 
 		$this->template
 			->enable_parser(FALSE)
-			//->title($this->data['page_title']) //this is for seo purpose 
+			//->title($this->data['page_title']) //this is for seo purpose
 			->build('home', $this->data);
 	}
 	public function subscribe_form()
 	{
 		//print_r($this->input->post('email'));die;
-		
+
 		if($this->input->server('REQUEST_METHOD')=='POST')
 		{
 			$data['email']=$this->input->post('email');
 		 	$template =$this->template
 			->enable_parser(FALSE)
-			->build('subscribe_form',$data); 
+			->build('subscribe_form',$data);
 				print_r(json_encode(array('statuses'=>'success','template'=>$template)));
 	        	exit;
 		}else{
 			print_r(json_encode(array('status'=>'error','message'=>'Cannot Perform this Operation')));
 			exit;
 		}
-		
+
 	}
 	public function save_subscribe_form()
 	{
@@ -128,7 +128,7 @@ class Home extends Admin_Controller
 	}
 	public function incidentmanagement()
 	{
-	 	$this->template->set_layout('frontend/default');   
+	 	$this->template->set_layout('frontend/default');
 	    $this->data= array();
 	    $this->template
 			->enable_parser(FALSE)
@@ -136,7 +136,7 @@ class Home extends Admin_Controller
 	}
 	public function municipalprofile()
 	{
-	 	$this->template->set_layout('frontend/default');   
+	 	$this->template->set_layout('frontend/default');
 	    $this->data= array();
 	    $this->template
 			->enable_parser(FALSE)
@@ -144,8 +144,19 @@ class Home extends Admin_Controller
 	}
 	public function datacategory()
 	{
-	 	$this->template->set_layout('frontend/default');   
-	    $this->data= array();
+		$this->data= array();
+		$lang=$this->session->get_userdata('Language');
+ 			 if($lang['Language']=='en'){
+ 				 $language='en';
+ 			 }else{
+ 				 $language='nep';
+ 			 }
+		  $this->data['datacategory']=$this->general->get_tbl_data_result('id,category_name,category_photo,category_table,category_type,public_view,summary,views,download,last_updated,language','categories_tbl',array('language'=>$language),'id');
+// var_dump($this->data['datacategory']);
+// die;
+
+	 	$this->template->set_layout('frontend/default');
+	    // $this->data= array();
 	    $this->template
 			->enable_parser(FALSE)
 			->build('frontend/datacategory', $this->data);

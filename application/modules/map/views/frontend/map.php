@@ -49,7 +49,7 @@
                                             if($lang['Language']=='en') {
                                               $language='en';
                                             }else{
-                                              $language='nep'; 
+                                              $language='nep';
                                             }
                                           foreach ($categories as $key => $cat) {
                                             $layerscategorydata = $this->general->get_tbl_data_result('uplaod_type,style,category_table,category_name','categories_tbl',array('language'=>$language,'public_view'=>'1','category_type'=>$cat));
@@ -59,8 +59,8 @@
                                                     <button class="btn btn-link" type="button" data-toggle="collapse"
                                                         data-target="#collapseOne<?php echo $cat ?>" aria-expanded="true" aria-controls="collapseOne<?php echo $cat ?>">
                                                         <?php if($cat == "Hazard_Data")
-                                                        { 
-                                                            echo "Risk and Hazards"; 
+                                                        {
+                                                            echo "Risk and Hazards";
                                                         }elseif($cat == "Baseline_Data"){
                                                             echo "Baseline Datasets";
                                                         }else{
@@ -71,7 +71,7 @@
                                                 <div id="collapseOne<?php echo $cat ?>" class="collapse show" aria-labelledby="headingOne<?php echo $cat ?>"
                                                     data-parent="#sideAccordin">
                                                     <div class="card-body">
-                                                    <?php 
+                                                    <?php
                                                         if($layerscategorydata){ //echo "<pre>"; print_r($layerscategory);die;
                                                             foreach ($layerscategorydata as $key => $layer) { ?>
                                                         <?php
@@ -152,21 +152,21 @@
                                                                 <div class="listWithCheckbox">
                                                                     <div class="checkItem">
                                                                         <label class="control control--checkbox">
-                                                                            <input type="checkbox" /> Gakhu Khola
+                                                                            <input type="checkbox" /> Centre
                                                                             <div class="control__indicator"></div>
                                                                         </label>
                                                                     </div>
 
                                                                     <div class="checkItem">
                                                                         <label class="control control--checkbox">
-                                                                            <input type="checkbox" /> Demo
+                                                                            <input type="checkbox" /> Sub Centre
                                                                             <div class="control__indicator"></div>
                                                                         </label>
                                                                     </div>
 
                                                                     <div class="checkItem">
                                                                         <label class="control control--checkbox">
-                                                                            <input type="checkbox" /> Manahara Khola
+                                                                            <input type="checkbox" /> Headquater
                                                                             <div class="control__indicator"></div>
                                                                         </label>
                                                                     </div>
@@ -1572,9 +1572,9 @@
             });
         });
         $('.viewTable').on('click',function(){
-            var title= $(this).data('title');  
-            var layername= $(this).data('layername');  
-            
+            var title= $(this).data('title');
+            var layername= $(this).data('layername');
+
             $('#golobalMoadl').modal('show');
             $('#globalTitleModal').html(title);
             jQuery.ajax({
@@ -1745,9 +1745,9 @@
     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
     <script src="<?php echo base_url();?>assets/frontend/js/map.js"></script>
 
-    
+
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-       
+
 </html>

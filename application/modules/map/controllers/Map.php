@@ -13,6 +13,7 @@ class Map extends Admin_Controller
 	}
 	public function index() //default_page
     {
+
     	$this->data=array();
     	$this->body=array();
     	$this->template->set_layout('frontend/maplayout');
@@ -22,18 +23,24 @@ class Map extends Admin_Controller
 	    }else{
 	      $language='nep';
 	    }
+
       	$cat_tbl = $this->general->get_tbl_data_result('summary,category_table,popup_content,category_name,style,marker_type','categories_tbl',array('language'=>$language,'default_load'=>'1','public_view'=>'1'));
       	$this->data['layerscategory'] = $this->general->get_tbl_data_result('uplaod_type,style,category_table,category_name','categories_tbl',array('language'=>$language,'public_view'=>'1'));
       	//echo "<pre>"; print_r($this->data['layerscategory']);
-      	$this->data['cat_tbl_data'] =$this->general->get_tbl_data_result('category_table','categories_tbl',array('language'=>$language,'default_load'=>'1','public_view'=>'1'));
-	      	if($cat_tbl){
+
+				$this->data['cat_tbl_data'] =$this->general->get_tbl_data_result('category_table','categories_tbl',array('language'=>$language,'default_load'=>'1','public_view'=>'1'));
+
+					if($cat_tbl){
 	      		$summarydatafreejson =array();
 	      		$this->data['summaryFull_defalt']=array();
 	      		foreach ($cat_tbl as $key => $value) {
+
 	      			$summarydata= $this->general->get_tbl_data_result('summary,summary_list,category_table,popup_content,category_name,style,marker_type','categories_tbl',array('language'=>$language,'public_view'=>'1','category_table'=>$value['category_table']));
 		      		//echo $this->db->last_query();die;
+
 		      		$summarylist = $this->Map_model->get_summary($summarydata[0]['summary_list'],$value['category_table']);
 		      		//foreach ($summarylist as  $sdm) {
+
 		      		$summaryname = $summarydata[0]['summary'];
 		      			array_push($summarydatafreejson, trim(trim(json_encode($summarylist,JSON_NUMERIC_CHECK),'['),']"'));
 		      		$this->data['summaryFull_defalt']=json_encode($summaryname);
@@ -43,6 +50,7 @@ class Map extends Admin_Controller
 	        }else{
 	       		$summarylist ="";
 	        }
+
         $this->data['category_name']=$cat_tbl;
         $popup = array();
         $style = array();
@@ -65,10 +73,15 @@ class Map extends Admin_Controller
         $category_data = array();
         if(!empty($cat_tbles)):
 	        for($i=0; $i<sizeof($cat_tbles); $i++){
+
 	          	$data_jsn=$this->Map_model->get_jsn($cat_tbles[$i]);
+
 				$data_array=json_decode($data_jsn['column_control'],TRUE);
+
 				$report=$this->Map_model->get_data_geojson($data_array,$cat_tbles[$i]);
+
 				$get_map=$report->result_array();
+
 	          	if (isset($features_cat)){
 	            	$features_cat = array();
 	          	}
@@ -89,6 +102,8 @@ class Map extends Admin_Controller
 	          //var_dump($$category);
 	          array_push($category_data,$$category);
 	        }
+					 // var_dump($category_data);
+					 // die;
     	endif;
         $this->data['default_cat_map_layer']= json_encode($category_data, JSON_NUMERIC_CHECK);
         $this->data['summarycount']=count($summarylist);

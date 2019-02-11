@@ -61,11 +61,12 @@
                 </div>
             </div>
             <div class="col-md-8">
+            <?php   foreach($datacategory as $data) {?>
                 <div class="detailItemList card">
                     <div class="row">
                         <div class="leftHolder col">
                             <div class="iconholder">
-                                <img src="<?php echo base_url()?>assets/frontend/img/category/hospital.png" alt="">
+                                <img src="<?php echo $data['category_photo'] ?>" alt="">
                             </div>
                             <a href="">
                                 <div class="sharespan">
@@ -74,15 +75,15 @@
                             </a>
                         </div>
                         <div class="rightHolder col">
-                            <h4 class="title"> Health instutions</h4>
+                            <h4 class="title"> <?php echo $data['category_name']?> </h4>
                             <div class="subs">
                                 <div class="cdate">
                                     <i class="fa  fa-calendar"></i>
-                                    <span>12,dec,2018</span>
+                                    <span><?php echo substr($data['last_updated'], 0, strrpos($data['last_updated'], ' ')) ?></span>
                                 </div>
                                 <div class="cviews">
                                     <i class="fa  fa-eye"></i>
-                                    <span>147</span>
+                                    <span><?php echo $data['views'] ?></span>
                                 </div>
                                 <div class="ctype">
                                     <span>Type:</span>
@@ -92,15 +93,13 @@
 
                             <div class="cdesc">
 
-                                A landslide near Cusco, Peru in 2018. File:NASA Model Finds Landslide Threats in Near Real-Time During Heavy Rains.webm A
-                                NASA model has been developed to look at how potential landslide activity is changing
-                                around the world.
+                                <?php echo $data['summary'] ?>
                             </div>
                             <div class="btnholder">
                                 <a href="datacategorydetail.html">
                                     <button class="btn-primary "> View Info</button>
                                 </a>
-                                <a href="map.html">
+                                <a href="<?php echo base_url()?>map">
                                     <button class="btn-primary "> View Map</button>
                                 </a>
                                 <button class="btn-primary selectbtn ">
@@ -131,7 +130,9 @@
 
                     </div>
                 </div>
-                <div class="detailItemList card">
+<?php } ?>
+
+                <!-- <div class="detailItemList card">
                     <div class="row">
                         <div class="leftHolder col">
                             <div class="iconholder">
@@ -200,8 +201,8 @@
                         </div>
 
                     </div>
-                </div>
-                <div class="detailItemList card">
+                </div> -->
+                <!-- <div class="detailItemList card">
                     <div class="row">
                         <div class="leftHolder col">
                             <div class="iconholder">
@@ -270,7 +271,7 @@
                         </div>
 
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
