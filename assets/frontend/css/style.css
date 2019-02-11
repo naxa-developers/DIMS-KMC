@@ -2251,7 +2251,7 @@ control input {
 
 .detItemLinkWrp {
   height: 135px;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .lname {
@@ -2671,5 +2671,3 @@ button.arrowbtn:focus,
 
 .popover{
     min-width: 700px !important;}
-
-
