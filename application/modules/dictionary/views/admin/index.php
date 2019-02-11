@@ -69,7 +69,7 @@
                             <?php }  ?>
                               <td>
                                 <a href="<?php echo base_url(FOLDER_ADMIN)?>/dictionary/edit?id=<?php echo base64_encode($v['id']);?>"><?php echo $this->lang->line('edit'); ?></a> /
-                                <a onclick="return confirm('Are you sure you want to delete?')" href="<?php echo base_url(FOLDER_ADMIN)?>/dictionary/delete?id=<?php echo $v['id'];?>"><?php echo $this->lang->line('delete'); ?></a></td>
+                                <a onclick="return confirm('Are you sure you want to delete?')" href="<?php echo base_url(FOLDER_ADMIN)?>/dictionary/delete?id=<?php echo base64_encode($v['id']);?>"><?php echo $this->lang->line('delete'); ?></a></td>
                           </tr>
 
                             <div class="modal fade" id="myModal<?php echo  $v['id'];?>" role="dialog">
