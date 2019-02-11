@@ -5,6 +5,11 @@
   --title-size: 1.5rem;
 
 }
+#filter_pub .docTitle{max-width:330px;}
+.default_img{
+
+  max-width:150px;
+}
 
 .mr5 {
   margin-right: 5px;
@@ -620,7 +625,7 @@ p.infotitle {
 }
 
 .drrtabs .nav.nav-tabs li a.active,.drrtabs .nav.nav-tabs li a:hover {
-  
+
   background: #f0f0f0;
   display: block;
 }
@@ -1616,7 +1621,7 @@ section.buttons {
 }
 
 .logoHolder img {
- 
+
       max-width: 100%;
 }
 
@@ -2654,5 +2659,3 @@ button.arrowbtn:focus,
   margin-top: 5px;
 }
 .tcolor{color:#333;}
-
-
