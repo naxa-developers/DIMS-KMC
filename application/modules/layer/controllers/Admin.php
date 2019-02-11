@@ -19,6 +19,9 @@ class Admin extends Admin_Controller {
 		# code...
 	}
 	public function add_layers(){
+		$admin_type=$this->session->userdata('user_type');
+
+		$this->body['admin']=$admin_type;
 	    $this->body = array();
 	    $this->template
                         ->enable_parser(FALSE)
