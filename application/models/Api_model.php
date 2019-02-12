@@ -117,4 +117,14 @@ public function get_drr_info(){
   return false;
 }
 
+public function get_publication(){
+  $this->db->select('p.type,p.id,p.title,p.summary,p.photo,p.file,p.videolink,pc.name');
+  $this->db->from('publication as p');
+  $this->db->join('publicationcat as pc','pc.id = p.category','LEFT');
+  $query = $this->db->get();
+  return $query->result_array();
+
+
+}
+
 }//end
