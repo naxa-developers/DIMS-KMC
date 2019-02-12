@@ -154,17 +154,18 @@ class Admin extends Admin_Controller {
 	      		}else{
 	      			$file_upload['status']='';
 	      		}
-	      		//print_r($file_upload_audio); die;
-		        if($img_upload['status']== 1 || $file_upload['status']== 1  || $file_upload_audio){
+	      		
+		        if($img_upload['status']== 1 || $file_upload['status']== 1  || $file_upload_audio || $file_upload){
 		            if($img_upload['status']== 1){
-		          		$image_path=base_url() . 'uploads/publication/'.$insert.$ext;
+		          		$image_path=base_url() . 'uploads/publication/'.$insert.'.'.$ext;
 		            }else{
 		          		$image_path='';
 		          	}
-		          	if($file_upload['status']== 1) {
-		          		$file_path=base_url() . 'uploads/publication/file/'.$insert.'.'.$ext_file;
+		          	//print_r($image_path); die;
+		          	if($file_upload== 1) {
+		          		$file_pathd=base_url() . 'uploads/publication/file/'.$insert.'.'.$ext_file;
 		          	}else{
-		          		$file_path='';
+		          		$file_pathd='';
 		          	}
 		          	if($file_upload_audio) {
 		          		$file_path_audiofinal=base_url().$file_upload_audio;
@@ -173,9 +174,10 @@ class Admin extends Admin_Controller {
 		          	}
 		          	$img=array(
 			            'photo'=>$image_path,
-			            'file'=>$file_path,
+			            'file'=>$file_pathd,
 			            'audio'=>$file_path_audiofinal,
 			        );
+			        //echo "<pre>"; print_r($img);die;
 		            $update_path=$this->Publication_model->update_path($insert,$img);
 		            $this->session->set_flashdata('msg','Publication successfully added');
 		          	redirect(FOLDER_ADMIN.'/publication/view_publication');
@@ -214,65 +216,115 @@ class Admin extends Admin_Controller {
 	    $this->data['pub'] = $this->general->get_tbl_data_result('id,name','publicationcat');
 	    $this->data['pubcat'] = $this->general->get_tbl_data_result('id,name','publicationsubcat');
 	    $this->data['pubcatfiletype'] =$this->config->item('publicationFileType');
-	    if(isset($_POST['submit'])){
-	    	
-	      if( $_FILES['proj_pic']['name']==''){
-	        $data=array(
-	        	'title'=>$this->input->post('title'),
-	        	'summary'=>$this->input->post('summary'),
-	        	'type'=>$this->input->post('type'),
-	        	'subcat'=>$this->input->post('subcat'),
-	        	'category'=>$this->input->post('category'),
-	        	'videolink'=>$this->input->post('videolink'),
-	        	'lang'=>$language,
-	      	);
-	        $update=$this->Publication_model->update_data($id,$data);
-	        if($update==1){
-	          $this->session->set_flashdata('msg','Data successfully Updated');
-	          // redirect('view_publication');
-	          redirect(FOLDER_ADMIN.'/publication/view_publication');
-	        }
-	      }else{
-	        $file_name = $_FILES['proj_pic']['name'];
-	        $ext = pathinfo($file_name, PATHINFO_EXTENSION);
-	       $data=array(
-	        	'title'=>$this->input->post('title'),
-	        	'summary'=>$this->input->post('summary'),
-	        	'type'=>$this->input->post('type'),
-	        	'subcat'=>$this->input->post('subcat'),
-	        	'category'=>$this->input->post('category'),
-	        	'videolink'=>$this->input->post('videolink'),
-	        	'lang'=>$language,
-	      	);
-	        $insert=$this->Publication_model->update_data($id,$data);
-	        if($insert==1){
-	          $img_upload=$this->Publication_model->do_upload($file_name,$id);
-	          if($img_upload==1){
-	            $image_path=base_url() . 'uploads/publication/'.$id.'.'.$ext ;
-	            $img=array(
-	              'photo'=>$image_path,
-	            );
-	            $update_path=$this->Publication_model->update_path($id,$img);
-	            $this->session->set_flashdata('msg','Publication successfully Updated');
-	            // redirect('view_publication');
-	            redirect(FOLDER_ADMIN.'/publication/view_publication');
-	          }else{
-	            $code= strip_tags($img_upload['error']);
-	            $this->session->set_flashdata('msg', $code);
-	            // redirect('add_publication');
-          		redirect(FOLDER_ADMIN.'/publication/add_publication');
 
-	          }
+	    if(isset($_POST['submit'])){
+	    	//echo "<pre>"; print_r();die;
+	      	if(!empty($_FILES['proj_pic']['name']) || !empty($_FILES['uploadedfile']['name']) || !empty($_FILES['proj_pic']['name'])){
+	      		//echo "inside";die;
+		            $file_name = !empty($_FILES['proj_pic']['name'])?$_FILES['proj_pic']['name']:'';
+			      	$attachment=	!empty($_FILES['uploadedfile']['name'])?$_FILES['uploadedfile']['name']:'';
+			      	$audio=!empty($_FILES['audio']['name'])?$_FILES['audio']['name']:'';
+			      	//echo "<pre>"; print_r($audio);die;
+			    	$ext = pathinfo($file_name, PATHINFO_EXTENSION);
+			      	$ext_file = pathinfo($attachment, PATHINFO_EXTENSION);
+			      	$ext_file_audio = pathinfo($audio, PATHINFO_EXTENSION);
+			      	$old_uploadedfile  = $this->input->post('old_uploadedfile');
+			      	$old_audio  = $this->input->post('old_audio');
+			      	$old_image  = $this->input->post('old_image');
+			        $data=array(
+			        	'title'=>$this->input->post('title'),
+			        	'summary'=>$this->input->post('summary'),
+			        	'type'=>$this->input->post('type'),
+			        	'subcat'=>$this->input->post('subcat'),
+			        	'category'=>$this->input->post('category'),
+			        	'videolink'=>$this->input->post('videolink'),
+			        	'lang'=>$language,
+			      	);
+		        	$insert=$this->Publication_model->update_data($id,$data);
+			        if($insert==1){
+			        	if(!empty($audio)){
+		      			$file_upload_audio=$this->Publication_model->file_do_uploa_audiod($audio,$id);
+			      		}else{
+			      			$file_upload_audio='';
+			      		}
+			      		if(!empty($file_name)){
+			      			$img_upload=$this->Publication_model->do_upload($file_name,$id);
+			      		}else{
+			      			$img_upload['status']='';
+			      		}
+			      		if(!empty($attachment)){
+			      			$file_upload=$this->Publication_model->file_do_upload($attachment,$id);
+			      		}else{
+			      			$file_upload['status']='';
+			      		}
+				        if($img_upload['status']== 1 || $file_upload['status']== 1  || $file_upload_audio || $file_upload){
+				            if($img_upload['status']== 1){
+				            	unlink($old_image);
+				          		$image_path=base_url() . 'uploads/publication/'.$id.'.'.$ext;
+				            }else{
+				          		$image_path='';
+				          	}
+				          	//print_r($image_path); die;
+				          	if($file_upload== 1) {
+				          		unlink($old_uploadedfile);
+				          		$file_pathd=base_url() . 'uploads/publication/file/'.$id.'.'.$ext_file;
+				          	}else{
+				          		$file_pathd='';
+				          	}
+				          	if($file_upload_audio) {
+				          		unlink($old_audio);
+				          		$file_path_audiofinal=base_url().$file_upload_audio;
+				          	}else{
+				          		$file_path_audiofinal='';
+				          	}
+				        $img=array(
+				            'photo'=>$image_path,
+				            'file'=>$file_pathd,
+				            'audio'=>$file_path_audiofinal,
+				        ); 	
+				         	// 	$img_upload=$this->Publication_model->do_upload($file_name,$id);
+					        // 	if($img_upload==1){
+					        //   $image_path=base_url() . 'uploads/publication/'.$id.'.'.$ext ;
+					        //   $img=array(
+					        //     'photo'=>$image_path,
+					        //   );
+				        //echo "<pre>"; print_r($img);die;
+			            $update_path=$this->Publication_model->update_path($id,$img);
+			            $this->session->set_flashdata('msg','Publication successfully Updated');
+			            // redirect('view_publication');
+			            redirect(FOLDER_ADMIN.'/publication/view_publication');
+			          }else{
+			            $code= strip_tags($img_upload['error']);
+			            $this->session->set_flashdata('msg', $code);
+			            // redirect('add_publication');
+		          		redirect(FOLDER_ADMIN.'/publication/add_publication');
+
+			          }
+			        }else{
+			          //db error
+			        }
 	        }else{
-	          //db error
-	        }
+				$data=array(
+		        	'title'=>$this->input->post('title'),
+		        	'summary'=>$this->input->post('summary'),
+		        	'type'=>$this->input->post('type'),
+		        	'subcat'=>$this->input->post('subcat'),
+		        	'category'=>$this->input->post('category'),
+		        	'videolink'=>$this->input->post('videolink'),
+		        	'lang'=>$language
+		      	);
+		        $update=$this->Publication_model->update_data($id,$data);
+		        if($update==1){
+		          $this->session->set_flashdata('msg','Data successfully Updated');
+		          // redirect('view_publication');
+		          redirect(FOLDER_ADMIN.'/publication/view_publication');
+		        }	    
 	      }
 	    }else{
 
 	      $this->data['edit_data']=$this->Publication_model->get_edit_data(base64_decode($this->input->get('id')),'publication');
 	      //admin check
-	      //echo $this->db->last_query();die;
-	      //echo "<pre>"; print_r($this->data['pub']);die;
+	      // echo "<pre>"; print_r($this->data['edit_data']);die;
 	      $admin_type=$this->session->userdata('user_type');
 	      $this->data['admin']=$admin_type;
 	      //admin check

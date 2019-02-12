@@ -27,7 +27,6 @@ class Map extends Admin_Controller
       	$cat_tbl = $this->general->get_tbl_data_result('summary,category_table,popup_content,category_name,style,marker_type','categories_tbl',array('language'=>$language,'default_load'=>'1','public_view'=>'1'));
       	$this->data['layerscategory'] = $this->general->get_tbl_data_result('uplaod_type,style,category_table,category_name','categories_tbl',array('language'=>$language,'public_view'=>'1'));
       	//echo "<pre>"; print_r($this->data['layerscategory']);
-
 				$this->data['cat_tbl_data'] =$this->general->get_tbl_data_result('category_table','categories_tbl',array('language'=>$language,'default_load'=>'1','public_view'=>'1'));
 
 					if($cat_tbl){

@@ -60,6 +60,28 @@
                   </select>
                   <?php echo form_error('subcat'); ?>
                   </div>
+                  <?php if($edit_data['file']): ?>
+                  <div class="col-md-4" id="FileUrl">
+                    <label for="uploadedfile">Publication Attachment</label>
+                    <input type="file" name="uploadedfile"  id="exampleInputFile">
+                  </div>
+                  <div class="col-md-4" id="FileUrl">
+                    <label for="uploadedfile">Publication Attachment</label>
+                    <input type="hidden" name="old_uploadedfile"  id="exampleInputFile" value="<?php echo $edit_data['file']  ?>">
+                    <a href="<?php echo $edit_data['file']  ?>"><i class="fa fa-file fa-3x"></i></a>
+                  </div>
+                  <?php endif; ?>
+                   <?php if($edit_data['audio']): ?>
+                  <div class="col-md-4" id="AudioUrl">
+                    <label for="exampleInputFile">Publication Audio</label>
+                    <input type="file" name="old_audio"  id="exampleInputFile" >
+                  </div>
+                  <div class="col-md-4" id="AudioUrl">
+                    <label for="exampleInputFile">Old Publication Audio File name</label>
+                    <input type="hidden" name="old_audio" value="<?php echo $edit_data['audio'] ?>">
+                    <i><?php echo $edit_data['audio'] ?></i>
+                  </div>
+                <?php endif; ?>
                   <div class="col-md-4">
                     <label for="exampleInputEmail1">Title</label>
                     <input type="text" name="title" value="<?php echo $edit_data['title'] ?>"  class="form-control" id="exampleInputEmail1"  placeholder="Enter Title">
@@ -68,12 +90,6 @@
                     <label for="exampleInputEmail1">Video Url</label>
                     <textarea class="form-control" name="videolink" rows="2" cols="50" placeholder="Enter Youtube Video Url Title"><?php echo $edit_data['videolink'] ?></textarea>
                   </div>
-                  <?php if($edit_data['photo']): ?>
-                  <div class="col-md-4" id="FileUrl">
-                    <label for="uploadedfile">Publication Attachment</label>
-                    <input type="file" name="uploadedfile"  id="exampleInputFile">
-                  </div>
-                  <?php endif; ?>
                   <div class="col-sm-12">
                     <label class="control-label">Summary</label>
                     <textarea class="form-control ckeditor" name="summary" rows="10" ><?php echo $edit_data['summary'] ?></textarea>
@@ -95,7 +111,15 @@
                       </div>
                     </div>
                   </div>
+
                 <?php endif; ?>
+                  <?php if($edit_data['photo']):  ?>
+                      <div class="col-md-6">
+                          <label for="image">Old Image : </label>
+                          <img src="<?php  echo $edit_data['photo']; ?>" alt="Image Logo" height="100px" width="200px">
+                          <input type="hidden" class="btn btn-primary" id="image" name="old_image" value="<?php echo $edit_data['photo'] ?>">
+                      </div>
+                  <?php endif; ?>
                   <div class="col-md-4">
                     <label  class="control-label" for="">&nbsp;&nbsp;&nbsp;</label>
                     <button type="submit" name="submit" class="btn btn-info" style="margin-top: 15px;">Submit</button>
