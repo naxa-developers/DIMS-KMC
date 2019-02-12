@@ -19,10 +19,13 @@ class Admin extends Admin_Controller {
 		# code...
 	}
 	public function add_layers(){
+		$admin_type=$this->session->userdata('user_type');
+
+		$this->body['admin']=$admin_type;
 	    $this->body = array();
 	    $this->template
                         ->enable_parser(FALSE)
-                        ->build('admin/create_categories',$this->body);
+                        ->build('layers_upload',$this->body);
 	    //code
 	    if(@$_POST["proj"]){
 	      	$tble_name=$_GET['tbl_name'];
@@ -37,7 +40,7 @@ class Admin extends Admin_Controller {
 	          		//if (is_dir("$v/$file")) rmdir_recursive("$v/$file");
 	          		//else
 	          		unlink("$v/$file");
-	        	}	
+	        	}
 	        	rmdir($v);
 	      	}
 	      	//Creando la carpeta temporal para descomprimir el archivo

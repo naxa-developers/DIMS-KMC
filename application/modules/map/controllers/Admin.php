@@ -41,7 +41,7 @@ class Admin extends Admin_Controller {
 		// if($lang['Language'] =='nep') {
 		// 	$this->template
         //                       ->enable_parser(FALSE)
-        //                       ->build('admin/categories_tbl_nep',$this->body);	
+        //                       ->build('admin/categories_tbl_nep',$this->body);
 		// }else{
 		$this->template
                         ->enable_parser(FALSE)
@@ -135,7 +135,7 @@ class Admin extends Admin_Controller {
 	  //                       ->build('admin/categories_tbl',$this->body);
 	  //   }
     public function create_categories(){  // create categories
-    	
+
     	$this->body=array();
         if(isset($_POST['submit_cat'])){
             //echo "string"; print_r($this->input->post());die;
@@ -333,7 +333,7 @@ class Admin extends Admin_Controller {
 	            }
 	            $ab['a']=$aa;
 	            $data= array(
-	              	'popup_content'=>json_encode($ab['a']),
+	              	'popup_content'=>json_encode($ab),
 	            );
 	            //echo "<pre>"; print_r($data);die;
 	            $this->Map_model->update_popup($table,$data);
@@ -351,7 +351,7 @@ class Admin extends Admin_Controller {
             //end
         }else{
           	$tbl=$_GET['tbl'];
-          	
+
           	$this->body['tbl_name']=$this->Map_model->get_layer('categories_tbl');
           	$this->body['popup']=$this->Map_model->get_popup($tbl);
           	$this->body['table']=$tbl;
@@ -512,11 +512,11 @@ class Admin extends Admin_Controller {
     //   }
     //this is for layer create
     public function manage_column_control()
-    {   
+    {
         $this->body =array();
         if(isset($_POST['submit'])){
             if(isset($_POST['none'])){
-                echo "insdie none";echo "<pre>"; print_r($this->input->post());die;
+                // echo "insdie none";echo "<pre>"; print_r($this->input->post());die;
                 $table=$_POST['table'];
                 $data= array(
                   'column_control'=>0,
@@ -538,6 +538,10 @@ class Admin extends Admin_Controller {
                 unset($_POST['table']);
                 //echo "inside insert";echo "<pre>"; print_r($this->input->post());die;
                 //var_dump($_POST); echo $table;exit();
+								$popup_check=$this->Map_model->get_checkedcolumns_control($table);
+								// var_dump($popup_check);
+								// die;
+
                 $aa=array();
                 foreach($_POST as $row) {
                     //var_dump(json_encode($row));
@@ -549,10 +553,19 @@ class Admin extends Admin_Controller {
                     array_push($aa,$a);
                 }
                 $ab['a']=$aa;
-                $data= array(
-                    'column_control'=>json_encode($ab),
-                    'popup_content'=>json_encode($ab),
-                );
+								if($popup_check['popup_content']==NULL){
+									$data= array(
+	                    'column_control'=>json_encode($ab),
+	                    'popup_content'=>json_encode($ab),
+	                );
+								}else{
+									$data= array(
+											'column_control'=>json_encode($ab),
+
+									);
+
+								}
+
                 //echo "<pre>"; print_r($data);die;
                 $this->Map_model->update_popup($table,$data);
                 $this->session->set_flashdata('msg',$table.' Manage Column Control was successfully updated');
@@ -604,6 +617,22 @@ class Admin extends Admin_Controller {
         $col_name = $this->Map_model->col_name($tablename);
         //echo "<pre>"; print_r($col_name);die;
         $checked2=$checked1['column_control'];
+				$html="";
+				if($checked2==NULL){
+
+					for ($i=0;$i<sizeof($col_name);$i++) {
+	          $checked="checked";
+
+	        //testing for array check in html
+	        $html=$html.'<input type="checkbox" name='.$col_name[$i]["eng_lang"].'[] value='.$col_name[$i]["eng_lang"].' id = "ch'.$col_name[$i]["id"].'" class= "chbox" '.$checked.'/>'.$col_name[$i]["nepali_lang"].'<br>'.
+	          '<input type="checkbox" name='.$col_name[$i]["eng_lang"].'[] value="'.$col_name[$i]["nepali_lang"].'" class="ch'.$col_name[$i]["id"].'"   hidden '.$checked.'><br>';
+	        }
+
+				}else{
+
+
+
+
         //echo "<pre>";print_r($checked1);die;
         $checked=json_decode($checked2,TRUE);
        // print_r($checked);die;
@@ -618,7 +647,7 @@ class Admin extends Admin_Controller {
             }
           }
         }
-        $html="";
+
         if($checked2 == '0'){
           $html=$html.'<input type="checkbox" name="none" value="" checked/>None <br><br>';
         }
@@ -643,6 +672,7 @@ class Admin extends Admin_Controller {
         $html=$html.'<input type="checkbox" name='.$col_name[$i]["eng_lang"].'[] value='.$col_name[$i]["eng_lang"].' id = "ch'.$col_name[$i]["id"].'" class= "chbox" '.$checked.'/>'.$col_name[$i]["nepali_lang"].'<br>'.
           '<input type="checkbox" name='.$col_name[$i]["eng_lang"].'[] value="'.$col_name[$i]["nepali_lang"].'" class="ch'.$col_name[$i]["id"].'"   hidden '.$checked.'><br>';
         }
+			}
         echo $html;
     }
     public function location_marker(){
@@ -762,11 +792,17 @@ class Admin extends Admin_Controller {
         $tablename=$_GET['tbl'];
         $result =  $fields=$this->db->list_fields($tablename);
         $checked1 = $this->Map_model->get_checkedcolumns_control($tablename);
-            
+
           //echo"<pre>";  print_r($result);die;
-        $col_name = $this->Map_model->col_name($tablename);
+        $col_name = $checked1['column_control'];
+
+			$col_name_array=json_decode($col_name,TRUE);
+			//var_dump($col_name_array['a'][0]['col']);
+				// var_dump(sizeof($col_name_array['a']));
+				// die;
+
         //echo "<pre>"; print_r($col_name);die;
-        $checked2=$checked1['column_control'];
+        $checked2=$checked1['popup_content'];
         //echo "<pre>";print_r($checked1);die;
         $checked=json_decode($checked2,TRUE);
        // print_r($checked);die;
@@ -790,24 +826,24 @@ class Admin extends Admin_Controller {
         // }
 
 
-        for ($i=0;$i<sizeof($col_name);$i++) {
+        for ($i=0;$i<sizeof($col_name_array['a']);$i++) {
           $checked="";
           for($j=0;$j<sizeof($checked_column_array);$j++)
           {
-            if($checked_column_array[$j]== $col_name[$i]['eng_lang']){//check if the checkbox should be checked
+            if($checked_column_array[$j]== $col_name_array['a'][$i]['col']){//check if the checkbox should be checked
               $checked = "checked";
 
-            $html=$html.'<input type="checkbox" name='.$col_name[$i]["eng_lang"].'[] value='.$col_name[$i]["eng_lang"].' id = "ch'.$col_name[$i]["id"].'" class= "chbox" '.$checked.'/>'.$col_name[$i]["nepali_lang"].'<br>'.
-           '<input type="checkbox" name='.$col_name[$i]["eng_lang"].'[] value="'.$col_name[$i]["nepali_lang"].'" class="ch'.$col_name[$i]["id"].'"   hidden '.$checked.'><br>';
+           //  $html=$html.'<input type="checkbox" name='.$col_name[$i]["eng_lang"].'[] value='.$col_name[$i]["eng_lang"].' id = "ch'.$col_name[$i]["id"].'" class= "chbox" '.$checked.'/>'.$col_name[$i]["nepali_lang"].'<br>'.
+           // '<input type="checkbox" name='.$col_name[$i]["eng_lang"].'[] value="'.$col_name[$i]["nepali_lang"].'" class="ch'.$col_name[$i]["id"].'"   hidden '.$checked.'><br>';
               break;
             }
-            // else{
-            //   $checked = "";
-            // }
+            else{
+              $checked = "";
+            }
           }
         //testing for array check in html
-        // $html=$html.'<input type="checkbox" name='.$col_name[$i]["eng_lang"].'[] value='.$col_name[$i]["eng_lang"].' id = "ch'.$col_name[$i]["id"].'" class= "chbox" '.$checked.'/>'.$col_name[$i]["nepali_lang"].'<br>'.
-        //   '<input type="checkbox" name='.$col_name[$i]["eng_lang"].'[] value="'.$col_name[$i]["nepali_lang"].'" class="ch'.$col_name[$i]["id"].'"   hidden '.$checked.'><br>';
+        $html=$html.'<input type="checkbox" name='.$col_name_array['a'][$i]['col'].'[] value='.$col_name_array['a'][$i]['col'].' id = "ch'.$i.'" class= "chbox" '.$checked.'/>'.$col_name_array['a'][$i]['name'].'<br>'.
+          '<input type="checkbox" name='.$col_name_array['a'][$i]['col'].'[] value="'.$col_name_array['a'][$i]['name'].'" class="ch'.$i.'"   hidden '.$checked.'><br>';
         }
         echo $html;
     }
