@@ -122,7 +122,7 @@ public function file_do_upload($filename,$name)
 
   $field_name                     ='uploadedfile';
   $config['upload_path']          = './uploads/publication/file/';
-  $config['allowed_types']        = 'pdf';
+  $config['allowed_types']        = 'pdf|doc|docx';
   $config['max_size']             = 7000;
   $config['overwrite']            = TRUE;
   $config['file_name']           = $name;

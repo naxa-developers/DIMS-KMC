@@ -1624,7 +1624,7 @@
     var summaryFull_defaltString = '<?php echo addslashes($category_summary_default); ?>';
     var summaryFull_defalt =  JSON.parse(summaryFull_defaltString);
     // console.log(cat_names_string);
-    // console.log(summaryFull_defalt);
+     //console.log(popup_content_default);
   // console.log(popup_content_default_string);
 </script>
     <script type="text/javascript">
