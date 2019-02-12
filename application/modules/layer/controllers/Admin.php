@@ -10,6 +10,8 @@ class Admin extends Admin_Controller {
 		}
 		$this->template->set_layout('admin/default');
 		$this->load->model('Admin_dash_model');
+		$this->load->model('Layers_model');
+		$this->load->model('Dash_model');
 		$this->load->dbforge();
 		// $this->load->model('Dash_model');
 		// $this->load->model('Map_model');
@@ -19,10 +21,12 @@ class Admin extends Admin_Controller {
 		# code...
 	}
 	public function add_layers(){
+
+		 $this->body = array();
 		$admin_type=$this->session->userdata('user_type');
 
 		$this->body['admin']=$admin_type;
-	    $this->body = array();
+
 	    $this->template
                         ->enable_parser(FALSE)
                         ->build('layers_upload',$this->body);
@@ -142,7 +146,7 @@ class Admin extends Admin_Controller {
 		            );
 		          	$lang_insert=$this->Dash_model->insert_lang('tbl_lang',$data_lang);
 		        }
-	        	redirect(FOLDER_ADMIN.'map/manage_popup?tbl='.$tble_name);
+	        	redirect(FOLDER_ADMIN.'/map/manage_column_control?tbl='.$tble_name);
 	      	}
 	    }//post end
     }
