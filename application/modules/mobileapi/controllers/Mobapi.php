@@ -406,12 +406,20 @@ die;
 public function get_publication_data(){
 
   $data=$this->Api_model->get_publication();
-  $response['error'] = 0 ;
+  $response['error'] = 0;
   $response['message'] = 'Data of Publication';
   $response['data'] = $data;
   echo json_encode($response);
 }
 
+public function contact_category(){
 
+  $data=$this->Api_model->get_contact();
+  $response['error'] = 0;
+  $response['message'] = 'Tab List For Contacts';
+  $response['data'] = $data;
+  echo json_encode($response);
+
+}
 
 }//end

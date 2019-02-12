@@ -127,4 +127,13 @@ public function get_publication(){
 
 }
 
+public function get_contact(){
+
+  $this->db->select('*');
+  //$this->db->where('verify','0');
+  $query = $this->db->get('contact_categories');
+  return $query->result_array();
+
+}
+
 }//end
