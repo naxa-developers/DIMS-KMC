@@ -4204,8 +4204,8 @@ tr.odd.gradeX td.sorting_1,tr.even.gradeX td.sorting_1,table.display tr.even.gra
 #time {
     width:100%;
     color:#fff;
-    font-size:125px;
-    margin-bottom:50px;
+    font-size:68px;
+    /*margin-bottom:50px;*/
     display:inline-block;
     text-align:center;
     font-family:'Lato',sans-serif;

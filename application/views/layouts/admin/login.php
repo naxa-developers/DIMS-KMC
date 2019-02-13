@@ -28,9 +28,9 @@
 
 <body class="lock-screen" onload="startTime()">
 
-    <div class="lock-wrapper" style="overflow:hidden; position:relative;">
+    <div class="lock-wrapper" style="overflow:hidden; position:relative; margin-top: 35px;">
 
-        <div id="time" style="color:rgba(0,0,0,0.5); font-weight:300; position:relative; top:50px; object-fit:center; " ></div>
+        <div id="time" style="color:rgba(0,0,0,0.5); font-weight:300; position:relative; object-fit:center; " ></div>
 
 
         <div class="lock-box text-center">
