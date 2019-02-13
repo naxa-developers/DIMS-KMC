@@ -21,4 +21,13 @@ class Dictionary extends Admin_Controller
 			//->title($this->data['page_title']) 
 			->build('frontend/dictionary', $this->data);
 	}
+	public function ajaxAutoComplete()
+    {
+        $query = $this->input->get('query');
+        $this->db->like('word', $query);
+        $data = $this->db->get("dictionary_tbl")->result();
+
+
+        echo json_encode( $data);
+    }
 }

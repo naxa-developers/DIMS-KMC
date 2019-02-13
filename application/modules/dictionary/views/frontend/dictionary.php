@@ -1,3 +1,8 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>  
+<!-- <div class="container">
+    <input class="typeahead form-control" type="text">
+</div> -->
 <section class="searchPaneldrr">
     <div class="container">
         <div class="searchdrrouter">
@@ -56,3 +61,14 @@
 <!-- <script>$("#popover").popover({ trigger: "hover" });</script> -->
 
 
+<script type="text/javascript">
+    $('input.typeahead').typeahead({
+        source:  function (query, process) {
+        return $.get('dictionary/ajaxAutoComplete', { query: query }, function (data) {
+                console.log(data);
+                data = $.parseJSON(data);
+                return process(data);
+            });
+        }
+    });
+</script>
