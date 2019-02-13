@@ -3,7 +3,7 @@ class Dictionary extends Admin_Controller
 {
 	function __construct()
 	{	
-       
+        $this->load->model('home/home_mdl');
 	}
 	public function index()
 	{	$this->data =array();
@@ -14,6 +14,7 @@ class Dictionary extends Admin_Controller
 	      	$emerg_lang='nep'; 
 	    }
 		$this->data['dictionary'] = $this->general->get_tbl_data_result('id,image,word,meaning,comment,language','dictionary_tbl',array('language'=>$emerg_lang),'word');
+		//echo $this->db->last_query();die;
 		//echo"<pre>"; print_r($this->data['dictionary']);die;
 		$this->template->set_layout('frontend/default');
 		$this->template
@@ -23,11 +24,18 @@ class Dictionary extends Admin_Controller
 	}
 	public function ajaxAutoComplete()
     {
-        $query = $this->input->get('query');
-        $this->db->like('word', $query);
-        $data = $this->db->get("dictionary_tbl")->result();
-
-
-        echo json_encode( $data);
+    	if($this->input->server('REQUEST_METHOD')=='POST')
+		{
+			$this->data['searchdata'] = $this->home_mdl->get_searchdata();
+			//echo "<pre>";print_r($this->data['searchdata']);die;
+	       	$template = $this->template
+				->enable_parser(FALSE)
+				->build('frontend/v_autocomplete.php', $this->data);
+	        print_r(json_encode(array('status'=>'success','template'=>$template)));
+		    exit;
+		}else{
+			print_r(json_encode(array('status'=>'error','message'=>'Cannot Perform this Operation')));
+			exit;
+		}
     }
 }

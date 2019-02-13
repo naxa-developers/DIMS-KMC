@@ -105,7 +105,7 @@
                                                 <table class="table table-striped table-hover">
                                                     <thead class="tableHeader">
                                                         <?php if($catu['slug'] == 'shelter'){ ?>
-                                                        <tr>
+                                                        <tr class="tr_tbl"> 
                                                             <th scope="col"><?php echo $this->lang->line('sn') ?></th>
                                                             <th scope="col">Name<?php //echo $this->lang->line('organisationname') ?></th>
                                                             <th scope="col">Capacity<?php //echo $this->lang->line('address') ?></th>
@@ -177,7 +177,7 @@
         var  input, filter, div, tr, i ,j;
         input = document.getElementById('myInput');
         filter = input.value.toUpperCase();
-        div = document.getElementsByClassName("tab-pane");
+        //div = document.getElementsByClassName("tab-pane");
         tr = document.getElementsByClassName('tr_tbl');
         //console.log(tr);
         for(j = 0; j < tr.length; j++){

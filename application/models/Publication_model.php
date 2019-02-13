@@ -206,8 +206,8 @@ public function update_data($id,$data){
         $this->db->join('publicationcat as pc','pc.id = p.category','LEFT');
         if($keywords)
         {
-            $sql = "p.title LIKE '%" . $keywords ."%' OR p.type LIKE '%" . $keywords ."%' OR p.summary LIKE '%". $keywords."%'";
-            $this->db->where($sql);
+          $sql = "p.title LIKE '%" . $keywords ."%' OR p.type LIKE '%" . $keywords ."%' OR p.summary LIKE '%". $keywords."%'";
+          $this->db->where($sql);
         }
         if($category)
         {
