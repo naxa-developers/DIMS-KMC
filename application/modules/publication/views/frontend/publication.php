@@ -109,7 +109,7 @@ $pub_cat_en='<option value=0>ANY</option>
                                   $path=str_replace('http://kmc.naxa.com.np/','', $d['file']);
                                   $size=filesize($path);
                                   $size_kb=$size/1024;
-                                 echo $size_kb.'kB';
+                                 echo round($size_kb,3).' kB';
 
                                   ?>
                                    <!--  <a href="<?php echo base_url()?>download?file=<?php echo $d['file']?> && title=<?php echo $d['title']?>" class="btn btn-primary btn-block"><?php echo !empty(DOWNLOAD)?DOWNLOAD:'' ?> <i class="la la-download"></i></a> -->
