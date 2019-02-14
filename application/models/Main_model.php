@@ -14,6 +14,15 @@ class Main_model extends CI_Model {
 
   }
 
+public function get_categories_tab($cat){
+  $this->db->select('count(sub_cat.id) as countdata,sub_cat.category as name_id');
+  $this->db->from($cat.' as sub_cat');
+  $this->db->join('contact_categories as cate','cate.name_id=sub_cat.category','LEFT');
+
+  $this->db->group_by('sub_cat.category');
+  $q=$this->db->get();
+    return $q->result_array();
+}
 
   public function get_feature_nep()
   {

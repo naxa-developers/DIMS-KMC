@@ -105,7 +105,11 @@ $pub_cat_en='<option value=0>ANY</option>
 
 
                                 <div class="docsize">
-                                    345
+                                  <?php
+                                  $path=str_replace('http://kmc.naxa.com.np/','', $d['file']);
+                                 echo filesize($path);
+
+                                  ?>
                                    <!--  <a href="<?php echo base_url()?>download?file=<?php echo $d['file']?> && title=<?php echo $d['title']?>" class="btn btn-primary btn-block"><?php echo !empty(DOWNLOAD)?DOWNLOAD:'' ?> <i class="la la-download"></i></a> -->
                                    <i class="fa fa-download"></i>
                                 </div>

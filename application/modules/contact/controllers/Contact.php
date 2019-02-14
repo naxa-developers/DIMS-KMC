@@ -9,6 +9,11 @@ class Contact extends Admin_Controller
 	}
 	public function indexx()
 	{	$this->body=array();
+		$cat='individual_contact';
+		 	$data = $this->Main_model->get_categories_tab($cat);
+			var_dump($data);
+			die;
+
 		if($this->session->userdata('Language')==NULL){
 
       	$this->session->set_userdata('Language','nep');
@@ -51,6 +56,7 @@ class Contact extends Admin_Controller
 	public function index(){
 		$this->body=array();
 
+
 		if($this->session->userdata('Language')==NULL){
 
 				$this->session->set_userdata('Language','nep');
@@ -63,17 +69,25 @@ class Contact extends Admin_Controller
 			}
 
  $cat=$this->input->get('cat');
+ $tbl_name=$cat.'_contact';
 
 
-		$data = $this->general->get_tbl_data_result('*','contact_categories',array('category'=>$cat));
-		$this->data['sub_cat']=$data[0]['name_id'];
+// var_dump($data);
+// 		//
+// 		die;
+
+		$this->data['cat']=$cat;
 
 
-		$tbl_name=$data[0]['category'].'_contact';
+
 
 if($tbl_name=='volunteer_contact'){
+	$data = $this->general->get_tbl_data_result('*','contact_categories',array('category'=>$cat));
+	$this->data['sub_cat']=$data[0]['name_id'];
 	$this->data['data']=$this->general->get_tbl_data_result('*',$tbl_name,array('language'=>$emerg_lang));
 }else{
+$data = $this->Main_model->get_categories_tab($tbl_name);
+$this->data['sub_cat']=$data[0]['name_id'];
 $this->data['data']=$this->general->get_tbl_data_result('*',$tbl_name,array('category'=>$data[0]['name_id'],'language'=>$emerg_lang));
 
 }
@@ -81,7 +95,7 @@ $this->data['data']=$this->general->get_tbl_data_result('*',$tbl_name,array('cat
 
 		// var_dump($this->data['data']);
 		// exit();
-		$this->data['cat_contact']=$data[0]['category'];
+		$this->data['cat_contact']=$cat;
 		$this->data['data_list']=$data;
 		$this->template->set_layout('frontend/default');
 		$this->template

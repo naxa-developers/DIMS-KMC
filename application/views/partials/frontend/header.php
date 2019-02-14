@@ -26,8 +26,8 @@
  <?php } ?>
     <link rel="stylesheet" href="<?php echo base_url();?>assets/frontend/css/line-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
-    <link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.css" rel="stylesheet" />
-
+    <!-- <link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.css" rel="stylesheet" /> -->
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <!-- new css end -->
 </head>
 <!-- Bootstrap core CSS -->
@@ -53,7 +53,7 @@
                   <?php endif; ?> -->
                 </div>
                 &nbsp;&nbsp;&nbsp;
-               
+
                 <div class="menuiconHolder float-right-fx">
                      <?php  $lang=$this->session->get_userdata('Language'); ?>
                 <div class="menuiconHolder float-right">

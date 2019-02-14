@@ -1,8 +1,8 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class Publication extends Admin_Controller 
+class Publication extends Admin_Controller
 {
 	function __construct()
-	{	
+	{
         $this->load->model('Main_model');
         $this->load->model('Upload_model');
         $this->load->model('Report_model');
@@ -10,9 +10,11 @@ class Publication extends Admin_Controller
 
         $this->template->set_layout('frontend/default');
 	}
-		
+
 		public function index(){
 			$this->body=array();
+		
+
 		    $this->data['pub'] = $this->general->get_tbl_data_result('id,name','publicationcat');
 	      	$this->data['pubcat'] = $this->general->get_tbl_data_result('id,name','publicationsubcat');
 	      	$this->data['pubcatfiletype'] =$this->config->item('publicationFileType');
@@ -52,7 +54,7 @@ class Publication extends Admin_Controller
 	    if($lang['Language']=='en') {
 	      $language='en';
 	    }else{
-	      $language='nep'; 
+	      $language='nep';
 	    }
 		$this->data['publicationdata'] = $this->Publication_model->get_publication_details();
 		//echo "<pre>"; print_r($this->data['publicationdata']);die;

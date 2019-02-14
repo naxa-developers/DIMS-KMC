@@ -94,7 +94,7 @@
                 </div>
             </section>
         </footer>
-        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+        <!-- <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script> -->
 
         <script src="<?php echo base_url();?>assets/frontend/js/bootstrap.min.js"></script>
         <script src="<?php echo base_url();?>assets/frontend/js/slick.min.js"></script>
@@ -102,13 +102,13 @@
         <script type="text/javascript" src="<?php echo base_url()?>assets/frontend/js/validation.error.messages.js"></script><script type="text/javascript" src="<?php echo base_url()?>assets/frontend/js/jquery.form.js"></script>
         <script src="<?php echo base_url();?>assets/frontend/js/scriptall.js"></script>
         <script src="<?php echo base_url();?>assets/frontend/js/jquery.jConveyorTicker.min.js"></script>
-        <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
-        <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+        <!-- <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
         <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
-        <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
-        
+        <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script> -->
+
        <!--  <script>
-            $('#popover').popover(); 
+            $('#popover').popover();
             $("#popover").popover({ trigger: "hover" });
         </script> -->
         <script>
@@ -315,8 +315,10 @@
                         }
                     });
                 });
+
+
             });
-            
+          
        </script>
     </body>
 </html>

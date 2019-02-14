@@ -1,7 +1,7 @@
 <div class="tab-content">
     <div id="first" class="tab-pane   fade in show   active">
         <div class="table-responsive">
-            <table class="table table-striped table-hover">
+            <table class="table table-striped table-hover" id="contact_table_db">
                 <thead class="tableHeader">
                     <tr>
 
@@ -43,3 +43,15 @@
 
 
     </div>
+
+    <script>
+    $(document).ready(function() {
+      $('#contact_table_db').DataTable({
+
+            "paging":   true,
+            "ordering": true,
+            "searching":false,
+            "info":     false
+            });
+    } );
+    </script>

@@ -89,7 +89,7 @@
                 <div class="selectHolder">
                     <label for="">Category</label>
                     <select id="contact_category">
-                        <option>Select Category</option>
+                        <option value="<?php echo $cat ?>"><?php echo ucfirst($cat)?></option>
                         <option value="individual">Indiviual</option>
                         <option value="organization">Organization</option>
                         <option value="volunteer">Volunteer</option>
@@ -106,7 +106,7 @@
                     </select>
                 </div> -->
 
-                <button class="btn-primary search--btn"> SEARCH</button>
+                <!-- <button class="btn-primary search--btn"> SEARCH</button> -->
             </div>
         </div>
     </section>
@@ -122,13 +122,18 @@
 
 
                             ?>
-                        <li class="<?php if($key+1=='1'){echo'active' ;} ?> tablistc flex align-items-center contact_tab" id="<?php echo $list['name_id'] ?>" name="<?php echo $list['category']?>">
+                        <li class="<?php if($key+1=='1'){echo'active' ;} ?> tablistc flex align-items-center contact_tab" id="<?php echo $list['name_id'] ?>" name="<?php echo $cat_contact?>">
                             <a data-toggle="tab" href="#first" class="<?php if($key+1=='1'){echo 'active' ;}?> flex nodec bold  f14 uppercase">
                                 <div class="grow tabinner">
                                     <i class="la la-user-secret"></i>
-                                    <span class="uppercase"><?php echo $list['name'] ?></span>
+                                    <span class="uppercase"><?php echo ucfirst(str_replace("_"," ",$list['name_id'])) ?></span>
                                 </div>
-                                <div class="itemCount">3</div>
+                                <?php if($list['name_id']=='volunteer'){?>
+                                  <div class="itemCount"><?php echo count($data) ?></div>
+                                <?php }else{ ?>
+                                  <div class="itemCount"><?php echo $list['countdata'] ?></div>
+
+                                <?php } ?>
                             </a>
                         </li>
 
@@ -141,7 +146,7 @@
                     <div class="tab-content">
                         <div id="first" class="tab-pane   fade in show   active">
                             <div class="table-responsive">
-                                <table class="table table-striped table-hover">
+                                <table class="table table-striped table-hover" id="contact_table_db">
                                     <thead class="tableHeader">
                                         <tr>
 
@@ -264,5 +269,15 @@
     }
 
 }
+
+$(document).ready(function() {
+  $('#contact_table_db').DataTable({
+
+        "paging":   true,
+        "ordering": false,
+        "searching":false,
+        "info":     false
+        });
+} );
 
 </script>
