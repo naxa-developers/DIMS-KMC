@@ -24,9 +24,11 @@ class Home_mdl extends CI_Model {
  	}
  	public function get_searchdata() {
     $keyword=$this->input->post('keyword');        
-    $this->db->order_by('id', 'DESC');
-    $this->db->like("word", $keyword);
+    //$this->db->order_by('id', 'DESC');
+    //$this->db->like("word", $keyword);
     //$sql = "word LIKE '%" . $keywords;
-    return $this->db->get('dictionary_tbl')->result();
+    $qry = $this->db->select('*')->from('dictionary_tbl')
+    ->where("word LIKE '$keyword%'")->get();
+    return $qry->result();
   }
 }

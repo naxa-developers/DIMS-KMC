@@ -10,16 +10,17 @@
 <?php if($searchdata):
 
 foreach ($searchdata as $key => $value) { ?>
-<li class="list-group-item" data-id="<?php echo $value->id; ?>">
-    <div class='row'>
-        <div class='col-md-12'>
+<li class="list-group-item findClickedItemData" data-id="<?php echo base64_encode($value->id); ?>">
+    <div class='row'> 
+        <a href='javascript:void(0);'>
+            <div class='col-md-12'>
             <div class='media-left media-middle'>
-                <a href='javascript:void(0);' class="findClickedItem" data-id="<?php echo $value->id; ?>">
-                    <img class='media-object img-circle' src='<?php echo $value->image; ?>' height="40px"></a>
+                <img class='media-object img-circle '  src='<?php echo $value->image; ?>' height="40px">
             </div>
             <div id='center'>
                <?php echo $value->word ?>
             </div>
+        </a>
         </div>
     </div>
 </li>

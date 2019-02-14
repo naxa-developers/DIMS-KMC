@@ -3,8 +3,8 @@
         <ul class="linkbuttons nav nav-pills navtop">
             <?php if($catgegory) :
             foreach ($catgegory as $key => $cat) {  ?>
-            <li class="nav-item">
-                <a class="nav-link <?php if($key+1 == '1') { echo "active"; } ?>" href="#menu1<?php echo $cat['slug']; ?>" data-toggle="tab">
+            <li class="nav-item<?php echo $key+1; ?>">
+                <a class="nav-link <?php if($key+1 == '1') { echo "active"; } ?> CatchName" data-name="<?php echo $cat['name']; ?>" href="#menu1<?php echo $cat['slug']; ?>" data-toggle="tab">
                     <div class="btn-item <?php if($key+1 == '1') { echo "active"; } ?>">
                         <img src="<?php echo $cat['image'];  ?>" alt="<?php echo $cat['name']; ?>">
                     </div>
@@ -52,7 +52,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-4">
-                                <ul class="nav nav-tabs ptb40">
+                                <ul class="nav nav-tabs<?php echo $key+1; ?> ptb40">
                                     <?php 
                                     $subcatdata = $this->inventory_mdl->count_oinventory_data($language,array('subcat'=>$catu['id']));
                                     //echo $this->db->last_query();die;
@@ -90,7 +90,7 @@
                                 <section class="searchpanel inner searchinventory">
                                     <div class="search flex contactSearch">
                                         <div class="inputholder grow">
-                                            <input class="search--input form-control" id="myInput"  placeholder="<?php echo  SEARCH ?>" type="search" onkeyup="myFunction()">
+                                            <input class="search--input form-control" name="terminology" id="myInput"  placeholder="<?php echo  SEARCH ?>" type="search" onkeyup="myFunction1()">
                                         </div>
                                         <button class="btn-primary search--btn"><?php echo  SEARCH ?></button>
                                     </div>
@@ -100,12 +100,13 @@
                                    foreach ($subcatdata as $kg => $invdt){
                                     $invensub = $this->general->get_tbl_data_result('id,orgname,address,phone,contactperson,email,capacity,remarks,wardno,builtby','inventory',array('category'=>$invdt['id'],'language'=>$language,'subcat'=>$catu['id'])); 
                                     if($invensub){ ?>
+
                                         <div id="first_<?php echo $invdt['slug']; ?>" class="tab-pane   fade <?php if($kg+1 == "1"){ echo "in show active"; } ?>">
                                             <div class="table-responsive">
                                                 <table class="table table-striped table-hover">
                                                     <thead class="tableHeader">
                                                         <?php// if($catu['slug'] == 'shelter'){ ?>
-                                                        <tr class="tr_tbl"> 
+                                                        <tr> 
                                                             <th scope="col"><?php echo $this->lang->line('sn') ?></th>
                                                             <th scope="col">Name<?php //echo $this->lang->line('organisationname') ?></th>
                                                             <th scope="col"><?php if($catu['slug'] == 'shelter'){echo "Capacity"; }else{ echo "Quantity"; } ?></th>
@@ -121,7 +122,7 @@
                                                     <tbody>
                                                         <?php $i=1;
                                                          foreach ($invensub as $key => $ivd) { ?>
-                                                        <tr class="tr_tbl">
+                                                        <tr class="tr_tbl<?php echo $key+1; ?>">
                                                             <th  id="<?php echo $ivd['id'] ?>id" scope="row"><?php  echo $i; ?></th>
                                                             <td  id="<?php echo $ivd['id'] ?>orgname"><?php  echo $ivd['orgname']; ?></td>
                                                             <td  id="<?php echo $ivd['id'] ?>orgnames"><?php  echo $ivd['capacity']; ?></td>
@@ -158,14 +159,39 @@
     </div>
 </div>
 <script type="text/javascript">
-    $(".nav-tabs").tabdrop();
-        function myFunction() { 
+    
+    $(".nav-tabs1").tabdrop();
+        function myFunction1() { 
         // Declare variables
         var  input, filter, div, tr, i ,j;
         input = document.getElementById('myInput');
         filter = input.value.toUpperCase();
         //div = document.getElementsByClassName("tab-pane");
-        tr = document.getElementsByClassName('tr_tbl');
+        tr = document.getElementsByClassName('tr_tbl1');
+        //console.log(tr);
+        for(j = 0; j < tr.length; j++){
+            //console.log(tr);
+            var closeit = 0;
+            for (i = 0; i < tr[j].children.length; i++) {
+                var td = tr[j].children[i];
+                if(closeit == 0){
+                  $("#"+td.id).parent().css('display','none');
+                }
+                if ((td.innerText.toUpperCase().indexOf(filter) > -1) && closeit == 0) {
+                    $("#"+td.id).parent().css('display','');
+                    closeit = 1;
+                }
+            }
+        }
+    }
+    $(".nav-tabs2").tabdrop();
+        function myFunction2() { 
+        // Declare variables
+        var  input, filter, div, tr, i ,j;
+        input = document.getElementById('myInput');
+        filter = input.value.toUpperCase();
+        //div = document.getElementsByClassName("tab-pane");
+        tr = document.getElementsByClassName('tr_tbl2');
         //console.log(tr);
         for(j = 0; j < tr.length; j++){
             //console.log(tr);

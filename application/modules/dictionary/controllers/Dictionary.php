@@ -13,7 +13,13 @@ class Dictionary extends Admin_Controller
 	    }else{
 	      	$emerg_lang='nep'; 
 	    }
-		$this->data['dictionary'] = $this->general->get_tbl_data_result('id,image,word,meaning,comment,language','dictionary_tbl',array('language'=>$emerg_lang),'word');
+	    $q = $this->input->get('query');
+	    if($q) {
+	    	$this->data['dictionary'] = $this->general->get_tbl_data_result('id,image,word,meaning,comment,language','dictionary_tbl',array('language'=>$emerg_lang,'id'=>base64_decode($q)),'word');
+	    }else{
+	    	$this->data['dictionary'] = $this->general->get_tbl_data_result('id,image,word,meaning,comment,language','dictionary_tbl',array('language'=>$emerg_lang),'word');
+	    }
+		
 		//echo $this->db->last_query();die;
 		//echo"<pre>"; print_r($this->data['dictionary']);die;
 		$this->template->set_layout('frontend/default');
@@ -31,8 +37,13 @@ class Dictionary extends Admin_Controller
 	       	$template = $this->template
 				->enable_parser(FALSE)
 				->build('frontend/v_autocomplete.php', $this->data);
-	        print_r(json_encode(array('status'=>'success','template'=>$template)));
-		    exit;
+			if(!empty($this->data['searchdata'])){
+		        print_r(json_encode(array('status'=>'success','template'=>$template)));
+			    exit;
+			}else{
+				print_r(json_encode(array('status'=>'success','template'=>'<label class="alert alert-success">No Matching Data Found Please Try Others !!!!! </label>')));
+			    exit;
+			}
 		}else{
 			print_r(json_encode(array('status'=>'error','message'=>'Cannot Perform this Operation')));
 			exit;

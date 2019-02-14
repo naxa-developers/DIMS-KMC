@@ -106,9 +106,13 @@
         <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
         <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
         <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
-
-
+        
+       <!--  <script>
+            $('#popover').popover(); 
+            $("#popover").popover({ trigger: "hover" });
+        </script> -->
         <script>
+
             $(function () {
                 $('.ticker').jConveyorTicker({
                     anim_duration: 800
@@ -233,6 +237,16 @@
         });
         </script>
         <script type="text/javascript">
+            $(document).off('click','.CatchName');
+            $(document).on('click','.CatchName',function(){
+                var name = $(this).data('name');
+                if(name == "food") {
+                    //$("#myInput").attr("onkeyup", "functionPrakash()");
+                    document.getElementsByName("terminology")[0].addEventListener("keyup", function(event) {
+                        validate_numb("terminology")
+                    });
+                }
+            });
             $('.ChangeLanguage').on('click',function(e) {
                 var url  = window.location.href;
                 var language=$(this).data('language'); //alert(language);
@@ -302,26 +316,7 @@
                     });
                 });
             });
-            $('.findClickedItem').on('click',function(){
-            //$('.findClickedItem').on('click',function(e) {
-                var cat=$(this).data('id');alert(cat);
-                var action="<?php echo base_url() ?>/home/change_language";
-                // $.ajax({
-                // type: "POST",
-                // url: action,
-                // dataType: 'html',
-                //     data: {language:language},
-                //     success: function(jsons)
-                //     {
-                //      data = jQuery.parseJSON(jsons);
-                //       if(data.status=='success'){
-                //         setTimeout(function(){
-                //         window.location.href = url;
-                //          }, 500);
-                //       }
-                //   }
-                // });
-            });
+            
        </script>
     </body>
 </html>
