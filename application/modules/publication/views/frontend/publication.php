@@ -78,14 +78,10 @@ $pub_cat_en='<option value=0>ANY</option>
                         <iframe width="190" height="195" src="<?php echo $d['videolink'];  ?>"></iframe>
                       <?php  endif; ?>
                       <?php if($d['type'] == "files"): ?>
-                        <a href="<?php echo $d['file'] ?>"><i class="fa-files-o"></i><img class="default_img" src="<?php echo base_url()?>/uploads/doc.png" alt="<?php echo $d['title']?>"</a>
+                        <a href="<?php echo $d['file'] ?>"><i class="fa-files-o"></i><img class="default_img" src="<?php echo base_url()?>/uploads/doc.png" alt="<?php echo $d['title']?>"></a>
                       <?php  endif; ?>
                       <?php if($d['type'] == "audio"): ?>
-                        <!-- <video width="320" height="240" controls>
-                          <source src="<?php echo $d['audio'];  ?>" type="video/mp4">
-                          <source src="<?php echo $d['audio'];  ?>" type="video/ogg">
-                        </video> -->
-                        <!--  <iframe width="190" height="195" src="<?php echo $d['audio'];  ?>"></iframe> -->
+
                       <?php  endif; ?>
                         <div class="docdetailwrp  grow">
                             <div class="docTitle" id="<?php echo $d['id'] ?>">
@@ -107,13 +103,20 @@ $pub_cat_en='<option value=0>ANY</option>
                                 <div class="docsize">
                                   <?php
                                   $path=str_replace('http://kmc.naxa.com.np/','', $d['file']);
-                                  $size=filesize($path);
-                                  $size_kb=$size/1024;
-                                 echo round($size_kb).' kB';
+                                  if(file_exists($path)){
+                                    $size=filesize($path);
+                                    $size_kb=$size/1024;
+                                   echo round($size_kb).' kB';
+                                   $link= base_url().'/publication/download?file='.$d['file'].'&& title='.$d['title'];
+                                 }else{
+                                   echo '0 KB';
+                                   $link='#';
+                                 }
+
 
                                   ?>
-                                   <!--  <a href="<?php echo base_url()?>download?file=<?php echo $d['file']?> && title=<?php echo $d['title']?>" class="btn btn-primary btn-block"><?php echo !empty(DOWNLOAD)?DOWNLOAD:'' ?> <i class="la la-download"></i></a> -->
-                                   <i class="fa fa-download"></i>
+                                    <a href="<?php  echo $link ?>"><?php echo !empty(DOWNLOAD)?DOWNLOAD:'' ?> <i class="fa fa-download"></i></a>
+                                   <!-- <i class="fa fa-download"></i> -->
                                 </div>
                                   <?php endif; ?>
                                 <a href="<?php echo base_url()?>/publication/details/?id=<?php echo base64_encode($d['id']);?>" >

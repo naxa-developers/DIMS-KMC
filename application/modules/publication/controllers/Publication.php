@@ -13,7 +13,7 @@ class Publication extends Admin_Controller
 
 		public function index(){
 			$this->body=array();
-		
+
 
 		    $this->data['pub'] = $this->general->get_tbl_data_result('id,name','publicationcat');
 	      	$this->data['pubcat'] = $this->general->get_tbl_data_result('id,name','publicationsubcat');
@@ -48,6 +48,7 @@ class Publication extends Admin_Controller
 				->enable_parser(FALSE)
 				->build('frontend/publication', $this->data);
     }
+
     public function details()
     {
     	$lang=$this->session->get_userdata('Language');
@@ -62,4 +63,13 @@ class Publication extends Admin_Controller
 				->enable_parser(FALSE)
 				->build('frontend/publicationdetails', $this->data);
     }
+
+		public function download(){
+			$file=$this->input->get('file');
+			$name=$this->input->get('title').'.pdf';
+			$this->load->helper('download');
+			$data=file_get_contents($file);
+			force_download($name,$data);
+
+		}
 }
