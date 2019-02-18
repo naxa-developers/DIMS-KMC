@@ -436,12 +436,12 @@
         </div>
 
     </div>
-    <script src="<?php echo base_url();?>assets/frontend/newjs/sc.js "></script>
+   
     <script src="<?php echo base_url();?>assets/frontend/newjs/scriptall.js"></script>
-    <script src="https://code.highcharts.com/highcharts.js "></script>
+    <!-- <script src="https://code.highcharts.com/highcharts.js "></script>
     <script src="https://code.highcharts.com/modules/exporting.js "></script>
     <script src="https://code.highcharts.com/modules/export-data.js "></script>
-    <script src="<?php echo base_url();?>assets/frontend/newjs/allchart.js"></script>
+    <script src="<?php echo base_url();?>assets/frontend/newjs/allchart.js"></script> -->
 <script>
         $(document).ready(function () {
             $('body').addClass("hidden ");

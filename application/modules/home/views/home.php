@@ -191,7 +191,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="listHolder">
-                        <a href="#" class="plain">
+                        <a href="<?php echo base_url() ?>/whodoes" class="plain">
                             <div class="overlay">
                                 <div class="innerTitle"><?php echo $this->lang->line('whodoeswhat');?></div>
                                 <p class="innerSubtitle"><?php echo $this->lang->line('whodoeswhatdetails');?></p>
