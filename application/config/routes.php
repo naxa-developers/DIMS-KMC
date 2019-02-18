@@ -66,6 +66,13 @@ $route['home'] = 'home/index';
 $route['incidentmanagement'] = 'home/incidentmanagement';
 $route['municipalprofile'] = 'home/municipalprofile';
 $route['datacategory'] = 'home/datacategory';
+$route['riskprofile'] = 'home/riskprofile';
+$route['electedrepresentative'] = 'home/electedrepresentative';
+$route['whodoes'] = 'home/whodoes';
+$route['whodoes-details'] = 'home/whodoes_details';
+$route['incidentreportmap'] = 'home/incidentreportmap';
+
+
 
 
 

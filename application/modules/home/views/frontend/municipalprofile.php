@@ -1,363 +1,12 @@
-<!-- <section class="searchpanel">
-        <div class="container">
-
-
-            <div class="search flex contactSearch">
-
-                <div class="selectHolder grow">
-                    <label for="">Category</label>
-                    <select>
-                        <option value="volvo">Municipal</option>
-                        <option value="volvo">Ward no 7</option>
-                        <option value="saab">ward no 8</option>
-                        <option value="mercedes">Ward no 9</option>
-                        <option value="audi">Ward no 10 </option>
-                    </select>
-                </div>
-
-
-                <button class="btn-primary search--btn"> Filter</button>
-            </div>
-        </div>
-    </section>
-
-
-    <section class="contactlist">
-        <div class="container">
-
-            <div class="row">
-                <div class="col-md-4">
-                    <ul class="nav nav-tabs ptb40">
-
-                        <li class="active  tablistc flex align-items-center ">
-
-                            <a data-toggle="tab" href="#first" class=" flex nodec bold active f14 uppercase">
-                                <div class="grow tabinner">
-
-                                    <span class="uppercase">जननिर्वाचित प्रतिनिधि</span>
-
-                                </div>
-
-                            </a>
-                        </li>
-                        <li class="active  tablistc flex align-items-center ">
-
-                            <a data-toggle="tab" href="#second" class=" flex nodec bold f14 uppercase">
-                                <div class="grow tabinner">
-
-                                    <span class="uppercase">सामान्य जानकारी</span>
-
-                                </div>
-
-                            </a>
-                        </li>
-                        <li class="active  tablistc flex align-items-center ">
-
-                            <a data-toggle="tab" href="#third" class=" flex nodec bold f14 uppercase">
-                                <div class="grow tabinner">
-
-                                    <span class="uppercase">वार्ड कर्मचारीहरू</span>
-
-                                </div>
-
-                            </a>
-                        </li>
-                        <li class="active  tablistc flex align-items-center ">
-
-                            <a data-toggle="tab" href="#fourth" class=" flex nodec bold f14 uppercase">
-                                <div class="grow tabinner">
-
-                                    <span class="uppercase">वार्ड निर्वाचित प्रतिनिधि</span>
-
-                                </div>
-
-                            </a>
-                        </li>
-                        <li class="active  tablistc flex align-items-center ">
-
-                            <a data-toggle="tab" href="#fourth" class=" flex nodec bold f14 uppercase">
-                                <div class="grow tabinner">
-
-                                    <span class="uppercase">जोखिम प्रोफाइल</span>
-
-                                </div>
-
-                            </a>
-                        </li>
-                        <li class="active  tablistc flex align-items-center ">
-
-                            <a data-toggle="tab" href="#fourth" class=" flex nodec bold f14 uppercase">
-                                <div class="grow tabinner">
-
-                                    <span class="uppercase">वार्ड नक्साहरू</span>
-
-                                </div>
-
-                            </a>
-                        </li>
-
-                    </ul>
-                </div>
-
-                <div class="col-md-8">
-
-                    <div class="tab-content">
-                        <div id="first" class="tab-pane   fade in show   active">
-                            <div class="row members">
-                                <div class="col-md-3">
-                                    <div class="imageHolder">
-                                        <img src="<?php echo base_url()?>assets/frontend/img/municipal/yogesh.jpg" alt="">
-                                    </div>
-                                    <div class="name">
-                                        भिम ढुंगाना 
-                                    </div>
-                                    <div class="deg">
-                                        नगरपालिका प्रमुख
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="imageHolder">
-                                        <img src="<?php echo base_url()?>assets/frontend/img/municipal/gita.jpg" alt="">
-                                    </div>
-                                    <div class="name">
-                                        गिता शर्मा 
-                                    </div>
-                                    <div class="deg">
-                                        नगरपालिका उप प्रमुख
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="imageHolder">
-                                        <img src="<?php echo base_url()?>assets/frontend/img/municipal/shyam.jpg" alt="">
-                                    </div>
-                                    <div class="name">
-                                         श्याम श्रेष्ठ 
-                                    </div>
-                                    <div class="deg">
-                                        वार्ड सदस्य
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="imageHolder">
-                                        <img src="<?php echo base_url()?>assets/frontend/img/municipal/kripa.jpg" alt="">
-                                    </div>
-                                    <div class="name">
-                                       कृपा लम्साल
-                                    </div>
-                                    <div class="deg">
-                                       वार्ड सदस्य
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="imageHolder">
-                                        <img src="<?php echo base_url()?>assets/frontend/img/municipal/krishna.jpg" alt="">
-                                    </div>
-                                    <div class="name">
-                                        कृष्णा शर्मा
-                                    </div>
-                                    <div class="deg">
-                                        वार्ड सदस्य
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="second" class="tab-pane fade">
-                            <div class="table-responsive">
-                                <table class="table table-striped table-hover  ">
-                                    <thead class="tableHeader">
-                                        <tr>
-                                           <th scope="col">क्र.स</th>
-                                            <th scope="col">संस्था को  नाम</th>
-                                            <th scope="col">ठेगाना</th>
-                                            <th scope="col">फोन नम्बर </th>
-                                            <th scope="col">सम्पर्क व्यक्ति</th>
-                                            <th scope="col">इमेल</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                             <td>नेपाल स्थानीय सरकार</td>
-                                            <td>अनामनगर - २</td>
-                                            <td>०१-१००००००</td>
-                                            <td>सुमित्रा दार्जी</td>
-                                            <td>sumitra@gmail.com</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                           <td>नेपाल स्थानीय सरकार</td>
-                                            <td>अनामनगर - २</td>
-                                            <td>०१-१००००००</td>
-                                            <td>सुमित्रा दार्जी</td>
-                                            <td>sumitra@gmail.com</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                           <td>नेपाल स्थानीय सरकार</td>
-                                            <td>अनामनगर - २</td>
-                                            <td>०१-१००००००</td>
-                                            <td>सुमित्रा दार्जी</td>
-                                            <td>sumitra@gmail.com</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">4</th>
-                                            <td>नेपाल स्थानीय सरकार</td>
-                                            <td>अनामनगर - २</td>
-                                            <td>०१-१००००००</td>
-                                            <td>सुमित्रा दार्जी</td>
-                                            <td>sumitra@gmail.com</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">5</th>
-                                           <td>नेपाल स्थानीय सरकार</td>
-                                            <td>अनामनगर - २</td>
-                                            <td>०१-१००००००</td>
-                                            <td>सुमित्रा दार्जी</td>
-                                            <td>sumitra@gmail.com</td>
-                                        </tr>
-
-
-                                    </tbody>
-                                </table>
-                            </div>
-
-                        </div>
-                        <div id="third" class="tab-pane fade">
-                            <div class="table-responsive">
-                                <table class="table table-striped table-hover ">
-                                    <thead class="tableHeader">
-                                        <tr>
-                                           <th scope="col">क्र.स</th>
-                                            <th scope="col">संस्था को  नाम</th>
-                                            <th scope="col">ठेगाना</th>
-                                            <th scope="col">फोन नम्बर </th>
-                                            <th scope="col">सम्पर्क व्यक्ति</th>
-                                            <th scope="col">इमेल</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                       <tr>
-                                            <th scope="row">1</th>
-                                            <td>वार्ड कार्यालय</td>
-                                            <td>गोंगबु- १२ </td>
-                                            <td>०१-१०००१०१०</td>
-                                            <td>जय बहादुर खड्का</td>
-                                            <td>jayabahadur@gmail.com</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                             <td>वार्ड कार्यालय</td>
-                                            <td>गोंगबु- १२ </td>
-                                            <td>०१-१००००००</td>
-                                            <td>रमेश पौडेल </td>
-                                            <td>rameshP@gmail.com</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td>वार्ड कार्यालय</td>
-                                            <td>गोंगबु- १२ </td>
-                                            <td>०१-१००००००</td>
-                                            <td>रमेश पौडेल </td>
-                                            <td>rameshP@gmail.com</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">4</th>
-                                             <td>वार्ड कार्यालय</td>
-                                            <td>गोंगबु- १२ </td>
-                                            <td>०१-१००००००</td>
-                                            <td>रमेश पौडेल </td>
-                                            <td>rameshP@gmail.com</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">5</th>
-                                            <td>वार्ड कार्यालय</td>
-                                            <td>गोंगबु- १२ </td>
-                                            <td>०१-१००००००</td>
-                                            <td>रमेश पौडेल </td>
-                                            <td>rameshP@gmail.com</td>
-                                        </tr>
-
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div id="fourth" class="tab-pane fade">
-                            <div class="table-responsive">
-                                <table class="table table-striped table-hover  ">
-                                    <thead class="tableHeader">
-                                        <tr>
-                                           <th scope="col">क्र.स</th>
-                                            <th scope="col">संस्था को  नाम</th>
-                                            <th scope="col">ठेगाना</th>
-                                            <th scope="col">फोन नम्बर </th>
-                                            <th scope="col">सम्पर्क व्यक्ति</th>
-                                            <th scope="col">इमेल</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                         <tr>
-                                            <th scope="row">1</th>
-                                            <td>प्रहरी स्टेशन</td>
-                                            <td>अनामनगर - २</td>
-                                            <td>०१-१००००००</td>
-                                            <td>रमेश पौडेल </td>
-                                            <td>rameshP@gmail.com</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                             <td>प्रहरी स्टेशन</td>
-                                            <td>अनामनगर - २</td>
-                                            <td>०१-१००००००</td>
-                                            <td>रमेश पौडेल </td>
-                                            <td>rameshP@gmail.com</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                             <td>प्रहरी स्टेशन</td>
-                                            <td>अनामनगर - २</td>
-                                            <td>०१-१००००००</td>
-                                            <td>रमेश पौडेल </td>
-                                            <td>rameshP@gmail.com</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">4</th>
-                                             <td>प्रहरी स्टेशन</td>
-                                            <td>अनामनगर - २</td>
-                                            <td>०१-१००००००</td>
-                                            <td>रमेश पौडेल </td>
-                                            <td>rameshP@gmail.com</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">5</th>
-                                             <td>प्रहरी स्टेशन</td>
-                                            <td>अनामनगर - २</td>
-                                            <td>०१-१००००००</td>
-                                            <td>रमेश पौडेल </td>
-                                            <td>rameshP@gmail.com</td>
-                                        </tr>
-
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-
-
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-<section class="linkbtn">
+<link rel="stylesheet" href="<?php echo base_url();?>assets/frontend/newcss/style.css">
+<link href="<?php echo base_url();?>assets/frontend/newcss/nice-select.css" rel="stylesheet">
+    <section class="linkbtn">
         <div class="container">
             <div class="topbtnHolder">
                 <div class="btnHolderItems activelink">
-                    <a class="nodec tcolor" href="municipalprofile.html">
+                    <a class="nodec tcolor" href="<?php echo base_url() ?>municipalprofile">
                         <div class="imgholder">
-                            <img src="<?php echo base_url()?>assets/frontend/img/assets/stastics.png" alt="">
+                            <img src="<?php echo base_url() ?>assets/img/stastics.png" alt="">
                         </div>
                         <div class="label">
                             Stastical Profile
@@ -366,9 +15,9 @@
                     </a>
                 </div>
                 <div class="btnHolderItems">
-                    <a class="nodec tcolor" href="electedrepresentative.html">
+                    <a class="nodec tcolor" href="<?php echo base_url() ?>electedrepresentative">
                         <div class="imgholder">
-                            <img src="<?php echo base_url()?>assets/frontend/img/assets/wardrepresentative.png" alt="">
+                            <img src="<?php echo base_url() ?>assets/img/wardrepresentative.png" alt="">
                         </div>
                         <div class="label">
                             Elected Representative
@@ -380,7 +29,7 @@
                 <div class="btnHolderItems">
                     <a class="nodec tcolor" href="">
                         <div class="imgholder">
-                            <img src="<?php echo base_url()?>assets/frontend/img/assets/wardmembers.png" alt="">
+                            <img src="<?php echo base_url() ?>assets/img/wardmembers.png" alt="">
                         </div>
                         <div class="label">
                             Ward Staff
@@ -392,7 +41,7 @@
                 <div class="btnHolderItems">
                     <a class="nodec tcolor" href="">
                         <div class="imgholder">
-                            <img src="<?php echo base_url()?>assets/frontend/img/assets/wmap.png" alt="">
+                            <img src="<?php echo base_url() ?>assets/img/wmap.png" alt="">
                         </div>
                         <div class="label">
                             Ward Map
@@ -402,9 +51,9 @@
 
                 </div>
                 <div class="btnHolderItems">
-                    <a class="nodec tcolor" href="">
+                    <a class="nodec tcolor" href="<?php echo base_url() ?>riskprofile">
                         <div class="imgholder">
-                            <img src="<?php echo base_url()?>assets/frontend/img/assets/riskstat.png" alt="">
+                            <img src="<?php echo base_url() ?>assets/img/riskstat.png" alt="">
                         </div>
                         <div class="label">
                             Risk Profile
@@ -416,90 +65,324 @@
             </div>
         </div>
     </section>
-    <section class="headerCounts">
+    <section class="profile-banner" style="background:url(img/map/satelite.png)">
+        <div class="overlay"></div>
         <div class="container">
-            <div class="selectHolder   flex">
-                <div>
-                    <h4 class="title"> Municipal Data</h4>
-                </div>
-                <div>
-                    <label for="">Change Data</label>
-                    <select>
-                        <option value="volvo">Municipal</option>
-                        <option value="volvo">Ward no 7</option>
-                        <option value="saab">ward no 8</option>
-                        <option value="mercedes">Ward no 9</option>
-                        <option value="audi">Ward no 10 </option>
-                    </select>
-                </div>
+            <div class="pfsearch">
+                <h4>Municipal Data</h4>
+                <form>
+                    <div class="form-group">
+                        <select class="niceSelect">
+                            <option selected>Choose municipality</option>
+                            <option>Changu Narayan</option>
+                            <option>Bhaktpur</option>
+                            <option>Nagarjun</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select class="niceSelect">
+                            <option selected>Choose ward</option>
+                            <option>ward no 1</option>
+                            <option>Ward no 2</option>
+                            <option>Ward no 3</option>
+                        </select>
+                    </div>
+                </form>
             </div>
-            <div class="cntinner">
-
+        </div>
+        <div class="countwrap">
+            <div class="container">
                 <div class="row">
-                    <div class="col-md-3">
-                        <div class="flex column">
-                            <div class="cnttitle">Total Population</div>
-                            <div class="cntval">14,000</div>
+                    <div class="col-lg-8">
+                        <div class="profile-count">
+                            <ul>
+                                <li>
+                                    <div class="content">
+                                        <div class="pf-icon">
+                                            <i class="la la-users"></i>
+                                        </div>
+                                        <div class="text">
+                                            <h4>Total Population</h4>
+                                            <h3>14000</h3>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="content">
+                                        <div class="pf-icon">
+                                            <i class="la la-female"></i>
+                                        </div>
+                                        <div class="text">
+                                            <h4>Total Female</h4>
+                                            <h3>9000</h3>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="content">
+                                        <div class="pf-icon">
+                                            <i class="la la-male"></i>
+                                        </div>
+                                        <div class="text">
+                                            <h4>Total Male</h4>
+                                            <h3>5000</h3>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="content">
+                                        <div class="pf-icon">
+                                            <i class="la la-area-chart"></i>
+                                        </div>
+                                        <div class="text">
+                                            <h4>Total Area</h4>
+                                            <h3>14000</h3>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="content">
+                                        <div class="pf-icon">
+                                            <i class="la la-building"></i>
+                                        </div>
+                                        <div class="text">
+                                            <h4>Total Houses</h4>
+                                            <h3>14000</h3>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="content">
+                                        <div class="pf-icon">
+                                            <i class="la la-users"></i>
+                                        </div>
+                                        <div class="text">
+                                            <h4>Total Literate</h4>
+                                            <h3>14000</h3>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="content">
+                                        <div class="pf-icon">
+                                            <i class="la la-wheelchair"></i>
+                                        </div>
+                                        <div class="text">
+                                            <h4>Total Disable</h4>
+                                            <h3>14000</h3>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="content">
+                                        <div class="pf-icon">
+                                            <i class="la la-user"></i>
+                                        </div>
+                                        <div class="text">
+                                            <h4>Economically Active</h4>
+                                            <h3>14000</h3>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="flex column">
-                            <div class="cnttitle">Total Houses</div>
-                            <div class="cntval">100</div>
+                    <div class="col-lg-4">
+                        <div class="mapcount">
+                            <div id="mappf" style="height:250px;"></div>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="flex column">
-                            <div class="cnttitle">Total Family</div>
-                            <div class="cntval">58,000</div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="flex column">
-                            <div class="cnttitle">Total Hospitals</div>
-                            <div class="cntval">91,000</div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>
+
     </section>
-
-
-    <section class="searchpanel">
+    <section class="pfselect">
         <div class="container">
+            <div class="mapform">
+                <form>
+                    <div class="form-group">
+                        <label for="">Search</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search your project" aria-label="Search your project"
+                                aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="basic-addon2"><i class="la la-search"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="">Select Location</label>
+                        <select class="niceSelect">
+                            <option selected>Location</option>
+                            <optgroup label="Nagarjun">
+                                <option>ward no 1</option>
+                                <option>ward no 2</option>
+                                <option>ward no 3</option>
+                                <option>ward no 4</option>
+                                <option>ward no 5</option>
+                                <option>ward no 6</option>
+                            </optgroup>
+                            <optgroup label="Kathmandu">
+                                <option>ward no 1</option>
+                                <option>ward no 2</option>
+                                <option>ward no 3</option>
+                                <option>ward no 4</option>
+                                <option>ward no 5</option>
+                                <option>ward no 6</option>
+                            </optgroup>
+                            <optgroup label="Pokhara">
+                                <option>ward no 1</option>
+                                <option>ward no 2</option>
+                                <option>ward no 3</option>
+                                <option>ward no 4</option>
+                                <option>ward no 5</option>
+                                <option>ward no 6</option>
+                            </optgroup>
+                            
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Select indicatior</label>
+                        <select class="niceSelect">
+                            <option selected>Select indicator</option>
+                            <optgroup label="Population dynamics">
+                                <option>Total population</option>
+                                <option>Female population</option>
+                                <option>Male population</option>
+                                <option>Popul Density</option>
+                            </optgroup>
+                            <optgroup label="Education">
+                                <option>Literacy rate</option>
+                                <option>Literate population</option>
+                            </optgroup>
+                            <optgroup label="Health">
+                                <option>Total health institution</option>
+                                
+                            </optgroup>
+                            <optgroup label="Houshold">
+                                <option>Type of houses</option>
+                            </optgroup>
+                            <optgroup label="Econmic Activity">
+                                <option>Percentage of employed</option>
+                                <option>Percentage of unemployed</option>
+                                <option></option>
+                            </optgroup>
+                            <optgroup label="Gender">
+                                <option>household with female ownership in land</option>
+                                <option></option>
+                            </optgroup>
+                            <optgroup label="Agriculture">
+                                <option>Distribution of Agricultural land</option>
+                                <option>Ratio of agricultural and holding</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Select subindicatior</label>
+                        <select class="niceSelect">
+                            <option selected>Select subindicator</option>
+                                <option>Total population</option>
+                                <option>Female population</option>
+                                <option>Male population</option>
+                                <option>Popul Density</option>
+                                <option>Literacy rate</option>
+                                <option>Literate population</option>
+                                <option>Total health institution</option>
+                                <option>Type of houses</option>
+                            </optgroup>
+                                <option>Percentage of employed</option>
+                                <option>Percentage of unemployed</option>
+                                <option>household with female ownership in land</option>
+                            
+                                <option>Distribution of Agricultural land</option>
+                                <option>Ratio of agricultural and holding</option>
+                            
+                        </select>
+                    </div>
+                    <div class="form-group compare-group">
+                        <label for="">Compare</label>
+                        <select class="compare-select niceSelect">
+                            <option selected>compare</option>
+                            <option>any two ward </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-naxa">Filter</button>
+                    </div>
 
-
-            <div class="search flex contactSearch">
-                <div class="inputholder grow">
-                    <label for="">Search</label>
-                    <input class="search--input " placeholder="Enter to search..." type="text">
+                </form>
+                <div class="compare-form">
+                    <div class="compare-close"><i class="la la-close"></i></div>
+                    <form>
+                        <div class="form-group naxa-group">
+                            <label>municipality 1</label>
+                            <select class="">
+                                <option selected>Location</option>
+                                <optgroup label="Nagarjun">
+                                    <option>ward no 1</option>
+                                    <option>ward no 2</option>
+                                    <option>ward no 3</option>
+                                    <option>ward no 4</option>
+                                    <option>ward no 5</option>
+                                    <option>ward no 6</option>
+                                </optgroup>
+                                <optgroup label="Kathmandu">
+                                    <option>ward no 1</option>
+                                    <option>ward no 2</option>
+                                    <option>ward no 3</option>
+                                    <option>ward no 4</option>
+                                    <option>ward no 5</option>
+                                    <option>ward no 6</option>
+                                </optgroup>
+                                <optgroup label="Pokhara">
+                                    <option>ward no 1</option>
+                                    <option>ward no 2</option>
+                                    <option>ward no 3</option>
+                                    <option>ward no 4</option>
+                                    <option>ward no 5</option>
+                                    <option>ward no 6</option>
+                                </optgroup>
+                
+                            </select>
+                        </div>
+                        <div class="form-group naxa-group">
+                            <label>municipality 2</label>
+                            <select class="">
+                                <option selected>Location</option>
+                                <optgroup label="Nagarjun">
+                                    <option>ward no 1</option>
+                                    <option>ward no 2</option>
+                                    <option>ward no 3</option>
+                                    <option>ward no 4</option>
+                                    <option>ward no 5</option>
+                                    <option>ward no 6</option>
+                                </optgroup>
+                                <optgroup label="Kathmandu">
+                                    <option>ward no 1</option>
+                                    <option>ward no 2</option>
+                                    <option>ward no 3</option>
+                                    <option>ward no 4</option>
+                                    <option>ward no 5</option>
+                                    <option>ward no 6</option>
+                                </optgroup>
+                                <optgroup label="Pokhara">
+                                    <option>ward no 1</option>
+                                    <option>ward no 2</option>
+                                    <option>ward no 3</option>
+                                    <option>ward no 4</option>
+                                    <option>ward no 5</option>
+                                    <option>ward no 6</option>
+                                </optgroup>
+                
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn naxa-btn">Compare</button>
+                        </div>
+                    </form>
                 </div>
-
-                <div class="selectHolder ">
-                    <label for="">Select Sector</label>
-                    <select>
-                        <option value="volvo">Municipal</option>
-                        <option value="volvo">Ward no 7</option>
-                        <option value="saab">ward no 8</option>
-                        <option value="mercedes">Ward no 9</option>
-                        <option value="audi">Ward no 10 </option>
-                    </select>
-                </div>
-                <div class="selectHolder ">
-                    <label for="">Select Indicator</label>
-                    <select>
-                        <option value="volvo">Total Population</option>
-                        <option value="volvo">Sex Ratio</option>
-                        <option value="saab">Total Household</option>
-                        <option value="mercedes">Toilet Facilities
-                        </option>
-                    </select>
-                </div>
-
-
-                <button class="btn-primary search--btn"> Filter</button>
             </div>
         </div>
     </section>
@@ -541,6 +424,61 @@
             </div>
         </div>
     </section>
-     <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+
+     <script src="https:code.highcharts.com/highcharts.js"></script>
+    <script src="https:code.highcharts.com/modules/exporting.js"></script>
+    <script src="https:code.highcharts.com/modules/export-data.js"></script> 
+
+    <script src="<?php echo base_url();?>assets/frontend/newjs/chartpage.js"></script>
+<!-- this is for munclipal profile -->
+    <script src="<?php echo base_url();?>assets/frontend/newjs/chartpage.js"></script>
+    <script src="<?php echo base_url();?>assets/frontend/newjs/scriptall.js"></script>
+    <script src="<?php echo base_url();?>assets/frontend/newjs/jquery.nice-select.min.js"></script>
+    <!-- <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+        crossorigin=""></script>  -->   
+    <Script>
+
+        $(document).ready(function () {
+            var map = L.map('mappf').setView([27.709686, 85.300140], 6);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+
+            var markers = [
+                (35.949635, -83.936129),
+
+            ];
+
+            // var polygon = L.polygon([
+            //         [51.509, -0.08],
+            //         [51.503, -0.06],
+            //         [51.51, -0.047]
+            //     ]).addTo(mymap);
+
+            var popup = L.popup();
+
+            function onMapClick(e) {
+                popup
+                    .setLatLng(e.latlng)
+                    .setContent("You clicked the map at " + e.latlng.toString())
+                    .openOn(map);
+            }
+
+            markers.on('click', onMapClick);
+
+
+
+        });
+        $(document).ready(function () {
+            $(".projectwrap").niceScroll({
+                cursorcolor: '#673BB7',
+                cursorborder: 'none',
+                cursormaxheight: 300,
+                // autohidemode: 'leave'
+            });
+        })
+
+    </Script>

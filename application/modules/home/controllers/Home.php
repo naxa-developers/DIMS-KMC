@@ -134,6 +134,15 @@ class Home extends Admin_Controller
 			->enable_parser(FALSE)
 			->build('frontend/incidentmanagement', $this->data);
 	}
+	
+	public function incidentreportmap()
+	{
+	 	$this->template->set_layout('frontend/default');
+	    $this->data= array();
+	    $this->template
+			->enable_parser(FALSE)
+			->build('frontend/incidentreportmap', $this->data);
+	}
 	public function municipalprofile()
 	{
 	 	$this->template->set_layout('frontend/default');
@@ -141,6 +150,39 @@ class Home extends Admin_Controller
 	    $this->template
 			->enable_parser(FALSE)
 			->build('frontend/municipalprofile', $this->data);
+	}
+	public function whodoes()
+	{
+		$this->template->set_layout('frontend/default');
+	    $this->data= array();
+	    $this->template
+			->enable_parser(FALSE)
+			->build('frontend/whodoes', $this->data);
+	}
+	
+	public function whodoes_details()
+	{
+		$this->template->set_layout('frontend/default');
+	    $this->data= array();
+	    $this->template
+			->enable_parser(FALSE)
+			->build('frontend/whodoes_details', $this->data);
+	}
+	public function electedrepresentative()
+	{
+		$this->template->set_layout('frontend/default');
+	    $this->data= array();
+	    $this->template
+			->enable_parser(FALSE)
+			->build('frontend/electedrepresentative', $this->data);
+	}
+	public function riskprofile()
+	{
+		$this->template->set_layout('frontend/default');
+	    $this->data= array();
+	    $this->template
+			->enable_parser(FALSE)
+			->build('frontend/riskprofile', $this->data);
 	}
 	public function datacategory()
 	{
@@ -152,8 +194,8 @@ class Home extends Admin_Controller
  				 $language='nep';
  			 }
 		  $this->data['datacategory']=$this->general->get_tbl_data_result('id,category_name,category_photo,category_table,category_type,public_view,summary,views,download,last_updated,language','categories_tbl',array('language'=>$language),'id');
-// var_dump($this->data['datacategory']);
-// die;
+			// var_dump($this->data['datacategory']);
+			// die;
 
 	 	$this->template->set_layout('frontend/default');
 	    // $this->data= array();
