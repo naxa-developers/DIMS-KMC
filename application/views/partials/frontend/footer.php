@@ -98,6 +98,7 @@
 
         <script src="<?php echo base_url();?>assets/frontend/js/bootstrap.min.js"></script>
         <script src="<?php echo base_url();?>assets/frontend/js/slick.min.js"></script>
+        <script src="<?php echo base_url();?>assets/frontend/js/jquery.nicescroll.min.js"></script>
         <script src="<?php echo base_url();?>assets/frontend/js/jquery.nice-select.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url()?>assets/frontend/js/validate.js"></script>
         <script type="text/javascript" src="<?php echo base_url()?>assets/frontend/js/validation.error.messages.js"></script><script type="text/javascript" src="<?php echo base_url()?>assets/frontend/js/jquery.form.js"></script>

@@ -3616,6 +3616,75 @@ a{
 
 }
 
+/********  Alert  ********/
+
+.alerts {
+  position: fixed;
+  right: 0px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  z-index: 9999;
+  overflow: hidden;
+}
+.alert-btn {
+  width: 50px;
+  height: 50px;
+  background:var(--primary-color);
+  text-align: center;
+  line-height: 50px;
+  font-size: 1.5rem;
+  position: relative;
+  float: left;
+  cursor: pointer;
+  color:#fff;
+}
+.a-count {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  color: #fff;
+  background: #f93525;
+  display: block;
+  font-size: 0.775rem;
+  line-height: 20px;
+  font-weight: 500;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  box-shadow: 0 0 3px rgba(0,0,0,.3);
+}
+ul.alerts-list {
+  padding: 0;
+  margin: 0;
+  float: left;
+  width: 400px;
+  background: #fff;
+  padding: 10px;
+  list-style: none;
+  display: none;
+  height: 200px;
+}
+ul.alerts-list li {
+  background: #d33030;
+  margin-bottom: 20px;
+  padding: 10px;
+  color: #fff;
+}
+ul.alerts-list li:last-child {
+  margin: 0px;
+}
+ul.alerts-list li p {
+    font-size: 0.875rem;
+    font-weight: 300;
+    margin-bottom: 0;
+}
+ul.alerts-list li label {
+  font-weight: 600;
+  margin-right: 5px;
+  margin-bottom: 0;
+}
+
 @media screen and (max-width:1200px){
 .hero::after{
     display: block;

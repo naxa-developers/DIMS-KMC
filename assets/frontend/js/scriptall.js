@@ -60,5 +60,12 @@ $(document).ready(function () {
         $(this).width(each_bar_width + '%');
     });
 
+    // ------- Alert Button ------- //
+    if ($('#alert-btn').length) {
+        $('#alert-btn').on("click", function() {
+            $('.alerts-list').toggle("slow");
+        });
+    }
+
 });
  

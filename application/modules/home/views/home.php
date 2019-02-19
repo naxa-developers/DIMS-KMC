@@ -1,4 +1,23 @@
-
+        <!--Alerts Start-->
+        <div class="alerts">
+          <div id="alert-btn" class="alert-btn">
+            <span class="a-count">2</span> 
+            <i class="la la-bell-o" aria-hidden="true"></i>
+          </div>
+          <ul class="alerts-list">
+            <li>
+              <p><label>Name :</label>Naxa pvt.ltd</p>
+              <p><label>Blood Group :</label>A</p>
+              <p>Management of citizen reports on disaster incidents and civic issues. </p>
+            </li>
+            <li>
+              <p><label>Name :</label>Naxa pvt.ltd</p>
+              <p><label>Blood Group :</label>A</p>
+              <p>Management of citizen reports on disaster incidents and civic issues. </p>
+            </li>
+          </ul>
+        </div>
+        <!--Alerts End--> 
         <div class="container">
             <div class="titleInfo">
                 <h3>
@@ -613,7 +632,7 @@
           <img src="<?php echo base_url();?>assets/frontend/img/assets/shape.png" alt="">
       </div>
   </section>
-<!-- <script>
+<script>
    $(document).ready(function(){
       bannerHeight();
           window.onresize = function(event) {
@@ -833,22 +852,22 @@ if($baseline_data){
   </a>
 <?php } ?>
 <script type="text/javascript">
-  $("#started").click(function() {
-      $('html, body').animate({
-          scrollTop: $("#nextDiv").offset().top
-      }, 1000);
-  });
+  // $("#started").click(function() {
+  //     $('html, body').animate({
+  //         scrollTop: $("#nextDiv").offset().top
+  //     }, 1000);
+  // });
   $(document).ready(function(){
     if ($.fn.niceScroll) {
-        $(".scrolling-wrap").niceScroll({
+        $(".alerts-list").niceScroll({
             cursorcolor: "#2057af",
             cursorborder: "0px solid #fff",
             cursorborderradius: "0px",
-            cursorwidth: "8px"
+            cursorwidth: "4px"
         });
-        $(".scrolling-wrap").getNiceScroll().resize();
-        $(".scrolling-wrap").getNiceScroll().show();
+        $(".alerts-list").getNiceScroll().resize();
+        $(".alerts-list").getNiceScroll().show();
     }
   });
 </script>
- -->
+
