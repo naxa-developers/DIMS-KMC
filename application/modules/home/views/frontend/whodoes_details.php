@@ -8,7 +8,7 @@
 
             <div class="row">
                 
-                    <div class="col-md-3">
+                    <div class="col-lg-3 col-md-4">
                         <ul class="nav nav-tabs">
                     
                             <li class="active  tablistc flex align-items-center ">
@@ -33,7 +33,7 @@
                         </ul>
                     </div>
                     
-                    <div class="col-md-9">
+                    <div class="col-lg-9 col-md-8">
                     
                         <div class="tab-content">
                             <div id="first" class="tab-pane   fade in show   active">
