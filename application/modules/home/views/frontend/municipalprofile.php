@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="<?php echo base_url();?>assets/frontend/newcss/style.css">
-<link href="<?php echo base_url();?>assets/frontend/newcss/nice-select.css" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+            crossorigin="" />
     <section class="linkbtn">
         <div class="container">
             <div class="topbtnHolder">
@@ -65,7 +65,7 @@
             </div>
         </div>
     </section>
-    <section class="profile-banner" style="background:url(img/map/satelite.png)">
+    <section class="profile-banner" style="background:url(assets/frontend/img/satelite.png)">
         <div class="overlay"></div>
         <div class="container">
             <div class="pfsearch">
@@ -433,10 +433,8 @@
     <script src="<?php echo base_url();?>assets/frontend/newjs/chartpage.js"></script>
 <!-- this is for munclipal profile -->
     <script src="<?php echo base_url();?>assets/frontend/newjs/chartpage.js"></script>
-    <script src="<?php echo base_url();?>assets/frontend/newjs/scriptall.js"></script>
-    <script src="<?php echo base_url();?>assets/frontend/newjs/jquery.nice-select.min.js"></script>
-    <!-- <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
-        crossorigin=""></script>  -->   
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+        crossorigin=""></script>    
     <Script>
 
         $(document).ready(function () {

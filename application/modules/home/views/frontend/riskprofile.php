@@ -68,7 +68,7 @@
             </div>
         </div>
     </section>
- <section class="profile-banner" style="background:url(img/map/satelite.png)">
+ <section class="profile-banner" style="background:url(assets/frontend/img/satelite.png)">
         <div class="overlay"></div>
         <div class="container">
             <div class="pfsearch">

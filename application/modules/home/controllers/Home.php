@@ -159,7 +159,14 @@ class Home extends Admin_Controller
 			->enable_parser(FALSE)
 			->build('frontend/whodoes', $this->data);
 	}
-	
+	public function tets()
+	{
+		$this->template->set_layout('frontend/default');
+	    $this->data= array();
+	    $this->template
+			->enable_parser(FALSE)
+			->build('frontend/test', $this->data);
+	}
 	public function whodoes_details()
 	{
 		$this->template->set_layout('frontend/default');

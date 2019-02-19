@@ -23,67 +23,67 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-4">
-                            <div class="texts">
-                                 <div class="download">
-                                    ABOUT PROJECT
+                            <div class="footer-widget">
+                                <div class="ft-title">
+                                   <h3> <a href="#">About Project</a></h3> 
                                 </div>
-                                <div class="download">
-                                    DOWNLOAD APP
+                                <div class="text">
+                                    <p>The healthcare sector consists of companies that provide medical services. The healthcare sector consists of companies that provide medical services consists of companies</p>
+                                    <div class="read-more">
+                                        <a href="#" class="btn">Read more</a>
+                                    </div>
                                 </div>
-                                <div class="sdnld">
-                                    DIMS ANROID APP
+                            </div>
+                            
+                        </div>
+                        <div class="col-md-5">
+
+                            <div class="footer-widget">
+                                <div class="ft-title">
+                                    <h3><a href="#">OUR NEWS LETTER</a></h3>
                                 </div>
+                                <!-- <div class="sdnld">
+                                  <?php echo !empty(SUBSCRIBE)?SUBSCRIBE:'' ?>
+                                </div> -->
+                                <div class="suscribeholder">
+                                    <form  id="subscribeForm" class="search-hotels__form" method="POST" action="<?php //echo base_url();?>">
+                                        <input class="suscribe" type="email" name="email" placeholder="<?php echo !empty(EMAIL)?EMAIL:''?>">
+                                        <button id="subscribeButton" class="suscribeBtn" data-title="Subscribe Form"> <?php echo !empty(SUBSCRIBE_BTN)?SUBSCRIBE_BTN:'' ?></button>
+                                    </form>
+                                </div>
+                                <div class="ft-social">
+                                    <h4>Our social network</h4>
+                                    <?php if(FACEBOOK): ?>
+                                    <a href="<?php echo FACEBOOK ?>">
+                                        <i class="la la-twitter"></i>
+                                    </a>
+                                    <?php endif; if(TWITTER): ?>
+                                    <a href="<?php echo TWITTER ?>">
+                                        <i class="la la-facebook"></i>
+                                    </a>
+                                    <?php endif; if(GOOGLE): ?>
+                                    <a href="?php echo GOOGLE ?>">
+                                        <i class="la la-youtube"></i>
+                                    </a>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="footer-widget">
+                                <div class="ft-title">
+                                    <h3><a href="#">DIMS ANROID APP</a></h3>
+                                </div>
+                                <div class="texts">
                                 <div class="icons">
                                     <a href="">
                                         <img src="<?php echo base_url();?>assets/frontend/img/assets/googleplay.png" alt="">
                                     </a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-5">
-
-                            <div class="download">
-                                SIGN UP
                             </div>
-                            <div class="sdnld">
-                              <?php echo !empty(SUBSCRIBE)?SUBSCRIBE:'' ?>
-                            </div>
-                            <div class="suscribeholder">
-                                <form  id="subscribeForm" class="search-hotels__form" method="POST" action="<?php //echo base_url();?>">
-                                    <input class="suscribe" type="email" name="email" placeholder="<?php echo !empty(EMAIL)?EMAIL:''?>">
-                                    <button id="subscribeButton" class="suscribeBtn" data-title="Subscribe Form"> <?php echo !empty(SUBSCRIBE_BTN)?SUBSCRIBE_BTN:'' ?></button>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="download">
-                                FOLLOW
-                            </div>
-                            <div class="sdnld">
-                                OUR SOCIAL NETWORK
-                            </div>
-                            <?php if(FACEBOOK): ?>
-                            <div class="links">
-                                <a href="<?php echo FACEBOOK ?>">
-                                    <i class="fab fa-facebook"></i>
-                                    <span>Facebook</span>
-                                </a>
-                            </div>
-                            <?php endif; if(TWITTER): ?>
-                            <div class="links">
-                                <a href="<?php echo TWITTER ?>">
-                                    <i class="fab fa-twitter"></i>
-                                    <span>Twitter</span>
-                                </a>
-                            </div>
-                        <?php endif; if(GOOGLE): ?>
-                            <div class="links">
-                                <a href="<?php echo GOOGLE ?>">
-                                    <i class="fab fa-youtube"></i>
-                                    <span>Youtube</span>
-                                </a>
-                            </div>
-                        <?php endif; ?>
+                        
+                            
                         </div>
                     </div>
                 </div>
@@ -98,6 +98,7 @@
 
         <script src="<?php echo base_url();?>assets/frontend/js/bootstrap.min.js"></script>
         <script src="<?php echo base_url();?>assets/frontend/js/slick.min.js"></script>
+        <script src="<?php echo base_url();?>assets/frontend/js/jquery.nice-select.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url()?>assets/frontend/js/validate.js"></script>
         <script type="text/javascript" src="<?php echo base_url()?>assets/frontend/js/validation.error.messages.js"></script><script type="text/javascript" src="<?php echo base_url()?>assets/frontend/js/jquery.form.js"></script>
         <script src="<?php echo base_url();?>assets/frontend/js/scriptall.js"></script>

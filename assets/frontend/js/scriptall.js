@@ -1,8 +1,9 @@
+
 $(document).ready(function () {
     var g = false;
     $(".close,.iconholder").click(function () {
 
-        $(".menuOverlay,body").toggleClass("menuon");
+        $(".menuOverlay").toggleClass("open");
 
     })
     $("#searhddr").click(function () {
@@ -35,8 +36,29 @@ $(document).ready(function () {
             $(".insideBtn").removeClass("showdiv");
         }
     });
+    
+    $('.compare-select').change(function() {
+        $(".compare-form").addClass("open");
+    });
+    $('.compare-close').on('click',function () {
+        $(".compare-form").removeClass("open");
+    });
 
+    
+        $(window).on('scroll', function () {
+            if ($(this).scrollTop() > 100) {
+                $('header').addClass('affix');
+            } else {
+                $('header').removeClass('affix');
+            }
+        });
 
+    $('.niceSelect').niceSelect();
 
+    $(".progress-bar").each(function () {
+        each_bar_width = $(this).attr('aria-valuenow');
+        $(this).width(each_bar_width + '%');
+    });
 
 });
+ 

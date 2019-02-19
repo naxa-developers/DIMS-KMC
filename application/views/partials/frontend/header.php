@@ -17,7 +17,8 @@
     <link href="<?php echo base_url();?>assets/frontend/css/bootstrap.css" rel="stylesheet">
     <link href="<?php echo base_url();?>assets/frontend/css/jquery.jConveyorTicker.css" rel="stylesheet">
     <link href="<?php echo base_url();?>assets/frontend/css/slick.css" rel="stylesheet">
-    <link rel="stylesheet" href="<?php echo base_url();?>assets/frontend/css/style.css">
+    <link href="<?php echo base_url();?>assets/frontend/css/nice-select.css" rel="stylesheet">
+    
     <?php if($this->uri->segment(1) != 'map'){ ?>
         <link href="<?php echo base_url();?>assets/frontend/css/all.css" rel="stylesheet">
     <?php }
@@ -27,6 +28,7 @@
     <link rel="stylesheet" href="<?php echo base_url();?>assets/frontend/css/line-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
     <!-- <link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/frontend/css/style.css">
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <!-- new css end -->
 </head>
@@ -57,14 +59,21 @@
                 <div class="menuiconHolder float-right-fx">
                      <?php  $lang=$this->session->get_userdata('Language'); ?>
                 <div class="menuiconHolder float-right">
-                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <div class="lang-switch">
+                        <select>
+                            <option>Eng</option>
+                            <option>Nep</option>
+                        </select>
+                        <i class="la la-sort-down"></i>
+                    </div>
+                    <!-- <div class="btn-group btn-group-toggle" data-toggle="buttons">
                       <label class="btn-sm btn btn-secondary <?php if($lang['Language']=='en'){ echo"active"; } ?>  <?php if($lang['Language']=='nep'){ echo"ChangeLanguage"; } ?>"  data-language="en">
                         <input type="radio" class="" id="option1" autocomplete="off" checked><i class="la la-language"></i>: En
                       </label>
                       <label class="btn-sm btn btn-secondary <?php if($lang['Language']=='nep'){ echo"active"; } ?> <?php if($lang['Language']=='en'){ echo"ChangeLanguage"; } ?>" data-language="nep" >
                         <input type="radio" class="" name="options" id="option3" autocomplete="off"> <i class="la la-language"></i> : Nep
                       </label>
-                    </div>
+                    </div> -->
                 </div>
                     <div class="iconholder">
                         <i class="fas fa-bars"></i>

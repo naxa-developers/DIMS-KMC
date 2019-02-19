@@ -1,4 +1,4 @@
-<section class="categorybanner">
+<!-- <section class="categorybanner">
     <div class="container full-height flex align-items-center ">
         <div>
 
@@ -7,7 +7,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <section class="searchpanel">
     <div class="container">
         <div class="search flex contactSearch">
