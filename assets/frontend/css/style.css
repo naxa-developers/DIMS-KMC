@@ -960,9 +960,10 @@ li.tablistc a.active:after {
   color: #333;
   width: 100%;
   display: block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+      display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   color: #333;
 }
 
