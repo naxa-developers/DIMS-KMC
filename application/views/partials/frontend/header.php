@@ -28,7 +28,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.6.11/c3.min.css">
         <link rel="stylesheet" href="<?php echo base_url();?>assets/frontend/css/backup.css">
     <?php } ?>
-    <!-- <link rel="stylesheet" href="<?php echo base_url();?>assets/frontend/css/line-awesome.min.css"> -->
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/frontend/css/line-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
     <!-- <link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.css" rel="stylesheet" /> -->
     
