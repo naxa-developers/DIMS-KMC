@@ -18,18 +18,21 @@
     <link href="<?php echo base_url();?>assets/frontend/css/jquery.jConveyorTicker.css" rel="stylesheet">
     <link href="<?php echo base_url();?>assets/frontend/css/slick.css" rel="stylesheet">
     <link href="<?php echo base_url();?>assets/frontend/css/nice-select.css" rel="stylesheet">
-    
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/frontend/css/all.css">
     <?php if($this->uri->segment(1) != 'map'){ ?>
         <link href="<?php echo base_url();?>assets/frontend/css/all.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="<?php echo base_url();?>assets/frontend/css/style.css">
     <?php }
     if($this->uri->segment(1) === 'map'){  ?>
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.6.11/c3.min.css">
- <?php } ?>
-    <link rel="stylesheet" href="<?php echo base_url();?>assets/frontend/css/line-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.6.11/c3.min.css">
+        <link rel="stylesheet" href="<?php echo base_url();?>assets/frontend/css/backup.css">
+    <?php } ?>
+    <!-- <link rel="stylesheet" href="<?php echo base_url();?>assets/frontend/css/line-awesome.min.css"> -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
     <!-- <link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.css" rel="stylesheet" /> -->
-    <link rel="stylesheet" href="<?php echo base_url();?>assets/frontend/css/style.css">
-  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    
+  
     <!-- new css end -->
 </head>
 <!-- Bootstrap core CSS -->
@@ -60,9 +63,9 @@
                      <?php  $lang=$this->session->get_userdata('Language'); ?>
                 <div class="menuiconHolder float-right">
                     <div class="lang-switch">
-                        <select>
-                            <option>Eng</option>
-                            <option>Nep</option>
+                        <select class="ChangeLanguage" id="languageCode">
+                            <option value="en" <?php if($lang['Language']=='en'){ echo"selected"; } ?>>Eng</option>
+                            <option value="nep" <?php if($lang['Language']=='nep'){ echo"selected"; } ?>>Nep</option>
                         </select>
                         <i class="la la-sort-down"></i>
                     </div>

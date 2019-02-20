@@ -25,7 +25,7 @@
                                 <i class="la la-refresh" aria-hidden="true"></i>
                             </button>
                         </div>
-                        <div class="leftSection--header">
+                        <div class="leftSection--header" style="z-index: 9999;">
                             <div class="mapTtitle">Layers</div>
                         </div>
                         <ul class="nav nav-tabs lefttab">
@@ -1368,7 +1368,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="rightSection">
+                    <div class="rightSection" style="z-index: 9999;">
                         <div class="controls right">
                             <button class="btn rightToggle">
                                 <i class="la la-arrow-right"></i>
@@ -1427,14 +1427,16 @@
             <span class="fa fa-spinner fa-spin fa-3x w-100"></span>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+    <!-- <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> -->
     <script src="<?php echo base_url();?>assets/frontend/js/bootstrap.min.js"></script>
     <script src="<?php echo base_url();?>assets/frontend/js/scriptall.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="<?php echo base_url();?>assets/frontend/js/jquery.nicescroll.min.js"></script>
-    <script>
+   <script> 
         function myFunction() {
             var input, filter, div, h6, a, i;
             input = document.getElementById('myInput');
@@ -1600,33 +1602,33 @@
                 });
         });
     </script>
-<script>
-    var default_cat_layer_string = '<?php echo addslashes($default_cat_map_layer); ?>';//default categories geojson
-    var default_cat_layer = JSON.parse(default_cat_layer_string);
-    var category_tbl_default_string = '<?php echo $category_tbl_default; ?>';// list of categories table of default
-    var popup_content_default_string = '<?php echo $popup_content_default; ?>';//popup content default
-    var popup_content_default = JSON.parse(popup_content_default_string);
-    var marker_type_default_string = '<?php echo $marker_type_default; ?>';// list of categories table of default
-    var marker_type_default = JSON.parse(marker_type_default_string);
-    var category_tbl_default = JSON.parse(category_tbl_default_string);
-    var cat_names_string = '<?php echo $category_names_default; ?>';//list of categories name default
-    var cat_names = JSON.parse(cat_names_string);
-    var map_lat='<?php echo $map_zoom_center["map_lat"]; ?>';//maintain map  center
-    var map_long='<?php echo $map_zoom_center["map_long"]; ?>';//maintain map  center
-    var map_zoom='<?php echo $map_zoom_center["map_zoom"]; ?>';//maintain map zoom level
-    var style_default_string = '<?php echo $style_default; ?>';
-    var style_default = JSON.parse(style_default_string);
+    <script>
+        var default_cat_layer_string = '<?php echo addslashes($default_cat_map_layer); ?>';//default categories geojson
+        var default_cat_layer = JSON.parse(default_cat_layer_string);
+        var category_tbl_default_string = '<?php echo $category_tbl_default; ?>';// list of categories table of default
+        var popup_content_default_string = '<?php echo $popup_content_default; ?>';//popup content default
+        var popup_content_default = JSON.parse(popup_content_default_string);
+        var marker_type_default_string = '<?php echo $marker_type_default; ?>';// list of categories table of default
+        var marker_type_default = JSON.parse(marker_type_default_string);
+        var category_tbl_default = JSON.parse(category_tbl_default_string);
+        var cat_names_string = '<?php echo $category_names_default; ?>';//list of categories name default
+        var cat_names = JSON.parse(cat_names_string);
+        var map_lat='<?php echo $map_zoom_center["map_lat"]; ?>';//maintain map  center
+        var map_long='<?php echo $map_zoom_center["map_long"]; ?>';//maintain map  center
+        var map_zoom='<?php echo $map_zoom_center["map_zoom"]; ?>';//maintain map zoom level
+        var style_default_string = '<?php echo $style_default; ?>';
+        var style_default = JSON.parse(style_default_string);
 
-    var summarycount = '<?php echo $summarycount; ?>';
-    var summarydata_string = '<?php echo addslashes($summarydata_default); ?>';
-   var summary_data_default =  JSON.parse(summarydata_string);
-    // var summary = '<?php //echo $sumary; ?>';
-    var summaryFull_defaltString = '<?php echo addslashes($category_summary_default); ?>';
-    var summaryFull_defalt =  JSON.parse(summaryFull_defaltString);
-    // console.log(cat_names_string);
-     //console.log(popup_content_default);
-  // console.log(popup_content_default_string);
-</script>
+        var summarycount = '<?php echo $summarycount; ?>';
+        var summarydata_string = '<?php echo addslashes($summarydata_default); ?>';
+       var summary_data_default =  JSON.parse(summarydata_string);
+        // var summary = '<?php //echo $sumary; ?>';
+        var summaryFull_defaltString = '<?php echo addslashes($category_summary_default); ?>';
+        var summaryFull_defalt =  JSON.parse(summaryFull_defaltString);
+        // console.log(cat_names_string);
+         //console.log(popup_content_default);
+      // console.log(popup_content_default_string);
+    </script>
     <script type="text/javascript">
         $(function () {
             $('#bar').highcharts({
@@ -1740,8 +1742,7 @@
             });
         });
     </script>
-
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"/>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"/>
     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
     <script src="<?php echo base_url();?>assets/frontend/js/map.js"></script>
 

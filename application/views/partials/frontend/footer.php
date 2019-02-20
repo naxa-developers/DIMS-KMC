@@ -249,9 +249,9 @@
                     });
                 }
             });
-            $('.ChangeLanguage').on('click',function(e) {
+            $('.ChangeLanguage').on('change',function(e) {
                 var url  = window.location.href;
-                var language=$(this).data('language'); //alert(language);
+                var language=$("#languageCode option:selected").val();//$(this).data('language'); //alert(language);
                 var action="<?php echo base_url() ?>/home/change_language";
                 $.ajax({
                 type: "POST",
