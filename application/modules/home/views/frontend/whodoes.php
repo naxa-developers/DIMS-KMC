@@ -1,6 +1,6 @@
-<link rel="stylesheet" href="<?php echo base_url();?>assets/frontend/newcss/style.css">
+<!-- <link rel="stylesheet" href="<?php echo base_url();?>assets/frontend/newcss/style.css">
 <link href="<?php echo base_url();?>assets/frontend/newcss/nice-select.css" rel="stylesheet">
-<link href="<?php echo base_url();?>assets/frontend/newcss/line-awesome.min.css" rel="stylesheet"> 
+<link href="<?php echo base_url();?>assets/frontend/newcss/line-awesome.min.css" rel="stylesheet">  -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.6.11/c3.min.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
             crossorigin="" />
@@ -142,9 +142,9 @@
         </div>
     </div>
 
-    <script src="<?php echo base_url();?>assets/frontend/newjs/scriptall.js"></script>
-    <script src="<?php echo base_url();?>assets/frontend/newjs/jquery.nice-select.min.js"></script>
-    <script src="<?php echo base_url();?>assets/frontend/newjs/jquery.nicescroll.min.js"></script>
+    <!-- <script src="<?php echo base_url();?>assets/frontend/newjs/scriptall.js"></script> -->
+  <!--   <script src="<?php echo base_url();?>assets/frontend/newjs/jquery.nice-select.min.js"></script>
+    <script src="<?php echo base_url();?>assets/frontend/newjs/jquery.nicescroll.min.js"></script> -->
 
     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
         crossorigin=""></script>
