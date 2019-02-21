@@ -71,6 +71,7 @@ $route['electedrepresentative'] = 'home/electedrepresentative';
 $route['whodoes'] = 'home/whodoes';
 $route['whodoes-details'] = 'home/whodoes_details';
 $route['incidentreportmap'] = 'home/incidentreportmap';
+$route['whodoestable'] = 'home/whodoestable';
 
 
 

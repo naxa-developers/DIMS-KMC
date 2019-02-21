@@ -179,10 +179,16 @@ class General {
     	return $rgb;
 	}
 
-	 public function string_limit($string,$limit)
+	public function string_limit($string,$limit)
 	{
 		$name = (strlen($string) > $limit) ? substr($string, 0, $limit) . '...' : $string;
 
-   return $name;
+   	return $name;
+	}
+	public function hash_password($password, $salt) {
+		return sha1($salt . sha1($salt . sha1($password)));
+	}
+	public function salt() {
+		return substr(md5(uniqid(rand(), true)), 0, '10');
 	}
 }

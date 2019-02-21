@@ -134,6 +134,14 @@ class Home extends Admin_Controller
 			->enable_parser(FALSE)
 			->build('frontend/incidentmanagement', $this->data);
 	}
+	public function whodoestable()
+	{
+	 	$this->template->set_layout('frontend/default');
+	    $this->data= array();
+	    $this->template
+			->enable_parser(FALSE)
+			->build('frontend/whodoestable', $this->data);
+	}
 	
 	public function incidentreportmap()
 	{
