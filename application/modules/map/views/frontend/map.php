@@ -38,6 +38,11 @@
                                 </li>
                             </ul>
                         </div>
+                        <div class="layer-select">
+                            <select class="niceSelect">
+                                <option>ward</option>
+                            </select>
+                        </div>
                         <div class="tab-content lefttabContent">
                             <div id="thematic" class="tab-pane   fade in show   active">
                                 <div class="inputHolderL">
@@ -1752,5 +1757,6 @@
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="<?php echo base_url();?>assets/frontend/js/jquery.nice-select.min.js"></script>
 
 </html>

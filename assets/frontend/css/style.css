@@ -1841,14 +1841,16 @@ section.buttons {
 
 .leftSection--header,
 .rightSectionHeader {
-  height: 50px;
+  height: auto;
   display: flex;
   align-items: center;
-  padding-left: 15px;
+  padding:10px 0;
   background: #fff;
-  margin: 0 -10px;
+  border-bottom: 1px solid #efeaea;
 }
-
+.rightSectionHeader {
+  padding:10px;
+}
 .controls {
   display: flex;
   flex-direction: column;
@@ -1929,6 +1931,7 @@ section.buttons {
   border-radius: 4px;
   background: #fff;
   margin-top: 10px;
+  clear: both;
 }
 
 .inputHolderL {
@@ -3721,6 +3724,68 @@ ul.alerts-list li label {
 }
 .layer_warpper{
   background-color:#fff;
+  padding:10px;
+}
+.layer-select{
+
+margin:10px 0;
+float: left;
+width: 100%;
+clear:both;
+}
+.layer-select .niceSelect{
+  padding:5px 15px;
+  max-width: 100%;
+  width:100%;
+}
+.nice-select .option {
+    font-weight: 300;
+    line-height: 30px;
+    min-height: 0px;
+  }
+  .nice-select .option.selected.focus {
+    backgrund:var(--primary-color);
+  }
+
+.wardmap-item{
+  background-color: #fff;
+  padding:10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+.wardmap-item .wardmap-figure{
+  position: relative;
+  margin:0;
+
+}
+.wardmap-item .wardmap-content{
+  position: absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  width:100%;
+  background-color: rgba(0,0,0,0.8);
+  color:#fff;
+  font-size: 0.875rem;
+  padding:10px;
+  line-height: 1.5;
+}
+.wardmap-item .wardmap-content p{
+  margin:0;
+}
+.wardmap-item .mapDownload-icon{
+  position: absolute;
+  top:0;
+  right:0;
+  padding:5px 8px;
+  border-radius: 30px 0 0 30px;
+  color:#fff;
+  z-index: 9;
+  background:rgba(103,59,183,0.9);
+}
+.wardmap-item .mapDownload-icon a{
+  color:#fff;
+  font-size: 1.2rem;
 }
 @media screen and (max-width:1200px){
 .hero::after{
@@ -3778,5 +3843,17 @@ ul.alerts-list li label {
   .logoHolder img {
       max-width: 40px;
   }
+  .profile-count ul li {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+    width: 100%;
+}
+.profile-count ul li:nth-child(2), .profile-count ul li:nth-child(6) {
+    border-right: 0;
+}
+.profile-count ul li:nth-child(5), .profile-count ul li:nth-child(6) {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
 }
 
