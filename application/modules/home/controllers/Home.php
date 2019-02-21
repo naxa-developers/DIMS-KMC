@@ -126,6 +126,22 @@ class Home extends Admin_Controller
 	        exit;
 	    }
 	}
+	public function wardmap()
+	{
+	 	$this->template->set_layout('frontend/default');
+	    $this->data= array();
+	    $this->template
+			->enable_parser(FALSE)
+			->build('frontend/wardmap', $this->data);
+	}
+	public function wardstaff()
+	{
+	 	$this->template->set_layout('frontend/default');
+	    $this->data= array();
+	    $this->template
+			->enable_parser(FALSE)
+			->build('frontend/wardstaff', $this->data);
+	}
 	public function incidentmanagement()
 	{
 	 	$this->template->set_layout('frontend/default');
