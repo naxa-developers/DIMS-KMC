@@ -7,64 +7,55 @@
         <div class="container">
             <div class="topbtnHolder">
                 <div class="btnHolderItems ">
-                    <a class="nodec tcolor" href="<?php echo base_url() ?>municipalprofile">
-                        <div class="imgholder">
-                            <img src="<?php echo base_url() ?>assets/img/stastics.png" alt="">
-                        </div>
-                        <div class="label">
-                            Stastical Profile
-                        </div>
-
-                    </a>
-                </div>
-                <div class="btnHolderItems">
-                    <a class="nodec tcolor" href="<?php echo base_url() ?>electedrepresentative">
-                        <div class="imgholder">
-                            <img src="<?php echo base_url() ?>assets/img/wardrepresentative.png" alt="">
-                        </div>
-                        <div class="label">
-                            Elected Representative
-                        </div>
-                    </a>
-
-
-                </div>
-                <div class="btnHolderItems">
-                    <a class="nodec tcolor" href="">
-                        <div class="imgholder">
-                            <img src="<?php echo base_url() ?>assets/img/wardmembers.png" alt="">
-                        </div>
-                        <div class="label">
-                            Ward Staff
-                        </div>
-                    </a>
-
-
-                </div>
-                <div class="btnHolderItems">
-                    <a class="nodec tcolor" href="">
-                        <div class="imgholder">
-                            <img src="<?php echo base_url() ?>assets/img/wmap.png" alt="">
-                        </div>
-                        <div class="label">
-                            Ward Map
-                        </div>
-                    </a>
-
-
-                </div>
-                <div class="btnHolderItems activelink">
-                    <a class="nodec tcolor" href="<?php echo base_url() ?>riskprofile">
-                        <div class="imgholder">
-                            <img src="<?php echo base_url() ?>assets/img/riskstat.png" alt="">
-                        </div>
-                        <div class="label">
-                            Risk Profile
-                        </div>
-                    </a>
-
-
-                </div>
+                <a class="nodec tcolor" href="<?php echo base_url() ?>municipalprofile">
+                    <div class="imgholder">
+                        <img src="<?php echo base_url() ?>assets/img/stastics.png" alt="">
+                    </div>
+                    <div class="label">
+                        Stastical Profile
+                    </div>
+                </a>
+            </div>
+            <div class="btnHolderItems ">
+                <a class="nodec tcolor" href="<?php echo base_url() ?>electedrepresentative">
+                    <div class="imgholder">
+                        <img src="<?php echo base_url() ?>assets/img/wardrepresentative.png" alt="">
+                    </div>
+                    <div class="label">
+                        Elected Representative
+                    </div>
+                </a>
+            </div>
+            <div class="btnHolderItems ">
+                <a class="nodec tcolor" href="<?php echo base_url() ?>wardstaff">
+                    <div class="imgholder">
+                        <img src="<?php echo base_url() ?>assets/img/wardmembers.png" alt="">
+                    </div>
+                    <div class="label">
+                        Ward Staff
+                    </div>
+                </a>
+            </div>
+            <div class="btnHolderItems">
+                <a class="nodec tcolor" href="<?php echo base_url() ?>wardmap">
+                    <div class="imgholder">
+                        <img src="<?php echo base_url() ?>assets/img/wmap.png" alt="">
+                    </div>
+                    <div class="label">
+                        Ward Map
+                    </div>
+                </a>
+            </div>
+            <div class="btnHolderItems activelink">
+                <a class="nodec tcolor" href="<?php echo base_url() ?>riskprofile">
+                    <div class="imgholder">
+                        <img src="<?php echo base_url() ?>assets/img/riskstat.png" alt="">
+                    </div>
+                    <div class="label">
+                        Risk Profile
+                    </div>
+                </a>
+            </div>
             </div>
         </div>
     </section>

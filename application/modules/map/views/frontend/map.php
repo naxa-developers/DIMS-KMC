@@ -25,17 +25,19 @@
                                 <i class="la la-refresh" aria-hidden="true"></i>
                             </button>
                         </div>
-                        <div class="leftSection--header" style="z-index: 9999;">
-                            <div class="mapTtitle">Layers</div>
+                        <div class="layer_warpper">
+                            <div class="leftSection--header" style="z-index: 9999;">
+                                <div class="mapTtitle">Layers</div>
+                            </div>
+                            <ul class="nav nav-tabs lefttab">
+                                <li>
+                                    <a class="active" data-toggle="tab" href="#thematic">Thematic Map</a>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#socio-economic">Socio-economic Map</a>
+                                </li>
+                            </ul>
                         </div>
-                        <ul class="nav nav-tabs lefttab">
-                            <li>
-                                <a class="active" data-toggle="tab" href="#thematic">Thematic Map</a>
-                            </li>
-                            <li>
-                                <a data-toggle="tab" href="#socio-economic">Socio-economic Map</a>
-                            </li>
-                        </ul>
                         <div class="tab-content lefttabContent">
                             <div id="thematic" class="tab-pane   fade in show   active">
                                 <div class="inputHolderL">

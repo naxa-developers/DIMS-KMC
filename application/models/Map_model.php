@@ -357,7 +357,8 @@ public function get_icon(){
 
 
   public function get_data_geojson($d,$tbl){
-    for($i=0; sizeof($d['a'])>$i; $i++){
+    $siz =!empty(sizeof($d['a']))?sizeof($d['a']):0;
+    for($i=0; $siz >$i; $i++){
     //$this->db->select($d['a'][$i]['col'].' AS '.  $d['a'][$i]['name']);
     $this->db->select($d['a'][$i]['col'].' AS '. pg_escape_string(str_replace(".","",$d['a'][$i]['name'])));
     }

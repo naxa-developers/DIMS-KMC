@@ -49,7 +49,7 @@
 					<!-- Tab panes -->
 					<div class="tab-content">
 
-</script>
+		</script>
 						<div role="tabpanel" class="tab-pane active" id="layers">
 							<div id="layers">
 

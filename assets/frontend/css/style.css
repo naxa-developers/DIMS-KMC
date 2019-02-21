@@ -563,7 +563,7 @@ p.infotitle {
 /* search section */
 .search {
   background: #fff;
-  padding: 30px;
+  padding: 15px;
   border-radius: 4px;
 }
 
@@ -1828,6 +1828,7 @@ section.buttons {
   transition: all 0.3s linear;
   padding: 0 10px 10px 10px;
   box-shadow: 2px 1px 22px -5px rgba(0, 0, 0, 0.2);
+  z-index: 999;
 }
 
 .leftSection.hide {
@@ -3685,6 +3686,42 @@ ul.alerts-list li label {
   margin-bottom: 0;
 }
 
+.rspt_profile{
+  background-color: #fff;
+}
+
+.rspt_profile .rst_content{
+  padding:10px;
+  padding-top:0;
+}
+.rspt_profile .rst_content h4{
+  font-size: 1rem;
+}
+.rspt_profile .rst_content h5{
+  font-size:0.875rem;
+}
+.rspt_profile .rst_content .rst_contact p{
+  margin:0;
+  font-size:0.875rem;
+}
+.members.section-padding-half{
+  padding-top:15px;
+}
+.whitebg.rspt_form{
+  background-color: transparent;
+}
+.rspt_form .mapform{
+  margin-top: 15px;
+}
+.rspt_form .mapform form{
+  justify-content: flex-end;
+}
+.rspt_form .mapform form .form-group{
+  margin-left:10px;
+}
+.layer_warpper{
+  background-color:#fff;
+}
 @media screen and (max-width:1200px){
 .hero::after{
     display: block;
