@@ -13,15 +13,16 @@ $pub_cat_en='<option value=0>ANY</option>
 
     <section class="searchpanel">
         <div class="container">
+          <div class="mapform">
           <form action="" method="POST">
             <div class="search flex contactSearch">
                 <div class="inputholder grow">
                     <label for=""><?php echo !empty(SEARCH)?SEARCH:'' ?></label>
                     <input class="search--input" name="keywords" id="myInput" placeholder="Enter to search..." type="text" onkeyup="myFunction()">
                 </div>
-                <div class="selectHolder">
+                <div class="selectHolder form-group">
                     <label for="pub_cat">Select Hazard category<?php //echo !empty(PUBL_TYPE)?PUBL_TYPE:'' ?></label>
-                    <select id="pub_cat" name="category">
+                    <select id="pub_cat" name="category" class="niceSelect">
                       <option value=>ANY</option>
                     <?php
                     if($pub){
@@ -30,9 +31,9 @@ $pub_cat_en='<option value=0>ANY</option>
                     <?php }  } ?>
                     </select>
                 </div>
-                <div class="selectHolder">
+                <div class="selectHolder form-group">
                     <label for="pub_cat">Select File Type<?php //echo !empty(PUBL_TYPE)?PUBL_TYPE:'' ?></label>
-                    <select id="pub_cat" name="type">
+                    <select id="pub_cat" name="type" class="niceSelect">
                     <?php $lang=$this->session->get_userdata('Language');
                    if($lang['Language']=='en'){
                         $languageh='en';
@@ -46,9 +47,9 @@ $pub_cat_en='<option value=0>ANY</option>
                       } ?>
                     </select>
                 </div>
-                <div class="selectHolder">
+                <div class="selectHolder form-group">
                     <label for="pub_cat">Select file category type<?php //echo !empty(PUBL_TYPE)?PUBL_TYPE:'' ?></label>
-                    <select id="pub_cat" name="subcat">
+                    <select id="pub_cat" name="subcat" class="niceSelect">
                       <option value=>ANY</option>
                      <?php if($pub){
                       foreach ($pubcat as $key => $value) {  ?>
@@ -60,6 +61,7 @@ $pub_cat_en='<option value=0>ANY</option>
             </div>
             </form>
         </div>
+      </div>
     </section>
     <section class="section-padding-half">
         <div class="container">
