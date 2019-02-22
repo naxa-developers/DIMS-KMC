@@ -11,13 +11,28 @@ class Whodoes extends Admin_Controller
         $this->load->model('Upload_model');
         $this->load->model('Report_model');
         $this->load->model('Publication_model');
-
+        $this->load->model('organisation/organisationlogin_mdl');
         $this->template->set_layout('frontend/default');
+        $this->load->library('upload');
+        $this->load->library('form_validation');
         $this->form_validation->set_error_delimiters('<div class="valid-feedback">', '</div>');
+	}
+	public function project_list()
+	{
+		$lang=$this->session->get_userdata('Language');
+	    if($lang['Language']=='en') {
+	      $language='en';
+	    }else{
+	      $language='nep';
+	    }
+		$this->data['projectlist'] = $this->general->get_tbl_data_result('id,title,description','organisationproject',array('language'=>$language));
+		///echo "<pre>"; print_r($this->data['projectlist']);die;
+		$this->template
+				->enable_parser(FALSE)
+				->build('organisation/frontend/project_list', $this->data);
 	}
     public function createproject()
     {
-    	//print_r($this->session->userdata('ORGUSER_ID'));die;
     	$lang=$this->session->get_userdata('Language');
 	    if($lang['Language']=='en') {
 	      $language='en';
@@ -25,13 +40,53 @@ class Whodoes extends Admin_Controller
 	      $language='nep';
 	    }
 	    $this->form_validation->set_rules('title', 'Project Name', 'trim|required');
-	 	$this->form_validation->set_rules('location', 'Please Enter location', 'trim|required');
+	 	$this->form_validation->set_rules('latitude', 'Please Enter Latitude', 'trim|required');
+	 	$this->form_validation->set_rules('longitude', 'Please Select Longitude', 'trim|required');
 		if ($this->form_validation->run() == TRUE){
-
+			$trans = $this->organisationlogin_mdl->insert_project('organisationproject',$language);
+			//echo 
+			if($trans) {
+				$this->session->set_flashdata('msg','Project Create successfully !!!!');
+		    	redirect('whodoes/project_list','refresh');exit;
+			}
 		}
+		$id = base64_decode($this->input->get('id'));
+		if($id) {
+			$this->data['projectlist']  = $this->data['projectlist'] = $this->general->get_tbl_data_result('*','organisationproject',array('id'=>$id));
+		}else{
+			$this->data['projectlist']  = "";
+		}
+		// else{
+		// 	$this->session->set_flashdata('msg','User Create successfully !!!!');
+		//     redirect('whodoes/createproject','refresh');die;
+		// }
     	$this->template
 				->enable_parser(FALSE)
 				->build('frontend/project', $this->data);
+    }
+    public function addprogress()
+    {	$tbl ='organisationprogress';
+    	$lang=$this->session->get_userdata('Language');
+	    if($lang['Language']=='en') {
+	      $language='en';
+	    }else{
+	      $language='nep';
+	    }
+	    $this->data['projectlist'] = $this->general->get_tbl_data_result('id,imagedesc,filedesc',$tbl,array('language'=>$language));
+	    $id = base64_decode($this->input->get('id'));
+	    $this->form_validation->set_rules('imagedesc[]', 'Image Description', 'trim|required');
+	 	$this->form_validation->set_rules('filedesc[]', 'Please Choose Project Files Description', 'trim|required');
+		if ($this->form_validation->run() == TRUE){
+			//echo "<pre>";print_r($this->input->post());die;
+			$trans = $this->organisationlogin_mdl->organisationinsert($tbl,$id,$language);
+			if($trans) {
+				$this->session->set_flashdata('msg','Project Files And Images successfully !!!!');
+		    	redirect('whodoes/project_list','refresh');exit;
+			}
+		}
+	    $this->template
+				->enable_parser(FALSE)
+				->build('organisation/frontend/addprogress_details', $this->data);
     }
 
     public function details()
