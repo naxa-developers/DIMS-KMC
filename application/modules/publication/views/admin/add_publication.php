@@ -45,17 +45,17 @@
                   </select>
                   <?php echo form_error('type'); ?>
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-4" style="display: none;" id="subFilesType">
                     <label for="exampleInputFile"> Select file  category type</label>
-                  <select name="subcat" class="form-control">
-                    <option value="">----- Select file  category type ------</option>
-                    <?php 
-                    if($pubcat){ 
-                    foreach ($pubcat as $key => $value) {  ?>
-                      <option value="<?php echo $value['id']  ?>"><?php echo $value['name'] ?></option>
-                    <?php }  } ?>
-                  </select>
-                  <?php echo form_error('subcat'); ?>
+                    <select name="subcat" class="form-control">
+                      <option value="">----- Select file  category type ------</option>
+                      <?php 
+                      if($pubcat){ 
+                      foreach ($pubcat as $key => $value) {  ?>
+                        <option value="<?php echo $value['id']  ?>"><?php echo $value['name'] ?></option>
+                      <?php }  } ?>
+                    </select>
+                    <?php echo form_error('subcat'); ?>
                   </div>
                   <div class="col-md-4">
                     <label for="exampleInputEmail1">Title</label>
@@ -114,8 +114,11 @@
       var selvalue = $('#FileTypes').val();
       if(selvalue === "files") {
         $('#FileUrl').show();
+        $('#subFilesType').show();
+        subFilesType
       }else{
         $('#FileUrl').hide();
+        $('#subFilesType').hide();
       }
       if(selvalue === 'images') {
         $('#ImageDiveSelector').show();

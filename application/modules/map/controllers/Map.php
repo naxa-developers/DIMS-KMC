@@ -76,7 +76,7 @@ class Map extends Admin_Controller
 	          	$data_jsn=$this->Map_model->get_jsn($cat_tbles[$i]);
 
 				$data_array=json_decode($data_jsn['column_control'],TRUE);
-
+				//echo "ghkjl";echo"<pre>"; print_r($data_array);die;
 				$report=$this->Map_model->get_data_geojson($data_array,$cat_tbles[$i]);
 
 				$get_map=$report->result_array();
@@ -173,9 +173,10 @@ class Map extends Admin_Controller
 	    	$layer_name = $this->input->post('layername');//'health_facilities';//
 	    	$resultdata = $this->general->get_tbl_data_result('summary,summary_list,category_table,popup_content,category_name,style,marker_type','categories_tbl',array('language'=>$language,'public_view'=>'1','category_table'=>$layer_name));
 	    		//select column control data from database
-	    		//echo"<pre>"; print_r($resultdata[0]['popup_content']);die;
+	    		
 	    		$data_jsn=$this->Map_model->get_jsn($layer_name);
 				$data_array=json_decode($data_jsn['column_control'],TRUE);
+
 				$report=$this->Map_model->get_data_geojson($data_array,$layer_name);
 				$dataset_data=$report->result_array();
 
