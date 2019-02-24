@@ -3857,11 +3857,30 @@ clear:both;
 }
 
 
-.citems, .docFooter button.btnsmp {
+.docFooter button.btnsmp {
     background: #ff6685;
     color:#fff;
     font-weight: 300;
     padding:5px 10px;
+}
+.citems {
+    background: #ff6685;
+    color:#fff;
+    font-weight: 300;
+
+}
+.dictonaryItem data-contnet img{
+  padding:5px;
+  border:1px solid #efefef;
+  margin:10px 0;
+}
+.searchitems {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+    -webkit-transition:all 0.3s linear;
+  transition:all 0.3s linear;
+}
+.searchitems:focus {
+    border-bottom: 2px solid rgba(255, 102, 133, 0.8);
 }
 button.btn-naxa[type="submit"]{
   background: #ff6685;
@@ -3934,7 +3953,54 @@ width: 100%;
 .btnHolderItems:hover .imgholder, .btnHolderItems.activelink .imgholder{
   background: #ff6685;
 }
+.hazarditem .btn-rev{
 
+}
+.projectSection{
+  margin:30px 0;
+}
+.project-sidebar, .project-main{
+  padding:15px;
+  background-color: #fff;
+  border-radius: 5px;
+
+}
+.project-sidebar{
+  background-color: #fff;
+  border-radius: 5px;
+
+}
+.project-sidebar ul{
+
+}
+.project-sidebar ul li{
+  padding:10px 15px;
+  border-bottom: 1px solid #efefef;
+      transition: all 0.3s ease-in-out;
+}
+.project-sidebar ul li.active, .project-sidebar ul li:hover{
+  background-color: var(--primary-color);
+  transition: all 0.3s ease-in-out;
+}
+.project-sidebar ul li a{
+  display: block;
+  text-decoration: none;
+}
+.project-sidebar ul li.active a{
+  color: #fff;
+  text-decoration: none;
+}
+.project-sidebar ul li:hover a{
+  color: #fff;
+  text-decoration: none;
+}
+.project-sidebar ul li:last-child{
+  
+  border-bottom: none;
+}
+.project-main label{
+  display: block;
+}
 @media screen and (max-width:1200px){
 .hero::after{
     display: block;
@@ -3982,6 +4048,10 @@ width: 100%;
   .footer-widget{
     margin-top:30px;
   }
+  .project-sidebar{
+  margin-bottom: 30px;
+
+}
   .footerSection .col-md-4 .footer-widget{
     margin-top:0;
   }
