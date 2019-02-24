@@ -1,11 +1,12 @@
-<section class="section-padding-half">
+<section class="">
     <div class="container">
+      <div class="multimedia-warp">
         <h4><?php echo ucwords($publicationdata[0]['title']) ?></h4>
         <div class="row" id="filter_pub">
             <?php if($publicationdata): 
             foreach($publicationdata as $d ){ ?>
             <div class="col-md-12 ">
-                <div class="doccontent flex ">
+                <div class="doccontent ">
                   <?php if($d['type'] == "images"){ ?>
                     <div class="docImg">
                         <img src="<?php echo base_url()?>/uploads/publication/28.png" alt="<?php echo $d['title']?>">
@@ -18,7 +19,7 @@
                   <?php  endif; ?>
               </div>
               <div class="col-md-12">
-                    <div class="docdetailwrp  grow">
+                    <div class="docdetailwrp ">
                         <div class="docTitle" id="<?php echo $d['id'] ?>">
                            <?php echo $d['title']?>
                         </div>
@@ -44,5 +45,6 @@
             </div>
         <?php } endif; ?>
         </div>
+      </div>
     </div>
 </section>

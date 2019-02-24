@@ -114,7 +114,7 @@
             <h4 class="heading"><?php echo $this->lang->line('differentbrowse') ?><!-- BROWSE DIFFERENT SECTION --></h4>
 
             <div class="row browse">
-                <div class="col-md-4">
+                <div class="col-md-6 col-lg-4">
                     <div class="listHolder">
                         <a href="<?php echo base_url(); ?>datacategory" class="plain">
                             <div class="overlay">
@@ -128,7 +128,7 @@
                     </div>
 
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6 col-lg-4">
                     <div class="listHolder">
                         <a href="<?php echo base_url(); ?>incidentmanagement" class="plain">
                             <div class="overlay">
@@ -139,7 +139,7 @@
                         <img src="<?php echo base_url(); ?>assets/frontend/img/assets/map.png" alt="">
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6 col-lg-4">
                     <div class="listHolder">
                         <a href="<?php echo base_url(); ?>municipalprofile" class="plain">
                             <div class="overlay">
@@ -150,7 +150,7 @@
                         <img src="<?php echo base_url(); ?>assets/frontend/img/assets/5.png" alt="">
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6 col-lg-4">
                     <div class="listHolder">
                         <a href="<?php echo base_url('drrinfo') ?>" class="plain">
                             <div class="overlay">
@@ -161,7 +161,7 @@
                         <img src="<?php echo base_url(); ?>assets/frontend/img/assets/4.png" alt="">
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6 col-lg-4">
                     <div class="listHolder">
                         <a href="<?php echo base_url()?>dictionary" class="plain">
                             <div class="overlay">
@@ -172,7 +172,7 @@
                         <img src="<?php echo base_url(); ?>assets/frontend/img/assets/6.png" alt="">
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6 col-lg-4">
                     <div class="listHolder">
                         <a href="<?php echo base_url()?>publication" class="plain">
                             <div class="overlay">
@@ -183,7 +183,7 @@
                         <img src="<?php echo base_url(); ?>assets/frontend/img/assets/7.png" alt="">
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6 col-lg-4">
                     <div class="listHolder">
                         <a href="<?php echo base_url()?>contact?cat=individual" class="plain">
                             <div class="overlay">
@@ -194,7 +194,7 @@
                         <img src="<?php echo base_url(); ?>assets/frontend/img/assets/7.png" alt="">
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6 col-lg-4">
                     <div class="listHolder">
                         <a href="<?php echo base_url(); ?>inventory" class="plain">
                             <div class="overlay">
@@ -208,7 +208,7 @@
                     </div>
 
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6 col-lg-4">
                     <div class="listHolder">
                         <a href="<?php echo base_url() ?>/whodoes" class="plain">
                             <div class="overlay">
