@@ -64,8 +64,29 @@ class Whodoes extends Admin_Controller
 				->enable_parser(FALSE)
 				->build('frontend/project', $this->data);
     }
+    public function editprogressfile()
+    {   $cat =base64_decode($this->input->get('cat'));
+    	$tbl ='organisationprogress';
+	    $id = base64_decode($this->input->get('id'));
+	    $this->data['projectlist'] = $this->general->get_tbl_data_result('*',$tbl,array('id'=>$id));
+	    //echo "<pre>";print_r($this->data['projectlist']);die;
+	    $this->form_validation->set_rules('imagedesc', 'Image Description', 'trim|required');
+	 	$this->form_validation->set_rules('filedesc', 'Please Choose Project Files Description', 'trim|required');
+		if ($this->form_validation->run() == TRUE){
+			//echo "<pre>";print_r($this->input->post());die;
+			$trans = $this->organisationlogin_mdl->organisationupdate($tbl);
+			if($trans) {
+				$this->session->set_flashdata('msg','Project Files And Images Update successfully !!!!');
+		    	redirect('whodoes/addprogress?id='.base64_decode($cat),'refresh');exit;
+			}
+		}
+	    $this->template
+				->enable_parser(FALSE)
+				->build('frontend/addprogress_edit', $this->data);
+    }
     public function addprogress()
-    {	$tbl ='organisationprogress';
+    {	
+    	$tbl ='organisationprogress';
     	$lang=$this->session->get_userdata('Language');
 	    if($lang['Language']=='en') {
 	      $language='en';
@@ -74,6 +95,7 @@ class Whodoes extends Admin_Controller
 	    }
 	    $this->data['projectlist'] = $this->general->get_tbl_data_result('id,imagedesc,filedesc',$tbl,array('language'=>$language));
 	    $id = base64_decode($this->input->get('id'));
+	    $this->data['cat']=base64_decode($this->input->get('id'));
 	    $this->form_validation->set_rules('imagedesc[]', 'Image Description', 'trim|required');
 	 	$this->form_validation->set_rules('filedesc[]', 'Please Choose Project Files Description', 'trim|required');
 		if ($this->form_validation->run() == TRUE){
@@ -103,13 +125,12 @@ class Whodoes extends Admin_Controller
 				->enable_parser(FALSE)
 				->build('frontend/publicationdetails', $this->data);
     }
+	public function download(){
+		$file=$this->input->get('file');
+		$name=$this->input->get('title').'.pdf';
+		$this->load->helper('download');
+		$data=file_get_contents($file);
+		force_download($name,$data);
 
-		public function download(){
-			$file=$this->input->get('file');
-			$name=$this->input->get('title').'.pdf';
-			$this->load->helper('download');
-			$data=file_get_contents($file);
-			force_download($name,$data);
-
-		}
+	}
 }

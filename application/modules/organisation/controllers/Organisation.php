@@ -57,12 +57,18 @@ class Organisation extends Admin_Controller
 				->build('frontend/publicationdetails', $this->data);
     }
 
-		public function download(){
-			$file=$this->input->get('file');
-			$name=$this->input->get('title').'.pdf';
-			$this->load->helper('download');
-			$data=file_get_contents($file);
-			force_download($name,$data);
+	public function download(){
+		$file=$this->input->get('file');
+		$name=$this->input->get('title').'.pdf';
+		$this->load->helper('download');
+		$data=file_get_contents($file);
+		force_download($name,$data);
 
-		}
+	}
+	public function logout()
+	{
+		$this->session->unset_userdata(SESSION.'ORGUSER_ID');
+		redirect('organisation/login', 'refresh');exit;
+		exit;
+	}
 }

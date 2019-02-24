@@ -84,7 +84,7 @@
                       <td><?php echo $value;?></td>
                     <?php }  ?>
                       <td>
-                        <a href="<?php echo base_url(FOLDER_ADMIN)?>/publication/add_publication_category?id=<?php echo base64_encode($v['id']);?>"><?php echo $this->lang->line('edit'); ?></a> /
+                        <a href="<?php echo base_url(FOLDER_ADMIN)?>/whodoes/editprogressfile?id=<?php echo base64_encode($v['id']);?>"><?php echo $this->lang->line('edit'); ?></a> /
                         <a onclick="return confirm('Are you sure you want to delete?')" href="<?php echo base_url(FOLDER_ADMIN)?>/publication/delete_publication?id=<?php echo  $v['id'];?>"><?php echo $this->lang->line('delete'); ?></a></td>
                   </tr>
                 <?php  }?>

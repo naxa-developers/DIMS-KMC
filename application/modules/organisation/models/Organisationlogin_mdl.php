@@ -144,6 +144,49 @@ class Organisationlogin_mdl extends CI_Model {
 	    }
      	return false;
   	}
+  	public function organisationupdate($tbl)
+  	{	
+  		$id = $this->input->post('id');
+  		$ptdata = $this->input->post();
+  		$oldfiledescpath=$this->input->post('oldfiledescpath');
+  		$old_image=$this->input->post('oldimgpath');
+        unset($ptdata['id']);
+        unset($ptdata['oldimgpath']);
+		unset($ptdata['oldfiledescpath']);
+        $imgfile=$this->doupload('imgpath');
+        $pdffile=$this->douploadpdf('filedescpath');
+        if($imgfile)
+        {
+          @unlink(PROJECT_PATH.$old_image);
+          //print_r(PROJECT_PATH.$old_image);
+        }
+        else
+        {
+            $imgfile=$old_image;
+        }
+        if($pdffile)
+        {
+          @unlink(PROJECT_PATH.$oldfiledescpath);
+          //print_r(PROJECT_PATH.$oldfiledescpath);
+        }
+        else
+        {
+        	
+            $pdffile=$oldfiledescpath;
+        }
+        //  echo "<pre>";print_r($imgfile);print_r($pdffile);
+        $ptdata['imgpath']=$imgfile;
+        $ptdata['filedescpath']=$pdffile;
+         //echo "<pre>";print_r($ptdata);die;
+        try {
+           if($this->db->update('organisationprogress',$ptdata,array('id'=>$id)))
+            {
+                return $this->db->affected_rows();
+           }
+        } catch (Exception $e) {
+            throw $e;
+        }
+  	}
   	public function doupload($file) {
         $config['upload_path'] = './'.'uploads/project';
         $config['allowed_types'] = 'png|jpg|gif|jpeg ';

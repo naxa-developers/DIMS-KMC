@@ -79,13 +79,13 @@
                   <td><?php echo $value;?></td>
                 <?php }  ?>
                   <td>
-                    <a href="<?php echo base_url()?>/whodoes/createproject?id=<?php echo base64_encode($v['id']);?>"><?php echo $this->lang->line('edit'); ?></a> /
+                    <a href="<?php echo base_url()?>/whodoes/editprogressfile?id=<?php echo base64_encode($v['id']);?>&&cat=<?php echo base64_encode($cat); ?>"><?php echo $this->lang->line('edit'); ?></a> /
                     <a onclick="return confirm('Are you sure you want to delete?')" href="<?php echo base_url(FOLDER_ADMIN)?>/whodoes/delete?id=<?php echo  $v['id'];?>"><?php echo $this->lang->line('delete'); ?></a></td>
               </tr>
-            <?php  }?>
+            <?php  }  ?>
               </tbody>
           </table>
-        <?php }?>
+        <?php } ?>
       </div>
     </div>
 <script type="text/javascript">

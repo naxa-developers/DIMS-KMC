@@ -182,6 +182,9 @@
         </div>
     </header>
 <?php } ?>
+<?php if($this->uri->segment(1) == 'whodoes' && !empty($this->uri->segment(2))) { ?>
+<style> .bradcrumbs{background: #cddccd;}</style>
+<?php } ?>
 <?php if($this->uri->segment(1) != 'home' && $this->uri->segment(1) != 'map'){
     if($this->uri->segment(1) ||  $this->uri->segment(2) || $this->uri->segment(2)){ ?>
     <section class="bradcrumbs">
@@ -199,6 +202,9 @@
                 $page_slug_new = strtoupper(str_replace ('_', ' ', $this->uri->segment(1)));
                 $page_title = strtoupper(str_replace ('-', ' ', $page_slug_new));
                 echo strtoupper($page_title); ?></a>
+                <?php if($this->session->userdata('ORGUSER_ID') && $this->uri->segment(1) == 'whodoes' && !empty($this->uri->segment(2))){ ?>
+                    <a class="float-right-fx" href="<?php echo base_url('organisation/logout') ?>"><i class="fa fa-lock float-right-fx" aria-hidden="true"></i> Logout</a>
+                <?php } ?>
             </div>
         </div>
     </section>
