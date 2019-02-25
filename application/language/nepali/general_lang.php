@@ -264,4 +264,8 @@ $lang['aboutus']="हाम्रो बारे";
 
 $lang['whodoeswhat']=" DIMS को बारेमा";
 $lang['whodoeswhatdetails']="DIMS को  मुख्य प्रणाली र प्रणालीको  उपयोग गर्ने विधि";
+
+$lang['homepagemanagement']="गृहपृष्ठ व्यवस्थापन";
+$lang['sliderhome']="स्लाइडर प्रबन्ध गर्नुहोस्";
+$lang['homepagelabel']="पृष्ठ लेबल प्रबन्ध गर्नुहोस्";
 ?>

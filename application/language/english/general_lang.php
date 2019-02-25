@@ -278,6 +278,10 @@ $lang['emergencymatdetails']="A Digital inventory of emergency items and stockpi
 $lang['aboutus']="ABOUT PROJECT";
 $lang['aboutusdetails']="About the project consortium, development team and system features.";
 
+$lang['homepagemanagement']="Home Page Management.";
+$lang['sliderhome']="Manage Slider.";
+$lang['homepagelabel']="Manage Page Labels.";
+
 
 
 ?>

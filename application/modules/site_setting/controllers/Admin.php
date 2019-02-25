@@ -338,6 +338,7 @@ class Admin extends Admin_Controller {
         }else{
             $emerg_lang='nep'; 
         }
+        
         $admin_type=$this->session->userdata('user_type');
         $this->data['admin']=$admin_type; 
         $this->data['drrdata'] = $this->general->get_tbl_data_result('id,image,name','homepageslider',array('language'=>$emerg_lang));
@@ -353,6 +354,8 @@ class Admin extends Admin_Controller {
         }else{
             $language='nep'; 
         }
+        $admin_type=$this->session->userdata('user_type');
+            $this->data['admin']=$admin_type;
         $this->data['drrdataeditdata']=array();
         if(!empty($bnr_id))
         { 

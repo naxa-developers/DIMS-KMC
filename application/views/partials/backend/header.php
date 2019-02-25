@@ -285,7 +285,17 @@
 
                     </ul>
                 </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-th"></i>
+                        <span><?php echo $this->lang->line('homepagemanagement'); ?></span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="<?php echo base_url(FOLDER_ADMIN);?>/site_setting/sliderList"><?php echo $this->lang->line('sliderhome'); ?></a></li>
+                        <li><a href="<?php echo base_url(FOLDER_ADMIN);?>/site_setting/homepagesetup"><?php echo $this->lang->line('homepagelabel'); ?></a></li>
 
+                    </ul>
+                </li>
 
 
 
