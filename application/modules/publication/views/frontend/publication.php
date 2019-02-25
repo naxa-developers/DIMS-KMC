@@ -15,11 +15,11 @@ $pub_cat_en='<option value=0>ANY</option>
         <div class="container">
           <div class="mapform">
           <form action="" method="POST">
-                <div class="inputholder grow form-group">
+                <div class="inputholder  form-group">
                     <label for=""><?php echo !empty(SEARCH)?SEARCH:'' ?></label>
                     <input class="search--input" name="keywords" id="myInput" placeholder="Enter to search..." type="text" onkeyup="myFunction()">
                 </div>
-                <div class="selectHolder form-group">
+                <div class=" form-group">
                     <label for="pub_cat">Select Hazard category<?php //echo !empty(PUBL_TYPE)?PUBL_TYPE:'' ?></label>
                     <select id="pub_cat" name="category" class="niceSelect">
                       <option value=>ANY</option>
@@ -30,7 +30,7 @@ $pub_cat_en='<option value=0>ANY</option>
                     <?php }  } ?>
                     </select>
                 </div>
-                <div class="selectHolder form-group">
+                <div class=" form-group">
                     <label for="pub_cat">Select File Type<?php //echo !empty(PUBL_TYPE)?PUBL_TYPE:'' ?></label>
                     <select id="FileTypes" name="type" class="niceSelect FileTypes">
                     <?php $lang=$this->session->get_userdata('Language');
@@ -47,7 +47,7 @@ $pub_cat_en='<option value=0>ANY</option>
                     </select>
                 </div>
 
-                <div class="selectHolder form-group" id="subFilesType" style="display: none;">
+                <div class=" form-group" id="subFilesType" style="display: none;">
                     <label for="pub_cat">Select file category type<?php //echo !empty(PUBL_TYPE)?PUBL_TYPE:'' ?></label>
                     <select id="pub_cat" name="subcat" class="niceSelect">
                       <option value=>ANY</option>
@@ -78,7 +78,7 @@ $pub_cat_en='<option value=0>ANY</option>
                         </div>
                       <?php } if($d['type'] == "video"): ?>
                       <!-- <img src="https://i.ytimg.com/vi/" alt=""> -->
-                        <iframe width="190" height="195" src="<?php echo $d['videolink'];  ?>"></iframe>
+                        <iframe width="100%" height="195" src="<?php echo $d['videolink'];  ?>"></iframe>
                       <?php  endif; ?>
                       <?php if($d['type'] == "files"): ?>
                         <a clas="docImg" href="<?php echo $d['file'] ?>"><i class="fa-files-o"></i><img class="default_img" src="<?php echo base_url()?>/uploads/doc.png" alt="<?php echo $d['title']?>"></a>

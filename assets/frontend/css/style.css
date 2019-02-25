@@ -3939,12 +3939,16 @@ float: left;
 width: 100%;
 }
 .doccontent .docImg, .doccontent a.docImg, .doccontent iframe{
-  float: left;
-  max-width: 250px;
+  float: none;
+  max-width: 100%;
+}
+.default_img{
+  max-width: 100%;
 }
 
 .docdetailwrp {
   overflow:hidden;
+  clear: both;
 }
 .btnHolderItems .imgholder{
   -webkit-transition:all 0.3s linear;
