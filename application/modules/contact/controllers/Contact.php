@@ -85,23 +85,36 @@ if($tbl_name=='volunteer_contact'){
 	$data = $this->general->get_tbl_data_result('*','contact_categories',array('category'=>$cat));
 	$this->data['sub_cat']=$data[0]['name_id'];
 	$this->data['data']=$this->general->get_tbl_data_result('*',$tbl_name,array('language'=>$emerg_lang));
+	$this->data['cat_contact']=$cat;
+	$this->data['data_list']=$data;
+	$this->template->set_layout('frontend/default');
+	$this->template
+		->enable_parser(FALSE)
+		//->title($this->data['page_title']) //this is for seo purpose
+		->build('frontend/volun_contact', $this->data);
 }else{
 $data = $this->Main_model->get_categories_tab($tbl_name);
 $this->data['sub_cat']=$data[0]['name_id'];
 $this->data['data']=$this->general->get_tbl_data_result('*',$tbl_name,array('category'=>$data[0]['name_id'],'language'=>$emerg_lang));
-
+$this->data['cat_contact']=$cat;
+$this->data['data_list']=$data;
+$this->template->set_layout('frontend/default');
+$this->template
+	->enable_parser(FALSE)
+	//->title($this->data['page_title']) //this is for seo purpose
+	->build('frontend/contact', $this->data);
 }
 
 
 		// var_dump($this->data['data']);
 		// exit();
-		$this->data['cat_contact']=$cat;
-		$this->data['data_list']=$data;
-		$this->template->set_layout('frontend/default');
-		$this->template
-			->enable_parser(FALSE)
-			//->title($this->data['page_title']) //this is for seo purpose
-			->build('frontend/contact', $this->data);
+		// $this->data['cat_contact']=$cat;
+		// $this->data['data_list']=$data;
+		// $this->template->set_layout('frontend/default');
+		// $this->template
+		// 	->enable_parser(FALSE)
+		// 	//->title($this->data['page_title']) //this is for seo purpose
+		// 	->build('frontend/volun_contact', $this->data);
 
 
 

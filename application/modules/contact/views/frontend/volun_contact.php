@@ -65,7 +65,7 @@
                     <th>फोन नम्बर </th>
                     <th> टिप्पणी</th>';
 ?>
-    <section class="contactbanner">
+    <!-- <section class="contactbanner">
         <div class="container full-height flex align-items-center ">
             <div>
                 <div class="bannerTitle bold f16">
@@ -78,7 +78,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <section class="searchpanel">
         <div class="container">
             <div class="search flex contactSearch">
@@ -89,9 +89,8 @@
                 <div class="selectHolder">
                     <label for="">Category</label>
                     <select id="contact_category">
-                        <option value="#">Select</option>
                         <option value="<?php echo $cat ?>"><?php echo ucfirst($cat)?></option>
-                        <option value="individual">Individual</option>
+                        <option value="individual">Indiviual</option>
                         <option value="organization">Organization</option>
                         <option value="volunteer">Volunteer</option>
                         <!-- <option value="audi">Audi</option> -->
@@ -114,7 +113,7 @@
     <section class="contactlist">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
+                <!-- <div class="col-md-4">
 
                     <ul class="nav nav-tabs ptb40">
                         <?php
@@ -142,8 +141,8 @@
 
                     </ul>
 
-                </div>
-                <div class="col-md-8" id="contact_tbl">
+                </div> -->
+                <div class="col-md-12" id="contact_tbl">
                     <div class="tab-content">
                         <div id="first" class="tab-pane   fade in show   active">
                             <div class="table-responsive">
@@ -272,7 +271,9 @@
 }
 
 $(document).ready(function() {
-  var cat_id='<?php echo $cat ?>';
+
+var cat_id='<?php echo $cat ?>';
+
   $('#contact_table_db').DataTable({
 
         "paging":   true,
@@ -281,8 +282,7 @@ $(document).ready(function() {
         "info":     false
         });
 
-
-          $('#contact_category option[value='+cat_id+']').remove();
+        $('#contact_category option[value='+cat_id+']').remove();
 } );
 
 </script>
