@@ -32,11 +32,7 @@ $pub_cat_en='<option value=0>ANY</option>
                 </div>
                 <div class="selectHolder form-group">
                     <label for="pub_cat">Select File Type<?php //echo !empty(PUBL_TYPE)?PUBL_TYPE:'' ?></label>
-
-                    <select id="pub_cat" name="type" class="niceSelect">
-
-                    <select id="FileTypes" name="type" class="FileTypes">
-
+                    <select id="FileTypes" name="type" class="niceSelect FileTypes">
                     <?php $lang=$this->session->get_userdata('Language');
                    if($lang['Language']=='en'){
                         $languageh='en';
@@ -51,10 +47,7 @@ $pub_cat_en='<option value=0>ANY</option>
                     </select>
                 </div>
 
-                <div class="selectHolder form-group">
-
-                <div class="selectHolder" id="subFilesType" style="display: none;">
-
+                <div class="selectHolder form-group" id="subFilesType" style="display: none;">
                     <label for="pub_cat">Select file category type<?php //echo !empty(PUBL_TYPE)?PUBL_TYPE:'' ?></label>
                     <select id="pub_cat" name="subcat" class="niceSelect">
                       <option value=>ANY</option>
@@ -64,7 +57,7 @@ $pub_cat_en='<option value=0>ANY</option>
                     <?php }  } ?>
                     </select>
                 </div>
-                <button type="submit" name="submit" class="btn-primary search--btn"><?php echo SEARCH ?></button>
+                <button type="submit" name="submit" class="btn-primary search--btn"style="margin-top: 29px;""><?php echo SEARCH ?></button>
             </div>
             </form>
         </div>
