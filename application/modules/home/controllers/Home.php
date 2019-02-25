@@ -158,7 +158,7 @@ class Home extends Admin_Controller
 			->enable_parser(FALSE)
 			->build('frontend/whodoestable', $this->data);
 	}
-	
+
 	public function incidentreportmap()
 	{
 	 	$this->template->set_layout('frontend/default');
