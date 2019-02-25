@@ -114,6 +114,9 @@
 <section class="searchPaneldrr">
     <div class="container">
         <div class="searchdrrouter">
+            <div class="searchdr-title">
+                <h3>Disaster Information Management System</h3>
+            </div>
             <div class="searchdrr">
                 <input type="text" id="searhddr" class="searchitems" placeholder="search the text">
                 <i class=" show searchi la la-search"></i><i class=" close la la-times"></i>

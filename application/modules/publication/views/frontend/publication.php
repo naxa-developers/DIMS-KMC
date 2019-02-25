@@ -15,8 +15,7 @@ $pub_cat_en='<option value=0>ANY</option>
         <div class="container">
           <div class="mapform">
           <form action="" method="POST">
-            <div class="search flex contactSearch">
-                <div class="inputholder grow">
+                <div class="inputholder grow form-group">
                     <label for=""><?php echo !empty(SEARCH)?SEARCH:'' ?></label>
                     <input class="search--input" name="keywords" id="myInput" placeholder="Enter to search..." type="text" onkeyup="myFunction()">
                 </div>
@@ -71,14 +70,15 @@ $pub_cat_en='<option value=0>ANY</option>
         </div>
       </div>
     </section>
-    <section class="section-padding-half">
+    <section class="">
         <div class="container">
+          <div class="multimedia-warp">
             <h4>Documents</h4>
             <div class="row" id="filter_pub">
                 <?php if($publicationdata): //echo "<pre>";print_r($publicationdata);die;
                 foreach($publicationdata as $d ){ ?>
                 <div class="col-md-6 ">
-                    <div class="doccontent flex ">
+                    <div class="doccontent ">
                       <?php if($d['type'] == "images"){ ?>
                         <div class="docImg">
                             <img src="<?php echo base_url()?>/uploads/publication/28.png" alt="<?php echo $d['title']?>">
@@ -88,12 +88,12 @@ $pub_cat_en='<option value=0>ANY</option>
                         <iframe width="190" height="195" src="<?php echo $d['videolink'];  ?>"></iframe>
                       <?php  endif; ?>
                       <?php if($d['type'] == "files"): ?>
-                        <a href="<?php echo $d['file'] ?>"><i class="fa-files-o"></i><img class="default_img" src="<?php echo base_url()?>/uploads/doc.png" alt="<?php echo $d['title']?>"></a>
+                        <a clas="docImg" href="<?php echo $d['file'] ?>"><i class="fa-files-o"></i><img class="default_img" src="<?php echo base_url()?>/uploads/doc.png" alt="<?php echo $d['title']?>"></a>
                       <?php  endif; ?>
                       <?php if($d['type'] == "audio"): ?>
 
                       <?php  endif; ?>
-                        <div class="docdetailwrp  grow">
+                        <div class="docdetailwrp ">
                             <div class="docTitle" id="<?php echo $d['id'] ?>">
                                <?php echo $d['title']?>
                             </div>
@@ -141,6 +141,7 @@ $pub_cat_en='<option value=0>ANY</option>
                 </div>
             <?php } endif; ?>
             </div>
+          </div>
         </div>
     </section>
 <script type="text/javascript">
