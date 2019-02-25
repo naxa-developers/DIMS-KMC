@@ -118,8 +118,8 @@
                     <div class="listHolder">
                         <a href="<?php echo base_url(); ?>datacategory" class="plain">
                             <div class="overlay">
-                                <div class="innerTitle"><?php echo $this->lang->line('dataset') ?><!-- BROWSE DATASETS --></div>
-                                <p class="innerSubtitle"><?php echo $this->lang->line('acomgisdb');?> <!-- A complete GIS database --></p>
+                                <div class="innerTitle"><?php echo MUNPROFILE//$this->lang->line('dataset') ?><!-- BROWSE DATASETS --></div>
+                                <p class="innerSubtitle"><?php echo PROFILEDESC //$this->lang->line('acomgisdb');?> <!-- A complete GIS database --></p>
                             </div>
                         </a>
 
@@ -132,8 +132,8 @@
                     <div class="listHolder">
                         <a href="<?php echo base_url(); ?>incidentmanagement" class="plain">
                             <div class="overlay">
-                                <div class="innerTitle"><?php echo $this->lang->line('incidentmgmt'); ?></div>
-                                <p class="innerSubtitle"><?php echo $this->lang->line('whattodobefore');?> <!-- What to do before, during and after disaster --></p>
+                                <div class="innerTitle"><?php echo INCIDENT//$this->lang->line('incidentmgmt'); ?></div>
+                                <p class="innerSubtitle"><?php echo INCIDENTDESC //$this->lang->line('whattodobefore');?> <!-- What to do before, during and after disaster --></p>
                             </div>
                         </a>
                         <img src="<?php echo base_url(); ?>assets/frontend/img/assets/map.png" alt="">
@@ -143,8 +143,8 @@
                     <div class="listHolder">
                         <a href="<?php echo base_url(); ?>municipalprofile" class="plain">
                             <div class="overlay">
-                                <div class="innerTitle"><?php echo $this->lang->line('munprofile'); ?></div>
-                                <p class="innerSubtitle"><?php echo $this->lang->line('individualdigital');?><!-- Individual digital ward wise profile book --></p>
+                                <div class="innerTitle"><?php echo MUNTITLE //$this->lang->line('munprofile'); ?></div>
+                                <p class="innerSubtitle"><?php echo MUNTITLEDESC //$this->lang->line('individualdigital');?><!-- Individual digital ward wise profile book --></p>
                             </div>
                         </a>
                         <img src="<?php echo base_url(); ?>assets/frontend/img/assets/5.png" alt="">
@@ -154,8 +154,8 @@
                     <div class="listHolder">
                         <a href="<?php echo base_url('drrinfo') ?>" class="plain">
                             <div class="overlay">
-                                <div class="innerTitle"><?php echo $this->lang->line('drrinfodetail'); ?><!-- DRR INFORMATION  --></div>
-                                <p class="innerSubtitle"><?php echo $this->lang->line('disasterinformation');?><!-- What to do before, during and after disaster --></p>
+                                <div class="innerTitle"><?php echo DISASTITLE//$this->lang->line('drrinfodetail'); ?><!-- DRR INFORMATION  --></div>
+                                <p class="innerSubtitle"><?php echo DISASDESC//$this->lang->line('disasterinformation');?><!-- What to do before, during and after disaster --></p>
                             </div>
                         </a>
                         <img src="<?php echo base_url(); ?>assets/frontend/img/assets/4.png" alt="">
@@ -165,8 +165,8 @@
                     <div class="listHolder">
                         <a href="<?php echo base_url()?>dictionary" class="plain">
                             <div class="overlay">
-                                <div class="innerTitle"><?php echo $this->lang->line('dictionary'); ?><!-- DRR DICTIONARY --></div>
-                                <p class="innerSubtitle"><?php echo $this->lang->line('dictionaryofimpterminologies');?> <!-- Dictionary of important terminologies related to disaster  --></p>
+                                <div class="innerTitle"><?php echo TERMINOLOGY//$this->lang->line('dictionary'); ?><!-- DRR DICTIONARY --></div>
+                                <p class="innerSubtitle"><?php echo TERMINOLOGYDESC//$this->lang->line('dictionaryofimpterminologies');?> <!-- Dictionary of important terminologies related to disaster  --></p>
                             </div>
                         </a>
                         <img src="<?php echo base_url(); ?>assets/frontend/img/assets/6.png" alt="">
@@ -176,8 +176,8 @@
                     <div class="listHolder">
                         <a href="<?php echo base_url()?>publication" class="plain">
                             <div class="overlay">
-                                <div class="innerTitle"><?php echo $this->lang->line('publicationnmultimedia'); ?></div>
-                                <p class="innerSubtitle"><?php echo $this->lang->line('Filesrelatedtoincidentmanagement'); ?>.</p>
+                                <div class="innerTitle"><?php echo PUBTITLE//$this->lang->line('publicationnmultimedia'); ?></div>
+                                <p class="innerSubtitle"><?php echo PUBTDESC//$this->lang->line('Filesrelatedtoincidentmanagement'); ?>.</p>
                             </div>
                         </a>
                         <img src="<?php echo base_url(); ?>assets/frontend/img/assets/7.png" alt="">
@@ -187,8 +187,8 @@
                     <div class="listHolder">
                         <a href="<?php echo base_url()?>contact?cat=individual" class="plain">
                             <div class="overlay">
-                                <div class="innerTitle"><?php echo $this->lang->line('contactinv'); ?></div>
-                                <p class="innerSubtitle"><?php echo $this->lang->line('contactinventory');?>.</p>
+                                <div class="innerTitle"><?php echo EMECONTACT//$this->lang->line('contactinv'); ?></div>
+                                <p class="innerSubtitle"><?php echo EMECONTDESC//$this->lang->line('contactinventory');?>.</p>
                             </div>
                         </a>
                         <img src="<?php echo base_url(); ?>assets/frontend/img/assets/7.png" alt="">
@@ -198,8 +198,8 @@
                     <div class="listHolder">
                         <a href="<?php echo base_url(); ?>inventory" class="plain">
                             <div class="overlay">
-                                <div class="innerTitle"><?php echo $this->lang->line('emergencymat');?></div>
-                                <p class="innerSubtitle"><?php echo $this->lang->line('emergencymatdetails');?>.</p>
+                                <div class="innerTitle"><?php echo EMEMAT//$this->lang->line('emergencymat');?></div>
+                                <p class="innerSubtitle"><?php echo EMEMATDESC//$this->lang->line('emergencymatdetails');?>.</p>
                             </div>
                         </a>
 
@@ -212,8 +212,8 @@
                     <div class="listHolder">
                         <a href="<?php echo base_url() ?>/whodoes" class="plain">
                             <div class="overlay">
-                                <div class="innerTitle"><?php echo $this->lang->line('whodoeswhat');?></div>
-                                <p class="innerSubtitle"><?php echo $this->lang->line('whodoeswhatdetails');?></p>
+                                <div class="innerTitle"><?php echo WHOTITLE//$this->lang->line('whodoeswhat');?></div>
+                                <p class="innerSubtitle"><?php echo WHOTDESC//$this->lang->line('whodoeswhatdetails');?></p>
                             </div>
                         </a>
 
@@ -234,21 +234,24 @@
             <h4 class="heading"><?php echo $this->lang->line('howisourmobileapp');?><!-- HOW IS OUR MOBILE APP HELPFUL --></h4>
             <div class="mobsec ">
                 <div class="mobileDes left">
-                    <div class="flist "><?php echo $this->lang->line('diffmatabout');?> <!-- Different reading materials about disaster risk and hazards --></div>
-                    <div class="flist "><?php echo $this->lang->line('intmapwithadmin');?> <!--  Interactive map with administrative data layers and category-wise datasets --></div>
-                    <div class="flist "><?php echo $this->lang->line('advancesearchfacility');?><!--  Advance search facility to find specific datasets --></div>
-                    <div class="flist "> <?php echo $this->lang->line('report_near');?></div>
-                    <div class="flist "><?php echo $this->lang->line('notify_other');?> <!-- Notify others "I am safe" during disaster --></div>
+                    <div class="flist "><?php echo LABEL1//$this->lang->line('diffmatabout');?> <!-- Different reading materials about disaster risk and hazards --></div>
+                    <div class="flist "><?php echo LABEL2//$this->lang->line('intmapwithadmin');?> <!--  Interactive map with administrative data layers and category-wise datasets --></div>
+                    <div class="flist "><?php echo LABEL3//$this->lang->line('advancesearchfacility');?><!--  Advance search facility to find specific datasets --></div>
+                    <div class="flist "> <?php echo LABEL4//$this->lang->line('report_near');?></div>
+                    <div class="flist "><?php echo LABEL5//$this->lang->line('notify_other');?> <!-- Notify others "I am safe" during disaster --></div>
 
                 </div>
                 <div class="mobileOuter">
                     <div class="mobileHolder">
                         <div class="mobileInner">
                             <div class="mobile-slide">
+                                <?php if($sliderhome): 
+                                    foreach ($sliderhome as $key => $hm) { ?>
                                 <div>
-                                    <img src="<?php echo base_url();?>assets/frontend/img/assets/third.jpg" alt="">
+                                    <img src="<?php echo base_url('uploads/project/'.$hm['image']);?>" alt="<?php echo $hm['name'] ?>">
                                 </div>
-                                <div>
+                            <?php } endif; ?>
+                                <!-- <div>
                                     <img src="<?php echo base_url();?>assets/frontend/img/assets/first.jpg" alt="">
                                 </div>
                                 <div>
@@ -256,7 +259,7 @@
                                 </div>
                                 <div>
                                     <img src="<?php echo base_url();?>assets/frontend/img/assets/fourth.jpg" alt="">
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -270,11 +273,11 @@
                     </div>
                 </div>
                 <div class="mobileDes">
-                    <div class="flist"><?php echo $this->lang->line('disaster_alert');?><!-- Set Alarm during disaster (substitute to whistle) --></div>
-                    <div class="flist"><?php echo $this->lang->line('flashlight');?>  <!-- One click to activate flash light and strobe light --></div>
-                    <div class="flist"><?php echo $this->lang->line('askfor_help');?><!--   One button "Ask for Help" to locate requester during an emergency --></div>
-                    <div class="flist"><?php echo $this->lang->line('send_alert');?> <!-- Send alerts from DHM about weather events --></div>
-                    <div class="flist"><?php echo $this->lang->line('user_engagement');?> </div>
+                    <div class="flist"><?php echo LABEL6 //$this->lang->line('disaster_alert');?><!-- Set Alarm during disaster (substitute to whistle) --></div>
+                    <div class="flist"><?php echo LABEL7 //$this->lang->line('flashlight');?>  <!-- One click to activate flash light and strobe light --></div>
+                    <div class="flist"><?php echo LABEL8 //$this->lang->line('askfor_help');?><!--   One button "Ask for Help" to locate requester during an emergency --></div>
+                    <div class="flist"><?php echo LABEL9 //$this->lang->line('send_alert');?> <!-- Send alerts from DHM about weather events --></div>
+                    <div class="flist"><?php echo LABEL10 //$this->lang->line('user_engagement');?> </div>
 
                 </div>
             </div>

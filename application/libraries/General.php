@@ -134,6 +134,7 @@ class General {
 		define('LABEL7', $homepage_info['label7']);
 		define('LABEL8', $homepage_info['label8']);
 		define('LABEL9', $homepage_info['label9']);
+		define('LABEL10', $homepage_info['label10']);
 		define('LARGETEXT', $homepage_info['largetext']);
 		define('LARGESUMM', $homepage_info['largetextsummary']);
 		define('INCTEXT', $homepage_info['incidentreporttext']);

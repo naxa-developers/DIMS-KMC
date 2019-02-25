@@ -49,6 +49,7 @@ class Home extends Admin_Controller
         $this->data['feature']=$this->Main_model->get_feature();
         $this->data['feat_lang']='en';
         $this->data['drrdata'] = $this->general->get_tbl_data_result('slug,description,image,name','drrcategory',array('language'=>$language));
+         $this->data['sliderhome'] = $this->general->get_tbl_data_result('image,name','homepageslider');
         $this->data['hazard_data']=$this->general->get_tbl_data_result('id,category_name,category_photo,category_table,category_type,public_view,language',$tbl,array('category_type'=>'Hazard_Data','language'=>$language));
 	    // Exposure_Data
 	    $this->data['exposure_data']=$this->general->get_tbl_data_result('id,category_name,category_photo,category_table,category_type,public_view,language',$tbl,array('category_type'=>'Exposure_Data','language'=>$language),'id');
