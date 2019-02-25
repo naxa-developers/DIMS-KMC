@@ -21,9 +21,9 @@
         <div class="container">
             <div class="titleInfo">
                 <h3>
-                    <!-- Disaster Information Management System --><?php echo $this->lang->line('big_text');?>
+                    <!-- Disaster Information Management System --><?php echo LARGETEXT//$this->lang->line('big_text');?>
                 </h3>
-                <p><!-- A GIS based Information Platform --><?php echo $this->lang->line('small_text');?> </p>
+                <p><!-- A GIS based Information Platform --><?php echo LARGESUMM//$this->lang->line('small_text');?> </p>
 
                 <button class="btn btn-primary btn-lg circularBtn ">
                     <!-- GET STARTED -->
@@ -34,7 +34,7 @@
             </div>
 
             <div class="accidnets">
-                <h4 class="heading"><?php echo $this->lang->line('reportbymonth');?><!-- INCIDNETS REPORTS DURING LAST THREE MONTHS --></h4>
+                <h4 class="heading"><?php echo INCTEXT//$this->lang->line('reportbymonth');?><!-- INCIDNETS REPORTS DURING LAST THREE MONTHS --></h4>
                 <div class="sliderContent">
 
                     <div class="ticker">

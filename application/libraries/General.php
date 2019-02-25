@@ -106,6 +106,59 @@ class General {
 		define('INCIDENT_DETAIL', "incident_detail");
 		define('TOLLFREE_ONE', $site_info['tollfreenumone']);
 		define('TOLLFREE_TWO', $site_info['tollfreenumtwo']);
+		$homepage_info = $this->get_homepage_info();
+		define('MUNPROFILE', $homepage_info['muncipaldatatitle']);
+		define('PROFILEDESC', $homepage_info['muncipalprofileption']);
+		define('INCIDENT', $homepage_info['incidenttitle']);
+		define('INCIDENTDESC', $homepage_info['incidentdescription']);
+		define('MUNTITLE', $homepage_info['muncipalprofile']);
+		define('MUNTITLEDESC', $homepage_info['mun_prof_description']);
+		define('DISASTITLE', $homepage_info['disastertitle']);
+		define('DISASDESC', $homepage_info['disastertitledesc']);
+		define('TERMINOLOGY', $homepage_info['terminology']);
+		define('TERMINOLOGYDESC', $homepage_info['terminologydesc']);
+		define('PUBTITLE', $homepage_info['pubmulttitle']);
+		define('PUBTDESC', $homepage_info['pubmulttitledesc']);
+		define('EMECONTACT', $homepage_info['econtact']);
+		define('EMECONTDESC', $homepage_info['econtactdesc']);
+		define('EMEMAT', $homepage_info['ematerials']);
+		define('EMEMATDESC', $homepage_info['ematerialsdesc']);
+		define('WHOTITLE', $homepage_info['whtitle']);
+		define('WHOTDESC', $homepage_info['whdesc']);
+		define('LABEL1', $homepage_info['label1']);
+		define('LABEL2', $homepage_info['label2']);
+		define('LABEL3', $homepage_info['label3']);
+		define('LABEL4', $homepage_info['label4']);
+		define('LABEL5', $homepage_info['label5']);
+		define('LABEL6', $homepage_info['label6']);
+		define('LABEL7', $homepage_info['label7']);
+		define('LABEL8', $homepage_info['label8']);
+		define('LABEL9', $homepage_info['label9']);
+		define('LARGETEXT', $homepage_info['largetext']);
+		define('LARGESUMM', $homepage_info['largetextsummary']);
+		define('INCTEXT', $homepage_info['incidentreporttext']);
+	}
+	public function get_homepage_info() {
+		if($this->ci->session->userdata('Language')==NULL){
+      		$this->ci->session->set_userdata('Language','nep');
+    	}
+    	$lang=$this->ci->session->userdata('Language');
+    	if($lang== 'en')
+    	{
+    		$whr = '1';
+    	}elseif($lang== 'nep'){
+    		$whr = '2';
+    	}
+    	if ($whr) {
+			$this->ci->db->where('id',$whr);
+		}
+		$query = $this->ci->db->get("homepagelabals");
+		if ($query->num_rows() > 0) {
+			$data = $query->row_array();
+		}
+		$query->free_result();
+		//echo $this->ci->db->last_query(); exit;
+		return $data;
 	}
 	public function get_site_settings_info() {
 		//pp($this->ci->session->userdata('Language'));

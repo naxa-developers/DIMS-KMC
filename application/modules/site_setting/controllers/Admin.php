@@ -9,7 +9,7 @@ class Admin extends Admin_Controller {
         }
         $this->template->set_layout('admin/default');
         $this->load->model('Site_model');
-
+        $this->load->library('upload');
     }
     public function index()
     {
@@ -297,5 +297,102 @@ class Admin extends Admin_Controller {
           // redirect('site_setting');
           redirect(FOLDER_ADMIN.'/site_setting/site_setting');
           }
+    }
+    public function homepagesetup()
+    {
+        $this->data = array();
+        $lang=$this->session->get_userdata('Language');
+        if($lang['Language']=='en') {
+            $language='en';
+            $id ='1';
+        }else{
+            $language='nep';
+            $id ='2'; 
+        }
+        $admin_type=$this->session->userdata('user_type');
+        $this->data['admin']=$admin_type;
+        $this->data['homepage'] = $this->general->get_tbl_data_result('*','homepagelabals',array('language'=>$language,'id'=>$id));
+        //echo "<pre>"; print_r($this->data['homepage']); die;
+        $this->form_validation->set_rules('muncipaldatatitle', 'Muncipaldatatitle Sub Category Name', 'trim|required');
+        if ($this->form_validation->run() == TRUE){
+            
+            $trans = $this->Site_model->saveHomePageData('homepagelabals',$language,$id);
+            if($trans)
+            {
+                $this->session->set_flashdata('msg','Homepage Labels successfully added');
+                redirect(FOLDER_ADMIN.'/site_setting/homepagesetup');
+            }
+        }
+        $this->template
+          ->enable_parser(FALSE)
+          ->build('admin/homepagesetup',$this->data);
+    }
+    public function sliderList()
+    {
+        $admin_type=$this->session->userdata('user_type');
+        $this->data['admin']=$admin_type;
+        $this->data=array();
+        $lang=$this->session->get_userdata('Language');
+        if($lang['Language']=='en') {
+            $emerg_lang='en';
+        }else{
+            $emerg_lang='nep'; 
+        }
+        $admin_type=$this->session->userdata('user_type');
+        $this->data['admin']=$admin_type; 
+        $this->data['drrdata'] = $this->general->get_tbl_data_result('id,image,name','homepageslider',array('language'=>$emerg_lang));
+        $this->template
+                        ->enable_parser(FALSE)
+                        ->build('admin/sliderlist',$this->data);
+    }
+    public function sliderHome() {
+        $bnr_id = base64_decode($this->input->get('id'));
+        $lang=$this->session->get_userdata('Language');
+        if($lang['Language']=='en') {
+            $language='en';
+        }else{
+            $language='nep'; 
+        }
+        $this->data['drrdataeditdata']=array();
+        if(!empty($bnr_id))
+        { 
+            $bnr_data=$this->general->get_tbl_data_result('id,image,name','homepageslider',array('id'=>$bnr_id));
+            if(empty($bnr_data))
+            {
+                redirect(site_url(FOLDER_ADMIN.'/site_setting/sliderList'),'refresh');
+            }
+            $this->data['drrdataeditdata']=$bnr_data;
+        }else{
+        }
+        $this->form_validation->set_rules('name', 'Image  Name', 'trim|required');
+        //make file settins and do upload it                    
+        if($this->form_validation->run()==TRUE )
+        {    
+            //echo "<pre>"; print_r($this->input->post());die;       
+            $trans = $this->Site_model->insert_update_Banner($language);
+            if($trans)
+            {
+               
+                $this->session->set_flashdata('message','<span class="alert alert-success">Successfully Created!!.</span>');
+            }
+            else
+            {
+                $this->session->set_flashdata('message','<span class="alert alert-danger">Operation Unsuccessful !!</span>');   
+            }
+            redirect(FOLDER_ADMIN.'/site_setting/sliderList','refresh');
+            exit;
+        }
+        $this->template
+                        ->enable_parser(FALSE)
+                        ->build('admin/addslider',$this->data);
+    }
+    public function deleteslider(){
+        $tbl="homepageslider";
+        $id = base64_decode($this->input->get('id'));
+        $delete=$this->Site_model->deleteslider($id,$tbl);
+        if($delete){
+            $this->session->set_flashdata('msg','Successfully Deleted');
+            redirect(FOLDER_ADMIN.'/site_setting/sliderList');
+        }
     }
 }
