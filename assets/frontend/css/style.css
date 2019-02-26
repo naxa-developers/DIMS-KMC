@@ -3946,6 +3946,14 @@ width: 100%;
   max-width: 100%;
   max-height: 300px;
 }
+.doccontent iframe{
+  height: 300px;
+}
+@media screen and (max-width:480px){
+ .doccontent iframe{
+  height: 200px;
+}
+}
 
 .docdetailwrp {
   overflow:hidden;
