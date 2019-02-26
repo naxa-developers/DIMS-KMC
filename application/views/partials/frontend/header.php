@@ -45,10 +45,10 @@
         <div class="container-fluid full-height">
             <div class="row align-items-center full-height">
                 <div class="logoHolder "><a class="flex align-items-center " href="<?php echo base_url(); ?>"><img alt="" src="<?php echo SITE_SLOGAN_EN ?>"> </a>
-                    <div class="logotext home">
-                    <div class="toplogo"><a class="flex align-items-center home" href="<?php echo base_url() ?>">Lalitpur Metropolitian City</a></div>
+                    <div class="logotext <?php if($this->uri->segment(1) == "home" || $this->uri->segment(1) == ""){ echo "home"; } ?>">
+                    <div class="toplogo"><a class="flex align-items-center <?php if($this->uri->segment(1) == "home" || $this->uri->segment(1) == ""){ echo "home"; } ?>" href="<?php echo base_url() ?>">Lalitpur Metropolitian City</a></div>
 
-                    <div class="bottomlogo"><a class="flex align-items-center home" href="<?php echo base_url(); ?>">Disaster Management System</a></div>
+                    <div class="bottomlogo"><a class="flex align-items-center <?php if($this->uri->segment(1) == "home" || $this->uri->segment(1) == ""){ echo "home"; } ?>" href="<?php echo base_url(); ?>">Disaster Management System</a></div>
                     </div>
                     <a class="flex align-items-center" href="<?php echo base_url(); ?>"> </a></div>
                 <div class="logoHolder">
@@ -133,9 +133,9 @@
                         <img src="<?php echo SITE_SLOGAN_EN ?>" alt="site logo " >
                     </a>
                   <?php endif; ?> -->
-                  <div class="logoHolder "><a class="flex align-items-center home" href="<?php echo base_url() ?>">
+                  <div class="logoHolder "><a class="flex align-items-center <?php if($this->uri->segment(1) == "home" || $this->uri->segment(1) == ""){ echo "home"; } ?>" href="<?php echo base_url() ?>">
                         <?php if(SITE_SLOGAN_EN): ?><img alt="" src="<?php echo SITE_SLOGAN_EN ?>"> <?php endif; ?></a>
-                    <div class="logotext home">
+                    <div class="logotext <?php if($this->uri->segment(1) == "home" || $this->uri->segment(1) == ""){ echo "home"; } ?>">
                     <div class="toplogo"><a class="flex align-items-center" href="<?php echo base_url(); ?>">Lalitpur Metropolitian City</a></div>
 
                     <div class="bottomlogo"><a class="flex align-items-center" href="<?php echo base_url(); ?>">Disaster Management System</a></div>
