@@ -74,7 +74,7 @@ $pub_cat_en='<option value=0>ANY</option>
                     <div class="doccontent ">
                       <?php if($d['type'] == "images"){ ?>
                         <div class="docImg">
-                            <img src="<?php echo base_url()?>/uploads/publication/28.png" alt="<?php echo $d['title']?>">
+                            <img src="<?php echo base_url()?>/uploads/publication/51.jpg" alt="<?php echo $d['title']?>">
                         </div>
                       <?php } if($d['type'] == "video"): ?>
                       <!-- <img src="https://i.ytimg.com/vi/" alt=""> -->
