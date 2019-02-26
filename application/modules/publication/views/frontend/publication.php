@@ -78,7 +78,7 @@ $pub_cat_en='<option value=0>ANY</option>
                         </div>
                       <?php } if($d['type'] == "video"): ?>
                       <!-- <img src="https://i.ytimg.com/vi/" alt=""> -->
-                        <iframe width="100%" height="195" src="<?php echo $d['videolink'];  ?>"></iframe>
+                        <iframe width="100%" height="300" src="<?php echo $d['videolink'];  ?>"></iframe>
                       <?php  endif; ?>
                       <?php if($d['type'] == "files"): ?>
                         <a clas="docImg" href="<?php echo $d['file'] ?>"><i class="fa-files-o"></i><img class="default_img" src="<?php echo base_url()?>/uploads/doc.png" alt="<?php echo $d['title']?>"></a>
